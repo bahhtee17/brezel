@@ -1,0 +1,10 @@
+# Секреты и локальные файлы
+.env
+.env.*
+*.local
+.claude/settings.local.json
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

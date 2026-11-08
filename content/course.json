@@ -1,0 +1,57 @@
+{
+  "title": "Немецкий с нуля до A2",
+  "levels": [
+    {
+      "id": "a1",
+      "title": "A1 · Start Deutsch 1",
+      "topics": [
+        { "id": "a1-01", "n": 1, "title": "Hallo!", "subtitle": "Знакомство", "file": "a1/01-hallo.json", "ready": true },
+        { "id": "a1-02", "n": 2, "title": "Буквы и числа", "subtitle": "Алфавит, телефон, возраст", "ready": false },
+        { "id": "a1-03", "n": 3, "title": "Семья", "subtitle": "Mein und dein", "ready": false },
+        { "id": "a1-04", "n": 4, "title": "Профессии", "subtitle": "der, die, das", "ready": false },
+        { "id": "a1-05", "n": 5, "title": "В кафе", "subtitle": "Ich möchte …", "ready": false },
+        { "id": "a1-06", "n": 6, "title": "Покупки", "subtitle": "Продукты и цены", "ready": false },
+        { "id": "a1-07", "n": 7, "title": "Мой день", "subtitle": "Время и распорядок", "ready": false },
+        { "id": "a1-08", "n": 8, "title": "Встречи и запись", "subtitle": "Даты, автоответчик", "ready": false },
+        { "id": "a1-09", "n": 9, "title": "Свободное время", "subtitle": "Хобби и спорт", "ready": false },
+        { "id": "a1-10", "n": 10, "title": "Жильё", "subtitle": "Квартира и мебель", "ready": false },
+        { "id": "a1-11", "n": 11, "title": "В городе", "subtitle": "Как пройти?", "ready": false },
+        { "id": "a1-12", "n": 12, "title": "В пути", "subtitle": "Вокзал и билеты", "ready": false },
+        { "id": "a1-13", "n": 13, "title": "Поездки и отель", "subtitle": "Багаж и отпуск", "ready": false },
+        { "id": "a1-14", "n": 14, "title": "Погода", "subtitle": "Времена года", "ready": false },
+        { "id": "a1-15", "n": 15, "title": "Одежда", "subtitle": "Цвета и размеры", "ready": false },
+        { "id": "a1-16", "n": 16, "title": "Тело и врач", "subtitle": "У врача", "ready": false },
+        { "id": "a1-17", "n": 17, "title": "Услуги", "subtitle": "Почта, банк, телефон", "ready": false },
+        { "id": "a1-18", "n": 18, "title": "Учим немецкий", "subtitle": "Школа и курсы", "ready": false },
+        { "id": "a1-19", "n": 19, "title": "Приглашения", "subtitle": "Праздники и записки", "ready": false },
+        { "id": "a1-20", "n": 20, "title": "Что было вчера", "subtitle": "Perfekt + экзамен A1", "ready": false }
+      ]
+    },
+    {
+      "id": "a2",
+      "title": "A2 · Goethe-Zertifikat A2",
+      "topics": [
+        { "id": "a2-21", "n": 21, "title": "О себе", "subtitle": "Биография и опыт", "ready": false },
+        { "id": "a2-22", "n": 22, "title": "Семья и праздники", "subtitle": "Dativ", "ready": false },
+        { "id": "a2-23", "n": 23, "title": "Переезд", "subtitle": "Предлоги места", "ready": false },
+        { "id": "a2-24", "n": 24, "title": "Работа", "subtitle": "weil и dass", "ready": false },
+        { "id": "a2-25", "n": 25, "title": "Здоровье", "subtitle": "Возвратные глаголы", "ready": false },
+        { "id": "a2-26", "n": 26, "title": "Еда и готовка", "subtitle": "Сравнение", "ready": false },
+        { "id": "a2-27", "n": 27, "title": "Покупки и возврат", "subtitle": "Прилагательные", "ready": false },
+        { "id": "a2-28", "n": 28, "title": "Одежда и мода", "subtitle": "welcher, dieser", "ready": false },
+        { "id": "a2-29", "n": 29, "title": "Путешествия", "subtitle": "Präteritum", "ready": false },
+        { "id": "a2-30", "n": 30, "title": "Дорога и маршрут", "subtitle": "Как пройти", "ready": false },
+        { "id": "a2-31", "n": 31, "title": "Медиа", "subtitle": "wenn, ob", "ready": false },
+        { "id": "a2-32", "n": 32, "title": "Школа и обучение", "subtitle": "Придаточные", "ready": false },
+        { "id": "a2-33", "n": 33, "title": "Спорт и клубы", "subtitle": "Глаголы с предлогами", "ready": false },
+        { "id": "a2-34", "n": 34, "title": "Природа", "subtitle": "Превосходная степень", "ready": false },
+        { "id": "a2-35", "n": 35, "title": "Ведомства", "subtitle": "Вежливые просьбы", "ready": false },
+        { "id": "a2-36", "n": 36, "title": "Праздники в Германии", "subtitle": "Даты и традиции", "ready": false },
+        { "id": "a2-37", "n": 37, "title": "Соседи", "subtitle": "deshalb, trotzdem", "ready": false },
+        { "id": "a2-38", "n": 38, "title": "Культура и встречи", "subtitle": "hätte, wäre", "ready": false },
+        { "id": "a2-39", "n": 39, "title": "Деньги и банк", "subtitle": "Формуляры", "ready": false },
+        { "id": "a2-40", "n": 40, "title": "Итог A2", "subtitle": "Пробный экзамен", "ready": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_note": "ID голосов ElevenLabs (раздел Voices в кабинете ElevenLabs). default обязателен; остальные — по желанию. f/m — запасные женский и мужской голоса.",
+  "model": "eleven_multilingual_v2",
+  "voices": {
+    "default": "",
+    "f": "",
+    "m": "",
+    "lena": "",
+    "tom": "",
+    "wagner": "",
+    "marco": "",
+    "aigerim": "",
+    "becker": "",
+    "passenger": "",
+    "man": "",
+    "woman": ""
+  },
+  "female": ["lena", "wagner", "aigerim", "woman", "f"],
+  "male": ["tom", "marco", "becker", "passenger", "man", "m", "driver"]
+}
