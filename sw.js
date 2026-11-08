@@ -1,11 +1,11 @@
 // Service worker: приложение и уроки работают без интернета.
 // При изменении файлов увеличьте VERSION — старый кэш удалится.
-const VERSION = 'brezel-v1';
+const VERSION = 'brezel-v2';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/main.js', 'js/ui.js', 'js/store.js', 'js/srs.js', 'js/speech.js', 'js/content.js',
-  'js/art.js', 'js/mascot.js', 'js/exercises.js', 'js/player.js', 'js/screens.js',
-  'content/course.json', 'content/a1/01-hallo.json', 'audio/manifest.json',
+  'js/art.js', 'js/img.js', 'js/mascot.js', 'js/exercises.js', 'js/player.js', 'js/screens.js',
+  'content/course.json', 'content/a1/01-hallo.json', 'audio/manifest.json', 'img/index.json',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'
 ];
 
@@ -26,7 +26,7 @@ self.addEventListener('fetch', e => {
   const sameOrigin = url.origin === self.location.origin;
   const isFont = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!sameOrigin && !isFont) return;
-  const cacheFirst = isFont || url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3');
+  const cacheFirst = isFont || /\/(audio|img)\/.+\.(mp3|webp|mp4)$/.test(url.pathname);
   e.respondWith(caches.open(VERSION).then(async cache => {
     const cached = await cache.match(req, { ignoreSearch: sameOrigin });
     const fromNet = fetch(req).then(res => {
@@ -47,5 +47,14 @@ self.addEventListener('install', e => {
       const map = await (await fetch('audio/manifest.json', { cache: 'no-cache' })).json();
       await cache.addAll([...new Set(Object.values(map))].map(f => `audio/${f}`));
     } catch { /* озвучки пока нет */ }
+    // Картинки и анимации из img/index.json — тоже сразу, чтобы уроки работали без интернета.
+    try {
+      const idx = await (await fetch('img/index.json', { cache: 'no-cache' })).json();
+      const files = [];
+      for (const [group, keys] of Object.entries(idx)) {
+        for (const k of keys) files.push(group === 'anim' ? `img/anim/${k}.mp4` : `img/${group}/${k}.webp`);
+      }
+      await Promise.all(files.map(f => cache.add(f).catch(() => {})));
+    } catch { /* картинок пока нет */ }
   }));
 });

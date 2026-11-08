@@ -48,7 +48,7 @@ function mountPick(ex, host, api) {
     if (ex.text) host.append(h('div', { class: 'note-paper', html: ex.text }));
     if (ex.audio) host.append(playRow(ex.audio, ex.who));
   }
-  if (ex.img) host.append(h('div', { style: { width: '170px', margin: '0 auto' }, html: art(ex.img) }));
+  if (ex.img) host.append(h('div', { style: { width: '170px', margin: '0 auto' }, html: art(ex.img, '', { anim: true }) }));
   const cards = ex.options.some(o => o.img);
   const box = h('div', { class: `opts ${cards ? 'opts--grid' : ''} ${cards && ex.options.length === 3 ? 'opts--3' : ''}` });
   let sel = null;
@@ -372,7 +372,7 @@ function mountInfo(ex, host, api) {
     card.append(list);
   }
   if (ex.tip) card.append(h('div', { class: 'tip', html: ex.tip }));
-  if (ex.art) host.append(h('div', { style: { width: '120px', margin: '0 auto' }, html: art(ex.art) }));
+  if (ex.art) host.append(h('div', { style: { width: '120px', margin: '0 auto' }, html: art(ex.art, '', { anim: true }) }));
   host.append(card);
   api.ready(true);
   return { info: true, check: () => ({ ok: true, info: true }) };

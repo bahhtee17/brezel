@@ -588,3 +588,28 @@ textarea.field { min-height: 120px; resize: vertical; line-height: 1.4; }
 @media (min-width: 600px) {
   .lesson__foot { border-left: 2px solid var(--line); border-right: 2px solid var(--line); border-radius: 18px 18px 0 0; margin: 0; }
 }
+
+/* ---------- Нарисованные картинки (img/) ---------- */
+.art--img { display: block; aspect-ratio: 1; border-radius: 22px; overflow: hidden; background: var(--line); }
+.art--img img, .art--img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.art--mascot { background: transparent; border-radius: 0; overflow: visible; }
+.art--mascot img { object-fit: contain; }
+.opt--card .art--img { border-radius: 16px; }
+.wcard .art--img { border-radius: 16px; }
+.row .art--img { border-radius: 12px; }
+.avatar--img img { width: 100%; height: 100%; object-fit: cover; }
+.avatar--mascot { background: #FFF1CC; }
+.avatar--mascot img { object-fit: contain; padding: 3px; }
+.scene-art .scene-img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+/* «Дрожащая линия», как в рисованном мультфильме: крупная картинка слегка оживает. */
+.word-card .art--img img, .scene-art img.scene-img { animation: boil .75s steps(1) infinite; }
+@keyframes boil { 0% { transform: rotate(-.35deg) translate(.6px, 0); } 33% { transform: rotate(.3deg) translate(-.6px, .5px); } 66% { transform: rotate(0) translate(0, -.6px); } }
+
+.mascot--img { position: relative; width: 100%; aspect-ratio: 1; transform-origin: 50% 100%; }
+.mascot--img .mi { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.mascot--img[data-mood="idle"] .mi-idle, .mascot--img[data-mood="reset"] .mi-idle, .mascot--img[data-mood="happy"] .mi-happy,
+.mascot--img[data-mood="sad"] .mi-sad, .mascot--img[data-mood="wave"] .mi-wave { opacity: 1; }
+.mascot--img[data-mood="idle"] { animation: breathe 3s ease-in-out infinite; }
+.mascot--img[data-mood="happy"] { animation: jump .7s ease; }
+.mascot--img[data-mood="sad"] { animation: droop .8s ease forwards; }
+.mascot--img[data-mood="wave"] { animation: wiggle .9s ease-in-out 2; }

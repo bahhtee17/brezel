@@ -4,6 +4,7 @@ import { initSpeech, stop } from './speech.js';
 import { homeScreen, lessonScreen, wordsScreen, reviewScreen, mistakesScreen, profileScreen, storyScreen, testScreen } from './screens.js';
 import { h } from './ui.js';
 import { mascotSVG } from './mascot.js';
+import { loadImages, autoplayVideos } from './img.js';
 
 const app = document.getElementById('app');
 
@@ -38,6 +39,8 @@ async function route() {
 }
 
 async function boot() {
+  await loadImages();
+  autoplayVideos(app);
   app.append(h('div', { class: 'screen screen--bare empty' }, h('div', { html: mascotSVG('wave') }), h('div', { class: 'muted', text: 'Загружаю уроки…' })));
   await Promise.all([loadCourse(), initSpeech()]);
   await loadReadyTopics();

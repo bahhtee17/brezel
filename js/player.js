@@ -155,7 +155,7 @@ export function runPlayer(opts) {
     const w = s.word;
     learn(w.id);
     const card = h('div', { class: 'card word-card' },
-      h('div', { html: art(w.img) }),
+      h('div', { html: art(w.img, '', { anim: true }) }),
       h('div', { class: 'word-card__de', html: deWord(w) }),
       w.plural ? h('div', { class: 'small muted', text: `мн. ч.: ${w.plural}` }) : null,
       h('div', { class: 'word-card__ru', text: w.ru }),

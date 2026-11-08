@@ -1,0 +1,69 @@
+[
+ {
+  "key": "wave"
+ },
+ {
+  "key": "walk",
+  "motion": "nod"
+ },
+ {
+  "key": "talk"
+ },
+ {
+  "key": "bye"
+ },
+ {
+  "key": "byeformal"
+ },
+ {
+  "key": "handshake"
+ },
+ {
+  "key": "book"
+ },
+ {
+  "key": "yes",
+  "motion": "nod"
+ },
+ {
+  "key": "no",
+  "motion": "shake"
+ },
+ {
+  "key": "sorry"
+ },
+ {
+  "key": "ear"
+ },
+ {
+  "key": "morning"
+ },
+ {
+  "key": "star",
+  "motion": "bounce"
+ },
+ {
+  "key": "thumbsup",
+  "motion": "bounce"
+ },
+ {
+  "key": "clock",
+  "motion": "shake"
+ },
+ {
+  "key": "heart",
+  "motion": "pulse"
+ },
+ {
+  "key": "heart2",
+  "motion": "pulse"
+ },
+ {
+  "key": "night",
+  "motion": "sway"
+ },
+ {
+  "key": "hamburg",
+  "motion": "sway"
+ }
+]

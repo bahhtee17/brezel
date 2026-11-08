@@ -1,5 +1,7 @@
-// Библиотека мультяшных SVG-иллюстраций в едином стиле: толстый контур, плоские цвета, мягкий фон-кружок.
+// Иллюстрации. Основные — нарисованные картинки из img/ (см. js/img.js).
+// Ниже — запасная библиотека SVG: рисуется, если картинки ещё нет.
 import { mascotSVG } from './mascot.js';
+import { hasImg, media } from './img.js';
 
 const INK = '#3B2614', SKIN = '#F6C9A0', BRAND = '#D08A3A', BRAND_D = '#9A5A1A', OK = '#3DBE5B', BAD = '#FF6B5B',
   SKY = '#3AA6F0', SKY_L = '#DDF0FD', CREAM = '#FFF7E8', BACK = '#FDEFD6', GOLD = '#F2B544', WHITE = '#FFFFFF';
@@ -87,6 +89,8 @@ export const CHARS = {
 export function charName(who) { return (CHARS[who] && CHARS[who].name) || who; }
 
 export function avatar(who, mood = 'smile') {
+  if (hasImg('avatars', who)) return `<div class="avatar avatar--img">${media('avatars', who)}</div>`;
+  if (who === 'brezel' && hasImg('mascot', 'idle')) return `<div class="avatar avatar--img avatar--mascot">${media('mascot', 'idle')}</div>`;
   if (who === 'brezel') return `<div class="avatar">${mascotSVG('idle').replace('viewBox="0 0 200 210"', 'viewBox="10 20 180 190"')}</div>`;
   const c = CHARS[who] || CHARS.man;
   return `<div class="avatar">${wrap(`<rect x="0" y="0" width="120" height="120" fill="${who === 'you' ? '#FFF1CC' : SKY_L}"/>${person({ ...c, mood })}`, '22 16 76 76')}</div>`;
@@ -234,8 +238,11 @@ const ART = {
 // Флаги как отдельные ключи.
 for (const c of Object.keys(FLAGS)) ART[`flag:${c}`] = () => back() + flag(c);
 
-export function art(key, cls = '') {
+// anim: true — для крупной картинки показать анимацию (если она есть).
+export function art(key, cls = '', { anim = false } = {}) {
   if (!key) return wrap(back());
+  if (hasImg('words', key)) return `<span class="art art--img ${cls}">${media('words', key, { anim })}</span>`;
+  if (key === 'brezel' && hasImg('mascot', 'idle')) return `<span class="art art--img art--mascot ${cls}">${media('mascot', 'idle')}</span>`;
   if (key.startsWith('bubble:')) {
     const [, text, code] = key.split(':');
     const size = text.length > 6 ? 18 : 22;
@@ -246,7 +253,7 @@ export function art(key, cls = '') {
   return wrap(fn ? fn() : back() + `<text x="60" y="72" text-anchor="middle" font-size="30" fill="${BRAND_D}" ${FONT}>?</text>`, '0 0 120 120', cls);
 }
 
-export function hasArt(key) { return !!key && (key.startsWith('bubble:') || !!ART[key]); }
+export function hasArt(key) { return !!key && (key.startsWith('bubble:') || !!ART[key] || hasImg('words', key)); }
 
 // ---------- Сцены для уроков (320×170) ----------
 const SCENES = {
@@ -311,6 +318,7 @@ const SCENES = {
 function BAD_TXT() { return '#D6473A'; }
 
 export function scene(key) {
+  if (hasImg('scenes', key)) return media('scenes', key, { anim: true, cls: 'scene-img', lazy: false });
   const fn = SCENES[key];
   return fn ? `<svg viewBox="0 0 320 170" aria-hidden="true">${fn()}</svg>` : '';
 }
