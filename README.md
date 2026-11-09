@@ -34,13 +34,23 @@ python scripts/serve.py
 | `art/`, `anim/` | Промпты для Codex и проект Remotion для анимаций |
 | `content/course.json` | Список тем A1–A2 |
 | `content/a1/01-hallo.json` | Блок 1: слова, 12 уроков, история, тест блока |
-| `audio/` | Живая озвучка (пока пусто) и `TODO.md` — список фраз для неё |
+| `audio/` | Живая озвучка (ElevenLabs и OmniVoice) и `TODO.md` — список фраз, которым ещё нужна запись |
 | `scripts/` | Сервер разработки, генерация иконок и озвучки |
 | `sw.js`, `manifest.webmanifest` | Работа без интернета и установка на телефон |
 
 ## Озвучка
 
-Сейчас говорит голос браузера (Web Speech API); лучше всего звучат Chrome и Edge. Живые голоса ElevenLabs:
+Все фразы курса озвучены живыми голосами (`audio/manifest.json`: текст → mp3). Фразы без записи читает голос браузера (Web Speech API); лучше всего звучат Chrome и Edge.
+
+**Бесплатно, на своём компьютере — VoiceStudio.** Откройте VoiceStudio (сервер на `http://localhost:3900`) и запустите:
+
+```bash
+node scripts/generate-audio-local.mjs
+```
+
+Скрипт озвучивает только фразы, которых ещё нет в `audio/manifest.json`, обрезает тишину, выравнивает громкость под остальные записи и пишет mp3 44,1 кГц 64 кбит/с. Голос каждого героя задан образцом `scripts/voice-refs/<герой>.wav`; описание голосов — в `scripts/voices-local.json`, пересоздать образец: `node scripts/generate-audio-local.mjs --design lena`. Модель OmniVoice распространяется по лицензии CC BY-NC: эти записи можно использовать только в некоммерческом курсе, автора модели (k2-fsa) нужно указывать.
+
+**Платно — ElevenLabs:**
 
 ```bash
 node scripts/generate-audio.mjs --dry-run

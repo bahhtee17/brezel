@@ -1,6 +1,6 @@
 // Service worker: приложение и уроки работают без интернета.
 // При изменении файлов увеличьте VERSION — старый кэш удалится.
-const VERSION = 'brezel-v3';
+const VERSION = 'brezel-v4';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/main.js', 'js/ui.js', 'js/store.js', 'js/srs.js', 'js/speech.js', 'js/content.js',

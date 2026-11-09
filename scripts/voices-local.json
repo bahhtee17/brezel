@@ -1,0 +1,22 @@
+{
+  "_note": "Бесплатная локальная озвучка через VoiceStudio (модель OmniVoice, k2-fsa). Лицензия CC BY-NC: записи только для некоммерческого курса. Голос каждого героя задан образцом в scripts/voice-refs/<герой>.wav; все его фразы клонируются с этого образца, поэтому голос не меняется от фразы к фразе. Образцы созданы самой моделью по описанию (instruct + seed), это не голоса реальных людей.",
+  "url": "http://localhost:3900",
+  "language": "de",
+  "numStep": 32,
+  "speed": 0.8,
+  "loudness": -22,
+  "refText": "Hallo! Heute ist ein schöner Tag. Ich trinke einen Kaffee und lerne ein bisschen Deutsch.",
+  "voices": {
+    "default": { "instruct": "female, middle-aged, moderate pitch", "seed": 1, "role": "диктор слов" },
+    "f":       { "instruct": "female, young adult, moderate pitch", "seed": 2, "role": "рассказчица историй" },
+    "lena":    { "instruct": "female, young adult, high pitch", "seed": 1, "role": "Лена" },
+    "woman":   { "instruct": "female, middle-aged, low pitch", "seed": 1, "role": "женщина в сценках" },
+    "wagner":  { "instruct": "female, elderly, moderate pitch", "seed": 1, "role": "фрау Вагнер" },
+    "tom":     { "instruct": "male, young adult, moderate pitch", "seed": 2, "role": "Том" },
+    "marco":   { "instruct": "male, young adult, low pitch", "seed": 1, "role": "Марко" },
+    "you":     { "instruct": "male, young adult, high pitch", "seed": 2, "role": "ученик (Алекс)" },
+    "m":       { "instruct": "male, middle-aged, low pitch", "seed": 1, "role": "рассказчик" }
+  },
+  "female": ["lena", "wagner", "aigerim", "woman", "f"],
+  "male": ["tom", "marco", "becker", "passenger", "man", "m", "driver", "you"]
+}

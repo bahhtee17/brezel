@@ -307,7 +307,7 @@ export function profileScreen() {
   };
   scr.append(h('div', { class: 'section-title', text: 'Настройки' }), h('div', { class: 'card' },
     sw('sfx', 'Звуки ответов'), sw('speak', 'Задания на говорение'), sw('slow', 'Медленная озвучка всегда')));
-  scr.append(h('div', { class: 'section-title', text: 'Об озвучке' }), h('div', { class: 'card small muted', html: 'Сейчас слова озвучивает голос браузера. Лучше всего звучат Chrome и Edge. Живые голоса можно добавить позже — см. <b>COURSE_PLAN.md</b>.' }));
+  scr.append(h('div', { class: 'section-title', text: 'Об озвучке' }), h('div', { class: 'card small muted', html: 'Слова и диалоги озвучены живыми голосами: ElevenLabs и <b>OmniVoice</b> (k2-fsa, лицензия CC BY-NC, через VoiceStudio). Если для фразы нет записи, её читает голос браузера — лучше всего звучат Chrome и Edge.' }));
   const resetBtn = h('button', { class: 'btn btn--link', type: 'button', style: { margin: '18px auto 0', color: 'var(--bad-dark)' } }, 'Сбросить весь прогресс');
   resetBtn.addEventListener('click', () => { if (confirm('Удалить весь прогресс? Это нельзя отменить.')) { reset(); toast('Прогресс сброшен'); go('#/'); } });
   scr.append(resetBtn);
