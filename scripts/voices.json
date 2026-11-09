@@ -1,19 +1,29 @@
 {
-  "_note": "ID голосов ElevenLabs (раздел Voices в кабинете ElevenLabs). default обязателен; остальные — по желанию. f/m — запасные женский и мужской голоса.",
+  "_note": "ID голосов ElevenLabs (библиотека голосов, все — носители немецкого). default — диктор слов; f/m — запасные женский и мужской.",
   "model": "eleven_multilingual_v2",
+  "format": "mp3_44100_64",
   "voices": {
-    "default": "",
-    "f": "",
-    "m": "",
-    "lena": "",
-    "tom": "",
-    "wagner": "",
-    "marco": "",
-    "aigerim": "",
-    "becker": "",
-    "passenger": "",
-    "man": "",
-    "woman": ""
+    "default": "OCRL36yDX3WNBjz9e8es",
+    "f": "iyscHPBBWOqnjHpyGETU",
+    "m": "OZx5F3Qe8k5AOBgRq4N0",
+    "lena": "XdLIGdwLwWB6xmbh9828",
+    "tom": "ntwcx49ZcqEarZ2so6jP",
+    "wagner": "XJWHuOvSoCriK1Q4wPAN",
+    "marco": "GpMEuRGYD0oLjmn4ptQZ",
+    "aigerim": "fICbqrKTrkIZ2rbILvQb",
+    "you": "t7z7JVU64WYfp4GSw7aZ",
+    "becker": "yR6YPi6ytQSGBZ0uKFQl",
+    "passenger": "v3sSens3ygqofjGcvi1W",
+    "man": "YhTSsDtv0zOS0YHeUiId",
+    "woman": "f46eMKDCAFikzwQKNKsK",
+    "driver": "353NZhE0RsQTksFuUR82"
+  },
+  "names": {
+    "default": "Toni – Klar & Engagiert", "f": "Hannah – Storytelling", "m": "Marcel – Calm Knowledge Narrator",
+    "lena": "Kimi – Reliable Sidekick", "tom": "Jan – Laid-back Storyteller", "wagner": "Judith Maas – Art & Culture",
+    "marco": "Jonas Falk – Natural, charismatic", "aigerim": "Scarlett – Calm & Warm", "you": "Noah – Warm, Professionell",
+    "becker": "Heribert deutsch", "passenger": "Tobi – Friendly German Narrator", "man": "Lennard Voss – calm, empathetic",
+    "woman": "Gabi – enthusiastic, friendly", "driver": "Georg Meister – Relaxed and neutral"
   },
   "female": ["lena", "wagner", "aigerim", "woman", "f"],
   "male": ["tom", "marco", "becker", "passenger", "man", "m", "driver"]

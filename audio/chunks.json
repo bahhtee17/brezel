@@ -1,0 +1,857 @@
+[
+ {
+  "id": "p001",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Hallo!",
+   "Hallo, Lena!",
+   "Guten Morgen!",
+   "Guten Morgen, Tom!",
+   "Guten Tag!",
+   "Guten Tag, Frau Wagner!",
+   "Guten Abend!",
+   "Guten Abend, Herr Becker!"
+  ],
+  "text": "Hallo!\n\nHallo, Lena!\n\nGuten Morgen!\n\nGuten Morgen, Tom!\n\nGuten Tag!\n\nGuten Tag, Frau Wagner!\n\nGuten Abend!\n\nGuten Abend, Herr Becker!"
+ },
+ {
+  "id": "p002",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Gute Nacht!",
+   "Gute Nacht, Lena!",
+   "Tschüs!",
+   "Tschüs, Marco!",
+   "Auf Wiedersehen!",
+   "Auf Wiedersehen, Frau Wagner!",
+   "ich",
+   "Ich heiße Alex."
+  ],
+  "text": "Gute Nacht!\n\nGute Nacht, Lena!\n\nTschüs!\n\nTschüs, Marco!\n\nAuf Wiedersehen!\n\nAuf Wiedersehen, Frau Wagner!\n\nich.\n\nIch heiße Alex."
+ },
+ {
+  "id": "p003",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "du",
+   "Wie heißt du?",
+   "heißen",
+   "Ich heiße Tom.",
+   "wie",
+   "der Name",
+   "Name",
+   "Mein Name ist Lena Schulz."
+  ],
+  "text": "du.\n\nWie heißt du?\n\nheißen.\n\nIch heiße Tom.\n\nwie.\n\nder Name.\n\nName.\n\nMein Name ist Lena Schulz."
+ },
+ {
+  "id": "p004",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Freut mich!",
+   "Ich heiße Tom. — Freut mich!",
+   "Wie geht's?",
+   "Hallo, Tom, wie geht's?",
+   "gut",
+   "Danke, gut!",
+   "sehr gut",
+   "Sehr gut, danke!"
+  ],
+  "text": "Freut mich!\n\nIch heiße Tom. — Freut mich!\n\nWie geht's?\n\nHallo, Tom, wie geht's?\n\ngut.\n\nDanke, gut!\n\nsehr gut.\n\nSehr gut, danke!"
+ },
+ {
+  "id": "p005",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Es geht.",
+   "Wie geht's? — Es geht.",
+   "nicht so gut",
+   "Danke, nicht so gut.",
+   "danke",
+   "Gut, danke!",
+   "Und dir?",
+   "Gut, danke. Und dir?"
+  ],
+  "text": "Es geht.\n\nWie geht's? — Es geht.\n\nnicht so gut.\n\nDanke, nicht so gut.\n\ndanke.\n\nGut, danke!\n\nUnd dir?\n\nGut, danke. Und dir?"
+ },
+ {
+  "id": "p006",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Sie",
+   "Wie heißen Sie?",
+   "der Herr",
+   "Herr",
+   "Guten Tag, Herr Becker!",
+   "die Frau",
+   "Frau",
+   "Guten Abend, Frau Wagner!"
+  ],
+  "text": "Sie.\n\nWie heißen Sie?\n\nder Herr.\n\nHerr.\n\nGuten Tag, Herr Becker!\n\ndie Frau.\n\nFrau.\n\nGuten Abend, Frau Wagner!"
+ },
+ {
+  "id": "p007",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Wie geht es Ihnen?",
+   "Guten Tag, Frau Wagner! Wie geht es Ihnen?",
+   "Und Ihnen?",
+   "Danke, gut. Und Ihnen?",
+   "ja",
+   "Sind Sie Frau Wagner? — Ja.",
+   "nein",
+   "Bist du Tom? — Nein, ich heiße Marco."
+  ],
+  "text": "Wie geht es Ihnen?\n\nGuten Tag, Frau Wagner! Wie geht es Ihnen?\n\nUnd Ihnen?\n\nDanke, gut. Und Ihnen?\n\nja.\n\nSind Sie Frau Wagner? — Ja.\n\nnein.\n\nBist du Tom? — Nein, ich heiße Marco."
+ },
+ {
+  "id": "p008",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "kommen",
+   "Ich komme aus Russland.",
+   "woher",
+   "Woher kommst du?",
+   "aus",
+   "Marco kommt aus Italien.",
+   "Deutschland",
+   "Lena kommt aus Deutschland."
+  ],
+  "text": "kommen.\n\nIch komme aus Russland.\n\nwoher.\n\nWoher kommst du?\n\naus.\n\nMarco kommt aus Italien.\n\nDeutschland.\n\nLena kommt aus Deutschland."
+ },
+ {
+  "id": "p009",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Russland",
+   "Italien",
+   "Kasachstan",
+   "Aigerim kommt aus Kasachstan.",
+   "wohnen",
+   "Ich wohne in Berlin.",
+   "wo",
+   "Wo wohnst du?"
+  ],
+  "text": "Russland.\n\nItalien.\n\nKasachstan.\n\nAigerim kommt aus Kasachstan.\n\nwohnen.\n\nIch wohne in Berlin.\n\nwo.\n\nWo wohnst du?"
+ },
+ {
+  "id": "p010",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "in",
+   "Tom wohnt in Hamburg.",
+   "die Stadt",
+   "Stadt",
+   "Berlin ist eine Stadt.",
+   "jetzt",
+   "Ich wohne jetzt in Berlin.",
+   "Berlin"
+  ],
+  "text": "in.\n\nTom wohnt in Hamburg.\n\ndie Stadt.\n\nStadt.\n\nBerlin ist eine Stadt.\n\njetzt.\n\nIch wohne jetzt in Berlin.\n\nBerlin."
+ },
+ {
+  "id": "p011",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Lena wohnt in Berlin.",
+   "Hamburg",
+   "Tom kommt aus Hamburg.",
+   "er",
+   "Er heißt Tom.",
+   "sie",
+   "Sie heißt Aigerim.",
+   "wir"
+  ],
+  "text": "Lena wohnt in Berlin.\n\nHamburg.\n\nTom kommt aus Hamburg.\n\ner.\n\nEr heißt Tom.\n\nsie.\n\nSie heißt Aigerim.\n\nwir."
+ },
+ {
+  "id": "p012",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Wir lernen Deutsch.",
+   "ihr",
+   "Woher kommt ihr?",
+   "lernen",
+   "Ich lerne Deutsch.",
+   "München",
+   "Wir wohnen in München.",
+   "sprechen"
+  ],
+  "text": "Wir lernen Deutsch.\n\nihr.\n\nWoher kommt ihr?\n\nlernen.\n\nIch lerne Deutsch.\n\nMünchen.\n\nWir wohnen in München.\n\nsprechen."
+ },
+ {
+  "id": "p013",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Ich spreche Russisch.",
+   "die Sprache",
+   "Sprache",
+   "Welche Sprachen sprichst du?",
+   "Deutsch",
+   "Englisch",
+   "Lena spricht Englisch.",
+   "Russisch"
+  ],
+  "text": "Ich spreche Russisch.\n\ndie Sprache.\n\nSprache.\n\nWelche Sprachen sprichst du?\n\nDeutsch.\n\nEnglisch.\n\nLena spricht Englisch.\n\nRussisch."
+ },
+ {
+  "id": "p014",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Aigerim spricht Russisch.",
+   "ein bisschen",
+   "Ich spreche ein bisschen Deutsch.",
+   "Usbekistan",
+   "Timur kommt aus Usbekistan.",
+   "sein",
+   "Ich bin Marco.",
+   "Das ist …"
+  ],
+  "text": "Aigerim spricht Russisch.\n\nein bisschen.\n\nIch spreche ein bisschen Deutsch.\n\nUsbekistan.\n\nTimur kommt aus Usbekistan.\n\nsein.\n\nIch bin Marco.\n\nDas ist …"
+ },
+ {
+  "id": "p015",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Das ist Lena.",
+   "der Freund",
+   "Freund",
+   "Marco ist ein Freund.",
+   "die Lehrerin",
+   "Lehrerin",
+   "Frau Wagner ist Lehrerin.",
+   "und"
+  ],
+  "text": "Das ist Lena.\n\nder Freund.\n\nFreund.\n\nMarco ist ein Freund.\n\ndie Lehrerin.\n\nLehrerin.\n\nFrau Wagner ist Lehrerin.\n\nund."
+ },
+ {
+  "id": "p016",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Lena und Tom",
+   "auch",
+   "Ich komme auch aus Italien.",
+   "Österreich",
+   "Herr Becker kommt aus Österreich.",
+   "wer",
+   "Wer ist das?",
+   "was"
+  ],
+  "text": "Lena und Tom.\n\nauch.\n\nIch komme auch aus Italien.\n\nÖsterreich.\n\nHerr Becker kommt aus Österreich.\n\nwer.\n\nWer ist das?\n\nwas."
+ },
+ {
+  "id": "p017",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Was lernst du? — Deutsch.",
+   "die Frage",
+   "Frage",
+   "Eine Frage, bitte!",
+   "die Antwort",
+   "Antwort",
+   "Die Antwort ist richtig.",
+   "richtig"
+  ],
+  "text": "Was lernst du? — Deutsch.\n\ndie Frage.\n\nFrage.\n\nEine Frage, bitte!\n\ndie Antwort.\n\nAntwort.\n\nDie Antwort ist richtig.\n\nrichtig."
+ },
+ {
+  "id": "p018",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Das ist richtig.",
+   "falsch",
+   "Das ist falsch.",
+   "die Schweiz",
+   "Schweiz",
+   "Anna kommt aus der Schweiz.",
+   "bitte",
+   "Langsam, bitte!"
+  ],
+  "text": "Das ist richtig.\n\nfalsch.\n\nDas ist falsch.\n\ndie Schweiz.\n\nSchweiz.\n\nAnna kommt aus der Schweiz.\n\nbitte.\n\nLangsam, bitte!"
+ },
+ {
+  "id": "p019",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Danke schön!",
+   "Danke schön! — Bitte schön!",
+   "Entschuldigung!",
+   "Entschuldigung, sind Sie Herr Becker?",
+   "Kein Problem!",
+   "Entschuldigung! — Kein Problem!",
+   "Wie bitte?",
+   "Wie bitte? Noch einmal, bitte."
+  ],
+  "text": "Danke schön!\n\nDanke schön! — Bitte schön!\n\nEntschuldigung!\n\nEntschuldigung, sind Sie Herr Becker?\n\nKein Problem!\n\nEntschuldigung! — Kein Problem!\n\nWie bitte?\n\nWie bitte? Noch einmal, bitte."
+ },
+ {
+  "id": "p020",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "noch einmal",
+   "Noch einmal, bitte!",
+   "langsam",
+   "Bitte sprechen Sie langsam.",
+   "Wie ist Ihr Name?",
+   "Wie ist Ihr Name? — Petrow.",
+   "der Vorname",
+   "Vorname"
+  ],
+  "text": "noch einmal.\n\nNoch einmal, bitte!\n\nlangsam.\n\nBitte sprechen Sie langsam.\n\nWie ist Ihr Name?\n\nWie ist Ihr Name? — Petrow.\n\nder Vorname.\n\nVorname."
+ },
+ {
+  "id": "p021",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Mein Vorname ist Lena.",
+   "der Familienname",
+   "Familienname",
+   "Mein Familienname ist Schulz.",
+   "der Wohnort",
+   "Wohnort",
+   "Mein Wohnort ist Berlin.",
+   "das Formular"
+  ],
+  "text": "Mein Vorname ist Lena.\n\nder Familienname.\n\nFamilienname.\n\nMein Familienname ist Schulz.\n\nder Wohnort.\n\nWohnort.\n\nMein Wohnort ist Berlin.\n\ndas Formular."
+ },
+ {
+  "id": "p022",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Formular",
+   "Hier ist das Formular.",
+   "Herzlich willkommen!",
+   "Herzlich willkommen in Berlin!",
+   "Hallo",
+   "Lena",
+   "Tschüs",
+   "Nacht"
+  ],
+  "text": "Formular.\n\nHier ist das Formular.\n\nHerzlich willkommen!\n\nHerzlich willkommen in Berlin!\n\nHallo.\n\nLena.\n\nTschüs.\n\nNacht."
+ },
+ {
+  "id": "p023",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Morgen",
+   "Tag",
+   "Ich heiße Lena.",
+   "heiße",
+   "heißt",
+   "Wie",
+   "Freut mich! Ich heiße Alex.",
+   "Gute Nacht, Marco!"
+  ],
+  "text": "Morgen.\n\nTag.\n\nIch heiße Lena.\n\nheiße.\n\nheißt.\n\nWie.\n\nFreut mich! Ich heiße Alex.\n\nGute Nacht, Marco!"
+ },
+ {
+  "id": "p024",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Wie heißt du, Marco?",
+   "Mein Name ist Lena.",
+   "Ich heiße Alex. Freut mich!",
+   "Hallo, Aigerim! Freut mich!",
+   "Guten Morgen, Lena!",
+   "Tschüs, Aigerim!",
+   "Hallo! Wie heißt du?",
+   "Sehr gut!"
+  ],
+  "text": "Wie heißt du, Marco?\n\nMein Name ist Lena.\n\nIch heiße Alex. Freut mich!\n\nHallo, Aigerim! Freut mich!\n\nGuten Morgen, Lena!\n\nTschüs, Aigerim!\n\nHallo! Wie heißt du?\n\nSehr gut!"
+ },
+ {
+  "id": "p025",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Nicht so gut.",
+   "Gut!",
+   "Gut, danke! Und dir?",
+   "Danke, sehr gut!",
+   "Danke",
+   "sehr",
+   "nicht",
+   "so"
+  ],
+  "text": "Nicht so gut.\n\nGut!\n\nGut, danke! Und dir?\n\nDanke, sehr gut!\n\nDanke.\n\nsehr.\n\nnicht.\n\nso."
+ },
+ {
+  "id": "p026",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Sehr gut.",
+   "dir",
+   "Danke, gut! Und dir?",
+   "Sehr gut, danke! Und dir?",
+   "Ich heiße Marco.",
+   "Gute Nacht, Aigerim!",
+   "Hallo, Tom! Wie geht's?",
+   "Tom"
+  ],
+  "text": "Sehr gut.\n\ndir.\n\nDanke, gut! Und dir?\n\nSehr gut, danke! Und dir?\n\nIch heiße Marco.\n\nGute Nacht, Aigerim!\n\nHallo, Tom! Wie geht's?\n\nTom."
+ },
+ {
+  "id": "p027",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "geht's",
+   "Nein. Ich heiße Alex.",
+   "Ja, ich heiße Lena.",
+   "Und",
+   "Ihnen",
+   "Guten Abend, Herr Wagner!",
+   "Gute Nacht, Frau Wagner!",
+   "Gut, danke. Und Ihnen?"
+  ],
+  "text": "geht's.\n\nNein. Ich heiße Alex.\n\nJa, ich heiße Lena.\n\nUnd.\n\nIhnen.\n\nGuten Abend, Herr Wagner!\n\nGute Nacht, Frau Wagner!\n\nGut, danke. Und Ihnen?"
+ },
+ {
+  "id": "p028",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Auf Wiedersehen, Herr Tom!",
+   "Auf Wiedersehen, Herr Becker!",
+   "Tschüs, Tom!",
+   "kommst",
+   "komme",
+   "Aigerim",
+   "kommt",
+   "Ich komme aus Deutschland."
+  ],
+  "text": "Auf Wiedersehen, Herr Tom!\n\nAuf Wiedersehen, Herr Becker!\n\nTschüs, Tom!\n\nkommst.\n\nkomme.\n\nAigerim.\n\nkommt.\n\nIch komme aus Deutschland."
+ },
+ {
+  "id": "p029",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Ich wohne aus Russland.",
+   "Marco, woher kommst du?",
+   "Marco",
+   "wohne",
+   "wohnst",
+   "wohnt",
+   "Wo",
+   "Woher"
+  ],
+  "text": "Ich wohne aus Russland.\n\nMarco, woher kommst du?\n\nMarco.\n\nwohne.\n\nwohnst.\n\nwohnt.\n\nWo.\n\nWoher."
+ },
+ {
+  "id": "p030",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Ich komme aus Berlin. Und dir?",
+   "Gut, danke. Und Ihnen, Frau Aigerim?",
+   "Ich wohne in Hamburg.",
+   "Ich komme aus Kasachstan.",
+   "Aigerim wohnt in Berlin.",
+   "Er wohnt in München.",
+   "lernt",
+   "lerne"
+  ],
+  "text": "Ich komme aus Berlin. Und dir?\n\nGut, danke. Und Ihnen, Frau Aigerim?\n\nIch wohne in Hamburg.\n\nIch komme aus Kasachstan.\n\nAigerim wohnt in Berlin.\n\nEr wohnt in München.\n\nlernt.\n\nlerne."
+ },
+ {
+  "id": "p031",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Du",
+   "Ich",
+   "Er",
+   "Sie lernt Deutsch.",
+   "Wir wohnen in Berlin.",
+   "Lena und Tom wohnen in Berlin.",
+   "Du lernst Deutsch.",
+   "lernst"
+  ],
+  "text": "Du.\n\nIch.\n\nEr.\n\nSie lernt Deutsch.\n\nWir wohnen in Berlin.\n\nLena und Tom wohnen in Berlin.\n\nDu lernst Deutsch.\n\nlernst."
+ },
+ {
+  "id": "p032",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Sprichst du Englisch?",
+   "Lena spricht Deutsch.",
+   "Sprichst",
+   "Sprechst",
+   "Spreche",
+   "spreche",
+   "ein",
+   "bisschen"
+  ],
+  "text": "Sprichst du Englisch?\n\nLena spricht Deutsch.\n\nSprichst.\n\nSprechst.\n\nSpreche.\n\nspreche.\n\nein.\n\nbisschen."
+ },
+ {
+  "id": "p033",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "sprichst",
+   "Aigerim spricht Kasachisch, Russisch und ein bisschen Deutsch.",
+   "Aigerim spricht Englisch.",
+   "Er kommt aus Usbekistan.",
+   "Er kommt aus Kasachstan.",
+   "Ich komme aus Usbekistan.",
+   "Ich spreche aus Russland.",
+   "Ja, ein bisschen."
+  ],
+  "text": "sprichst.\n\nAigerim spricht Kasachisch, Russisch und ein bisschen Deutsch.\n\nAigerim spricht Englisch.\n\nEr kommt aus Usbekistan.\n\nEr kommt aus Kasachstan.\n\nIch komme aus Usbekistan.\n\nIch spreche aus Russland.\n\nJa, ein bisschen."
+ },
+ {
+  "id": "p034",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Ja, ich spricht Englisch.",
+   "Nein, ich komme aus Englisch.",
+   "Marco spricht Italienisch und Englisch.",
+   "spricht",
+   "Italienisch",
+   "Ich bin Alex.",
+   "Wir sind Freunde.",
+   "bin"
+  ],
+  "text": "Ja, ich spricht Englisch.\n\nNein, ich komme aus Englisch.\n\nMarco spricht Italienisch und Englisch.\n\nspricht.\n\nItalienisch.\n\nIch bin Alex.\n\nWir sind Freunde.\n\nbin."
+ },
+ {
+  "id": "p035",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "ist",
+   "bist",
+   "sind",
+   "Bist du aus Österreich?",
+   "Bist",
+   "Ist",
+   "Sind",
+   "Wagner"
+  ],
+  "text": "ist.\n\nbist.\n\nsind.\n\nBist du aus Österreich?\n\nBist.\n\nIst.\n\nSind.\n\nWagner."
+ },
+ {
+  "id": "p036",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Marco und Aigerim sind Freunde.",
+   "seid",
+   "Ich bin auch aus Italien!",
+   "Ich bist auch aus Italien!",
+   "Ich ist auch aus Italien!",
+   "Das ist Tom. Er ist Lehrerin.",
+   "Das bin Frau Wagner.",
+   "Herr Becker ist aus Österreich."
+  ],
+  "text": "Marco und Aigerim sind Freunde.\n\nseid.\n\nIch bin auch aus Italien!\n\nIch bist auch aus Italien!\n\nIch ist auch aus Italien!\n\nDas ist Tom. Er ist Lehrerin.\n\nDas bin Frau Wagner.\n\nHerr Becker ist aus Österreich."
+ },
+ {
+  "id": "p037",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Das ist Tom. Er ist auch aus Deutschland.",
+   "Das",
+   "Wer",
+   "Was",
+   "Was lernst du?",
+   "Wo wohnt Anna?",
+   "Anna",
+   "Anna kommt aus Österreich."
+  ],
+  "text": "Das ist Tom. Er ist auch aus Deutschland.\n\nDas.\n\nWer.\n\nWas.\n\nWas lernst du?\n\nWo wohnt Anna?\n\nAnna.\n\nAnna kommt aus Österreich."
+ },
+ {
+  "id": "p038",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Anna lernt Russisch.",
+   "Wer bist du?",
+   "Langsam",
+   "noch",
+   "einmal",
+   "Oh, Entschuldigung!",
+   "Danke!",
+   "Mein Familienname ist Petrow."
+  ],
+  "text": "Anna lernt Russisch.\n\nWer bist du?\n\nLangsam.\n\nnoch.\n\neinmal.\n\nOh, Entschuldigung!\n\nDanke!\n\nMein Familienname ist Petrow."
+ },
+ {
+  "id": "p039",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Mein Name ist Alex Petrow.",
+   "Ich komme aus Berlin.",
+   "Ich heiße Berlin.",
+   "Herzlich",
+   "willkommen",
+   "Ich bin Russisch.",
+   "Ich spricht Deutsch.",
+   "Danke! Auf Wiedersehen!"
+  ],
+  "text": "Mein Name ist Alex Petrow.\n\nIch komme aus Berlin.\n\nIch heiße Berlin.\n\nHerzlich.\n\nwillkommen.\n\nIch bin Russisch.\n\nIch spricht Deutsch.\n\nDanke! Auf Wiedersehen!"
+ },
+ {
+  "id": "p040",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "Gute Nacht, Tom!",
+   "Lena wohnt in Hamburg.",
+   "Frau Wagner",
+   "Deutsch und Englisch",
+   "Italienisch und Deutsch",
+   "Russisch und Englisch",
+   "Aigerim kommt aus Russland.",
+   "Aigerim spricht sehr gut Deutsch."
+  ],
+  "text": "Gute Nacht, Tom!\n\nLena wohnt in Hamburg.\n\nFrau Wagner.\n\nDeutsch und Englisch.\n\nItalienisch und Deutsch.\n\nRussisch und Englisch.\n\nAigerim kommt aus Russland.\n\nAigerim spricht sehr gut Deutsch."
+ },
+ {
+  "id": "p041",
+  "voice": "OCRL36yDX3WNBjz9e8es",
+  "who": "default",
+  "phrases": [
+   "In der Sprachschule lernt man Deutsch.",
+   "Woher wohnst du?",
+   "Wie wohnst du?"
+  ],
+  "text": "In der Sprachschule lernt man Deutsch.\n\nWoher wohnst du?\n\nWie wohnst du?"
+ },
+ {
+  "id": "p042",
+  "voice": "XdLIGdwLwWB6xmbh9828",
+  "who": "lena",
+  "phrases": [
+   "Hallo! Guten Abend!",
+   "Guten Morgen! Ich heiße Lena. Wie heißt du?",
+   "Freut mich, Alex!",
+   "Danke, sehr gut! Und dir?",
+   "Nicht so gut? Kaffee?",
+   "Ihr lernt Deutsch? Super!",
+   "Ich spreche Deutsch und Englisch. Und du, Aigerim?",
+   "Das ist Tom. Er ist aus Hamburg."
+  ],
+  "text": "Hallo! Guten Abend!\n\nGuten Morgen! Ich heiße Lena. Wie heißt du?\n\nFreut mich, Alex!\n\nDanke, sehr gut! Und dir?\n\nNicht so gut? Kaffee?\n\nIhr lernt Deutsch? Super!\n\nIch spreche Deutsch und Englisch. Und du, Aigerim?\n\nDas ist Tom. Er ist aus Hamburg."
+ },
+ {
+  "id": "p043",
+  "voice": "XdLIGdwLwWB6xmbh9828",
+  "who": "lena",
+  "phrases": [
+   "Das ist Frau Wagner. Sie ist Lehrerin.",
+   "Und das sind Marco und Aigerim. Sie sind Freunde.",
+   "Das ist Herr Becker. Er ist aus Österreich.",
+   "„Ich bin Lena. Herzlich willkommen!“"
+  ],
+  "text": "Das ist Frau Wagner. Sie ist Lehrerin.\n\nUnd das sind Marco und Aigerim. Sie sind Freunde.\n\nDas ist Herr Becker. Er ist aus Österreich.\n\n„Ich bin Lena. Herzlich willkommen!“"
+ },
+ {
+  "id": "p044",
+  "voice": "t7z7JVU64WYfp4GSw7aZ",
+  "who": "you",
+  "phrases": [
+   "Gute Nacht! Tschüs!",
+   "Hallo, Lena! Ich heiße Alex.",
+   "Guten Tag, Frau Wagner! Ich heiße Alex.",
+   "Guten Tag! Woher kommen Sie?",
+   "Und jetzt? Wo wohnen Sie in Berlin?",
+   "Ich spreche Russisch und ein bisschen Deutsch.",
+   "Und wer ist das?",
+   "Guten Tag! Eine Frage: Wie heißen Sie?"
+  ],
+  "text": "Gute Nacht! Tschüs!\n\nHallo, Lena! Ich heiße Alex.\n\nGuten Tag, Frau Wagner! Ich heiße Alex.\n\nGuten Tag! Woher kommen Sie?\n\nUnd jetzt? Wo wohnen Sie in Berlin?\n\nIch spreche Russisch und ein bisschen Deutsch.\n\nUnd wer ist das?\n\nGuten Tag! Eine Frage: Wie heißen Sie?"
+ },
+ {
+  "id": "p045",
+  "voice": "t7z7JVU64WYfp4GSw7aZ",
+  "who": "you",
+  "phrases": [
+   "Woher kommen Sie?",
+   "Was lernen Sie?",
+   "Mein Vorname ist Alex. Mein Familienname ist Petrow."
+  ],
+  "text": "Woher kommen Sie?\n\nWas lernen Sie?\n\nMein Vorname ist Alex. Mein Familienname ist Petrow."
+ },
+ {
+  "id": "p046",
+  "voice": "GpMEuRGYD0oLjmn4ptQZ",
+  "who": "marco",
+  "phrases": [
+   "Hallo! Ich heiße Marco.",
+   "Guten Morgen! Wie geht's?",
+   "Ich heiße Marco. Ich komme aus Italien.",
+   "Und du? Woher kommst du?",
+   "Ich spreche Italienisch und Englisch.",
+   "Ich komme aus Italien. Und du?",
+   "„Hallo! Ich heiße Marco. Wie heißt du?“"
+  ],
+  "text": "Hallo! Ich heiße Marco.\n\nGuten Morgen! Wie geht's?\n\nIch heiße Marco. Ich komme aus Italien.\n\nUnd du? Woher kommst du?\n\nIch spreche Italienisch und Englisch.\n\nIch komme aus Italien. Und du?\n\n„Hallo! Ich heiße Marco. Wie heißt du?“"
+ },
+ {
+  "id": "p047",
+  "voice": "GpMEuRGYD0oLjmn4ptQZ",
+  "who": "marco",
+  "phrases": [
+   "Hallo Lena, hier ist Marco. Ich spreche Italienisch und Englisch, aber nur ein bisschen Deutsch. Tschüs!"
+  ],
+  "text": "Hallo Lena, hier ist Marco. Ich spreche Italienisch und Englisch, aber nur ein bisschen Deutsch. Tschüs!"
+ },
+ {
+  "id": "p048",
+  "voice": "fICbqrKTrkIZ2rbILvQb",
+  "who": "aigerim",
+  "phrases": [
+   "Hallo! Ich heiße Aigerim.",
+   "Danke, gut. Und dir?",
+   "Ich heiße Aigerim. Ich komme aus Kasachstan.",
+   "Ich spreche Kasachisch, Russisch und ein bisschen Deutsch.",
+   "Bitte!"
+  ],
+  "text": "Hallo! Ich heiße Aigerim.\n\nDanke, gut. Und dir?\n\nIch heiße Aigerim. Ich komme aus Kasachstan.\n\nIch spreche Kasachisch, Russisch und ein bisschen Deutsch.\n\nBitte!"
+ },
+ {
+  "id": "p049",
+  "voice": "ntwcx49ZcqEarZ2so6jP",
+  "who": "tom",
+  "phrases": [
+   "Ich heiße Tom. Und du?",
+   "Hallo, Lena! Wie geht's?",
+   "Es geht …",
+   "Danke, Lena!",
+   "Hallo! Wie geht's?",
+   "Lena wohnt in Berlin. Sie kommt aus Deutschland.",
+   "Oh! Entschuldigung!",
+   "Wie bitte? Noch einmal, bitte. Langsam, bitte!"
+  ],
+  "text": "Ich heiße Tom. Und du?\n\nHallo, Lena! Wie geht's?\n\nEs geht …\n\nDanke, Lena!\n\nHallo! Wie geht's?\n\nLena wohnt in Berlin. Sie kommt aus Deutschland.\n\nOh! Entschuldigung!\n\nWie bitte? Noch einmal, bitte. Langsam, bitte!"
+ },
+ {
+  "id": "p050",
+  "voice": "ntwcx49ZcqEarZ2so6jP",
+  "who": "tom",
+  "phrases": [
+   "Hier! Alexanderplatz.",
+   "Bitte schön!",
+   "Ich komme aus Hamburg, aber jetzt wohne ich in Berlin."
+  ],
+  "text": "Hier! Alexanderplatz.\n\nBitte schön!\n\nIch komme aus Hamburg, aber jetzt wohne ich in Berlin."
+ },
+ {
+  "id": "p051",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "who": "wagner",
+  "phrases": [
+   "Guten Tag! Ich heiße Wagner. Wie heißen Sie?",
+   "Und Sie? Woher kommen Sie?",
+   "Herzlich willkommen! Wie ist Ihr Name?",
+   "Und Ihr Wohnort?",
+   "Gut. Hier ist das Formular.",
+   "Welche Sprachen sprechen Sie?",
+   "Danke schön! Herzlich willkommen!",
+   "Danke, nicht so gut. Und Ihnen?"
+  ],
+  "text": "Guten Tag! Ich heiße Wagner. Wie heißen Sie?\n\nUnd Sie? Woher kommen Sie?\n\nHerzlich willkommen! Wie ist Ihr Name?\n\nUnd Ihr Wohnort?\n\nGut. Hier ist das Formular.\n\nWelche Sprachen sprechen Sie?\n\nDanke schön! Herzlich willkommen!\n\nDanke, nicht so gut. Und Ihnen?"
+ },
+ {
+  "id": "p052",
+  "voice": "yR6YPi6ytQSGBZ0uKFQl",
+  "who": "becker",
+  "phrases": [
+   "Guten Tag! Sind Sie Herr Schulz?",
+   "Entschuldigung, wo ist der Alexanderplatz?",
+   "Wo ist der Alexanderplatz?",
+   "Au!"
+  ],
+  "text": "Guten Tag! Sind Sie Herr Schulz?\n\nEntschuldigung, wo ist der Alexanderplatz?\n\nWo ist der Alexanderplatz?\n\nAu!"
+ },
+ {
+  "id": "p053",
+  "voice": "v3sSens3ygqofjGcvi1W",
+  "who": "passenger",
+  "phrases": [
+   "Ich komme aus Hamburg. Ich wohne in Hamburg.",
+   "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!",
+   "Wo wohnen Sie?"
+  ],
+  "text": "Ich komme aus Hamburg. Ich wohne in Hamburg.\n\nJetzt wohne ich im Brezelhaus. Brezelhaus, bitte!\n\nWo wohnen Sie?"
+ },
+ {
+  "id": "p054",
+  "voice": "YhTSsDtv0zOS0YHeUiId",
+  "who": "man",
+  "phrases": [
+   "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch.",
+   "Hallo! Ich komme aus Usbekistan. Und du?"
+  ],
+  "text": "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch.\n\nHallo! Ich komme aus Usbekistan. Und du?"
+ },
+ {
+  "id": "p055",
+  "voice": "f46eMKDCAFikzwQKNKsK",
+  "who": "woman",
+  "phrases": [
+   "Ich heiße Anna Huber.",
+   "Ich komme aus der Schweiz.",
+   "Ich lerne Russisch!"
+  ],
+  "text": "Ich heiße Anna Huber.\n\nIch komme aus der Schweiz.\n\nIch lerne Russisch!"
+ },
+ {
+  "id": "p056",
+  "voice": "iyscHPBBWOqnjHpyGETU",
+  "who": "f",
+  "phrases": [
+   "Lena kommt aus Deutschland und wohnt in Berlin.",
+   "Sie spricht Deutsch und Englisch.",
+   "Heute kommt ein Gast aus Italien.",
+   "Marco spricht Italienisch und ein bisschen Deutsch.",
+   "Lena spricht langsam. Kein Problem!",
+   "Hallo, ich bin Anna. Woher kommst du?",
+   "Ich komme aus Österreich.",
+   "Wo wohnst du, Tom?"
+  ],
+  "text": "Lena kommt aus Deutschland und wohnt in Berlin.\n\nSie spricht Deutsch und Englisch.\n\nHeute kommt ein Gast aus Italien.\n\nMarco spricht Italienisch und ein bisschen Deutsch.\n\nLena spricht langsam. Kein Problem!\n\nHallo, ich bin Anna. Woher kommst du?\n\nIch komme aus Österreich.\n\nWo wohnst du, Tom?"
+ },
+ {
+  "id": "p057",
+  "voice": "OZx5F3Qe8k5AOBgRq4N0",
+  "who": "m",
+  "phrases": [
+   "Guten Abend, Frau Wagner! Wie geht es Ihnen?"
+  ],
+  "text": "Guten Abend, Frau Wagner! Wie geht es Ihnen?"
+ }
+]

@@ -11,3 +11,6 @@ Thumbs.db
 art/raw/
 anim/node_modules/
 anim/out/
+audio/raw/
+audio/redo.json
+audio/chunks-old.json

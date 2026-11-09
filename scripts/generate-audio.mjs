@@ -88,6 +88,40 @@ if (!key) {
   console.error('Нет переменной окружения ELEVENLABS_API_KEY. Задайте её и запустите снова (или используйте --dry-run).');
   process.exit(1);
 }
+// --pick-voices: подобрать голоса героям из голосов вашего аккаунта (пол, возраст, немецкий язык).
+// Уже вписанные вручную ID не трогаются. Результат — в scripts/voices.json.
+const PROFILE = {
+  default: ['female', 'middle_aged'], f: ['female', 'middle_aged'], m: ['male', 'middle_aged'],
+  lena: ['female', 'young'], tom: ['male', 'young'], wagner: ['female', 'old'], marco: ['male', 'young'],
+  aigerim: ['female', 'young'], becker: ['male', 'old'], passenger: ['male', 'middle_aged'],
+  man: ['male', 'middle_aged'], woman: ['female', 'middle_aged'], driver: ['male', 'middle_aged']
+};
+if (process.argv.includes('--pick-voices')) {
+  const r = await fetch('https://api.elevenlabs.io/v2/voices?page_size=100', { headers: { 'xi-api-key': key } });
+  if (!r.ok) { console.error(`Ошибка ${r.status}: ${await r.text()}`); process.exit(1); }
+  const list = (await r.json()).voices || [];
+  const german = v => (v.verified_languages || []).some(l => l.language === 'de') || /german|deutsch/i.test(JSON.stringify(v.labels || {}));
+  const used = new Map();
+  const score = (v, [gender, age]) => {
+    const L = v.labels || {};
+    if (L.gender !== gender) return -1;
+    return 10 + ((L.age || '').replace(/\s+/g, '_') === age ? 4 : 0) + (german(v) ? 6 : 0) - (used.get(v.voice_id) || 0) * 5;
+  };
+  voices.voices = voices.voices || {};
+  for (const [who, prof] of Object.entries(PROFILE)) {
+    if (voices.voices[who]) continue;
+    const best = list.map(v => [score(v, prof), v]).filter(([s]) => s >= 0).sort((a, b) => b[0] - a[0])[0];
+    if (!best) { console.log(`${who}: подходящего голоса нет`); continue; }
+    const v = best[1];
+    voices.voices[who] = v.voice_id;
+    used.set(v.voice_id, (used.get(v.voice_id) || 0) + 1);
+    console.log(`${who.padEnd(10)} → ${v.name} (${v.labels?.gender || '?'}, ${v.labels?.age || '?'}${german(v) ? ', немецкий' : ''})`);
+  }
+  await writeFile(path.join(root, 'scripts/voices.json'), JSON.stringify(voices, null, 2) + '\n', 'utf8');
+  console.log(`Голосов в аккаунте: ${list.length}. Записано в scripts/voices.json.`);
+  process.exit(0);
+}
+
 const voiceFor = who => {
   const v = voices.voices || {};
   if (v[who]) return v[who];
@@ -106,7 +140,8 @@ for (const [text, who] of missing) {
   const file = `${createHash('sha1').update(`${voice}|${text}`).digest('hex').slice(0, 16)}.mp3`;
   const out = path.join(root, 'audio', file);
   try { await access(out); manifest[text] = file; continue; } catch { /* файла нет — генерируем */ }
-  const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}?output_format=mp3_44100_128`, {
+  // 64 кбит/с: для речи звучит чисто, а файлы в 2 раза легче — курс быстрее скачивается на телефон.
+  const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}?output_format=${voices.format || 'mp3_44100_64'}`, {
     method: 'POST',
     headers: { 'xi-api-key': key, 'Content-Type': 'application/json', Accept: 'audio/mpeg' },
     body: JSON.stringify({ text, model_id: voices.model || 'eleven_multilingual_v2', voice_settings: { stability: 0.5, similarity_boost: 0.75 } })
