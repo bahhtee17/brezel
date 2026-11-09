@@ -5,6 +5,9 @@ import { homeScreen, lessonScreen, wordsScreen, reviewScreen, mistakesScreen, pr
 import { h } from './ui.js';
 import { mascotSVG } from './mascot.js';
 import { loadImages, autoplayVideos } from './img.js';
+import { readingScreen, ruleScreen } from './reading.js';
+import { welcomeScreen, placementTest, needsOnboarding } from './placement.js';
+import { runMasteryCheck } from './mastery.js';
 
 const app = document.getElementById('app');
 
@@ -12,15 +15,22 @@ async function route() {
   stop();
   document.querySelector('.pop')?.remove();
   document.querySelector('.feedback')?.remove();
+  document.querySelector('.sheet')?.remove();
   const raw = location.hash.replace(/^#/, '') || '/';
   const [path, query = ''] = raw.split('?');
   const params = new URLSearchParams(query);
   const parts = path.split('/').filter(Boolean);
   try {
-    if (!parts.length) return await homeScreen();
     const [name, a, b] = parts;
+    // Первый запуск: сначала выбор «с нуля» или входной тест.
+    if (name !== 'welcome' && name !== 'placement' && needsOnboarding()) { location.replace('#/welcome'); return; }
+    if (name === 'welcome') return welcomeScreen();
+    if (name === 'placement') return await placementTest();
+    if (name === 'check') return await runMasteryCheck(() => { location.hash = '#/'; });
+    if (!parts.length) return await homeScreen();
     if (name === 'lesson') return await lessonScreen(a, Number(b) || 0);
     if (name === 'words') return await wordsScreen(params);
+    if (name === 'read') return a ? await ruleScreen(a) : await readingScreen();
     if (name === 'review') return reviewScreen();
     if (name === 'mistakes') return mistakesScreen();
     if (name === 'profile') return profileScreen();

@@ -7,12 +7,16 @@ import { mountExercise } from './exercises.js';
 import { say, stop, sfx } from './speech.js';
 import { learn, grade, addMistake, mistakeCorrect, mistakeWrong, isLearned } from './srs.js';
 import { addXP } from './store.js';
+import { word as wordById } from './content.js';
 
+let activeCleanup = null;
 const PRAISE = ['Отлично!', 'Супер!', 'Так держать!', 'Wunderbar!', 'Prima!', 'Верно!', 'Sehr gut!', 'Klasse!'];
 const OOPS = ['Почти!', 'Не совсем', 'Ошибка — не страшно', 'Ещё разок'];
 
+// opts.onAnswer(step, ok, { hinted, skipped }) — после каждого ответа (для проверок освоения и входного теста).
+// opts.allowSkip — кнопка «Не знаю» (входной тест). Подсказки есть везде, кроме экзаменов.
 export function runPlayer(opts) {
-  const { steps: initial, mode = 'lesson', title = '', onExit, onFinish, exam = false } = opts;
+  const { steps: initial, mode = 'lesson', title = '', onExit, onFinish, onAnswer, allowSkip = false, exam = false } = opts;
   const app = document.getElementById('app');
   app.innerHTML = '';
   stop();
@@ -22,7 +26,7 @@ export function runPlayer(opts) {
   let combo = 0, maxCombo = 0, right = 0, graded = 0, xp = 0;
   const examResults = {}; // часть -> [score]
   const requeued = new Set();
-  let ctl = null, canCheck = false, phase = 'answer';
+  let ctl = null, canCheck = false, phase = 'answer', hinted = false;
 
   const bar = h('div', { class: 'progress__bar', style: { width: '0%' } });
   const comboEl = h('div', { class: 'combo' });
@@ -30,7 +34,8 @@ export function runPlayer(opts) {
   const head = h('div', { class: 'lesson__head' }, closeBtn, h('div', { class: 'progress' }, bar), comboEl);
   const body = h('div', { class: 'lesson__body' });
   const mainBtn = h('button', { class: 'btn', type: 'button' }, 'Проверить');
-  const foot = h('div', { class: 'lesson__foot' }, mainBtn);
+  const skipBtn = h('button', { class: 'btn btn--link skip-btn', type: 'button' }, 'Не знаю');
+  const foot = h('div', { class: 'lesson__foot' }, mainBtn, allowSkip ? skipBtn : null);
   const root = h('div', { class: 'lesson' }, head, body, foot);
 
   const fbTitle = h('div', { class: 'feedback__title' });
@@ -38,8 +43,9 @@ export function runPlayer(opts) {
   const fbMascot = h('div', { html: mascotSVG('idle') });
   const fbBtn = h('button', { class: 'btn btn--ok', type: 'button' }, 'Дальше');
   const fbSay = h('span');
+  const fbWhy = h('div', { class: 'why' });
   const feedback = h('div', { class: 'feedback', role: 'status' },
-    h('div', { class: 'feedback__inner' }, h('div', { class: 'feedback__head' }, fbMascot, fbTitle, h('span', { class: 'spacer' }), fbSay), fbText, fbBtn));
+    h('div', { class: 'feedback__inner' }, h('div', { class: 'feedback__head' }, fbMascot, fbTitle, h('span', { class: 'spacer' }), fbSay), fbText, fbWhy, fbBtn));
   app.append(root, feedback);
 
   closeBtn.addEventListener('click', () => {
@@ -55,12 +61,15 @@ export function runPlayer(opts) {
     }
     else if (/^[1-9]$/.test(e.key) && phase === 'answer' && ctl?.choose) ctl.choose(Number(e.key) - 1);
   };
+  // Новый проигрыватель (например, «Повторить сейчас») снимает обработчики прежнего.
+  activeCleanup?.();
   document.addEventListener('keydown', onKey);
-  function cleanup() { document.removeEventListener('keydown', onKey); }
+  function cleanup() { document.removeEventListener('keydown', onKey); if (activeCleanup === cleanup) activeCleanup = null; }
+  activeCleanup = cleanup;
   window.addEventListener('hashchange', cleanup, { once: true });
 
   function setProgress() {
-    const total = steps.filter(s => s.kind !== 'outro').length;
+    const total = steps.filter(s => s.kind !== 'outro' && s.kind !== 'gate').length;
     bar.style.width = `${Math.min(100, (done / Math.max(1, total)) * 100)}%`;
   }
 
@@ -86,7 +95,19 @@ export function runPlayer(opts) {
     window.scrollTo(0, 0);
     const s = steps[idx];
     if (!s) return;
+    // «Шлагбаум» входного теста: если часть не сдана, остальные вопросы пропускаются.
+    if (s.kind === 'gate') {
+      if (!s.pass(examResults)) {
+        const outroAt = steps.findIndex(x => x.kind === 'outro');
+        if (outroAt > idx) steps.splice(idx + 1, outroAt - idx - 1);
+      }
+      idx++;
+      setProgress();
+      show();
+      return;
+    }
     foot.style.display = '';
+    skipBtn.style.display = s.kind === 'ex' ? '' : 'none';
     ({ intro: showIntro, section: showSection, scene: showScene, word: showWord, ex: showEx, outro: showOutro })[s.kind](s);
   }
 
@@ -184,14 +205,30 @@ export function runPlayer(opts) {
       complete: res => finishEx(s, res),
       autoCheck: () => { if (phase === 'answer' && canCheck) mainBtn.click(); }
     };
+    hinted = false;
     ctl = mountExercise(ex.boss ? ex : { ...ex, boss: s.tag === 'boss' }, host, api);
     if (ctl.selfComplete) { foot.style.display = 'none'; return; }
-    if (ctl.info) { setMain('Понятно'); mainBtn.onclick = () => next(); return; }
+    if (ctl.info) { setMain('Понятно'); mainBtn.onclick = () => next(); skipBtn.style.display = 'none'; return; }
+    // Подсказка, как в Khan Academy: помогает, но ответ с ней засчитывается только наполовину и без опыта.
+    if (ctl.hint && !exam) {
+      const hintBtn = h('button', { class: 'hint-btn', type: 'button', html: `${icon('bulb')}<span>Подсказка</span>` });
+      hintBtn.addEventListener('click', () => {
+        if (phase !== 'answer' || hinted) return;
+        const r = ctl.hint();
+        if (r === false) { hintBtn.disabled = true; hintBtn.lastChild.textContent = 'Подсказки нет'; return; }
+        hinted = true;
+        hintBtn.disabled = true;
+        hintBtn.lastChild.textContent = 'Подсказка взята';
+        if (typeof r === 'string') host.append(h('div', { class: 'hint-note', html: r }));
+      });
+      host.append(h('div', { class: 'hint-row' }, hintBtn));
+    }
     setMain(exam ? 'Ответить' : 'Проверить', { enabled: canCheck });
     mainBtn.onclick = () => {
       if (!canCheck) return;
       finishEx(s, ctl.check());
     };
+    skipBtn.onclick = () => { if (phase === 'answer') finishEx(s, { ok: false, skipped: true }); };
   }
 
   function finishEx(s, res) {
@@ -209,9 +246,10 @@ export function runPlayer(opts) {
     if (s.mistakeKey) {
       if (ok) { if (mistakeCorrect(s.mistakeKey.kind, s.mistakeKey.ref)) toast('Ошибка исправлена навсегда — убрана из тетради!'); }
       else mistakeWrong(s.mistakeKey.kind, s.mistakeKey.ref);
-    } else if (!ok && !ex.auto && ex.type !== 'pairs' && ex.type !== 'speakCard') {
+    } else if (!ok && !ex.auto && ex.type !== 'pairs' && ex.type !== 'speakCard' && mode !== 'placement') {
       addMistake('ex', s.key || `${opts.lessonId || mode}:${idx}`, ex);
     }
+    onAnswer?.(s, ok && !hinted, { hinted, skipped: !!res.skipped });
 
     if (exam) {
       (examResults[s.part] = examResults[s.part] || []).push(score);
@@ -221,7 +259,11 @@ export function runPlayer(opts) {
     }
 
     graded++;
-    if (ok) {
+    if (ok && hinted) {
+      // С подсказкой: половина балла точности, без опыта и без комбо.
+      right += 0.5;
+      sfx('ok');
+    } else if (ok) {
       right++;
       combo++;
       maxCombo = Math.max(maxCombo, combo);
@@ -249,8 +291,10 @@ export function runPlayer(opts) {
     const parts = [];
     if (!ok && res.correct) parts.push(`Правильно: <b>${esc(res.correct)}</b>`);
     if (res.note) parts.push(esc(res.note));
-    if (ok && combo >= 3) parts.push(`Комбо ×${combo}: +1 опыт за ответ`);
+    if (ok && hinted) parts.push('С подсказкой: засчитано наполовину, без опыта.');
+    else if (ok && combo >= 3) parts.push(`Комбо ×${combo}: +1 опыт за ответ`);
     fbText.innerHTML = parts.join('<br>') || (ok ? 'Так держать!' : '');
+    renderWhy(s, res, ok);
     fbSay.innerHTML = '';
     if (res.sayAfter || (ok ? null : res.correct)) {
       const t = res.sayAfter || res.correct;
@@ -266,13 +310,50 @@ export function runPlayer(opts) {
     setTimeout(() => fbBtn.focus({ preventScroll: true }), 50);
   }
 
+  // «Почему так»: объяснение ошибки — разбор из задания, значения слов и правило урока.
+  function renderWhy(s, res, ok) {
+    fbWhy.innerHTML = '';
+    if (ok) return;
+    const ex = s.ex;
+    const box = [];
+    if (res.why) box.push(h('div', { class: 'why__main', html: res.why }));
+    if (ex.explain && ex.explain !== res.note) box.push(h('div', { class: 'why__main', text: ex.explain }));
+    const ws = (ex.words || []).map(wordById).filter(Boolean).slice(0, 2);
+    ws.forEach(w => box.push(h('div', { class: 'why__word' },
+      h('div', { class: 'why__pic', html: art(w.img) }),
+      h('div', { class: 'why__wt' }, h('div', { class: 'de', html: deWord(w) }), h('div', { class: 'small muted', text: w.note ? `${w.ru} · ${w.note}` : w.ru })))));
+    if (s.rule) {
+      box.push(h('button', { class: 'why__rule-btn', type: 'button', html: `${icon('grammar')}<span>Правило: ${esc(s.rule.title)}</span>`, onclick: () => openRule(s.rule) }));
+    }
+    if (!box.length) return;
+    fbWhy.append(h('div', { class: 'why__title', text: 'Почему так' }), ...box);
+  }
+
+  // Правило урока поверх задания — без выхода из урока.
+  function openRule(info) {
+    const host = h('div', { class: 'stack' });
+    const sheet = h('div', { class: 'sheet', role: 'dialog', 'aria-label': info.title || 'Правило' },
+      h('div', { class: 'sheet__card' },
+        h('div', { class: 'sheet__bar' }, h('button', { class: 'icon-btn sheet__close', type: 'button', 'aria-label': 'Закрыть', html: icon('close') })),
+        host));
+    mountExercise({ ...info, kicker: 'Правило урока' }, host, { ready() {}, complete() {} });
+    sheet.addEventListener('click', e => { if (e.target === sheet || e.target.closest('.sheet__close')) sheet.remove(); });
+    document.body.append(sheet);
+  }
+
   // ---------- Итог ----------
   function showOutro(s) {
+    document.querySelector('.sheet')?.remove();
     feedback.classList.remove('is-open');
     bar.style.width = '100%';
     let summary;
-    if (exam) {
+    if (s.render) {
+      // Свой итоговый экран (входной тест): получает ответы по частям.
+      summary = s.render(body, { examResults });
+      onFinish?.(summary);
+    } else if (exam) {
       summary = buildExamResult(s);
+      onFinish?.(summary);
     } else {
       const acc = graded ? Math.round((right / graded) * 100) : 100;
       const bonus = s.bonusXP || 0;
@@ -280,24 +361,26 @@ export function runPlayer(opts) {
       addXP(total);
       sfx('done');
       summary = { xp: total, acc, maxCombo };
+      // Результат сохраняется сразу, даже если ученик закроет приложение на этом экране.
+      const fin = onFinish?.(summary);
+      const title = typeof s.title === 'function' ? s.title(summary) : s.title;
       body.append(h('div', { class: 'stack stack--lg result', style: { margin: 'auto 0' } },
         h('div', { html: mascotSVG('happy') }),
-        h('h1', { style: { fontSize: '28px' }, text: s.title || 'Готово!' }),
+        h('h1', { style: { fontSize: '28px' }, text: title || 'Готово!' }),
         s.sub ? h('div', { class: 'task-sub', text: s.sub }) : null,
         h('div', { class: 'stats' },
           h('div', { class: 'stat stat--xp' }, h('div', { class: 'stat__k', text: 'Опыт' }), h('div', { class: 'stat__v', text: `+${total}` })),
           h('div', { class: 'stat stat--acc' }, h('div', { class: 'stat__k', text: 'Точность' }), h('div', { class: 'stat__v', text: `${acc}%` })),
           h('div', { class: 'stat stat--combo' }, h('div', { class: 'stat__k', text: 'Комбо' }), h('div', { class: 'stat__v', text: `×${maxCombo}` }))),
+        s.extra ? s.extra(summary, fin) : null,
         s.teaser ? h('div', { class: 'teaser', html: `<b>Что дальше?</b> ${esc(s.teaser)}` }) : null));
       setTimeout(() => setMood(body, 'happy', 'idle', 2000), 50);
     }
-    // Результат сохраняется сразу, даже если ученик закроет приложение на этом экране.
-    onFinish?.(summary);
     foot.style.visibility = '';
     if (s.nextLabel && s.onNext) {
       foot.innerHTML = '';
       const nextB = h('button', { class: 'btn btn--ok', type: 'button' }, s.nextLabel);
-      const homeB = h('button', { class: 'btn btn--ghost', type: 'button' }, 'На карту');
+      const homeB = h('button', { class: 'btn btn--ghost', type: 'button' }, s.homeLabel || 'На карту');
       foot.append(h('div', { class: 'stack' }, nextB, homeB));
       nextB.onclick = () => { cleanup(); s.onNext(); };
       homeB.onclick = () => { cleanup(); onExit?.(); };
@@ -363,7 +446,9 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
     if (i === 1 && interleave[0]) mixed.push({ ex: interleave[0], key: `${lesson.id}:i0`, tag: 'review' });
     if (i === 3 && interleave[1]) mixed.push({ ex: interleave[1], key: `${lesson.id}:i1`, tag: 'review' });
   });
-  mixed.forEach(x => steps.push({ kind: 'ex', ex: x.ex, key: x.key, tag: x.tag }));
+  // Правило урока (первое объяснение грамматики) можно открыть из объяснения ошибки.
+  const ruleInfo = (lesson.exercises || []).find(e => e.type === 'info') || null;
+  mixed.forEach(x => steps.push({ kind: 'ex', ex: x.ex, key: x.key, tag: x.tag, rule: x.ex.type === 'info' || x.tag === 'review' ? null : ruleInfo }));
 
   if (lesson.boss && lesson.boss.turns?.length) {
     steps.push({ kind: 'section', boss: true, mood: 'wave', badge: 'Мини-босс', title: lesson.boss.title || 'Мини-босс', text: esc(lesson.boss.intro || ''), button: 'В бой!' });

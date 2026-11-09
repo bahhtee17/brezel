@@ -47,5 +47,11 @@ export async function collectPhrases(root) {
       (topic.test?.parts || []).forEach(p => p.items.forEach(collectExercise));
     }
   }
+
+  // Раздел «Чтение»: каждое слово-пример звучит отдельно (голос диктора слов).
+  try {
+    const reading = await read('content/reading.json');
+    for (const c of reading.chapters) for (const r of c.rules) for (const w of r.words) add(w.de);
+  } catch { /* раздела чтения нет */ }
   return items;
 }

@@ -7,11 +7,12 @@ import { get, currentStreak, isLessonDone, completeLesson, isStoryDone, complete
 import { dueIds, learnedIds, strength, mistakes, mistakeCount, nextDueDay, MISTAKE_DAYS, MAX_BOX } from './srs.js';
 import { runPlayer, lessonSteps } from './player.js';
 import { say, sayLines, norm } from './speech.js';
+import { practiceNote, recordPractice, levelOf, levelBadge, LEVELS, LEVEL_HINT, dueChecks, levelCounts } from './mastery.js';
 
 const go = hash => { location.hash = hash; };
 
 // ---------- Общая обвязка ----------
-function topbar(titleText) {
+export function topbar(titleText) {
   const st = get();
   return h('div', { class: 'topbar' },
     h('div', { class: 'topbar__title', text: titleText }),
@@ -25,6 +26,7 @@ export function nav(active) {
   const items = [
     ['#/', 'path', 'Курс', 'home'],
     ['#/words', 'words', 'Слова', 'words'],
+    ['#/read', 'read', 'Чтение', 'read'],
     ['#/review', 'review', 'Повторить', 'review', due],
     ['#/mistakes', 'mistakes', 'Ошибки', 'mistakes', mist],
     ['#/profile', 'profile', 'Профиль', 'profile']
@@ -33,7 +35,7 @@ export function nav(active) {
     items.map(([href, ic, label, key, badge]) => h('a', { href, class: active === key ? 'is-active' : '', 'aria-current': active === key ? 'page' : null, html: `${icon(ic)}<span>${label}</span>${badge ? `<span class="badge">${badge > 99 ? '99+' : badge}</span>` : ''}` }))));
 }
 
-function mount(screenEl, active) {
+export function mount(screenEl, active) {
   const app = document.getElementById('app');
   app.innerHTML = '';
   app.append(screenEl, nav(active));
@@ -51,12 +53,28 @@ export async function homeScreen() {
       h('div', { style: { flex: 1 } }, h('div', { class: 'de', text: `Пора повторить: ${due}` }), h('div', { class: 'small muted', text: 'Слова, которые память начинает терять' })),
       h('button', { class: 'btn btn--sky btn--small', type: 'button', onclick: () => go('#/review') }, 'Повторить')));
   }
+  const checks = dueChecks().length;
+  if (checks) {
+    scr.append(h('div', { class: 'card', style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' } },
+      h('div', { class: 'rd-badge rd-badge--ok', html: icon('check') }),
+      h('div', { style: { flex: 1 } }, h('div', { class: 'de', text: `Проверка освоения: ${checks}` }), h('div', { class: 'small muted', text: 'Короткая проверка пройденного поднимет уровень' })),
+      h('button', { class: 'btn btn--ok btn--small', type: 'button', onclick: () => go('#/check') }, 'Начать')));
+  }
+  if (!Object.keys(get().reading || {}).length) {
+    scr.append(h('div', { class: 'card', style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' } },
+      h('div', { class: 'rd-badge', text: 'Aa' }),
+      h('div', { style: { flex: 1 } }, h('div', { class: 'de', text: 'Как читать по-немецки' }), h('div', { class: 'small muted', text: '24 коротких правила с картинками и озвучкой' })),
+      h('button', { class: 'btn btn--ghost btn--small', type: 'button', onclick: () => go('#/read') }, 'Открыть')));
+  }
   let lastLevel = null;
   let mascotPlaced = false;
   for (const t of topics) {
     if (t.level !== lastLevel) {
       lastLevel = t.level;
       scr.append(h('div', { class: 'level-title', text: t.level === 'a1' ? 'A1 · Start Deutsch 1' : 'A2 · Goethe-Zertifikat A2' }));
+      if (lastLevel === 'a1' && Object.values(get().lessons).some(l => l.done)) {
+        scr.append(h('div', { class: 'lvl-legend' }, [1, 2, 3, 4].map(k => h('span', { html: `${levelBadge(k)}${LEVELS[k]}` }))));
+      }
     }
     if (!t.ready) {
       scr.append(h('div', { class: 'unit unit--locked' },
@@ -79,9 +97,11 @@ export async function homeScreen() {
     const offsets = [0, 52, 84, 52, 0, -52, -84, -52];
     nodes.forEach((n, i) => {
       const state = n.done ? 'done' : i === currentIdx ? 'current' : i < currentIdx ? 'done' : 'locked';
-      const cls = ['node', n.type === 'story' && 'node--story', n.type === 'test' && 'node--test', state === 'done' && n.type === 'lesson' && 'node--done', state === 'current' && 'node--current', state === 'locked' && 'node--locked'].filter(Boolean).join(' ');
-      const ic = state === 'locked' ? 'lock' : state === 'done' && n.type === 'lesson' ? 'check' : n.icon;
-      const btn = h('button', { class: cls, type: 'button', 'aria-label': `${n.label}${state === 'locked' ? ' (закрыто)' : ''}`, html: icon(ic) });
+      // Пройденный урок окрашен по уровню освоения: Пробовал / Знаком / Уверенно / Освоено.
+      const lv = n.type === 'lesson' && state === 'done' ? Math.max(1, levelOf(`lesson:${n.id}`)) : 0;
+      const cls = ['node', n.type === 'story' && 'node--story', n.type === 'test' && 'node--test', lv && `node--done node--lv${lv}`, state === 'current' && 'node--current', state === 'locked' && 'node--locked'].filter(Boolean).join(' ');
+      const ic = state === 'locked' ? 'lock' : lv ? (lv === 1 ? 'review' : lv === 4 ? 'boss' : 'check') : n.icon;
+      const btn = h('button', { class: cls, type: 'button', 'aria-label': `${n.label}${state === 'locked' ? ' (закрыто)' : lv ? ` (${LEVELS[lv]})` : ''}`, html: icon(ic) });
       btn.addEventListener('click', () => {
         if (state === 'locked') { toast('Сначала пройдите предыдущие уроки'); return; }
         go(n.href);
@@ -131,10 +151,14 @@ export async function lessonScreen(topicId, index) {
   const steps = lessonSteps(lesson, topic, { warmup, interleave, genNew, nextLesson });
   const outro = steps[steps.length - 1];
   if (nextIdx >= topic.lessons.length) outro.nextLabel = 'К истории темы';
+  outro.extra = (sum, fin) => practiceNote(fin, sum.acc, () => lessonScreen(topicId, index));
   runPlayer({
     steps, mode: 'lesson', lessonId: lesson.id,
     onExit: () => go('#/'),
-    onFinish: sum => completeLesson(lesson.id, { xp: sum?.xp || 0, acc: sum?.acc || 0 })
+    onFinish: sum => {
+      completeLesson(lesson.id, { xp: sum?.xp || 0, acc: sum?.acc || 0 });
+      return recordPractice(`lesson:${lesson.id}`, sum?.acc || 0);
+    }
   });
 }
 
@@ -198,6 +222,13 @@ export function reviewScreen() {
       ...practiceSet(ids, 12).map((ex, i) => ({ kind: 'ex', ex, key: `r${i}`, tag: 'review' })), { kind: 'outro', title: 'Повторение готово!', bonusXP: 5 }],
     mode: 'review', onExit: () => go('#/review')
   });
+  const checks = dueChecks().length;
+  if (checks) {
+    scr.append(h('div', { class: 'card', style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' } },
+      h('div', { class: 'rd-badge rd-badge--ok', html: icon('check') }),
+      h('div', { style: { flex: 1 } }, h('div', { class: 'de', text: `Проверка освоения: ${checks}` }), h('div', { class: 'small muted', text: 'Уроки и правила чтения, которые пора проверить' })),
+      h('button', { class: 'btn btn--ok btn--small', type: 'button', onclick: () => go('#/check') }, 'Начать')));
+  }
   if (due.length) {
     scr.append(h('div', { class: 'card stack center' },
       h('div', { style: { width: '120px', margin: '0 auto' }, html: mascotSVG('wave') }),
@@ -226,7 +257,7 @@ export function reviewScreen() {
 
 // ---------- Тетрадь ошибок ----------
 function describeEx(ex) {
-  const t = { tiles: 'Собрать фразу', gap: 'Пропуск', reply: 'Диалог', write: 'Перевод', dictation: 'Диктант', speak: 'Говорение', listen: 'Аудирование', pick: 'Выбор', form: 'Анкета', tf: 'Верно/неверно', listenDialog: 'Аудирование' }[ex.type] || 'Задание';
+  const t = { tiles: 'Собрать фразу', gap: 'Пропуск', reply: 'Диалог', write: 'Перевод', dictation: 'Диктант', speak: 'Говорение', listen: 'Аудирование', pick: 'Выбор', form: 'Анкета', tf: 'Верно/неверно', listenDialog: 'Аудирование', readWord: 'Чтение' }[ex.type] || 'Задание';
   const text = ex.answer && typeof ex.answer === 'string' ? ex.answer : ex.de || ex.line || ex.text || ex.q || ex.ru || '';
   return { t, text: String(text).replace(/<[^>]+>/g, '').replace('___', '…') };
 }
@@ -299,6 +330,19 @@ export function profileScreen() {
     week.append(h('div', {}, days[(dt.getDay() + 6) % 7], h('i', { class: `${st.days[d] ? 'on' : ''} ${k === 0 ? 'today' : ''}`, title: `${st.days[d] || 0} опыта` })));
   }
   scr.append(h('div', { class: 'section-title', text: 'Последние 7 дней' }), h('div', { class: 'card' }, week));
+
+  // Освоение, как в Khan Academy: сколько уроков и правил чтения на каждом уровне.
+  const lc = levelCounts();
+  scr.append(h('div', { class: 'section-title', text: 'Освоение' }), h('div', { class: 'card stack' },
+    [1, 2, 3, 4].map(k => h('div', { class: 'lvl-count' },
+      h('span', { html: levelBadge(k) }),
+      h('div', { style: { flex: 1 } }, h('div', { class: 'de', text: LEVELS[k] }), h('div', { class: 'small muted', text: LEVEL_HINT[k] })),
+      h('b', { text: String(lc[k]) }))),
+    h('div', { class: 'small muted', text: 'Считаются уроки и правила чтения. Уровень растёт после проверок освоения на следующий день и через 3 дня.' })));
+  const ob = st.onboarding;
+  scr.append(h('div', { class: 'section-title', text: 'Входной тест' }), h('div', { class: 'card stack' },
+    h('div', { class: 'small muted', text: ob?.mode === 'test' ? `Пройден ${new Date(ob.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })}: знакомых уроков — ${ob.lessons}, чтение — ${ob.readScore} из 6. Повторный тест только добавит знакомое, ничего не сотрёт.` : 'Короткий тест найдёт ваш уровень и отметит знакомые уроки, чтобы не проходить их заново.' }),
+    h('button', { class: 'btn btn--ghost', type: 'button', onclick: () => go('#/placement') }, ob?.mode === 'test' ? 'Пройти ещё раз' : 'Пройти входной тест')));
   const sw = (key, label) => {
     const inp = h('input', { type: 'checkbox', 'aria-label': label });
     inp.checked = !!setting(key);
@@ -309,7 +353,7 @@ export function profileScreen() {
     sw('sfx', 'Звуки ответов'), sw('speak', 'Задания на говорение'), sw('slow', 'Медленная озвучка всегда')));
   scr.append(h('div', { class: 'section-title', text: 'Об озвучке' }), h('div', { class: 'card small muted', html: 'Слова и диалоги озвучены живыми голосами: ElevenLabs и <b>OmniVoice</b> (k2-fsa, лицензия CC BY-NC, через VoiceStudio). Если для фразы нет записи, её читает голос браузера — лучше всего звучат Chrome и Edge.' }));
   const resetBtn = h('button', { class: 'btn btn--link', type: 'button', style: { margin: '18px auto 0', color: 'var(--bad-dark)' } }, 'Сбросить весь прогресс');
-  resetBtn.addEventListener('click', () => { if (confirm('Удалить весь прогресс? Это нельзя отменить.')) { reset(); toast('Прогресс сброшен'); go('#/'); } });
+  resetBtn.addEventListener('click', () => { if (confirm('Удалить весь прогресс и начать всё сначала? Это нельзя отменить.')) { reset(); toast('Прогресс сброшен'); go('#/welcome'); } });
   scr.append(resetBtn);
   mount(scr, 'profile');
 }

@@ -34,6 +34,8 @@ python scripts/serve.py
 | `art/`, `anim/` | Промпты для Codex и проект Remotion для анимаций |
 | `content/course.json` | Список тем A1–A2 |
 | `content/a1/01-hallo.json` | Блок 1: слова, 12 уроков, история, тест блока |
+| `content/reading.json`, `js/reading.js`, `js/readkit.js` | Раздел «Чтение»: 24 правила чтения, слова-примеры с разбором по буквам и тренировки |
+| `js/mastery.js`, `js/placement.js` | Уровни освоения и проверки освоения; первый экран и входной тест (описание — в `COURSE_PLAN.md`) |
 | `audio/` | Живая озвучка (ElevenLabs и OmniVoice) и `TODO.md` — список фраз, которым ещё нужна запись |
 | `scripts/` | Сервер разработки, генерация иконок и озвучки |
 | `sw.js`, `manifest.webmanifest` | Работа без интернета и установка на телефон |

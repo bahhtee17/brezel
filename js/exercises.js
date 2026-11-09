@@ -6,12 +6,26 @@ import { art, avatar, charName } from './art.js';
 import { say, canListen, listen, diffWords, matchText, norm, sayLines } from './speech.js';
 import { setting, setSetting } from './store.js';
 import { mascotSVG } from './mascot.js';
+import { readPicHtml, readWordHtml, readSegsHtml } from './readkit.js';
 
 const kicker = (text, cls = '') => h('div', { class: `task-kicker ${cls}` }, text);
 const title = (text) => h('div', { class: 'task-title', html: text });
 
-function umlautBar(input) {
-  return h('div', { class: 'umlauts' }, ['ä', 'ö', 'ü', 'ß', 'Ä', 'Ö', 'Ü'].map(ch => h('button', {
+// Подсказка «убрать лишнее»: прячет неверные варианты, оставляя верный и ещё один.
+// Возвращает номера убранных вариантов (пустой массив — убирать нечего).
+function eliminate(btns, answer) {
+  const wrong = shuffle(btns.map((_, i) => i).filter(i => i !== answer && !btns[i].classList.contains('is-out')));
+  const removed = wrong.slice(0, Math.max(0, wrong.length - 1));
+  removed.forEach(i => { btns[i].classList.add('is-out'); btns[i].classList.remove('is-selected'); btns[i].setAttribute('disabled', ''); });
+  return removed;
+}
+
+// Кнопки немецких букв, которых может не быть на клавиатуре телефона. Показываются только те,
+// что есть в ответе (регистр проверка не учитывает); если их нет — кнопок нет, всё печатается на клавиатуре.
+function umlautBar(input, accepts) {
+  const need = ['ä', 'ö', 'ü', 'ß'].filter(ch => accepts.some(a => a.toLowerCase().includes(ch)));
+  if (!need.length) return null;
+  return h('div', { class: 'umlauts' }, h('span', { class: 'umlauts__label', text: 'Немецкие буквы:' }), need.map(ch => h('button', {
     type: 'button',
     onclick: () => {
       const s = input.selectionStart ?? input.value.length, e = input.selectionEnd ?? input.value.length;
@@ -72,6 +86,11 @@ function mountPick(ex, host, api) {
   host.append(box);
   return {
     choose: i => btns[i]?.click(),
+    hint() {
+      const removed = eliminate(btns, ex.answer);
+      if (removed.includes(sel)) { sel = null; api.ready(false); }
+      return removed.length ? 'Лишние варианты убраны.' : false;
+    },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
       const ok = sel === ex.answer;
@@ -128,6 +147,17 @@ function mountTiles(ex, host, api) {
   bank.append(...bankBtns);
   host.append(line, bank);
   return {
+    // Подсказка: ставит на место следующее слово (если начало собрано неверно — собирает заново).
+    hint() {
+      let k = 0;
+      while (k < chosen.length && k < toks.length && chosen[k].w === toks[k]) k++;
+      while (chosen.length > k) chosen[chosen.length - 1].tile.click();
+      if (k >= toks.length) return false;
+      const b = bankBtns.find(x => !x.classList.contains('is-used') && x.textContent === toks[k]);
+      if (!b) return false;
+      b.click();
+      return `Первые слова: <b>${esc(toks.slice(0, k + 1).join(' '))}</b> …`;
+    },
     check() {
       const built = chosen.map(c => c.w).join(' ');
       const accepts = [answer, ...((toRu ? ex.ruAlts : ex.alts) || [])];
@@ -167,6 +197,11 @@ function mountGap(ex, host, api) {
   const full = ex.text.replace('___', ex.options[ex.answer]);
   return {
     choose: i => btns[i]?.click(),
+    hint() {
+      const removed = eliminate(btns, ex.answer);
+      if (removed.includes(sel)) { sel = null; slot.textContent = '…'; slot.style.color = 'var(--ink-3)'; slot.style.borderStyle = 'dashed'; api.ready(false); }
+      return removed.length ? 'Лишние варианты убраны.' : false;
+    },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
       const ok = sel === ex.answer;
@@ -207,12 +242,42 @@ function mountPickOptions(ex, host, api) {
   host.append(box);
   return {
     choose: i => btns[i]?.click(),
+    hint() {
+      const removed = eliminate(btns, ex.answer);
+      if (removed.includes(sel)) { sel = null; api.ready(false); }
+      return removed.length ? 'Лишние варианты убраны.' : false;
+    },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
       const ok = sel === ex.answer;
       btns[ex.answer].classList.add('is-right');
       if (!ok && sel != null) btns[sel].classList.add('is-wrong');
       return { ok, correct: ex.options[ex.answer], note: ex.explain || ex.answerRu, sayAfter: ex.options[ex.answer] };
+    }
+  };
+}
+
+// ---------- Чтение: как читается слово ----------
+// options — транскрипции русскими буквами; после ответа звучит само слово.
+function mountReadWord(ex, host, api) {
+  host.append(kicker(ex.kicker || (ex.stress ? 'Где ударение?' : 'Как читается это слово?')));
+  host.append(h('div', { class: 'rd-q' },
+    h('div', { class: 'rd-q__pic', html: readPicHtml(ex) }),
+    h('div', { class: `rd-q__word ${ex.de.length > 11 ? 'is-s' : ''}`, html: readWordHtml(ex) }),
+    ex.ru ? h('div', { class: 'rd-q__ru', text: ex.ru }) : null));
+  const ctl = mountPickOptions({ options: ex.options.map(o => `[${o}]`), answer: ex.answer }, host, api);
+  // Объяснение ошибки: разбор слова по буквам и само правило.
+  const rule = ex.rule ? `<div class="why__rule">Правило: <b>${esc(ex.rule.title)}</b></div>` : '';
+  const why = `${readSegsHtml(ex)}${rule}`;
+  return {
+    choose: ctl.choose,
+    hint() {
+      const r = ctl.hint();
+      return r && ex.rule ? `Правило: <b>${esc(ex.rule.big)} → [${esc(ex.rule.snd)}]</b>` : r;
+    },
+    check() {
+      const r = ctl.check();
+      return { ok: r.ok, correct: `[${ex.options[ex.answer]}]`, note: `${ex.de} — ${ex.ru}`, sayAfter: ex.de, why };
     }
   };
 }
@@ -227,17 +292,30 @@ function mountWrite(ex, host, api, dictation = false) {
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble task-title', text: ex.ru })));
   }
   if (ex.hint) host.append(h('div', { class: 'small muted', text: ex.hint }));
-  const input = h('input', { class: 'field', type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'de', placeholder: 'Ваш ответ по-немецки' });
-  input.addEventListener('input', () => api.ready(input.value.trim().length > 0));
-  host.append(input, umlautBar(input));
-  setTimeout(() => input.focus({ preventScroll: true }), 400);
   const accepts = ex.accept || [ex.de];
+  const input = h('input', { class: 'field', type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'de', placeholder: 'Нажмите и напишите ответ' });
+  input.addEventListener('input', () => api.ready(input.value.trim().length > 0));
+  host.append(input);
+  const bar = umlautBar(input, accepts);
+  if (bar) host.append(bar);
+  setTimeout(() => input.focus({ preventScroll: true }), 400);
   return {
+    // Подсказка: первые буквы каждого слова, остальные — чёрточки.
+    hint() {
+      const mask = accepts[0].split(/(\s+)/).map(t => (/^\s+$/.test(t) ? t : t.replace(/^([^\wäöüß]*)([\wäöüß])([\wäöüß']*)/i, (m, a, b, c) => a + b + c.replace(/./g, '·')))).join('');
+      return `Начало слов: <b class="hint-mask">${esc(mask)}</b>`;
+    },
     check() {
       const r = matchText(input.value, accepts);
       input.classList.add(r.ok ? 'is-right' : 'is-wrong');
       input.setAttribute('disabled', '');
-      return { ok: r.ok, correct: accepts[0], note: r.typo ? `Почти! Опечатка — правильно: ${accepts[0]}` : (dictation ? ex.ru : ''), sayAfter: accepts[0] };
+      // Объяснение: в правильном ответе подсвечены слова, которые написаны неверно или пропущены.
+      let why = '';
+      if (!r.ok && input.value.trim()) {
+        const d = diffWords(accepts[0], input.value);
+        why = `<div class="why__diff">${d.words.map(x => `<span class="${x.ok ? '' : 'is-bad'}">${esc(x.w)}</span>`).join(' ')}</div><div class="small muted">Подчёркнуты слова, где ошибка или пропуск. Вы написали: «${esc(input.value.trim())}»</div>`;
+      }
+      return { ok: r.ok, correct: accepts[0], note: r.typo ? `Почти! Опечатка — правильно: ${accepts[0]}` : (dictation ? ex.ru : ''), sayAfter: accepts[0], why };
     }
   };
 }
@@ -461,6 +539,11 @@ function mountPickInto(opts, answer, host, api) {
   host.append(box);
   return {
     choose: i => btns[i]?.click(),
+    hint() {
+      const removed = eliminate(btns, answer);
+      if (removed.includes(sel)) { sel = null; api.ready(false); }
+      return removed.length ? 'Лишние варианты убраны.' : false;
+    },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
       const ok = sel === answer;
@@ -523,11 +606,11 @@ const TYPES = {
   pick: mountPick, choose: mountPick, listen: mountListen, tiles: mountTiles, gap: mountGap, reply: mountReply,
   write: (e, h2, a) => mountWrite(e, h2, a, false), dictation: (e, h2, a) => mountWrite(e, h2, a, true),
   speak: mountSpeak, pairs: mountPairs, info: mountInfo, form: mountForm, tf: mountTF,
-  listenDialog: mountListenDialog, speakCard: mountSpeakCard
+  listenDialog: mountListenDialog, speakCard: mountSpeakCard, readWord: mountReadWord
 };
 
 // Варианты ответа перемешиваются при каждом показе, чтобы правильный не стоял всегда первым.
-const SHUFFLE = new Set(['pick', 'choose', 'listen', 'gap', 'reply', 'listenDialog']);
+const SHUFFLE = new Set(['pick', 'choose', 'listen', 'gap', 'reply', 'listenDialog', 'readWord']);
 function shuffleOptions(ex) {
   if (!SHUFFLE.has(ex.type) || ex.noShuffle || !Array.isArray(ex.options) || typeof ex.answer !== 'number') return ex;
   const order = shuffle(ex.options.map((_, i) => i));

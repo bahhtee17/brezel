@@ -9,6 +9,9 @@ const fresh = () => ({
   lessons: {},       // id -> { done, xp, acc, date }
   stories: {},       // id -> { done, date }
   tests: {},         // id -> { best, last, date }
+  reading: {},       // id правила чтения -> { done, acc, date }
+  mastery: {},       // 'lesson:<id>' | 'read:<id>' -> { level 1–4, acc, date, check }  (см. mastery.js)
+  onboarding: null,  // { mode: 'beginner' | 'test', date, … } — выбор на первом экране
   srs: {},           // wordId -> { box, due, right, wrong, last }
   mistakes: {},      // key -> { kind, ref, payload, hits: [day], added }
   settings: { sfx: true, speak: true, slow: false, noSpeakUntil: 0 },
@@ -93,6 +96,13 @@ export const isLessonDone = id => !!state.lessons[id]?.done;
 
 export function completeStory(id) { state.stories[id] = { done: true, date: today() }; save(); }
 export const isStoryDone = id => !!state.stories[id]?.done;
+
+export function completeReading(id, acc = 0) {
+  const prev = state.reading[id];
+  state.reading[id] = { done: true, acc: Math.max(acc, prev?.acc || 0), date: today() };
+  save();
+}
+export const isReadingDone = id => !!state.reading[id]?.done;
 
 export function saveTest(id, score) {
   const prev = state.tests[id];

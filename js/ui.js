@@ -38,6 +38,10 @@ export const ICONS = {
   fire: `<svg viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-6 0 2 1 3 2 3 0-3-1-6 1-9z" fill="currentColor"/><path d="M12 13c1 1.5 3 2.5 3 5a3 3 0 0 1-6 0c0-1.5 1-2.5 1.5-3 .2 1 .8 1.5 1.5 1.5 0-1.5-.5-2.5 0-3.5z" fill="#FFD27A"/></svg>`,
   star: `<svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6L2.5 9.3l6.6-.8z" fill="#F2B544" stroke="#C98A1C" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
   path: `<svg viewBox="0 0 24 24"><path d="M5 20c0-3 3-4 7-4s7-1 7-4-3-4-7-4-5-1-5-3" ${P}/><circle cx="7" cy="5" r="2.2" fill="currentColor"/><circle cx="19" cy="12" r="2.2" fill="currentColor"/><circle cx="5" cy="20" r="2.2" fill="currentColor"/></svg>`,
+  bulb: `<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" ${P}/></svg>`,
+  target: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" ${P}/><circle cx="12" cy="12" r="4.5" ${P}/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>`,
+  sprout: `<svg viewBox="0 0 24 24"><path d="M12 21v-9M12 12c0-4 3-6 7-6 0 4-3 6-7 6zM12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5z" ${P}/></svg>`,
+  read: `<svg viewBox="0 0 24 24"><path d="M2.5 19L7.5 5h1.2l5 14M4.6 14h7" ${P}/><path d="M21.5 11.5V19M21.5 15a3.3 3.3 0 1 1-6.6 0 3.3 3.3 0 0 1 6.6 0z" ${P}/></svg>`,
   words: `<svg viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="15" rx="3" ${P}/><path d="M8 3h10a3 3 0 0 1 3 3v11" ${P}/><path d="M7 10h5M7 14h3" ${P}/></svg>`,
   review: `<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4" ${P}/><path d="M12 8v4l3 2" ${P}/></svg>`,
   mistakes: `<svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z" ${P}/><path d="M9 11l6 6M15 11l-6 6" ${P}/></svg>`,
@@ -73,13 +77,16 @@ export function popover(anchor, html) {
   document.querySelector('.pop')?.remove();
   const p = h('div', { class: 'pop', html });
   document.body.append(p);
+  // z > 1, когда страница увеличена через CSS zoom (режим «Версия для ПК» на Android, см. index.html):
+  // координаты экрана тогда в z раз больше, чем пиксели в стилях.
+  const z = p.currentCSSZoom || 1;
   const r = anchor.getBoundingClientRect();
-  const pw = p.offsetWidth, ph = p.offsetHeight;
-  let left = Math.min(Math.max(8, r.left + r.width / 2 - pw / 2), window.innerWidth - pw - 8);
-  let top = r.top - ph - 8;
-  if (top < 8) top = r.bottom + 8;
-  p.style.left = `${left}px`;
-  p.style.top = `${top}px`;
+  const pw = p.offsetWidth * z, ph = p.offsetHeight * z, gap = 8 * z;
+  const left = Math.min(Math.max(gap, r.left + r.width / 2 - pw / 2), window.innerWidth - pw - gap);
+  let top = r.top - ph - gap;
+  if (top < gap) top = r.bottom + gap;
+  p.style.left = `${left / z}px`;
+  p.style.top = `${top / z}px`;
   const close = e => { if (!p.contains(e.target) && e.target !== anchor) { p.remove(); document.removeEventListener('pointerdown', close, true); } };
   setTimeout(() => document.addEventListener('pointerdown', close, true), 0);
   setTimeout(() => p.remove(), 4000);

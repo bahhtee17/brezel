@@ -3,6 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    // Chrome на Android в режиме «Версия для ПК» не читает строку viewport выше и рисует страницу
+    // шириной 980px, поэтому на телефоне всё становится в 2–2,5 раза мельче. Тогда увеличиваем страницу
+    // обратно до ширины экрана. На iPhone, компьютере и в обычном режиме Android ничего не меняется.
+    (function () {
+      var de = document.documentElement;
+      function fit() {
+        var w = de.clientWidth, h = de.clientHeight;
+        var shortSide = Math.min(screen.width, screen.height), longSide = Math.max(screen.width, screen.height);
+        var z = Math.round(w / (w > h ? longSide : shortSide) * 100) / 100;
+        if (z > 1.15 && matchMedia('(pointer: coarse)').matches) {
+          de.style.zoom = z;
+          de.style.setProperty('--app-h', 'calc(100dvh / ' + z + ')');
+        } else {
+          de.style.removeProperty('zoom');
+          de.style.removeProperty('--app-h');
+        }
+      }
+      fit();
+      addEventListener('resize', fit);
+    })();
+  </script>
   <meta name="theme-color" content="#FFF7E8">
   <meta name="description" content="Немецкий с нуля до A2 по программе Goethe-Zertifikat: уроки по 5 минут, игры, интервальное повторение.">
   <meta name="apple-mobile-web-app-capable" content="yes">
