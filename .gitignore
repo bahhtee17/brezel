@@ -14,3 +14,6 @@ anim/out/
 audio/raw/
 audio/redo.json
 audio/chunks-old.json
+
+anim/video-public/
+video/.cache/

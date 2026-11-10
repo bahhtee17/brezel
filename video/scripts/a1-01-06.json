@@ -1,0 +1,53 @@
+{
+  "id": "a1-01-06",
+  "kicker": "Блок 1 · урок 6",
+  "title": "Wo wohnst du?",
+  "chips": ["wohnen", "wo", "in Berlin"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня говорим о том, кто где живёт."},
+      {"ru": "Вы научитесь спрашивать адрес и называть свой город."}]},
+    {"type": "image", "scene": "taxi", "caption": "Вы — таксист в Берлине", "sub": "В машину садится пассажир.", "subAt": 0, "say": [
+      {"ru": "Сегодня вы таксист в Берлине. В машину садится пассажир, и вы начинаете разговор."}]},
+    {"type": "compare", "title": "wo или woher?", "cards": [
+      {"big": "wo", "img": "qwhere", "text": "где", "at": 0},
+      {"big": "woher", "img": "qfrom", "text": "откуда", "at": 2}], "say": [
+      {"ru": "Не путайте два похожих слова. Вопрос «где» звучит так:"}, {"de": "wo"},
+      {"ru": "А вопрос «откуда» звучит так:"}, {"de": "woher"}]},
+    {"type": "order", "title": "Где ты живёшь?", "rows": [
+      {"tiles": ["Wo", "*wohnst", "du?"], "ru": "Где ты живёшь?", "at": 0},
+      {"tiles": ["Ich", "*wohne", "in Berlin."], "ru": "Я живу в Берлине.", "at": 2}], "say": [
+      {"ru": "Чтобы спросить, где человек живёт, говорят:"}, {"de": "Wo wohnst du?"},
+      {"ru": "А отвечают со словом «ин», то есть «в»:"}, {"de": "Ich wohne in Berlin."}]},
+    {"type": "list", "title": "Слова урока", "rows": [
+      {"de": "Stadt", "ru": "город", "img": "city", "at": 0},
+      {"de": "Berlin", "ru": "Берлин", "img": "berlin", "at": 2},
+      {"de": "Hamburg", "ru": "Гамбург", "img": "hamburg", "at": 4},
+      {"de": "jetzt", "ru": "сейчас", "img": "clock", "at": 6}], "say": [
+      {"ru": "Город по-немецки называется так:"}, {"de": "Stadt"},
+      {"ru": "Столица Германии звучит почти как по-русски:"}, {"de": "Berlin"},
+      {"ru": "А вот большой портовый город на севере:"}, {"de": "Hamburg"},
+      {"ru": "И полезное слово, которое значит «сейчас»:"}, {"de": "jetzt"}]},
+    {"type": "tip", "label": "С пассажиром — вежливо", "lines": [
+      {"text": "du → Wo wohnst du?", "at": 0},
+      {"text": "Sie → Wo wohnen Sie?", "at": 1}], "say": [
+      {"ru": "Пассажир вам незнаком, поэтому спрашиваем вежливо, на «Вы»:"},
+      {"de": "Wo wohnen Sie?"}]},
+    {"type": "dialog", "lines": [
+      {"who": "you", "name": "Вы", "side": "r", "de": "Guten Tag! Woher kommen Sie?", "ru": "Добрый день! Откуда Вы?", "at": 1},
+      {"who": "passenger", "name": "Пассажир", "side": "l", "de": "Ich komme aus Hamburg. Ich wohne in Hamburg.", "ru": "Я из Гамбурга. Я живу в Гамбурге.", "at": 2},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Und jetzt? Wo wohnen Sie in Berlin?", "ru": "А сейчас? Где Вы живёте в Берлине?", "at": 3},
+      {"who": "passenger", "name": "Пассажир", "side": "l", "de": "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!", "ru": "Сейчас я живу в «Брецельхаусе». В «Брецельхаус», пожалуйста!", "at": 4}], "say": [
+      {"ru": "Послушайте разговор в такси."},
+      {"de": "Guten Tag! Woher kommen Sie?"}, {"de": "Ich komme aus Hamburg. Ich wohne in Hamburg."},
+      {"de": "Und jetzt? Wo wohnen Sie in Berlin?"}, {"de": "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!"}]},
+    {"type": "ask", "q": "Пассажир спрашивает, где вы живёте. Скажите, что живёте в Берлине.", "img": "berlin", "de": "Ich wohne in Berlin.", "say": [
+      {"ru": "А теперь вы. Пассажир спрашивает, где вы живёте. Скажите, что живёте в Берлине."},
+      {"pause": 3},
+      {"de": "Ich wohne in Berlin."},
+      {"ru": "Верно! Глагол «жить», а перед городом — слово «ин»."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь закрепим слова в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}

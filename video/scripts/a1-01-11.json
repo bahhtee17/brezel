@@ -1,0 +1,49 @@
+{
+  "id": "a1-01-11",
+  "kicker": "Блок 1 · урок 11",
+  "title": "Bitte, danke, Entschuldigung",
+  "chips": ["bitte", "danke", "Entschuldigung!"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня волшебные слова."},
+      {"ru": "Учимся извиняться, благодарить и переспрашивать."}]},
+    {"type": "image", "scene": "ubahn", "caption": "Час пик в метро", "sub": "Вагон качнулся — и Том налетел на господина Беккера.", "subAt": 0, "say": [
+      {"ru": "Берлинское метро, час пик. Вагон качнулся, и Том налетел на господина Беккера."}]},
+    {"type": "compare", "title": "Извинились — ответили", "cards": [
+      {"big": "Entschuldigung!", "img": "sorry", "text": "извините", "at": 0},
+      {"big": "Kein Problem!", "img": "noproblem", "text": "ничего страшного", "at": 2}], "say": [
+      {"ru": "Если вы кого-то толкнули, говорят:"}, {"de": "Entschuldigung!"},
+      {"ru": "А в ответ вежливо говорят «ничего страшного»:"}, {"de": "Kein Problem!"}]},
+    {"type": "compare", "title": "Спасибо — пожалуйста", "cards": [
+      {"big": "Danke schön!", "img": "heart2", "text": "большое спасибо", "at": 0},
+      {"big": "Bitte schön!", "img": "please", "text": "пожалуйста", "at": 2}], "say": [
+      {"ru": "Благодарят так:"}, {"de": "Danke schön!"},
+      {"ru": "А в ответ на «спасибо» говорят:"}, {"de": "Bitte schön!"}]},
+    {"type": "list", "title": "Если не поняли", "rows": [
+      {"de": "Wie bitte?", "ru": "Простите, что?", "img": "ear", "at": 0},
+      {"de": "Noch einmal, bitte!", "ru": "Ещё раз, пожалуйста!", "img": "again", "at": 2},
+      {"de": "Langsam, bitte!", "ru": "Медленно, пожалуйста!", "img": "snail", "at": 4}], "say": [
+      {"ru": "Не поняли собеседника? Переспросите:"}, {"de": "Wie bitte?"},
+      {"ru": "Попросите повторить ещё раз:"}, {"de": "Noch einmal, bitte!"},
+      {"ru": "Или попросите говорить медленнее:"}, {"de": "Langsam, bitte!"}]},
+    {"type": "tip", "label": "Слово-выручалочка", "big": "bitte", "text": "в просьбе, в ответ на «danke» и когда переспрашиваете", "say": [
+      {"ru": "Заметили? Слово «битте» встречается везде."},
+      {"ru": "В просьбе, в ответ на «спасибо» и когда переспрашиваете."}]},
+    {"type": "dialog", "lines": [
+      {"who": "tom", "name": "Том", "side": "l", "de": "Oh! Entschuldigung!", "ru": "Ой! Извините!", "at": 1},
+      {"who": "becker", "name": "Господин Беккер", "side": "r", "de": "Kein Problem!", "ru": "Ничего страшного!", "at": 2},
+      {"who": "becker", "name": "Господин Беккер", "side": "r", "de": "Entschuldigung, wo ist der Alexanderplatz?", "ru": "Извините, где Александерплац?", "at": 3},
+      {"who": "tom", "name": "Том", "side": "l", "de": "Wie bitte? Noch einmal, bitte. Langsam, bitte!", "ru": "Простите, что? Ещё раз, пожалуйста. Медленно, пожалуйста!", "at": 4}], "say": [
+      {"ru": "Послушайте, что было дальше в метро."},
+      {"de": "Oh! Entschuldigung!"}, {"de": "Kein Problem!"},
+      {"de": "Entschuldigung, wo ist der Alexanderplatz?"}, {"de": "Wie bitte? Noch einmal, bitte. Langsam, bitte!"}]},
+    {"type": "ask", "q": "Вам что-то сказали, а вы не расслышали. Переспросите.", "img": "ear", "de": "Wie bitte?", "say": [
+      {"ru": "А теперь вы. Вам что-то сказали, а вы не расслышали. Как переспросить?"},
+      {"pause": 3},
+      {"de": "Wie bitte?"},
+      {"ru": "Верно! Это вежливое «простите, что?»."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь закрепим слова в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}

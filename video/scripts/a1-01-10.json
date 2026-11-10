@@ -1,0 +1,59 @@
+{
+  "id": "a1-01-10",
+  "kicker": "Блок 1 · урок 10",
+  "title": "Вопросы: wer, was, wo",
+  "chips": ["wer", "was", "wo"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня учимся задавать вопросы."},
+      {"ru": "Кто, что, как, где и откуда — всё в одном уроке."}]},
+    {"type": "image", "scene": "street", "caption": "Вы — уличный репортёр", "sub": "Интервью у телебашни.", "subAt": 0, "say": [
+      {"ru": "Вы репортёр уличного радио. У телебашни вы берёте интервью у прохожих."}]},
+    {"type": "list", "title": "Вопросительные слова", "rows": [
+      {"de": "wer", "ru": "кто", "img": "qwho", "at": 0},
+      {"de": "was", "ru": "что", "img": "qwhat", "at": 2},
+      {"de": "wie", "ru": "как", "img": "qhow", "at": 4},
+      {"de": "wo", "ru": "где", "img": "qwhere", "at": 6},
+      {"de": "woher", "ru": "откуда", "img": "qfrom", "at": 8}], "say": [
+      {"ru": "Пять слов для вопросов. Слово «кто» звучит так:"}, {"de": "wer"},
+      {"ru": "Слово «что» звучит так:"}, {"de": "was"},
+      {"ru": "Слово «как» вы уже знаете:"}, {"de": "wie"},
+      {"ru": "А слово «где» звучит так:"}, {"de": "wo"},
+      {"ru": "И слово «откуда» звучит так:"}, {"de": "woher"}]},
+    {"type": "order", "title": "Глагол — на втором месте", "head": ["вопрос", "глагол", "кто"], "rows": [
+      {"tiles": ["Wie", "*heißt", "du?"], "at": 1},
+      {"tiles": ["Woher", "*kommen", "Sie?"], "at": 2},
+      {"tiles": ["Was", "*lernst", "du?"], "at": 3},
+      {"tiles": ["Wer", "*ist", "das?"], "at": 4}], "say": [
+      {"ru": "Главное правило вопроса: сначала вопросительное слово, а глагол всегда на втором месте."},
+      {"de": "Wie heißt du?"}, {"de": "Woher kommen Sie?"}, {"de": "Was lernst du?"}, {"de": "Wer ist das?"}]},
+    {"type": "tip", "label": "И в обычной фразе", "big": "Jetzt wohne ich …", "text": "Первым стоит «jetzt» — а глагол всё равно второй.", "say": [
+      {"ru": "Это правило работает и в обычных предложениях."},
+      {"ru": "Начали со слова «сейчас» — глагол всё равно на втором месте:", "cap": "Начали с jetzt — глагол всё равно второй:"},
+      {"de": "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!"}]},
+    {"type": "list", "title": "Вопрос и ответ", "rows": [
+      {"de": "Frage", "ru": "вопрос", "img": "question", "at": 0},
+      {"de": "Antwort", "ru": "ответ", "img": "answer", "at": 2},
+      {"de": "richtig", "ru": "верно", "img": "right", "at": 4},
+      {"de": "falsch", "ru": "неверно", "img": "wrong", "at": 6}], "say": [
+      {"ru": "Слово «вопрос» звучит так:"}, {"de": "Frage"},
+      {"ru": "А слово «ответ» звучит так:"}, {"de": "Antwort"},
+      {"ru": "Если ответ верный, говорят:"}, {"de": "richtig"},
+      {"ru": "А если неверный, говорят:"}, {"de": "falsch"}]},
+    {"type": "dialog", "lines": [
+      {"who": "you", "name": "Вы", "side": "r", "de": "Woher kommen Sie?", "ru": "Откуда Вы?", "at": 1},
+      {"who": "woman", "name": "Анна Хубер", "side": "l", "de": "Ich komme aus der Schweiz.", "ru": "Я из Швейцарии.", "at": 2},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Was lernen Sie?", "ru": "Что Вы учите?", "at": 3},
+      {"who": "woman", "name": "Анна Хубер", "side": "l", "de": "Ich lerne Russisch!", "ru": "Я учу русский!", "at": 4}], "say": [
+      {"ru": "Послушайте ваше интервью с прохожей."},
+      {"de": "Woher kommen Sie?"}, {"de": "Ich komme aus der Schweiz."}, {"de": "Was lernen Sie?"}, {"de": "Ich lerne Russisch!"}]},
+    {"type": "ask", "q": "Спросите прохожего вежливо: «Откуда Вы?»", "img": "qfrom", "de": "Woher kommen Sie?", "say": [
+      {"ru": "А теперь вы. Спросите прохожего вежливо, откуда он."},
+      {"pause": 3},
+      {"de": "Woher kommen Sie?"},
+      {"ru": "Верно! Вопросительное слово первое, глагол второй."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь потренируем вопросы в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}

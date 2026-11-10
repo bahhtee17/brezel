@@ -1,0 +1,53 @@
+{
+  "id": "a1-01-08",
+  "kicker": "Блок 1 · урок 8",
+  "title": "Sprachen",
+  "chips": ["sprechen", "Deutsch", "ein bisschen"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня говорим о языках."},
+      {"ru": "Вы расскажете, на каких языках говорите, хотя бы немного."}]},
+    {"type": "image", "scene": "party", "caption": "Вечеринка в хостеле", "sub": "Кто на каких языках говорит?", "subAt": 0, "say": [
+      {"ru": "В хостеле вечеринка. Гости из разных стран рассказывают, на каких языках они говорят."}]},
+    {"type": "list", "title": "Языки", "rows": [
+      {"de": "Deutsch", "ru": "немецкий", "bubble": "Hallo:de", "at": 0},
+      {"de": "Englisch", "ru": "английский", "bubble": "Hello", "at": 2},
+      {"de": "Russisch", "ru": "русский", "bubble": "Привет:ru", "at": 4},
+      {"de": "ein bisschen", "ru": "немного", "img": "little", "at": 6}], "say": [
+      {"ru": "Сначала названия языков. Немецкий язык звучит так:"}, {"de": "Deutsch"},
+      {"ru": "А английский язык звучит так:"}, {"de": "Englisch"},
+      {"ru": "Русский язык по-немецки звучит так:"}, {"de": "Russisch"},
+      {"ru": "И важные слова для начинающих, которые значат «немного»:"}, {"de": "ein bisschen"}]},
+    {"type": "table", "title": "sprechen — говорить", "head": ["кто", "глагол"], "rows": [
+      {"cells": ["ich", "sprech{e}"], "at": 1},
+      {"cells": ["du", "spr{i}chst"], "at": 2},
+      {"cells": ["er / sie", "spr{i}cht"], "at": 2},
+      {"cells": ["wir", "sprech{en}"], "at": 5},
+      {"cells": ["ihr", "sprech{t}"], "at": 5},
+      {"cells": ["sie / Sie", "sprech{en}"], "at": 5}], "say": [
+      {"ru": "Глагол «говорить» немного хитрый."},
+      {"ru": "Со словом «я» всё по шифру: окончание е.", "cap": "ich spreche — окончание -e"},
+      {"ru": "А со словами «ты», «он» и «она» буква е внутри меняется на и.", "cap": "du sprichst, er spricht — e меняется на i"},
+      {"ru": "Например, Лена говорит по-немецки:"}, {"de": "Lena spricht Deutsch."},
+      {"ru": "А с «мы», «вы» и «они» снова всё по шифру.", "cap": "wir sprechen, ihr sprecht, sie sprechen"}]},
+    {"type": "phrase", "de": "Ich spreche ein bisschen Deutsch.", "mark": "ein bisschen", "ru": "Я немного говорю по-немецки.", "img": "little", "say": [
+      {"ru": "А вот фраза, которая выручит вас везде:"}, {"de": "Ich spreche ein bisschen Deutsch."},
+      {"ru": "Это значит «я немного говорю по-немецки». С ней немцы сразу начнут говорить медленнее."}]},
+    {"type": "dialog", "lines": [
+      {"who": "marco", "name": "Марко", "side": "l", "de": "Ich spreche Italienisch und Englisch.", "ru": "Я говорю по-итальянски и по-английски.", "at": 1},
+      {"who": "aigerim", "name": "Айгерим", "side": "r", "de": "Ich spreche Kasachisch, Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-казахски, по-русски и немного по-немецки.", "at": 2},
+      {"who": "man", "name": "Гость", "side": "l", "de": "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch.", "ru": "Я из Узбекистана. Я говорю по-узбекски и по-русски.", "at": 3},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Ich spreche Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-русски и немного по-немецки.", "at": 4}], "say": [
+      {"ru": "Послушайте, как гости рассказывают о своих языках."},
+      {"de": "Ich spreche Italienisch und Englisch."}, {"de": "Ich spreche Kasachisch, Russisch und ein bisschen Deutsch."},
+      {"de": "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch."}, {"de": "Ich spreche Russisch und ein bisschen Deutsch."}]},
+    {"type": "ask", "q": "Скажите по-немецки: «Я говорю по-русски».", "bubble": "Привет:ru", "de": "Ich spreche Russisch.", "say": [
+      {"ru": "А теперь вы. Скажите по-немецки, что вы говорите по-русски."},
+      {"pause": 3},
+      {"de": "Ich spreche Russisch."},
+      {"ru": "Верно! Со словом «я» глагол оканчивается на е."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь закрепим слова в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}

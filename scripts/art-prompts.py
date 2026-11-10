@@ -210,6 +210,41 @@ WORDS = [
 for wid, subj, bg, chars in WORDS:
     add(wid, "words", subj, bg, chars)
 
+# ---------- Видео-объяснения (anim/src/video): учитель Брецель и герои роликов ----------
+# Всё на пурпурном фоне: фон вырезается, фигуры двигает Remotion поверх кремовой «бумаги» ролика.
+T = ("Full body of Brezel standing, facing the viewer, whole figure visible with margin. "
+     "Brezel is the teacher today: tiny round black-rimmed glasses on the face (the googly eyes stay huge behind them). ")
+add("teacher-talk", "video", T + "Holding a thin wooden pointer stick in one stick arm, the other arm raised with an open palm "
+    "as if explaining something, mouth open mid-sentence, friendly and enthusiastic.", "key", ["brezel"],
+    note="Use mascot/idle.png as the reference image if your tool accepts one, so it is the same character.")
+add("teacher-point", "video", T + "Pointing the thin wooden pointer stick to the right side of the picture with a confident small "
+    "smile, mouth closed, the other arm on the hip.", "key", ["brezel"],
+    note="Use mascot/idle.png as the reference image if your tool accepts one, so it is the same character.")
+add("vowel-friends", "video", "Two cute lowercase letter characters standing side by side: the letter 'e' and the letter 'i', "
+    "each drawn as a thick crayon-textured letter shape with huge googly eyes and thin stick arms and legs. "
+    "They hold hands and sing one note together: a single small music note floats above them. "
+    "The 'e' is coral pink, the 'i' is sky blue. Only these two letters, no other text.", "key")
+# Заставки остальных глав «Чтения» — в том же духе: буквы-человечки.
+add("abc-friends", "video", "Three cute lowercase letter characters standing in a row: the letters 'a', 'o' and 'u', "
+    "each drawn as a thick crayon-textured letter shape with huge googly eyes and thin stick arms and legs. "
+    "They wave hello happily. The 'a' is coral pink, the 'o' is sunny yellow, the 'u' is sky blue. "
+    "Only these three letters, no other text.", "key")
+add("letter-trickster", "video", "One cute uppercase letter 'W' character, drawn as a thick crayon-textured letter shape "
+    "with huge googly eyes and thin stick arms and legs. It wears a small black carnival eye mask and tiptoes sneakily "
+    "with one finger at its mouth, a playful little trickster. The 'W' is leaf green. Only this one letter, no other text.", "key")
+add("consonant-team", "video", "Three cute lowercase letter characters standing very close together in this order: 's', 'c', 'h', "
+    "each drawn as a thick crayon-textured letter shape with huge googly eyes and thin stick arms and legs. "
+    "One long striped scarf is wrapped around all three of them, so they look like one team. "
+    "The 's' is coral pink, the 'c' is sunny yellow, the 'h' is sky blue. Only these three letters, no other text.", "key")
+add("umlaut-dots", "video", "Three cute lowercase letter characters standing in a row: the letters 'a', 'o' and 'u', "
+    "each drawn as a thick crayon-textured letter shape with huge googly eyes and thin stick arms and legs. "
+    "Exactly two small round dark dots float right above each letter, like the German umlauts, and every letter "
+    "looks up at its two dots with delight. The 'a' is coral pink, the 'o' is sunny yellow, the 'u' is sky blue. "
+    "Only these three letters with their dots, no other text.", "key")
+add("word-puzzle", "video", "A cute magnifying glass character with huge googly eyes on its round lens and thin stick arms and legs, "
+    "drawn in thick crayon texture. It proudly holds up three colorful jigsaw puzzle pieces joined together in one row: "
+    "one coral pink, one sunny yellow, one sky blue. No letters, no text.", "key")
+
 # ---------- Анимации (Remotion, anim/) ----------
 # Вторая поза рисуется по первой картинке слова. Ролик: позы сменяются + «кипящая» линия + движение.
 ANIM = [

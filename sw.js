@@ -1,11 +1,11 @@
 // Service worker: приложение и уроки работают без интернета.
 // При изменении файлов увеличьте VERSION — старый кэш удалится.
-const VERSION = 'brezel-v5';
+const VERSION = 'brezel-v6';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/main.js', 'js/ui.js', 'js/store.js', 'js/srs.js', 'js/speech.js', 'js/content.js',
   'js/art.js', 'js/img.js', 'js/mascot.js', 'js/exercises.js', 'js/player.js', 'js/screens.js',
-  'js/reading.js', 'js/readkit.js', 'js/mastery.js', 'js/placement.js',
+  'js/reading.js', 'js/readkit.js', 'js/mastery.js', 'js/placement.js', 'js/video.js',
   'content/course.json', 'content/a1/01-hallo.json', 'content/reading.json', 'audio/manifest.json', 'img/index.json',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'
 ];
@@ -27,6 +27,8 @@ self.addEventListener('fetch', e => {
   const sameOrigin = url.origin === self.location.origin;
   const isFont = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!sameOrigin && !isFont) return;
+  // Видео-объяснения большие и грузятся кусками (Range): их отдаёт сеть напрямую, без кэша.
+  if (/\/video\/.+\.mp4$/.test(url.pathname)) return;
   const cacheFirst = isFont || /\/(audio|img)\/.+\.(mp3|webp|mp4)$/.test(url.pathname);
   e.respondWith(caches.open(VERSION).then(async cache => {
     const cached = await cache.match(req, { ignoreSearch: sameOrigin });

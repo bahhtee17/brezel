@@ -5,6 +5,7 @@ import { mascotSVG, setMood } from './mascot.js';
 import { say } from './speech.js';
 import { completeReading, isReadingDone } from './store.js';
 import { runPlayer } from './player.js';
+import { videoCard } from './video.js';
 import { topbar, mount } from './screens.js';
 import { levelOf, levelBadge, LEVELS, LEVEL_HINT, PASS, practiceNote, recordPractice } from './mastery.js';
 import { loadReading, readingRules, readingRule, readPicHtml, readWordHtml, readSegsHtml, readExercise } from './readkit.js';
@@ -41,6 +42,7 @@ export async function readingScreen() {
     scr.append(h('div', { class: 'rd-chapter' },
       h('div', {}, h('div', { class: 'section-title', style: { margin: 0 }, text: `${ci + 1}. ${c.title}` }), h('div', { class: 'small muted', text: c.sub })),
       h('div', { class: `rd-chapter__n ${chDone === chRules.length ? 'is-done' : ''}`, text: `${chDone}/${chRules.length}` })));
+    if (c.video) scr.append(videoCard(c.video, c.title));
     const grid = h('div', { class: 'rd-grid' });
     chRules.forEach(r => {
       const done = isReadingDone(r.id);
@@ -82,6 +84,7 @@ export async function ruleScreen(id) {
   if (lvNow) scr.append(h('div', { class: 'rd-level', html: `${levelBadge(lvNow)} <b>${LEVELS[lvNow]}</b> · ${LEVEL_HINT[lvNow]}` }));
   scr.append(h('div', { class: 'card rd-text', html: rule.text }));
   if (rule.tip) scr.append(h('div', { class: 'coach rd-tip' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble', text: rule.tip })));
+  if (rule.chapter.video) scr.append(videoCard(rule.chapter.video, `Глава «${rule.chapter.title}»`));
 
   scr.append(h('div', { class: 'section-title', text: 'Прочитайте сами' }));
   scr.append(h('div', { class: 'small muted', style: { margin: '-6px 0 12px' }, text: 'Сначала прочитайте слово вслух. Потом нажмите на карточку: услышите, как правильно, и увидите, как звучит каждая буква.' }));

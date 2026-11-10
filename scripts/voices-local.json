@@ -17,6 +17,13 @@
     "you":     { "instruct": "male, young adult, high pitch", "seed": 2, "role": "ученик (Алекс)" },
     "m":       { "instruct": "male, middle-aged, low pitch", "seed": 1, "role": "рассказчик" }
   },
+  "teacherRu": {
+    "_note": "Голос учителя Брецеля для видео-объяснений (по-русски). Создан VoiceStudio по описанию «male, middle-aged, moderate pitch», seed 1; все реплики клонируются с этого образца.",
+    "ref": "scripts/voice-refs/teacher-ru.wav",
+    "refText": "Привет! Меня зовут Брецель. Сегодня мы вместе научимся читать немецкие слова. Это совсем не сложно, обещаю.",
+    "seed": 1,
+    "speed": 0.95
+  },
   "female": ["lena", "wagner", "aigerim", "woman", "f"],
   "male": ["tom", "marco", "becker", "passenger", "man", "m", "driver", "you"]
 }

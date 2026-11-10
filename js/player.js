@@ -8,6 +8,7 @@ import { say, stop, sfx } from './speech.js';
 import { learn, grade, addMistake, mistakeCorrect, mistakeWrong, isLearned } from './srs.js';
 import { addXP } from './store.js';
 import { word as wordById } from './content.js';
+import { videoCard } from './video.js';
 
 let activeCleanup = null;
 const PRAISE = ['Отлично!', 'Супер!', 'Так держать!', 'Wunderbar!', 'Prima!', 'Верно!', 'Sehr gut!', 'Klasse!'];
@@ -118,7 +119,8 @@ export function runPlayer(opts) {
       h('div', { class: 'task-kicker', text: s.kicker || '' }),
       h('h1', { style: { fontSize: '30px' }, text: s.title }),
       s.goal ? h('div', { class: 'task-sub', text: s.goal }) : null,
-      s.note ? h('div', { class: 'scene-note', text: s.note }) : null));
+      s.note ? h('div', { class: 'scene-note', text: s.note }) : null,
+      s.video ? videoCard(s.video, `Урок «${s.title}»`) : null));
     setMain(s.button || 'Начать');
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
@@ -425,7 +427,7 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
   const newWords = (lesson.newWords || []).map(id => wordsById[id]).filter(Boolean);
   const steps = [];
   steps.push({
-    kind: 'intro', kicker: `Тема ${topic.meta.n} · Урок ${lesson.index + 1}`, title: lesson.title, goal: lesson.goal,
+    kind: 'intro', kicker: `Тема ${topic.meta.n} · Урок ${lesson.index + 1}`, title: lesson.title, goal: lesson.goal, video: lesson.video,
     note: warmup.length ? `Сначала разминка: ${warmup.length} ${warmup.length === 1 ? 'слово' : 'слова'} из прошлых уроков.` : (lesson.index === 0 ? 'Это ваш первый урок. Разминки пока нет — сразу к делу!' : '')
   });
   warmup.forEach((ex, i) => steps.push({ kind: 'ex', ex, tag: 'warmup', key: `w${i}` }));

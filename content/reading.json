@@ -4,6 +4,7 @@
     {
       "id": "base",
       "title": "Основа",
+      "video": { "src": "video/read-base.mp4", "poster": "video/read-base.jpg", "len": "1:19" },
       "sub": "С чего начать",
       "rules": [
         {
@@ -25,6 +26,7 @@
     {
       "id": "letters",
       "title": "Буквы-обманщики",
+      "video": { "src": "video/read-letters.mp4", "poster": "video/read-letters.jpg", "len": "2:21" },
       "sub": "Выглядят знакомо, а читаются иначе",
       "rules": [
         {
@@ -129,6 +131,7 @@
     {
       "id": "vowels",
       "title": "Сочетания гласных",
+      "video": { "src": "video/read-vowels.mp4", "poster": "video/read-vowels.jpg", "len": "1:44" },
       "sub": "Две буквы — один звук",
       "rules": [
         {
@@ -192,6 +195,7 @@
     {
       "id": "consonants",
       "title": "Сочетания согласных",
+      "video": { "src": "video/read-consonants.mp4", "poster": "video/read-consonants.jpg", "len": "1:54" },
       "sub": "Несколько букв — один звук",
       "rules": [
         {
@@ -268,6 +272,7 @@
     {
       "id": "umlauts",
       "title": "Умлауты ä ö ü",
+      "video": { "src": "video/read-umlauts.mp4", "poster": "video/read-umlauts.jpg", "len": "1:30" },
       "sub": "Две точки меняют звук",
       "rules": [
         {
@@ -315,6 +320,7 @@
     {
       "id": "whole",
       "title": "Слово целиком",
+      "video": { "src": "video/read-whole.mp4", "poster": "video/read-whole.jpg", "len": "2:11" },
       "sub": "Долгота, окончания, ударение",
       "rules": [
         {

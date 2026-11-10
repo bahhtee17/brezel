@@ -1,0 +1,62 @@
+{
+  "id": "a1-01-12",
+  "kicker": "Блок 1 · урок 12",
+  "title": "Мини-экзамен: запись на курс",
+  "chips": ["Vorname", "Wohnort", "Formular"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня последний урок блока — мини-экзамен."},
+      {"ru": "Вы заполните анкету и расскажете о себе, как на настоящем экзамене."}]},
+    {"type": "image", "scene": "office", "caption": "Запись на курс", "sub": "Фрау Вагнер оформляет вашу запись.", "subAt": 0, "say": [
+      {"ru": "Секретариат языковой школы. Фрау Вагнер оформляет вашу запись на курс."}]},
+    {"type": "phrase", "de": "Herzlich willkommen!", "tr": "херцлихь вилькоммен", "ru": "Добро пожаловать!", "img": "welcome", "say": [
+      {"ru": "Вас встречают такими словами:"}, {"de": "Herzlich willkommen!"},
+      {"ru": "Это значит «добро пожаловать»."}]},
+    {"type": "list", "title": "Слова анкеты", "rows": [
+      {"de": "Vorname", "ru": "имя", "img": "nametagFirst", "at": 0},
+      {"de": "Familienname", "ru": "фамилия", "img": "nametagLast", "at": 2},
+      {"de": "Wohnort", "ru": "место жительства", "img": "homepin", "at": 4},
+      {"de": "Formular", "ru": "анкета", "img": "form", "at": 6}], "say": [
+      {"ru": "В анкете вы встретите эти слова. Личное имя называется так:"}, {"de": "Vorname"},
+      {"ru": "А фамилия называется так:"}, {"de": "Familienname"},
+      {"ru": "Место, где вы живёте, называется так:"}, {"de": "Wohnort"},
+      {"ru": "А сама анкета называется так:"}, {"de": "Formular"}]},
+    {"type": "order", "title": "Рассказ о себе", "rows": [
+      {"tiles": ["Mein Vorname", "*ist", "Lena."], "ru": "Моё имя — Лена.", "at": 0},
+      {"tiles": ["Mein Wohnort", "*ist", "Berlin."], "ru": "Я живу в Берлине.", "at": 2}], "say": [
+      {"ru": "О себе рассказывают с глаголом «быть». Моё имя — Лена:"}, {"de": "Mein Vorname ist Lena."},
+      {"ru": "А моё место жительства — Берлин:"}, {"de": "Mein Wohnort ist Berlin."}]},
+    {"type": "form", "title": "Formular", "fields": [
+      {"de": "Vorname", "ru": "имя", "val": "Marco", "at": 1},
+      {"de": "Familienname", "ru": "фамилия", "val": "Rossi", "at": 2},
+      {"de": "Land", "ru": "страна", "val": "Italien", "at": 3},
+      {"de": "Wohnort", "ru": "город", "val": "Berlin", "at": 4},
+      {"de": "Sprachen", "ru": "языки", "val": "Italienisch, Englisch", "at": 5}], "say": [
+      {"ru": "На экзамене есть анкета. Из текста задания нужно перенести данные человека в пять полей."},
+      {"ru": "В поле для имени пишем: Марко.", "cap": "Vorname — Marco"},
+      {"ru": "В поле для фамилии пишем: Росси.", "cap": "Familienname — Rossi"},
+      {"ru": "Страна, откуда он приехал, — Италия.", "cap": "Land — Italien"},
+      {"ru": "Город, где он живёт, — Берлин.", "cap": "Wohnort — Berlin"},
+      {"ru": "И языки: итальянский и английский.", "cap": "Sprachen — Italienisch, Englisch"}]},
+    {"type": "tip", "label": "Как на экзамене", "big": "1–2 слова", "text": "Пишите коротко: одно-два слова в каждом поле.", "say": [
+      {"ru": "Главный совет: пишите коротко."},
+      {"ru": "В каждое поле — одно или два слова, без длинных предложений."}]},
+    {"type": "dialog", "lines": [
+      {"who": "wagner", "name": "Фрау Вагнер", "side": "l", "de": "Herzlich willkommen! Wie ist Ihr Name?", "ru": "Добро пожаловать! Как Ваше имя?", "at": 1},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Mein Vorname ist Alex. Mein Familienname ist Petrow.", "ru": "Моё имя — Алекс. Моя фамилия — Петров.", "at": 2},
+      {"who": "wagner", "name": "Фрау Вагнер", "side": "l", "de": "Und Ihr Wohnort?", "ru": "А где Вы живёте?", "at": 3},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Mein Wohnort ist Berlin.", "ru": "Я живу в Берлине.", "at": 4},
+      {"who": "wagner", "name": "Фрау Вагнер", "side": "l", "de": "Gut. Hier ist das Formular.", "ru": "Хорошо. Вот анкета.", "at": 5}], "say": [
+      {"ru": "Послушайте, как проходит запись на курс."},
+      {"de": "Herzlich willkommen! Wie ist Ihr Name?"}, {"de": "Mein Vorname ist Alex. Mein Familienname ist Petrow."},
+      {"de": "Und Ihr Wohnort?"}, {"de": "Mein Wohnort ist Berlin."}, {"de": "Gut. Hier ist das Formular."}]},
+    {"type": "ask", "q": "Фрау Вагнер спрашивает, где вы живёте. Ответьте: в Берлине.", "img": "homepin", "de": "Mein Wohnort ist Berlin.", "say": [
+      {"ru": "А теперь вы. Фрау Вагнер спрашивает, где вы живёте. Ответьте, что в Берлине."},
+      {"pause": 3},
+      {"de": "Mein Wohnort ist Berlin."},
+      {"ru": "Верно! Вы готовы к записи на курс."}]},
+    {"type": "outro", "pose": "happy", "bubble": "Auf Wiedersehen!", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь пройдите мини-экзамен в уроке. Нажмите «Начать урок»."},
+      {"de": "Auf Wiedersehen!"}]}
+  ]
+}

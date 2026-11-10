@@ -28,7 +28,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 os.chdir(ROOT)
-socketserver.TCPServer.allow_reuse_address = True
-with socketserver.TCPServer(("127.0.0.1", PORT), Handler) as httpd:
+# Многопоточный: пока браузер качает видео, остальные запросы не ждут.
+socketserver.ThreadingTCPServer.allow_reuse_address = True
+socketserver.ThreadingTCPServer.daemon_threads = True
+with socketserver.ThreadingTCPServer(("127.0.0.1", PORT), Handler) as httpd:
     print(f"Brezel: http://localhost:{PORT}", flush=True)
     httpd.serve_forever()

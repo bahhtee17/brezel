@@ -1,0 +1,56 @@
+{
+  "id": "a1-01-09",
+  "kicker": "Блок 1 · урок 9",
+  "title": "sein: ich bin",
+  "chips": ["ich bin", "er ist", "Das ist …"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня самый главный глагол немецкого языка."},
+      {"ru": "Это глагол «быть». Без него не обойтись."}]},
+    {"type": "image", "scene": "album", "caption": "Фотоальбом хостела", "sub": "Лена рассказывает о гостях.", "subAt": 0, "say": [
+      {"ru": "Лена листает фотоальбом хостела и рассказывает, кто есть кто."}]},
+    {"type": "tip", "label": "Без «быть» нельзя", "big": "Я — Алекс. → Ich bin Alex.", "text": "По-русски «есть» мы пропускаем, а по-немецки — нет.", "say": [
+      {"ru": "По-русски мы говорим «я — Алекс», вообще без глагола."},
+      {"ru": "А по-немецки глагол «быть» нужен обязательно:"}, {"de": "Ich bin Alex."}]},
+    {"type": "table", "title": "sein — быть", "head": ["кто", "sein"], "rows": [
+      {"cells": ["ich", "{bin}"], "at": 1},
+      {"cells": ["du", "{bist}"], "at": 1},
+      {"cells": ["er / sie", "{ist}"], "at": 2},
+      {"cells": ["wir", "{sind}"], "at": 3},
+      {"cells": ["ihr", "{seid}"], "at": 3},
+      {"cells": ["sie / Sie", "{sind}"], "at": 4}], "say": [
+      {"ru": "Этот глагол неправильный. Шифр тут не работает, формы надо просто запомнить."},
+      {"ru": "Я — «бин», ты — «бист».", "cap": "ich bin, du bist"},
+      {"ru": "Он и она — «ист».", "cap": "er / sie ist"},
+      {"ru": "Мы — «зинд», а вы — «зайт».", "cap": "wir sind, ihr seid"},
+      {"ru": "Они и вежливое «Вы» — тоже «зинд».", "cap": "sie / Sie sind"}]},
+    {"type": "phrase", "de": "Das ist Lena.", "mark": "Das ist", "tr": "дас ист ле:на", "ru": "Это Лена.", "img": "this", "say": [
+      {"ru": "Чтобы показать человека, говорят «дас ист»:"}, {"de": "Das ist Lena."},
+      {"ru": "А спросить «кто это?» можно так:"}, {"de": "Wer ist das?"}]},
+    {"type": "list", "title": "Новые слова", "rows": [
+      {"de": "Freund", "ru": "друг", "img": "friend", "at": 0},
+      {"de": "Lehrerin", "ru": "учительница", "img": "teacher", "at": 2},
+      {"de": "und", "ru": "и", "img": "plus", "at": 4},
+      {"de": "auch", "ru": "тоже", "img": "also", "at": 6}], "say": [
+      {"ru": "Слово «друг» звучит так:"}, {"de": "Freund"},
+      {"ru": "А учительница звучит так:"}, {"de": "Lehrerin"},
+      {"ru": "Союз «и» звучит так:"}, {"de": "und"},
+      {"ru": "А слово «тоже» звучит так:"}, {"de": "auch"}]},
+    {"type": "dialog", "lines": [
+      {"who": "lena", "name": "Лена", "side": "l", "de": "Das ist Tom. Er ist aus Hamburg.", "ru": "Это Том. Он из Гамбурга.", "at": 1},
+      {"who": "lena", "name": "Лена", "side": "l", "de": "Das ist Frau Wagner. Sie ist Lehrerin.", "ru": "Это фрау Вагнер. Она учительница.", "at": 2},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Und wer ist das?", "ru": "А кто это?", "at": 3},
+      {"who": "lena", "name": "Лена", "side": "l", "de": "Das ist Herr Becker. Er ist aus Österreich.", "ru": "Это господин Беккер. Он из Австрии.", "at": 4}], "say": [
+      {"ru": "Послушайте, как Лена показывает фотографии."},
+      {"de": "Das ist Tom. Er ist aus Hamburg."}, {"de": "Das ist Frau Wagner. Sie ist Lehrerin."},
+      {"de": "Und wer ist das?"}, {"de": "Das ist Herr Becker. Er ist aus Österreich."}]},
+    {"type": "ask", "q": "Скажите по-немецки: «Мы друзья».", "img": "friend", "de": "Wir sind Freunde.", "say": [
+      {"ru": "А теперь вы. Скажите по-немецки: «Мы друзья»."},
+      {"pause": 3},
+      {"de": "Wir sind Freunde."},
+      {"ru": "Верно! Со словом «мы» глагол «быть» звучит как «зинд».", "cap": "Верно! wir sind — мы есть."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь закрепим глагол в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}

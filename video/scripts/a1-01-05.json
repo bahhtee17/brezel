@@ -1,0 +1,48 @@
+{
+  "id": "a1-01-05",
+  "kicker": "Блок 1 · урок 5",
+  "title": "Woher kommst du?",
+  "chips": ["woher", "aus", "Deutschland"],
+  "scenes": [
+    {"type": "title", "pose": "wave", "say": [
+      {"ru": "Привет! Сегодня говорим о том, кто откуда приехал."},
+      {"ru": "Вы научитесь спрашивать и рассказывать о своей стране."}]},
+    {"type": "image", "scene": "school", "caption": "Новые одногруппники", "sub": "Все приехали из разных стран.", "subAt": 0, "say": [
+      {"ru": "В классе новые одногруппники. Все они приехали из разных стран."}]},
+    {"type": "order", "title": "Откуда ты?", "rows": [
+      {"tiles": ["Woher", "*kommst", "du?"], "ru": "Откуда ты?", "at": 0},
+      {"tiles": ["Ich", "*komme", "aus Russland."], "ru": "Я из России.", "at": 2}], "say": [
+      {"ru": "Чтобы спросить, откуда человек, говорят:"}, {"de": "Woher kommst du?"},
+      {"ru": "А отвечают со словом «аус», то есть «из»:"}, {"de": "Ich komme aus Russland."}]},
+    {"type": "list", "title": "Страны", "rows": [
+      {"de": "Deutschland", "ru": "Германия", "flag": "de", "at": 0},
+      {"de": "Russland", "ru": "Россия", "flag": "ru", "at": 2},
+      {"de": "Italien", "ru": "Италия", "flag": "it", "at": 4},
+      {"de": "Kasachstan", "ru": "Казахстан", "flag": "kz", "at": 6}], "say": [
+      {"ru": "Названия стран легко запомнить. Германия по-немецки звучит так:"}, {"de": "Deutschland"},
+      {"ru": "А Россия звучит так:"}, {"de": "Russland"},
+      {"ru": "Италия — родина Марко:"}, {"de": "Italien"},
+      {"ru": "А Айгерим приехала из Казахстана:"}, {"de": "Kasachstan"}]},
+    {"type": "tip", "label": "Вежливо", "lines": [
+      {"text": "du → Woher kommst du?", "at": 0},
+      {"text": "Sie → Woher kommen Sie?", "at": 1}], "say": [
+      {"ru": "Другу задаём вопрос на «ты». А вежливо спрашивают с глаголом в форме «Вы»:"},
+      {"de": "Woher kommen Sie?"}]},
+    {"type": "dialog", "lines": [
+      {"who": "marco", "name": "Марко", "side": "l", "de": "Ich heiße Marco. Ich komme aus Italien.", "ru": "Меня зовут Марко. Я из Италии.", "at": 1},
+      {"who": "aigerim", "name": "Айгерим", "side": "r", "de": "Ich heiße Aigerim. Ich komme aus Kasachstan.", "ru": "Меня зовут Айгерим. Я из Казахстана.", "at": 2},
+      {"who": "marco", "name": "Марко", "side": "l", "de": "Und du? Woher kommst du?", "ru": "А ты? Откуда ты?", "at": 3},
+      {"who": "you", "name": "Вы", "side": "r", "de": "Ich komme aus Russland.", "ru": "Я из России.", "at": 4}], "say": [
+      {"ru": "Послушайте, как знакомятся одногруппники."},
+      {"de": "Ich heiße Marco. Ich komme aus Italien."}, {"de": "Ich heiße Aigerim. Ich komme aus Kasachstan."},
+      {"de": "Und du? Woher kommst du?"}, {"de": "Ich komme aus Russland."}]},
+    {"type": "ask", "q": "Марко спрашивает, откуда вы. Скажите, что вы из России.", "flag": "ru", "de": "Ich komme aus Russland.", "say": [
+      {"ru": "А теперь вы. Марко спрашивает, откуда вы. Скажите, что вы из России."},
+      {"pause": 3},
+      {"de": "Ich komme aus Russland."},
+      {"ru": "Верно! А вместо России можно назвать свою страну."}]},
+    {"type": "outro", "pose": "happy", "text": "Теперь — урок!", "button": "Начать урок", "say": [
+      {"ru": "Отлично! Теперь закрепим слова в уроке. Нажмите «Начать урок»."},
+      {"de": "Tschüs!"}]}
+  ]
+}
