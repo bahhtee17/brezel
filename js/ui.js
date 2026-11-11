@@ -111,3 +111,11 @@ export function deWord(w) {
   return `${a}${esc(w.de)}`;
 }
 export const deText = w => (w.art ? `${w.art} ${w.de}` : w.de);
+
+// Переход по #адресу. Если адрес тот же (тренировка открыта поверх своего же экрана),
+// браузер не сообщает о переходе — тогда запускаем перерисовку экрана сами.
+export function go(hash) {
+  const cur = location.hash || '#/';
+  if (cur === hash) window.dispatchEvent(new HashChangeEvent('hashchange'));
+  else location.hash = hash;
+}

@@ -2,7 +2,7 @@
 import { loadCourse, loadReadyTopics } from './content.js';
 import { initSpeech, stop } from './speech.js';
 import { homeScreen, lessonScreen, wordsScreen, reviewScreen, mistakesScreen, profileScreen, storyScreen, testScreen } from './screens.js';
-import { h } from './ui.js';
+import { h, go } from './ui.js';
 import { mascotSVG } from './mascot.js';
 import { loadImages, autoplayVideos } from './img.js';
 import { readingScreen, ruleScreen } from './reading.js';
@@ -26,7 +26,7 @@ async function route() {
     if (name !== 'welcome' && name !== 'placement' && needsOnboarding()) { location.replace('#/welcome'); return; }
     if (name === 'welcome') return welcomeScreen();
     if (name === 'placement') return await placementTest();
-    if (name === 'check') return await runMasteryCheck(() => { location.hash = '#/'; });
+    if (name === 'check') return await runMasteryCheck(() => go('#/'));
     if (!parts.length) return await homeScreen();
     if (name === 'lesson') return await lessonScreen(a, Number(b) || 0);
     if (name === 'words') return await wordsScreen(params);

@@ -1,5 +1,5 @@
 // Экраны приложения: карта курса, слова, повторение, ошибки, профиль, история, тест, запуск урока.
-import { h, esc, icon, toast, popover, soundBtn, deWord, deText, shuffle } from './ui.js';
+import { h, esc, icon, toast, popover, soundBtn, deWord, deText, shuffle, go } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
 import { art, scene as sceneArt } from './art.js';
 import { allTopics, loadTopic, word, allWords, genForWord, genPairs, practiceSet, preferWords } from './content.js';
@@ -9,7 +9,6 @@ import { runPlayer, lessonSteps } from './player.js';
 import { say, sayLines, norm } from './speech.js';
 import { practiceNote, recordPractice, levelOf, levelBadge, LEVELS, LEVEL_HINT, dueChecks, levelCounts } from './mastery.js';
 
-const go = hash => { location.hash = hash; };
 
 // ---------- Общая обвязка ----------
 export function topbar(titleText) {

@@ -4,7 +4,7 @@
 // потом уроки курса блоками по 3: в блоке 4 вопроса, блок сдан при 3 верных.
 // Первый несданный блок останавливает тест. Всё, что до него, отмечается «Знаком»,
 // а слова этих уроков уходят в интервальное повторение.
-import { h, icon, shuffle, pick } from './ui.js';
+import { h, icon, shuffle, pick, go } from './ui.js';
 import { mascotSVG } from './mascot.js';
 import { get, save, today, completeLesson, completeReading } from './store.js';
 import { allTopics, loadTopic, word, genForWord } from './content.js';
@@ -13,7 +13,6 @@ import { runPlayer } from './player.js';
 import { loadReading, readingRules, readExercise } from './readkit.js';
 import { grantLevel } from './mastery.js';
 
-const go = hash => { location.hash = hash; };
 const QUICK = new Set(['pick', 'listen', 'gap', 'reply', 'tiles', 'tf']);
 const CHUNK = 3, PER = 4, NEED = 3, READ_NEED = 5;
 const sum = arr => (arr || []).reduce((a, b) => a + b, 0);

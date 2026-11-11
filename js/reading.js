@@ -1,6 +1,6 @@
 // Раздел «Чтение»: правила чтения по-немецки. У каждого правила — пример-слова с картинками,
 // разбор слова по буквам со звуками, озвучка и короткая тренировка в формате урока.
-import { h, icon, shuffle, soundBtn, toast } from './ui.js';
+import { h, icon, shuffle, soundBtn, toast, go } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
 import { say } from './speech.js';
 import { completeReading, isReadingDone } from './store.js';
@@ -10,7 +10,6 @@ import { topbar, mount } from './screens.js';
 import { levelOf, levelBadge, LEVELS, LEVEL_HINT, PASS, practiceNote, recordPractice } from './mastery.js';
 import { loadReading, readingRules, readingRule, readPicHtml, readWordHtml, readSegsHtml, readExercise } from './readkit.js';
 
-const go = hash => { location.hash = hash; };
 const sizeCls = (text, m, s) => (text.length > s ? 'is-s' : text.length > m ? 'is-m' : '');
 
 // ---------- Список правил ----------
