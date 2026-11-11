@@ -25,21 +25,66 @@
       addEventListener('resize', fit);
     })();
   </script>
-  <meta name="theme-color" content="#FFF7E8">
+  <meta name="theme-color" content="#62C4FF">
   <meta name="description" content="Немецкий с нуля до A2 по программе Goethe-Zertifikat: уроки по 5 минут, игры, интервальное повторение.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Брецель">
   <title>Брецель — немецкий с нуля</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="icons/splash/440x956@3.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/430x932@3.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/428x926@3.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/420x912@3.png" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/414x896@3.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/414x896@2.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/414x736@3.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/402x874@3.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/393x852@3.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/390x844@3.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/375x812@3.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="icons/splash/375x667@2.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
+  <style>
+    /* Заставка при запуске: видна сразу, пока грузятся уроки. Убирает её js/main.js. */
+    #splash { position: fixed; inset: 0; z-index: 1000; overflow: hidden; color: #fff; text-align: center;
+      font-family: Nunito, ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+      background: radial-gradient(circle at 50% 44%, rgba(255,255,255,.26) 0, rgba(255,255,255,0) 46vmin), linear-gradient(#62C4FF, #2184E0);
+      transition: opacity .4s ease, transform .4s ease; }
+    #splash.is-out { opacity: 0; transform: scale(1.06); pointer-events: none; }
+    #splash img { position: absolute; left: 50%; top: 44%; width: 200px; height: 200px; margin: -100px 0 0 -100px;
+      animation: splash-bob 1.6s ease-in-out infinite; transform-origin: 50% 90%; }
+    .splash__txt { position: absolute; left: 0; right: 0; top: calc(44% + 108px); animation: splash-up .5s .15s ease both; }
+    .splash__name { font-weight: 900; font-size: 44px; line-height: 1.1; letter-spacing: .5px; text-shadow: 0 3px 0 rgba(13, 79, 148, .35); }
+    .splash__sub { margin-top: 4px; font-weight: 800; font-size: 17px; opacity: .92; }
+    .splash__dots { margin-top: 26px; display: flex; justify-content: center; gap: 9px; }
+    .splash__dots i { width: 11px; height: 11px; border-radius: 50%; background: #fff; animation: splash-dot 1s ease-in-out infinite; }
+    .splash__dots i:nth-child(2) { animation-delay: .15s; }
+    .splash__dots i:nth-child(3) { animation-delay: .3s; }
+    @keyframes splash-bob { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-12px) rotate(3deg); } }
+    @keyframes splash-up { from { opacity: 0; transform: translateY(14px); } }
+    @keyframes splash-dot { 0%, 100% { transform: scale(.6); opacity: .5; } 40% { transform: scale(1); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { #splash img, .splash__dots i { animation: none; } }
+  </style>
 </head>
 <body>
+  <div id="splash" aria-hidden="true">
+    <img src="img/splash.webp" alt="" width="200" height="200">
+    <div class="splash__txt">
+      <div class="splash__name">Брецель</div>
+      <div class="splash__sub">Немецкий с нуля</div>
+      <div class="splash__dots"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <script>
+    // Страховка: если приложение не запустилось за 10 секунд, заставка уходит сама и видно сообщение об ошибке.
+    setTimeout(function () { var s = document.getElementById('splash'); if (s) s.remove(); }, 10000);
+  </script>
   <div id="app" class="app"></div>
   <noscript>Для работы курса нужен JavaScript.</noscript>
   <script type="module" src="js/main.js"></script>

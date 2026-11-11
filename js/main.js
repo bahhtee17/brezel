@@ -48,6 +48,17 @@ async function route() {
   }
 }
 
+// Заставка из index.html: держим её не меньше секунды с запуска, чтобы она не мелькала, потом плавно убираем.
+function hideSplash() {
+  const el = document.getElementById('splash');
+  if (!el) return;
+  setTimeout(() => {
+    el.classList.add('is-out');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#FFF7E8');
+    setTimeout(() => el.remove(), 450);
+  }, Math.max(0, 1100 - performance.now()));
+}
+
 async function boot() {
   await loadImages();
   autoplayVideos(app);
@@ -58,7 +69,7 @@ async function boot() {
   await route();
 }
 
-boot();
+boot().finally(hideSplash);
 
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { /* офлайн-режим недоступен */ }));

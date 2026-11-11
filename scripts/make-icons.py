@@ -1,136 +1,117 @@
-"""Рисует иконки PWA (PNG) с кренделем Брецелем — те же кривые, что в js/mascot.js.
+"""Иконка приложения и заставка из рисунков маскота.
 
-Запуск: python scripts/make-icons.py
+    python scripts/make-icons.py
+
+Делает icons/icon-*.png (иконка: кренделёк-наклейка на голубом фоне), img/splash.webp (маскот для заставки)
+и icons/splash/*.png — стартовые картинки для iPhone (то же, что рисует заставка в index.html, чтобы не было скачка).
 """
-import math
 from pathlib import Path
-from PIL import Image, ImageDraw
+
+import numpy as np
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "icons"
-OUT.mkdir(exist_ok=True)
+RAW = ROOT / "art" / "raw" / "mascot"
+TOP, BOTTOM = (98, 196, 255), (33, 132, 224)      # голубой фон: сверху светлее
+SPLASH_M = 200                                    # ширина маскота на заставке, в точках экрана (как в index.html)
 
-CREAM = (255, 247, 232, 255)
-OUTL = (138, 74, 18, 255)
-BODY = (217, 146, 63, 255)
-HI = (247, 196, 126, 255)
-INK = (59, 38, 20, 255)
-CHEEK = (255, 142, 124, 150)
-MOUTH = (122, 46, 26, 255)
-SALT = (255, 253, 246, 255)
-
-ROPE = [
-    ((70, 142), (80, 118), (90, 96), (100, 76)),
-    ((100, 76), (115, 48), (150, 22), (167, 44)),
-    ((167, 44), (182, 64), (182, 96), (168, 118)),
-    ((168, 118), (150, 150), (125, 168), (100, 168)),
-    ((100, 168), (75, 168), (50, 150), (32, 118)),
-    ((32, 118), (18, 96), (18, 64), (33, 44)),
-    ((33, 44), (50, 22), (85, 48), (100, 76)),
-    ((100, 76), (110, 96), (120, 118), (130, 142)),
-]
-BELLY = ROPE[3:5]
+# Размеры экранов iPhone: ширина, высота в точках и плотность.
+PHONES = [(440, 956, 3), (430, 932, 3), (428, 926, 3), (420, 912, 3), (414, 896, 3), (414, 896, 2), (414, 736, 3),
+          (402, 874, 3), (393, 852, 3), (390, 844, 3), (375, 812, 3), (375, 667, 2)]
 
 
-def cubic(seg, n=90):
-    (x0, y0), (x1, y1), (x2, y2), (x3, y3) = seg
-    pts = []
-    for i in range(n + 1):
-        t = i / n
-        a, b, c, d = (1 - t) ** 3, 3 * (1 - t) ** 2 * t, 3 * (1 - t) * t ** 2, t ** 3
-        pts.append((a * x0 + b * x1 + c * x2 + d * x3, a * y0 + b * y1 + c * y2 + d * y3))
-    return pts
+def cut(path):
+    """Убирает пурпурный фон рисунка."""
+    fr = np.asarray(Image.open(path).convert("RGB"), np.float32)
+    bg = np.median(fr[:8, :8].reshape(-1, 3), axis=0)
+    m = np.clip((np.minimum(fr[..., 0], fr[..., 2]) - fr[..., 1]) / (min(bg[0], bg[2]) - bg[1]), 0, 1)
+    a = np.clip((1 - m - 0.08) / 0.62, 0, 1)
+    mix = np.clip(m, 0, 0.97)[..., None]
+    fg = np.where((a > 0)[..., None], np.clip((fr - mix * bg) / (1 - mix), 0, 255), 0)
+    return Image.fromarray(np.dstack([fg, a[..., None] * 255]).astype(np.uint8), "RGBA")
 
 
-def render(size, scale, ox, oy, bg_round):
-    ss = 4
-    S = size * ss
-    img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    if bg_round:
-        d.rounded_rectangle([0, 0, S - 1, S - 1], radius=int(S * 0.22), fill=CREAM)
-    else:
-        d.rectangle([0, 0, S, S], fill=CREAM)
-
-    k = scale * ss
-
-    def P(x, y):
-        return (ox * ss + x * k, oy * ss + y * k)
-
-    def stroke(segs, width, color, dx=0, dy=0):
-        r = width * k / 2
-        for seg in segs:
-            for (x, y) in cubic(seg):
-                cx, cy = P(x + dx, y + dy)
-                d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color)
-
-    def line(p1, p2, width, color):
-        n = 40
-        r = width * k / 2
-        for i in range(n + 1):
-            t = i / n
-            cx, cy = P(p1[0] + (p2[0] - p1[0]) * t, p1[1] + (p2[1] - p1[1]) * t)
-            d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color)
-
-    def circle(x, y, r, color):
-        cx, cy = P(x, y)
-        rr = r * k
-        d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=color)
-
-    def ellipse(x, y, rx, ry, color):
-        cx, cy = P(x, y)
-        d.ellipse([cx - rx * k, cy - ry * k, cx + rx * k, cy + ry * k], fill=color)
-
-    # Руки: левая опущена, правая машет.
-    for (a, b) in [((36, 128), (16, 150)), ((164, 128), (186, 100))]:
-        line(a, b, 9, OUTL)
-        line(a, b, 5, BODY)
-        circle(b[0], b[1], 8.5, OUTL)
-        circle(b[0], b[1], 6, BODY)
-    # Ножки.
-    ellipse(84, 198, 13, 6.5, OUTL)
-    ellipse(116, 198, 13, 6.5, OUTL)
-    # Крендель: контур, тело, блик.
-    stroke(ROPE, 30, OUTL)
-    stroke(BELLY, 50, OUTL)
-    stroke(ROPE, 22, BODY)
-    stroke(BELLY, 42, BODY)
-    stroke(ROPE, 5, HI, -2, -4)
-    # Соль.
-    for (x, y, rot) in [(150, 30, -25), (176, 78, 75), (44, 32, 20), (22, 84, -75), (92, 58, 60), (112, 104, -55), (52, 132, 35), (148, 132, -35)]:
-        a = math.radians(rot)
-        pts = []
-        for (px, py) in [(-4, -2.5), (4, -2.5), (4, 2.5), (-4, 2.5)]:
-            pts.append(P(x + px * math.cos(a) - py * math.sin(a), y + px * math.sin(a) + py * math.cos(a)))
-        d.polygon(pts, fill=SALT)
-    # Лицо.
-    overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    od = ImageDraw.Draw(overlay)
-    for cx in (72, 128):
-        x, y = P(cx, 175)
-        od.ellipse([x - 7.5 * k, y - 4.5 * k, x + 7.5 * k, y + 4.5 * k], fill=CHEEK)
-    img.alpha_composite(overlay)
-    for cx in (86, 114):
-        circle(cx, 164, 6.5, INK)
-        circle(cx + 2.2, 161.6, 2.2, (255, 255, 255, 255))
-    mouth = [P(89, 173)]
-    for i in range(1, 30):
-        t = i / 30
-        x = (1 - t) ** 2 * 89 + 2 * (1 - t) * t * 100 + t ** 2 * 111
-        y = (1 - t) ** 2 * 173 + 2 * (1 - t) * t * 190 + t ** 2 * 173
-        mouth.append(P(x, y))
-    mouth.append(P(111, 173))
-    d.polygon(mouth, fill=MOUTH, outline=INK)
-    return img.resize((size, size), Image.LANCZOS)
+def sticker(im, size, edge=0.035, shadow=True):
+    """Наклейка: белая обводка вокруг рисунка и мягкая тень. Возвращает картинку size x size."""
+    im = im.crop(im.getbbox())
+    pad = int(max(im.size) * (edge + 0.06))
+    box = Image.new("RGBA", (max(im.size) + pad * 2,) * 2)
+    box.alpha_composite(im, ((box.width - im.width) // 2, (box.height - im.height) // 2))
+    box = box.resize((size, size), Image.LANCZOS)
+    r = max(2, int(size * edge))
+    a = box.getchannel("A")
+    grow = a.filter(ImageFilter.GaussianBlur(r * 0.55)).point(lambda v: 255 if v > 12 else 0).filter(ImageFilter.GaussianBlur(max(1, r * 0.12)))
+    out = Image.new("RGBA", box.size)
+    if shadow:
+        sh = Image.new("RGBA", box.size, (10, 60, 120, 0))
+        sh.putalpha(grow.filter(ImageFilter.GaussianBlur(r * 0.9)).point(lambda v: int(v * 0.42)))
+        out.alpha_composite(sh, (0, int(r * 0.75)))
+    white = Image.new("RGBA", box.size, (255, 255, 255, 0))
+    white.putalpha(grow)
+    out.alpha_composite(white)
+    out.alpha_composite(box)
+    return out
 
 
-def main():
-    for size in (192, 512):
-        s = size / 512
-        render(size, 2.05 * s, 51 * s, 40 * s, False).save(OUT / f"icon-{size}.png")
-    render(512, 1.55, 101, 92, False).save(OUT / "icon-maskable-512.png")
-    print("icons:", sorted(p.name for p in OUT.glob("*.png")))
+def backdrop(w, h, rays=True):
+    """Голубой фон с мягким сиянием и лучами из центра."""
+    y = np.linspace(0, 1, h, dtype=np.float32)[:, None, None]
+    img = np.broadcast_to(np.array(TOP, np.float32) * (1 - y) + np.array(BOTTOM, np.float32) * y, (h, w, 3)).copy()
+    im = Image.fromarray(img.astype(np.uint8), "RGB").convert("RGBA")
+    cx, cy, R = w / 2, h * 0.47, max(w, h)
+    glow = Image.new("L", (w, h), 0)
+    r0 = min(w, h) * 0.46
+    ImageDraw.Draw(glow).ellipse([cx - r0, cy - r0, cx + r0, cy + r0], fill=64)
+    glow = glow.filter(ImageFilter.GaussianBlur(min(w, h) * 0.06))
+    if rays:
+        ray = Image.new("L", (w, h), 0)
+        d = ImageDraw.Draw(ray)
+        for i in range(12):
+            d.pieslice([cx - R, cy - R, cx + R, cy + R], i * 30 - 7 + 15, i * 30 + 7 + 15, fill=30)
+        glow = ImageChops.add(glow, ray.filter(ImageFilter.GaussianBlur(min(w, h) * 0.004)))
+    light = Image.new("RGBA", (w, h), (255, 255, 255, 0))
+    light.putalpha(glow)
+    im.alpha_composite(light)
+    return im
 
 
-if __name__ == "__main__":
-    main()
+def body_only(im):
+    """Кренделёк без ручек и ножек — для иконки (тонкие линии в маленькой иконке не читаются)."""
+    w, h = im.size
+    a = np.asarray(im).copy()
+    k = w / 1024
+    a[int(763 * k):, :, 3] = 0                                   # ножки
+    a[int(640 * k):, :int(205 * k), 3] = 0                       # левая ручка
+    a[int(640 * k):, int(800 * k):, 3] = 0                       # правая ручка
+    return Image.fromarray(a, "RGBA")
+
+
+def icon(size, scale):
+    bg = backdrop(size * 2, size * 2)
+    st = sticker(body_only(cut(RAW / "idle.png")), int(size * 2 * scale), edge=0.04)
+    bg.alpha_composite(st, ((bg.width - st.width) // 2, int((bg.height - st.height) / 2 + size * 0.02)))
+    return bg.resize((size, size), Image.LANCZOS).convert("RGB")
+
+
+icons = ROOT / "icons"
+icon(512, 0.86).save(icons / "icon-512.png", optimize=True)
+icon(192, 0.86).save(icons / "icon-192.png", optimize=True)
+icon(180, 0.86).save(icons / "apple-touch-icon.png", optimize=True)
+icon(512, 0.66).save(icons / "icon-maskable-512.png", optimize=True)      # с запасом под круглую обрезку Android
+icon(64, 0.9).save(icons / "favicon.png", optimize=True)
+
+# Маскот для заставки: машет рукой, наклейка с обводкой.
+hero = sticker(cut(RAW / "wave.png"), 600, edge=0.03)
+hero.save(ROOT / "img" / "splash.webp", quality=88, method=6)
+
+out = icons / "splash"
+out.mkdir(exist_ok=True)
+for f in out.glob("*.png"):
+    f.unlink()
+for w, h, dpr in PHONES:
+    bg = backdrop(w * dpr, h * dpr, rays=False)
+    m = hero.resize((SPLASH_M * dpr,) * 2, Image.LANCZOS)
+    bg.alpha_composite(m, ((bg.width - m.width) // 2, int(bg.height * 0.44 - m.height / 2)))
+    bg.convert("RGB").quantize(200, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(out / f"{w}x{h}@{dpr}.png", optimize=True)
+print("icons:", sorted(p.name for p in icons.glob("*.png")))
+print("splash:", sum(p.stat().st_size for p in out.glob("*.png")) // 1024, "KB,", (ROOT / "img" / "splash.webp").stat().st_size // 1024, "KB hero")
