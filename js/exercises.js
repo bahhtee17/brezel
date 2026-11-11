@@ -347,7 +347,7 @@ function mountSpeak(ex, host, api) {
     mic.classList.add('is-listening');
     heard.textContent = 'Слушаю…';
     try {
-      const alts = await listen();
+      const alts = await listen({ onInterim: t => { if (t) heard.textContent = `Слышу: ${t}`; } });
       tries++;
       if (!alts.length) { heard.textContent = 'Ничего не услышал. Попробуйте ещё раз, чуть громче.'; }
       else {
@@ -579,7 +579,7 @@ function mountSpeakCard(ex, host, api) {
       mic.classList.add('is-listening');
       heard.textContent = 'Слушаю… говорите все предложения подряд';
       try {
-        const alts = await listen({ timeout: 15000 });
+        const alts = await listen({ timeout: 15000, silence: 2200, onInterim: t => { if (t) heard.textContent = `Слышу: ${t}`; } });
         if (alts.length) {
           area.value = (area.value ? `${area.value} ` : '') + alts[0];
           evaluate(area.value);

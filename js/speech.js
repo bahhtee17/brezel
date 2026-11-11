@@ -103,25 +103,50 @@ export async function sayLines(lines, onLine) {
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 export const canListen = () => !!SR;
 
-export function listen({ timeout = 8000 } = {}) {
+// Safari на iPhone часто не присылает «окончательный» результат (isFinal) и сразу завершает
+// распознавание — текст приходит только промежуточными результатами. Поэтому собираем и их:
+// после паузы в речи (silence мс) заканчиваем сами и возвращаем последнее услышанное.
+export function listen({ timeout = 8000, silence = 1300, onInterim } = {}) {
   return new Promise((resolve, reject) => {
     if (!SR) return reject(new Error('unsupported'));
     stop();
     const rec = new SR();
     rec.lang = 'de-DE';
-    rec.interimResults = false;
+    rec.interimResults = true;
+    rec.continuous = false;
     rec.maxAlternatives = 4;
     let finished = false;
-    const end = (fn, v) => { if (!finished) { finished = true; clearTimeout(t); try { rec.stop(); } catch { /* ignore */ } fn(v); } };
-    rec.onresult = e => {
-      const alts = [];
-      const res = e.results[0];
-      for (let i = 0; i < res.length; i++) alts.push(res[i].transcript);
-      end(resolve, alts);
+    let alts = [];
+    let quiet = 0;
+    const end = (fn, v) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(t); clearTimeout(quiet);
+      try { rec.stop(); } catch { /* ignore */ }
+      fn(v);
     };
-    rec.onerror = e => end(reject, new Error(e.error || 'error'));
-    rec.onend = () => end(resolve, []);
-    const t = setTimeout(() => end(resolve, []), timeout);
+    const done = () => end(resolve, alts.filter(Boolean));
+    rec.onresult = e => {
+      // Склеиваем все куски фразы; варианты берём у последнего куска.
+      const head = [];
+      for (let i = 0; i < e.results.length - 1; i++) head.push(e.results[i][0].transcript);
+      const last = e.results[e.results.length - 1];
+      const next = [];
+      for (let i = 0; i < last.length; i++) next.push([...head, last[i].transcript].join(' ').replace(/\s+/g, ' ').trim());
+      if (next.some(Boolean)) alts = next;
+      onInterim?.(alts[0] || '');
+      if (last.isFinal) return done();
+      clearTimeout(quiet);
+      quiet = setTimeout(done, silence);
+    };
+    rec.onerror = e => {
+      // «Нет речи» и «прервано» — не ошибка: отдаём то, что успели услышать.
+      if (e.error === 'no-speech' || e.error === 'aborted') return done();
+      if (alts.length) return done();
+      end(reject, new Error(e.error || 'error'));
+    };
+    rec.onend = done;
+    const t = setTimeout(done, timeout);
     try { rec.start(); } catch (err) { end(reject, err); }
   });
 }
