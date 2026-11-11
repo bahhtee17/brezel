@@ -1,11 +1,11 @@
 // Service worker: приложение и уроки работают без интернета.
 // При изменении файлов увеличьте VERSION — старый кэш удалится.
-const VERSION = 'brezel-v8';
+const VERSION = 'brezel-v9';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/main.js', 'js/ui.js', 'js/store.js', 'js/srs.js', 'js/speech.js', 'js/content.js',
   'js/art.js', 'js/img.js', 'js/mascot.js', 'js/exercises.js', 'js/player.js', 'js/screens.js',
-  'js/reading.js', 'js/readkit.js', 'js/mastery.js', 'js/placement.js', 'js/video.js',
+  'js/reading.js', 'js/readkit.js', 'js/mastery.js', 'js/placement.js', 'js/video.js', 'js/moves.js',
   'content/course.json', 'content/a1/01-hallo.json', 'content/reading.json', 'audio/manifest.json', 'img/index.json',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'
 ];

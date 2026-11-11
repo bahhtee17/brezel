@@ -1,6 +1,7 @@
 // Экраны приложения: карта курса, слова, повторение, ошибки, профиль, история, тест, запуск урока.
 import { h, esc, icon, toast, popover, soundBtn, deWord, deText, shuffle, go } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
+import { playMove } from './moves.js';
 import { art, scene as sceneArt } from './art.js';
 import { allTopics, loadTopic, word, allWords, genForWord, genPairs, practiceSet, preferWords } from './content.js';
 import { get, currentStreak, isLessonDone, completeLesson, isStoryDone, completeStory, saveTest, setSetting, setting, today, addDays, reset } from './store.js';
@@ -120,6 +121,7 @@ export async function homeScreen() {
   }
   mount(scr, 'home');
   setTimeout(() => setMood(scr.querySelector('.node-mascot'), 'wave', 'idle', 2400), 300);
+  playMove(scr.querySelector('.node-mascot'), 'wave', { then: 'idle' });
   scr.querySelector('.node--current')?.scrollIntoView({ block: 'center' });
 }
 

@@ -320,6 +320,85 @@ function mountWrite(ex, host, api, dictation = false) {
   };
 }
 
+// ---------- Диктант: собрать услышанное из плиток ----------
+// Короткий ответ собирается по буквам, длинная фраза — по словам. Пробелы и знаки уже стоят на местах.
+function mountSpell(ex, host, api) {
+  host.append(kicker(ex.kicker || 'Прослушайте и соберите'));
+  host.append(playRow(ex.de, ex.who));
+  if (ex.hint) host.append(h('div', { class: 'small muted', text: ex.hint }));
+  const answer = (ex.accept || [ex.de])[0];
+  const isCh = c => /[\p{L}\p{N}]/u.test(c);
+  const byLetters = [...answer].filter(isCh).length <= 16;
+  // Слова ответа; в каждом — ячейки (их заполняет ученик) и готовые знаки.
+  const words = answer.trim().split(/\s+/).map(w => {
+    if (byLetters) return [...w].map(c => ({ text: c, fixed: !isCh(c) }));
+    const m = w.match(/^([^\p{L}\p{N}]*)(.*?)([^\p{L}\p{N}]*)$/u);
+    return [m[1] && { text: m[1], fixed: true }, { text: m[2], fixed: false }, m[3] && { text: m[3], fixed: true }].filter(Boolean);
+  });
+  const slots = words.flat().filter(u => !u.fixed);
+  const line = h('div', { class: `spell ${byLetters ? '' : 'spell--words'}` }, words.map(w => h('div', { class: 'spell__w' }, w.map(u => {
+    if (u.fixed) return h('span', { class: 'spell__p', text: u.text });
+    u.el = h('button', { type: 'button', class: 'spell__s', 'aria-label': 'Пустая ячейка' });
+    u.el.addEventListener('click', () => clear(u));
+    return u.el;
+  }))));
+  let order = shuffle(slots.map(u => u.text));
+  if (slots.length > 1 && order.join('\n') === slots.map(u => u.text).join('\n')) order = [...order.slice(1), order[0]];
+  const bank = h('div', { class: 'bank' });
+  const tiles = order.map(t => {
+    const b = h('button', { type: 'button', class: `tile ${byLetters ? 'tile--ch' : ''}` }, t);
+    b.addEventListener('click', () => {
+      const free = slots.find(u => !u.tile);
+      if (free) put(free, b);
+    });
+    return b;
+  });
+  bank.append(...tiles);
+  host.append(line, bank);
+
+  const ready = () => api.ready(slots.every(u => u.tile));
+  function put(u, b) {
+    if (b.classList.contains('is-used')) return;
+    b.classList.add('is-used');
+    u.tile = b;
+    u.el.textContent = b.textContent;
+    u.el.classList.add('is-full');
+    ready();
+  }
+  function clear(u) {
+    if (!u.tile) return;
+    u.tile.classList.remove('is-used');
+    u.tile = null;
+    u.el.textContent = '';
+    u.el.classList.remove('is-full');
+    ready();
+  }
+  return {
+    // Подсказка: ставит на место следующую букву (слово); всё, что после первой ошибки, снимается.
+    hint() {
+      let k = 0;
+      while (k < slots.length && slots[k].tile && slots[k].tile.textContent === slots[k].text) k++;
+      if (k >= slots.length) return false;
+      slots.slice(k).forEach(clear);
+      const b = tiles.find(x => !x.classList.contains('is-used') && x.textContent === slots[k].text);
+      if (!b) return false;
+      put(slots[k], b);
+      return byLetters ? 'Следующая буква поставлена на место' : 'Следующее слово поставлено на место';
+    },
+    check() {
+      let ok = true;
+      slots.forEach(u => {
+        const right = !!u.tile && u.tile.textContent === u.text;
+        if (!right) ok = false;
+        u.el.classList.add(right ? 'is-right' : 'is-wrong');
+        u.el.setAttribute('disabled', '');
+      });
+      tiles.forEach(b => b.setAttribute('disabled', ''));
+      return { ok, correct: answer, note: ex.ru || '', sayAfter: answer };
+    }
+  };
+}
+
 // ---------- Говорение ----------
 function speakingOff() {
   return !canListen() || !setting('speak') || (setting('noSpeakUntil') || 0) > Date.now();
@@ -604,7 +683,7 @@ function mountSpeakCard(ex, host, api) {
 
 const TYPES = {
   pick: mountPick, choose: mountPick, listen: mountListen, tiles: mountTiles, gap: mountGap, reply: mountReply,
-  write: (e, h2, a) => mountWrite(e, h2, a, false), dictation: (e, h2, a) => mountWrite(e, h2, a, true),
+  write: (e, h2, a) => mountWrite(e, h2, a, false), dictation: mountSpell,
   speak: mountSpeak, pairs: mountPairs, info: mountInfo, form: mountForm, tf: mountTF,
   listenDialog: mountListenDialog, speakCard: mountSpeakCard, readWord: mountReadWord
 };

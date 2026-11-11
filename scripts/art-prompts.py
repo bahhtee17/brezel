@@ -245,6 +245,35 @@ add("word-puzzle", "video", "A cute magnifying glass character with huge googly 
     "drawn in thick crayon texture. It proudly holds up three colorful jigsaw puzzle pieces joined together in one row: "
     "one coral pink, one sunny yellow, one sky blue. No letters, no text.", "key")
 
+# ---------- Живой маскот: стартовые кадры для анимаций (их оживляет Grok, фон вырезается) ----------
+# Один и тот же Брецель в разных ролях: комбо, победа, поддержка после ошибки. Реквизит — уже в кадре.
+MV = ("Full body of Brezel, facing the viewer, whole figure and every prop fully visible with a wide empty margin on all "
+      "sides (the character fills about 60% of the picture height), feet on the same invisible ground level. "
+      "Same character design as in the reference, a little more expressive: lively eyebrows above the googly eyes. ")
+REF = "Use mascot/idle.png as the reference image if your tool accepts one, so it is the same character."
+MOVES = [
+    ("cheer", "Celebrating: both stick arms raised high, one hand holds a small striped party popper cone pointing up, "
+              "mouth wide open in a happy shout, eyes sparkling."),
+    ("thumbs", "Giving a big thumbs-up with one stick arm stretched toward the viewer, the other arm on the hip, "
+               "one eye winking, a confident grin."),
+    ("dance", "Dancing: wearing small black sunglasses pushed up on top of the pretzel knot (the googly eyes stay visible), "
+              "one arm pointing up diagonally and the other down in a disco pose, one leg kicked out, a cool smile."),
+    ("hero", "A superhero: a small red cape tied around the body flying to one side, one fist raised straight up, "
+             "the other fist on the hip, chest out, a proud determined smile."),
+    ("trophy", "A champion: holding a shiny golden trophy cup high above the head with both stick arms, "
+               "mouth wide open laughing with joy, eyes squeezed happy."),
+    ("comfort", "Kind and encouraging: one hand on the chest over the heart, the other arm stretched out to the viewer "
+                "with an open palm as if saying 'it is okay, try again', a warm gentle smile, slightly tilted body."),
+    ("think", "Thinking: one finger on the chin, eyes looking up to one side, one eyebrow raised, a small curious smile, "
+              "the other arm behind the back."),
+    ("grad", "A graduate: a black square graduation cap with a yellow tassel sits on top of the pretzel knot, "
+             "one hand holds up a rolled diploma tied with a red ribbon, a proud happy smile."),
+    ("flame", "Holding up a small cheerful orange-and-yellow flame on the open palm of one raised hand like a torch, "
+              "looking at it with delight, the other arm making a fist of excitement."),
+]
+for mid, subj in MOVES:
+    add(mid, "moves", MV + subj, "key", ["brezel"], note=REF)
+
 # ---------- Анимации (Remotion, anim/) ----------
 # Вторая поза рисуется по первой картинке слова. Ролик: позы сменяются + «кипящая» линия + движение.
 ANIM = [

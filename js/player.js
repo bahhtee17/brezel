@@ -6,13 +6,18 @@ import { art, scene as sceneArt, avatar, charName } from './art.js';
 import { mountExercise } from './exercises.js';
 import { say, stop, sfx } from './speech.js';
 import { learn, grade, addMistake, mistakeCorrect, mistakeWrong, isLearned } from './srs.js';
-import { addXP } from './store.js';
+import { addXP, currentStreak } from './store.js';
 import { word as wordById } from './content.js';
 import { videoCard } from './video.js';
+import { playMove, celebrate, closeParty, confetti, preloadMoves } from './moves.js';
 
 let activeCleanup = null;
 const PRAISE = ['Отлично!', 'Супер!', 'Так держать!', 'Wunderbar!', 'Prima!', 'Верно!', 'Sehr gut!', 'Klasse!'];
 const OOPS = ['Почти!', 'Не совсем', 'Ошибка — не страшно', 'Ещё разок'];
+// Серия верных ответов подряд -> анимация маскота с конфетти.
+const COMBO_MOVE = { 3: 'thumbs', 5: 'cheer', 7: 'dance', 10: 'hero' };
+const COMBO_NEXT = { 3: 'cheer', 5: 'dance', 7: 'hero' };
+const days = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'день' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'дня' : 'дней'}`;
 
 // opts.onAnswer(step, ok, { hinted, skipped }) — после каждого ответа (для проверок освоения и входного теста).
 // opts.allowSkip — кнопка «Не знаю» (входной тест). Подсказки есть везде, кроме экзаменов.
@@ -65,7 +70,7 @@ export function runPlayer(opts) {
   // Новый проигрыватель (например, «Повторить сейчас») снимает обработчики прежнего.
   activeCleanup?.();
   document.addEventListener('keydown', onKey);
-  function cleanup() { document.removeEventListener('keydown', onKey); if (activeCleanup === cleanup) activeCleanup = null; }
+  function cleanup() { closeParty(); document.removeEventListener('keydown', onKey); if (activeCleanup === cleanup) activeCleanup = null; }
   activeCleanup = cleanup;
   window.addEventListener('hashchange', cleanup, { once: true });
 
@@ -81,6 +86,7 @@ export function runPlayer(opts) {
   }
 
   function next() {
+    closeParty();
     feedback.classList.remove('is-open');
     phase = 'answer';
     done++;
@@ -121,6 +127,8 @@ export function runPlayer(opts) {
       s.goal ? h('div', { class: 'task-sub', text: s.goal }) : null,
       s.note ? h('div', { class: 'scene-note', text: s.note }) : null,
       s.video ? videoCard(s.video, `Урок «${s.title}»`) : null));
+    playMove(body.firstChild.firstChild, 'wave', { then: 'idle' });
+    preloadMoves('thumbs', 'trophy');
     setMain(s.button || 'Начать');
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
@@ -272,7 +280,9 @@ export function runPlayer(opts) {
       xp += s.tag === 'boss' ? 2 : 1;
       if (combo >= 3) xp += 1;
       if (res.bonus) xp += res.bonus;
-      sfx(combo === 3 || combo === 5 || combo === 10 ? 'combo' : 'ok');
+      sfx(COMBO_MOVE[combo] ? 'combo' : 'ok');
+      if (COMBO_MOVE[combo]) celebrate(COMBO_MOVE[combo], { text: `Комбо ×${combo}!`, count: 50 + combo * 8 });
+      if (COMBO_NEXT[combo]) preloadMoves(COMBO_NEXT[combo]);
     } else {
       combo = 0;
       sfx('bad');
@@ -305,7 +315,11 @@ export function runPlayer(opts) {
     fbBtn.className = `btn ${ok ? 'btn--ok' : 'btn--bad'}`;
     fbBtn.textContent = ok ? 'Дальше' : 'Понятно';
     feedback.classList.add('is-open');
+    fbMascot._move = null;
+    fbMascot.classList.remove('move-host');
+    fbMascot.innerHTML = mascotSVG('idle');
     setMood(fbMascot, ok ? 'happy' : 'sad', null);
+    if (!ok) playMove(fbMascot, pick(['comfort', 'think']));
     foot.style.visibility = 'hidden';
     if (ok && res.sayAfter && ex.type !== 'speak') setTimeout(() => say(res.sayAfter), 150);
     fbBtn.onclick = () => { foot.style.visibility = ''; next(); };
@@ -360,23 +374,34 @@ export function runPlayer(opts) {
       const acc = graded ? Math.round((right / graded) * 100) : 100;
       const bonus = s.bonusXP || 0;
       const total = xp + bonus;
+      const streakWas = currentStreak();
       addXP(total);
+      const streakNow = currentStreak();
       sfx('done');
       summary = { xp: total, acc, maxCombo };
       // Результат сохраняется сразу, даже если ученик закроет приложение на этом экране.
       const fin = onFinish?.(summary);
       const title = typeof s.title === 'function' ? s.title(summary) : s.title;
+      const hero = h('div', { html: mascotSVG('happy') });
+      const flame = total && streakNow > streakWas ? h('div', { class: 'streak-card' },
+        h('div', { class: 'streak-card__m', html: mascotSVG('happy') }),
+        h('div', {}, h('div', { class: 'streak-card__n', text: `Серия: ${days(streakNow)}` }),
+          h('div', { class: 'small muted', text: streakNow > 1 ? 'Вы занимаетесь каждый день — так и учат язык' : 'Заходите завтра — серия вырастет' }))) : null;
       body.append(h('div', { class: 'stack stack--lg result', style: { margin: 'auto 0' } },
-        h('div', { html: mascotSVG('happy') }),
+        hero,
         h('h1', { style: { fontSize: '28px' }, text: title || 'Готово!' }),
         s.sub ? h('div', { class: 'task-sub', text: s.sub }) : null,
         h('div', { class: 'stats' },
           h('div', { class: 'stat stat--xp' }, h('div', { class: 'stat__k', text: 'Опыт' }), h('div', { class: 'stat__v', text: `+${total}` })),
           h('div', { class: 'stat stat--acc' }, h('div', { class: 'stat__k', text: 'Точность' }), h('div', { class: 'stat__v', text: `${acc}%` })),
           h('div', { class: 'stat stat--combo' }, h('div', { class: 'stat__k', text: 'Комбо' }), h('div', { class: 'stat__v', text: `×${maxCombo}` }))),
+        flame,
         s.extra ? s.extra(summary, fin) : null,
         s.teaser ? h('div', { class: 'teaser', html: `<b>Что дальше?</b> ${esc(s.teaser)}` }) : null));
       setTimeout(() => setMood(body, 'happy', 'idle', 2000), 50);
+      playMove(hero, acc >= 60 ? 'trophy' : 'comfort');
+      if (flame) playMove(flame.firstChild, 'flame');
+      if (acc >= 60) confetti({ count: 110 });
     }
     foot.style.visibility = '';
     if (s.nextLabel && s.onNext) {
@@ -406,8 +431,11 @@ export function runPlayer(opts) {
     const passed = scaled >= 60;
     addXP(passed ? 30 : 10);
     sfx(passed ? 'done' : 'bad');
+    const hero = h('div', { html: mascotSVG(passed ? 'happy' : 'sad') });
+    playMove(hero, passed ? 'grad' : 'comfort');
+    if (passed) confetti({ count: 140 });
     body.append(h('div', { class: 'stack stack--lg result', style: { margin: 'auto 0' } },
-      h('div', { html: mascotSVG(passed ? 'happy' : 'sad') }),
+      hero,
       h('h1', { style: { fontSize: '28px' }, text: passed ? 'Тест сдан!' : 'Пока не сдан' }),
       h('div', { class: 'task-sub', text: `${scaled} из 100 баллов. Для сдачи нужно 60 — как на экзамене Goethe.` }),
       h('div', { class: 'score-bars card' }, rows.map(r => h('div', {},
