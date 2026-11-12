@@ -28,6 +28,18 @@ try { manifest = JSON.parse(await readFile(manifestPath, 'utf8')); } catch { man
 const refPath = who => path.join(root, 'scripts/voice-refs', `${who}.wav`);
 const tmp = path.join(tmpdir(), `brezel-tts-${process.pid}`);
 
+// Буквы по-немецки: «B – E – C – K – E – R» модель читает как попало, поэтому называем каждую букву словом.
+const LETTER = { A: 'A', B: 'Be', C: 'Ze', D: 'De', E: 'E', F: 'Eff', G: 'Ge', H: 'Ha', I: 'I', J: 'Jott', K: 'Ka', L: 'Ell', M: 'Emm',
+  N: 'Enn', O: 'O', P: 'Pe', Q: 'Ku', R: 'Err', S: 'Ess', T: 'Te', U: 'U', V: 'Vau', W: 'We', X: 'Iks', Y: 'Üpsilon', Z: 'Zett',
+  Ä: 'Ä', Ö: 'Ö', Ü: 'Ü', ß: 'Eszett' };
+export function ttsText(text) {
+  const one = text.trim();
+  if (LETTER[one]) return `${LETTER[one]}.`;
+  return text
+    .replace(/(?<![\p{L}])[A-ZÄÖÜß](?:\s+–\s+[A-ZÄÖÜß])+(?![\p{L}])/gu, m => m.split(/\s+–\s+/).map(c => LETTER[c]).join(', '))
+    .replace(/(?<![\p{L}])[A-ZÄÖÜß](?![\p{L}])/gu, c => LETTER[c]);
+}
+
 const voiceFor = who => {
   if (cfg.voices[who]) return who;
   if (cfg.female.includes(who)) return 'f';
@@ -94,7 +106,7 @@ try {
     const out = path.join(root, 'audio', file);
     try {
       // speed 0.8: OmniVoice говорит примерно на 30% быстрее записей ElevenLabs, для новичка это слишком быстро.
-      const wav = await generate({ text, language: cfg.language, ref_text: cfg.refText, num_step: cfg.numStep, speed: cfg.speed ?? 1, seed: cfg.voices[who].seed }, refPath(who));
+      const wav = await generate({ text: ttsText(text), language: cfg.language, ref_text: cfg.refText, num_step: cfg.numStep, speed: cfg.speed ?? 1, seed: cfg.voices[who].seed }, refPath(who));
       await toMp3(wav, out);
       manifest[text] = file;
       done++;

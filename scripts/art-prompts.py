@@ -136,6 +136,22 @@ add("ubahn", "scenes", "Inside a yellow Berlin U-Bahn train carriage. The train 
 add("office", "scenes", "The language school office. Frau Wagner sits behind a desk, handing over a paper form and a pen; "
     "a small sign on the desk reads 'Anmeldung'.", "sage", ["wagner"], W)
 
+# Тема 2 «Буквы и числа»
+add("phone", "scenes", "Split picture: on the left Alex at home holding a phone to the ear, spelling letters (small floating letters N, O, V, A, K); "
+    "on the right a language school secretary at a desk with a phone and a notepad.", "sky", ["you", "f"], W)
+add("bingo", "scenes", "A bingo night in the hostel: Lena turns a big wire bingo drum full of numbered balls; Marco and Aigerim sit at a table "
+    "with bingo cards and pencils, very concentrated. A few balls show the numbers 3, 5 and 12.", "mustard", ["lena", "marco", "aigerim"], W)
+add("birthday", "scenes", "Tom's birthday in the hostel kitchen: a big cake with candles, a paper party garland, Lena and Marco singing, "
+    "Tom wearing a paper party hat, delighted.", "coral", ["tom", "lena", "marco"], W)
+add("lostfound", "scenes", "The hostel reception in the morning: Lena behind the counter holds up a cardboard box of found things "
+    "(a mobile phone, a key with a tag reading '12', a scarf); sleepy Tom in his hoodie searches his pockets.", "sage", ["lena", "tom"], W)
+add("cafe", "scenes", "A small cosy cafe after class: Marco, a bit nervous, holds his phone ready to type a number; Aigerim smiles and "
+    "dictates, two coffee cups on the round table.", "cream", ["marco", "aigerim"], W)
+add("amt", "scenes", "A German city office (Buergeramt) counter: a clerk behind the counter types on an old computer; Alex stands in front "
+    "holding a paper; a ticket number display above shows '15'.", "cobalt", ["you", "f"], W)
+add("gym", "scenes", "The reception of a small gym: the trainer behind the counter hands a clipboard form to Alex; dumbbells and a "
+    "rubber plant in the background.", "sky", ["m", "you"], W)
+
 # ---------- Картинки слов ----------
 WORDS = [
     ("wave", "Lena waving hello with a big wide wave, cheerful.", "sky", ["lena"]),
@@ -206,6 +222,47 @@ WORDS = [
     ("homepin", "A small house with a big red map pin hovering above its roof.", "sky", []),
     ("form", "A clipboard holding a paper form with empty boxes and lines, a pen lying across it.", "cream", []),
     ("welcome", "Lena opening a front door wide with open arms; the doormat reads 'WILLKOMMEN'.", "coral", ["lena"]),
+    # Тема 2 «Буквы и числа»
+    ("alphabet", "A row of chunky wooden alphabet blocks with the letters A, B, C on them; the B block has googly eyes and smiles.", "mustard", []),
+    ("letters", "Three big hand-drawn letters A, Ä and ß standing side by side like characters, each with googly eyes and thin legs.", "sky", []),
+    ("spell", "Lena saying letters one by one: separate speech bubbles float out of her mouth containing L, E, N, A in order.", "coral", ["lena"]),
+    ("qspell", "A pencil with googly eyes scratching its head over a sheet with a half-written word; a big question mark.", "mustard", []),
+    ("big", "A huge elephant with googly eyes standing next to a tiny mouse; the elephant is the focus.", "sage", []),
+    ("small", "A tiny mouse with googly eyes standing next to a huge elephant's foot; the mouse is the focus.", "sage", []),
+    ("word", "One word written in big chunky letters on a white card, 'Wort', with a googly-eyed bookmark peeking over it.", "cream", []),
+    ("write", "Aigerim writing in a notebook with a pencil, concentrating, tongue slightly out.", "sky", ["aigerim"]),
+    ("read", "Marco reading a big open book, fascinated, glasses perched on his nose.", "mustard", ["marco"]),
+    ("hear", "A huge cartoon ear with googly eyes beside it, wavy sound lines coming in from the left.", "coral", []),
+    ("phone", "An old-fashioned chunky desk telephone with a curly cord and googly eyes, ringing and jumping.", "coral", []),
+    ("phonehello", "Tom holding a mobile phone to his ear, cheerfully introducing himself, one hand raised.", "sky", ["tom"]),
+    ("wait", "Lena holding up one finger as if saying 'one moment', the other hand writing on a notepad.", "mustard", ["lena"]),
+    ("numbers", "Big chunky hand-drawn digits 1, 2 and 3 standing in a row like characters with googly eyes and thin legs.", "cobalt", []),
+    ("old", "A very old grandpa with a long white beard and a walking stick, smiling kindly.", "cream", []),
+    ("young", "A cheerful baby in a nappy crawling, a rattle in hand.", "sky", []),
+    ("calendar", "A wall calendar page with a googly-eyed face, a big red ring around one day.", "cream", []),
+    ("qage", "A birthday cake with a question mark candle on top, googly eyes on the cake.", "lilac", []),
+    ("cake", "A big round birthday cake with three lit candles and colourful sprinkles, googly eyes on the cake.", "coral", []),
+    ("gift", "A wrapped present with a big red bow and googly eyes, little confetti around.", "mustard", []),
+    ("have", "Tom proudly holding a cardboard box in both arms, showing it to the viewer.", "sage", ["tom"]),
+    ("mobile", "A modern smartphone with googly eyes on its screen, waving one thin arm.", "sky", []),
+    ("room", "A hotel room door with a big brass number 12 on it and a 'do not disturb' style tag without text.", "mustard", []),
+    ("hourglass", "An hourglass with googly eyes, sand trickling down.", "cobalt", []),
+    ("hungry", "Marco holding his rumbling tummy, staring longingly at a pretzel, drooling a little.", "mustard", ["marco"]),
+    ("phonenumber", "A smartphone screen showing a big row of digits '0176 345', a finger tapping it.", "sky", []),
+    ("qnumber", "Marco holding a phone toward the viewer with a question mark above it, asking for a number.", "coral", ["marco"]),
+    ("number", "A big round badge with the digit 7 on it and googly eyes.", "mustard", []),
+    ("email", "An envelope with googly eyes flying out of a laptop screen, a big @ sign beside it.", "sky", []),
+    ("dot", "One big round black dot with tiny googly eyes sitting alone in the middle.", "cream", []),
+    ("or", "A googly-eyed character standing at a fork in a path, one arrow pointing left and one pointing right.", "sage", []),
+    ("not", "A bold red circle with a diagonal line through it, with googly eyes.", "coral", []),
+    ("maybe", "A googly-eyed character shrugging, tilting a hand left and right, a small cloud with a question mark.", "lilac", []),
+    ("envelope", "A paper envelope with a stamp and an address written on it as wavy lines, googly eyes on the stamp.", "cream", []),
+    ("streetsign", "A blue German street sign on a pole reading 'Torstraße' in white letters.", "sky", []),
+    ("housenumber", "A blue enamel house number plate with the white number '15' on a brick wall.", "coral", []),
+    ("zipcode", "A yellow German letterbox with googly eyes; a letter sticking out shows the number '10115'.", "sky", []),
+    ("qaddress", "A googly-eyed postman holding a letter, scratching his head, a question mark above a little house.", "mustard", []),
+    ("agebadge", "A round birthday badge pin with the number '30' on it, googly eyes.", "coral", []),
+    ("signature", "A hand signing a paper form with a pen, a big loopy signature scribble.", "cream", []),
 ]
 for wid, subj, bg, chars in WORDS:
     add(wid, "words", subj, bg, chars)

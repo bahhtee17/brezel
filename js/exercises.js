@@ -641,7 +641,7 @@ function mountSpeakCard(ex, host, api) {
   if (ex.sub) host.append(h('div', { class: 'small muted', text: ex.sub }));
   const chips = ex.points.map(p => h('span', {}, p.label));
   host.append(h('div', { class: 'speak-card' }, chips));
-  const area = h('textarea', { class: 'field', lang: 'de', spellcheck: 'false', placeholder: 'Ich heiße … Ich komme aus … Ich wohne in … Ich spreche …' });
+  const area = h('textarea', { class: 'field', lang: 'de', spellcheck: 'false', placeholder: ex.placeholder || 'Ich heiße … Ich komme aus … Ich wohne in … Ich spreche …' });
   const evaluate = text => {
     let n = 0;
     ex.points.forEach((p, i) => {

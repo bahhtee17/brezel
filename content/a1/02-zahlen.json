@@ -1,0 +1,4944 @@
+{
+ "id": "a1-02",
+ "title": "Буквы и числа",
+ "words": [
+  {
+   "id": "alphabet",
+   "de": "Alphabet",
+   "art": "das",
+   "ru": "алфавит",
+   "img": "alphabet",
+   "kind": "noun",
+   "ex": {
+    "de": "Ich lerne das Alphabet.",
+    "ru": "Я учу алфавит."
+   }
+  },
+  {
+   "id": "buchstabe",
+   "de": "Buchstabe",
+   "art": "der",
+   "plural": "die Buchstaben",
+   "ru": "буква",
+   "img": "letters",
+   "kind": "noun",
+   "ex": {
+    "de": "A ist ein Buchstabe.",
+    "ru": "A — это буква."
+   }
+  },
+  {
+   "id": "buchstabieren",
+   "de": "buchstabieren",
+   "ru": "называть по буквам",
+   "img": "spell",
+   "kind": "verb",
+   "note": "ich buchstabiere, du buchstabierst",
+   "ex": {
+    "de": "Ich buchstabiere: L – E – N – A.",
+    "ru": "Называю по буквам: Л-Е-Н-А."
+   }
+  },
+  {
+   "id": "wie_schreibt_man",
+   "de": "Wie schreibt man das?",
+   "ru": "Как это пишется?",
+   "img": "qspell",
+   "kind": "phrase",
+   "ex": {
+    "de": "Becker? Wie schreibt man das?",
+    "ru": "Беккер? Как это пишется?"
+   }
+  },
+  {
+   "id": "gross",
+   "de": "groß",
+   "ru": "большой",
+   "img": "big",
+   "kind": "adj",
+   "accept": [
+    "gross"
+   ],
+   "ex": {
+    "de": "Berlin ist groß.",
+    "ru": "Берлин большой."
+   }
+  },
+  {
+   "id": "klein",
+   "de": "klein",
+   "ru": "маленький",
+   "img": "small",
+   "kind": "adj",
+   "ex": {
+    "de": "Die Stadt ist klein.",
+    "ru": "Город маленький."
+   }
+  },
+  {
+   "id": "wort",
+   "de": "Wort",
+   "art": "das",
+   "plural": "die Wörter",
+   "ru": "слово",
+   "img": "word",
+   "kind": "noun",
+   "ex": {
+    "de": "Wie schreibt man das Wort?",
+    "ru": "Как пишется это слово?"
+   }
+  },
+  {
+   "id": "schreiben",
+   "de": "schreiben",
+   "ru": "писать",
+   "img": "write",
+   "kind": "verb",
+   "note": "ich schreibe, du schreibst",
+   "ex": {
+    "de": "Schreiben Sie, bitte!",
+    "ru": "Пишите, пожалуйста!"
+   }
+  },
+  {
+   "id": "lesen",
+   "de": "lesen",
+   "ru": "читать",
+   "img": "read",
+   "kind": "verb",
+   "note": "ich lese, du liest, er liest",
+   "ex": {
+    "de": "Lesen Sie, bitte!",
+    "ru": "Читайте, пожалуйста!"
+   }
+  },
+  {
+   "id": "hoeren",
+   "de": "hören",
+   "ru": "слушать, слышать",
+   "img": "hear",
+   "kind": "verb",
+   "accept": [
+    "hoeren"
+   ],
+   "ex": {
+    "de": "Hören Sie, bitte!",
+    "ru": "Слушайте, пожалуйста!"
+   }
+  },
+  {
+   "id": "eszett",
+   "de": "ß",
+   "art": "das",
+   "ru": "буква ß («эсцэт»), читается как «с»",
+   "img": "bubble:ß",
+   "kind": "noun",
+   "note": "есть только в немецком",
+   "ex": {
+    "de": "Heißen schreibt man mit ß.",
+    "ru": "«Heißen» пишется с ß."
+   }
+  },
+  {
+   "id": "telefon",
+   "de": "Telefon",
+   "art": "das",
+   "plural": "die Telefone",
+   "ru": "телефон",
+   "img": "phone",
+   "kind": "noun",
+   "ex": {
+    "de": "Wo ist das Telefon?",
+    "ru": "Где телефон?"
+   }
+  },
+  {
+   "id": "hier_ist",
+   "de": "Hier ist …",
+   "ru": "Это … (говорит) — так представляются по телефону",
+   "img": "phonehello",
+   "kind": "phrase",
+   "ex": {
+    "de": "Hallo, hier ist Alex!",
+    "ru": "Алло, это Алекс!"
+   }
+  },
+  {
+   "id": "moment_bitte",
+   "de": "Moment, bitte!",
+   "ru": "Минутку, пожалуйста!",
+   "img": "wait",
+   "kind": "phrase",
+   "ex": {
+    "de": "Moment, bitte! Ich schreibe.",
+    "ru": "Минутку! Я записываю."
+   }
+  },
+  {
+   "id": "bitte_buchstabieren",
+   "de": "Buchstabieren Sie, bitte!",
+   "ru": "Скажите по буквам, пожалуйста!",
+   "img": "bubble:A-B-C",
+   "kind": "phrase",
+   "accept": [
+    "Buchstabieren Sie bitte!"
+   ],
+   "ex": {
+    "de": "Wie ist Ihr Name? Buchstabieren Sie, bitte!",
+    "ru": "Как Ваша фамилия? Скажите по буквам, пожалуйста!"
+   }
+  },
+  {
+   "id": "nachname",
+   "de": "Nachname",
+   "art": "der",
+   "plural": "die Nachnamen",
+   "ru": "фамилия",
+   "img": "nametagLast",
+   "kind": "noun",
+   "note": "= Familienname",
+   "ex": {
+    "de": "Mein Nachname ist Becker.",
+    "ru": "Моя фамилия — Беккер."
+   }
+  },
+  {
+   "id": "zahl",
+   "de": "Zahl",
+   "art": "die",
+   "plural": "die Zahlen",
+   "ru": "число, цифра",
+   "img": "numbers",
+   "kind": "noun",
+   "ex": {
+    "de": "Welche Zahl ist das?",
+    "ru": "Какое это число?"
+   }
+  },
+  {
+   "id": "null",
+   "de": "null",
+   "ru": "0",
+   "img": "bubble:0",
+   "kind": "num",
+   "ex": {
+    "de": "Null, eins, zwei, drei.",
+    "ru": "Ноль, один, два, три."
+   }
+  },
+  {
+   "id": "eins",
+   "de": "eins",
+   "ru": "1",
+   "img": "bubble:1",
+   "kind": "num",
+   "ex": {
+    "de": "Eins plus eins ist zwei.",
+    "ru": "Один плюс один — два."
+   }
+  },
+  {
+   "id": "zwei",
+   "de": "zwei",
+   "ru": "2",
+   "img": "bubble:2",
+   "kind": "num",
+   "ex": {
+    "de": "Ich spreche zwei Sprachen.",
+    "ru": "Я говорю на двух языках."
+   }
+  },
+  {
+   "id": "drei",
+   "de": "drei",
+   "ru": "3",
+   "img": "bubble:3",
+   "kind": "num",
+   "ex": {
+    "de": "Ich lerne drei Wörter.",
+    "ru": "Я учу три слова."
+   }
+  },
+  {
+   "id": "vier",
+   "de": "vier",
+   "ru": "4",
+   "img": "bubble:4",
+   "kind": "num",
+   "ex": {
+    "de": "Vier plus eins ist fünf.",
+    "ru": "Четыре плюс один — пять."
+   }
+  },
+  {
+   "id": "fuenf",
+   "de": "fünf",
+   "ru": "5",
+   "img": "bubble:5",
+   "kind": "num",
+   "accept": [
+    "fuenf"
+   ],
+   "ex": {
+    "de": "Der Name Marco hat fünf Buchstaben.",
+    "ru": "В имени Marco пять букв."
+   }
+  },
+  {
+   "id": "sechs",
+   "de": "sechs",
+   "ru": "6",
+   "img": "bubble:6",
+   "kind": "num",
+   "ex": {
+    "de": "Fünf plus eins ist sechs.",
+    "ru": "Пять плюс один — шесть."
+   }
+  },
+  {
+   "id": "sieben",
+   "de": "sieben",
+   "ru": "7",
+   "img": "bubble:7",
+   "kind": "num",
+   "ex": {
+    "de": "Sieben plus drei ist zehn.",
+    "ru": "Семь плюс три — десять."
+   }
+  },
+  {
+   "id": "acht",
+   "de": "acht",
+   "ru": "8",
+   "img": "bubble:8",
+   "kind": "num",
+   "ex": {
+    "de": "Vier plus vier ist acht.",
+    "ru": "Четыре плюс четыре — восемь."
+   }
+  },
+  {
+   "id": "neun",
+   "de": "neun",
+   "ru": "9",
+   "img": "bubble:9",
+   "kind": "num",
+   "ex": {
+    "de": "Neun, zehn, elf!",
+    "ru": "Девять, десять, одиннадцать!"
+   }
+  },
+  {
+   "id": "zehn",
+   "de": "zehn",
+   "ru": "10",
+   "img": "bubble:10",
+   "kind": "num",
+   "ex": {
+    "de": "Zehn plus zwei ist zwölf.",
+    "ru": "Десять плюс два — двенадцать."
+   }
+  },
+  {
+   "id": "elf",
+   "de": "elf",
+   "ru": "11",
+   "img": "bubble:11",
+   "kind": "num",
+   "ex": {
+    "de": "Zehn, elf, zwölf.",
+    "ru": "Десять, одиннадцать, двенадцать."
+   }
+  },
+  {
+   "id": "zwoelf",
+   "de": "zwölf",
+   "ru": "12",
+   "img": "bubble:12",
+   "kind": "num",
+   "accept": [
+    "zwoelf"
+   ],
+   "ex": {
+    "de": "Sechs plus sechs ist zwölf.",
+    "ru": "Шесть плюс шесть — двенадцать."
+   }
+  },
+  {
+   "id": "dreizehn",
+   "de": "dreizehn",
+   "ru": "13",
+   "img": "bubble:13",
+   "kind": "num",
+   "ex": {
+    "de": "Dreizehn ist drei plus zehn.",
+    "ru": "Тринадцать — это три плюс десять."
+   }
+  },
+  {
+   "id": "vierzehn",
+   "de": "vierzehn",
+   "ru": "14",
+   "img": "bubble:14",
+   "kind": "num",
+   "ex": {
+    "de": "Ich habe Zimmer vierzehn.",
+    "ru": "У меня номер четырнадцать."
+   }
+  },
+  {
+   "id": "fuenfzehn",
+   "de": "fünfzehn",
+   "ru": "15",
+   "img": "bubble:15",
+   "kind": "num",
+   "accept": [
+    "fuenfzehn"
+   ],
+   "ex": {
+    "de": "Ich wohne in der Torstraße fünfzehn.",
+    "ru": "Я живу на Торштрассе, 15."
+   }
+  },
+  {
+   "id": "sechzehn",
+   "de": "sechzehn",
+   "ru": "16",
+   "img": "bubble:16",
+   "kind": "num",
+   "note": "без s: sech-zehn",
+   "ex": {
+    "de": "Sechzehn — ohne s!",
+    "ru": "Шестнадцать — без s!"
+   }
+  },
+  {
+   "id": "siebzehn",
+   "de": "siebzehn",
+   "ru": "17",
+   "img": "bubble:17",
+   "kind": "num",
+   "note": "без en: sieb-zehn",
+   "ex": {
+    "de": "Siebzehn — ohne en!",
+    "ru": "Семнадцать — без en!"
+   }
+  },
+  {
+   "id": "zwanzig",
+   "de": "zwanzig",
+   "ru": "20",
+   "img": "bubble:20",
+   "kind": "num",
+   "ex": {
+    "de": "Ich bin zwanzig Jahre alt.",
+    "ru": "Мне двадцать лет."
+   }
+  },
+  {
+   "id": "dreissig",
+   "de": "dreißig",
+   "ru": "30",
+   "img": "bubble:30",
+   "kind": "num",
+   "accept": [
+    "dreissig"
+   ],
+   "note": "единственный десяток с ß",
+   "ex": {
+    "de": "Dreißig schreibt man mit ß.",
+    "ru": "«Тридцать» пишется с ß."
+   }
+  },
+  {
+   "id": "vierzig",
+   "de": "vierzig",
+   "ru": "40",
+   "img": "bubble:40",
+   "kind": "num",
+   "ex": {
+    "de": "Herr Becker ist nicht vierzig.",
+    "ru": "Господину Беккеру не сорок."
+   }
+  },
+  {
+   "id": "fuenfzig",
+   "de": "fünfzig",
+   "ru": "50",
+   "img": "bubble:50",
+   "kind": "num",
+   "accept": [
+    "fuenfzig"
+   ],
+   "ex": {
+    "de": "Herr Becker ist fünfzig Jahre alt.",
+    "ru": "Господину Беккеру пятьдесят лет."
+   }
+  },
+  {
+   "id": "sechzig",
+   "de": "sechzig",
+   "ru": "60",
+   "img": "bubble:60",
+   "kind": "num",
+   "note": "без s: sech-zig",
+   "ex": {
+    "de": "Frau Wagner ist sechzig.",
+    "ru": "Фрау Вагнер шестьдесят."
+   }
+  },
+  {
+   "id": "siebzig",
+   "de": "siebzig",
+   "ru": "70",
+   "img": "bubble:70",
+   "kind": "num",
+   "note": "без en: sieb-zig",
+   "ex": {
+    "de": "Siebzig plus drei ist dreiundsiebzig.",
+    "ru": "Семьдесят плюс три — семьдесят три."
+   }
+  },
+  {
+   "id": "achtzig",
+   "de": "achtzig",
+   "ru": "80",
+   "img": "bubble:80",
+   "kind": "num",
+   "ex": {
+    "de": "Achtzig — acht und zig.",
+    "ru": "Восемьдесят — «восемь» и «-зиг»."
+   }
+  },
+  {
+   "id": "neunzig",
+   "de": "neunzig",
+   "ru": "90",
+   "img": "bubble:90",
+   "kind": "num",
+   "ex": {
+    "de": "Neunzig plus zehn ist hundert.",
+    "ru": "Девяносто плюс десять — сто."
+   }
+  },
+  {
+   "id": "hundert",
+   "de": "hundert",
+   "ru": "100",
+   "img": "bubble:100",
+   "kind": "num",
+   "ex": {
+    "de": "Hundert ist eine große Zahl.",
+    "ru": "Сто — большое число."
+   }
+  },
+  {
+   "id": "alt",
+   "de": "alt",
+   "ru": "старый; … лет (о возрасте)",
+   "img": "old",
+   "kind": "adj",
+   "ex": {
+    "de": "Wie alt bist du?",
+    "ru": "Сколько тебе лет?"
+   }
+  },
+  {
+   "id": "jung",
+   "de": "jung",
+   "ru": "молодой",
+   "img": "young",
+   "kind": "adj",
+   "ex": {
+    "de": "Tom ist jung.",
+    "ru": "Том молодой."
+   }
+  },
+  {
+   "id": "jahr",
+   "de": "Jahr",
+   "art": "das",
+   "plural": "die Jahre",
+   "ru": "год",
+   "img": "calendar",
+   "kind": "noun",
+   "ex": {
+    "de": "Ich bin dreißig Jahre alt.",
+    "ru": "Мне тридцать лет."
+   }
+  },
+  {
+   "id": "wie_alt",
+   "de": "Wie alt bist du?",
+   "ru": "Сколько тебе лет?",
+   "img": "qage",
+   "kind": "phrase",
+   "note": "вежливо: Wie alt sind Sie?",
+   "ex": {
+    "de": "Wie alt bist du, Tom?",
+    "ru": "Сколько тебе лет, Том?"
+   }
+  },
+  {
+   "id": "geburtstag",
+   "de": "Geburtstag",
+   "art": "der",
+   "plural": "die Geburtstage",
+   "ru": "день рождения",
+   "img": "cake",
+   "kind": "noun",
+   "ex": {
+    "de": "Heute ist mein Geburtstag!",
+    "ru": "Сегодня мой день рождения!"
+   }
+  },
+  {
+   "id": "alles_gute",
+   "de": "Alles Gute zum Geburtstag!",
+   "ru": "С днём рождения!",
+   "img": "gift",
+   "kind": "phrase",
+   "ex": {
+    "de": "Tom, alles Gute zum Geburtstag!",
+    "ru": "Том, с днём рождения!"
+   }
+  },
+  {
+   "id": "haben",
+   "de": "haben",
+   "ru": "иметь; у меня есть",
+   "img": "have",
+   "kind": "verb",
+   "note": "ich habe, du hast, er hat",
+   "ex": {
+    "de": "Ich habe ein Handy.",
+    "ru": "У меня есть мобильный телефон."
+   }
+  },
+  {
+   "id": "handy",
+   "de": "Handy",
+   "art": "das",
+   "plural": "die Handys",
+   "ru": "мобильный телефон",
+   "img": "mobile",
+   "kind": "noun",
+   "ex": {
+    "de": "Wo ist mein Handy?",
+    "ru": "Где мой мобильный?"
+   }
+  },
+  {
+   "id": "zimmer",
+   "de": "Zimmer",
+   "art": "das",
+   "plural": "die Zimmer",
+   "ru": "комната; номер в отеле",
+   "img": "room",
+   "kind": "noun",
+   "ex": {
+    "de": "Ich habe Zimmer zwölf.",
+    "ru": "У меня номер двенадцать."
+   }
+  },
+  {
+   "id": "zeit",
+   "de": "Zeit",
+   "ru": "время",
+   "img": "hourglass",
+   "kind": "noun",
+   "art": "die",
+   "ex": {
+    "de": "Hast du Zeit?",
+    "ru": "У тебя есть время?"
+   }
+  },
+  {
+   "id": "hunger",
+   "de": "Hunger",
+   "ru": "голод",
+   "img": "hungry",
+   "kind": "noun",
+   "art": "der",
+   "note": "Ich habe Hunger — я хочу есть",
+   "ex": {
+    "de": "Ich habe Hunger.",
+    "ru": "Я голоден (голодна)."
+   }
+  },
+  {
+   "id": "telefonnummer",
+   "de": "Telefonnummer",
+   "art": "die",
+   "plural": "die Telefonnummern",
+   "ru": "номер телефона",
+   "img": "phonenumber",
+   "kind": "noun",
+   "ex": {
+    "de": "Meine Telefonnummer ist null drei null, eins zwei drei.",
+    "ru": "Мой номер телефона — 030 123."
+   }
+  },
+  {
+   "id": "wie_ist_deine_nummer",
+   "de": "Wie ist deine Telefonnummer?",
+   "ru": "Какой у тебя номер телефона?",
+   "img": "qnumber",
+   "kind": "phrase",
+   "note": "вежливо: Wie ist Ihre Telefonnummer?",
+   "ex": {
+    "de": "Aigerim, wie ist deine Telefonnummer?",
+    "ru": "Айгерим, какой у тебя номер телефона?"
+   }
+  },
+  {
+   "id": "nummer",
+   "de": "Nummer",
+   "art": "die",
+   "plural": "die Nummern",
+   "ru": "номер",
+   "img": "number",
+   "kind": "noun",
+   "ex": {
+    "de": "Die Nummer ist richtig.",
+    "ru": "Номер правильный."
+   }
+  },
+  {
+   "id": "e_mail",
+   "de": "E-Mail",
+   "art": "die",
+   "plural": "die E-Mails",
+   "ru": "электронное письмо; e-mail",
+   "img": "email",
+   "kind": "noun",
+   "accept": [
+    "E-Mail",
+    "Email",
+    "die Email"
+   ],
+   "ex": {
+    "de": "Meine E-Mail ist tom at web punkt de.",
+    "ru": "Мой e-mail — tom@web.de."
+   }
+  },
+  {
+   "id": "punkt",
+   "de": "Punkt",
+   "art": "der",
+   "plural": "die Punkte",
+   "ru": "точка",
+   "img": "dot",
+   "kind": "noun",
+   "ex": {
+    "de": "web Punkt de",
+    "ru": "web.de"
+   }
+  },
+  {
+   "id": "oder",
+   "de": "oder",
+   "ru": "или",
+   "img": "or",
+   "kind": "conj",
+   "ex": {
+    "de": "Kommst du aus Italien oder aus Russland?",
+    "ru": "Ты из Италии или из России?"
+   }
+  },
+  {
+   "id": "nicht",
+   "de": "nicht",
+   "ru": "не",
+   "img": "not",
+   "kind": "adv",
+   "ex": {
+    "de": "Ich wohne nicht in Hamburg.",
+    "ru": "Я живу не в Гамбурге."
+   }
+  },
+  {
+   "id": "vielleicht",
+   "de": "vielleicht",
+   "ru": "может быть",
+   "img": "maybe",
+   "kind": "adv",
+   "ex": {
+    "de": "Vielleicht ist er in Berlin.",
+    "ru": "Может быть, он в Берлине."
+   }
+  },
+  {
+   "id": "adresse",
+   "de": "Adresse",
+   "art": "die",
+   "plural": "die Adressen",
+   "ru": "адрес",
+   "img": "envelope",
+   "kind": "noun",
+   "ex": {
+    "de": "Wie ist Ihre Adresse?",
+    "ru": "Какой у Вас адрес?"
+   }
+  },
+  {
+   "id": "strasse",
+   "de": "Straße",
+   "art": "die",
+   "plural": "die Straßen",
+   "ru": "улица",
+   "img": "streetsign",
+   "kind": "noun",
+   "accept": [
+    "Strasse",
+    "die Strasse"
+   ],
+   "note": "коротко: Str.",
+   "ex": {
+    "de": "Ich wohne in der Torstraße.",
+    "ru": "Я живу на Торштрассе."
+   }
+  },
+  {
+   "id": "hausnummer",
+   "de": "Hausnummer",
+   "art": "die",
+   "plural": "die Hausnummern",
+   "ru": "номер дома",
+   "img": "housenumber",
+   "kind": "noun",
+   "ex": {
+    "de": "Die Hausnummer ist zwölf.",
+    "ru": "Номер дома — двенадцать."
+   }
+  },
+  {
+   "id": "postleitzahl",
+   "de": "Postleitzahl",
+   "art": "die",
+   "plural": "die Postleitzahlen",
+   "ru": "почтовый индекс",
+   "img": "zipcode",
+   "kind": "noun",
+   "note": "коротко: PLZ",
+   "ex": {
+    "de": "Die Postleitzahl hat fünf Zahlen.",
+    "ru": "В индексе пять цифр."
+   }
+  },
+  {
+   "id": "wie_ist_ihre_adresse",
+   "de": "Wie ist Ihre Adresse?",
+   "ru": "Какой у Вас адрес?",
+   "img": "qaddress",
+   "kind": "phrase",
+   "note": "другу: Wie ist deine Adresse?",
+   "ex": {
+    "de": "Guten Tag! Wie ist Ihre Adresse?",
+    "ru": "Добрый день! Какой у Вас адрес?"
+   }
+  },
+  {
+   "id": "alter",
+   "de": "Alter",
+   "art": "das",
+   "ru": "возраст",
+   "img": "agebadge",
+   "kind": "noun",
+   "ex": {
+    "de": "Name, Alter, Adresse — bitte!",
+    "ru": "Имя, возраст, адрес — пожалуйста!"
+   }
+  },
+  {
+   "id": "unterschrift",
+   "de": "Unterschrift",
+   "art": "die",
+   "plural": "die Unterschriften",
+   "ru": "подпись",
+   "img": "signature",
+   "kind": "noun",
+   "ex": {
+    "de": "Hier ist die Unterschrift.",
+    "ru": "Вот подпись."
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "id": "a1-02-01",
+   "title": "Das Alphabet",
+   "goal": "Узнать немецкие буквы и как они называются",
+   "scene": {
+    "art": "hostel",
+    "setting": "Вечер в «Брецельхаусе». Приезжает новый гость, и Лена записывает его фамилию в книгу гостей.",
+    "lines": [
+     {
+      "who": "lena",
+      "de": "Guten Abend! Wie ist Ihr Name?",
+      "ru": "Добрый вечер! Как Ваша фамилия?"
+     },
+     {
+      "who": "becker",
+      "de": "Becker.",
+      "ru": "Беккер."
+     },
+     {
+      "who": "lena",
+      "de": "Becker? Wie schreibt man das?",
+      "ru": "Беккер? Как это пишется?"
+     },
+     {
+      "who": "becker",
+      "de": "B – E – C – K – E – R.",
+      "ru": "Бэ — э — цэ — ка — э — эр."
+     },
+     {
+      "who": "lena",
+      "de": "Mit großem B? Danke!",
+      "ru": "С большой B? Спасибо!"
+     }
+    ]
+   },
+   "newWords": [
+    "alphabet",
+    "buchstabe",
+    "buchstabieren",
+    "wie_schreibt_man",
+    "gross",
+    "klein"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Немецкий алфавит",
+     "art": "letters",
+     "paras": [
+      "В немецком те же 26 латинских букв, что в английском, плюс <b>ä, ö, ü</b> и <b>ß</b>.",
+      "Названия букв похожи на русские: B — «бэ», D — «дэ», K — «ка». Несколько букв хитрые — их разберём в следующем уроке.",
+      "Назвать слово по буквам — <b>buchstabieren</b>. Немцы делают это постоянно: в отеле, по телефону, в ведомстве."
+     ],
+     "table": {
+      "head": [
+       "Буква",
+       "Звучит",
+       "Буква",
+       "Звучит"
+      ],
+      "rows": [
+       [
+        "A",
+        "а",
+        "N",
+        "эн"
+       ],
+       [
+        "B",
+        "бэ",
+        "O",
+        "о"
+       ],
+       [
+        "C",
+        "цэ",
+        "P",
+        "пэ"
+       ],
+       [
+        "D",
+        "дэ",
+        "Q",
+        "ку"
+       ],
+       [
+        "E",
+        "э",
+        "R",
+        "эр"
+       ],
+       [
+        "F",
+        "эф",
+        "S",
+        "эс"
+       ],
+       [
+        "G",
+        "гэ",
+        "T",
+        "тэ"
+       ],
+       [
+        "H",
+        "ха",
+        "U",
+        "у"
+       ],
+       [
+        "I",
+        "и",
+        "V",
+        "фау"
+       ],
+       [
+        "J",
+        "йот",
+        "W",
+        "вэ"
+       ],
+       [
+        "K",
+        "ка",
+        "X",
+        "икс"
+       ],
+       [
+        "L",
+        "эль",
+        "Y",
+        "ипсилон"
+       ],
+       [
+        "M",
+        "эм",
+        "Z",
+        "цэт"
+       ]
+      ]
+     },
+     "tip": "Имена и города пишутся с большой буквы: <b>großes B</b> — большая B, <b>kleines b</b> — маленькая b."
+    },
+    {
+     "type": "listen",
+     "de": "B",
+     "options": [
+      "B",
+      "D",
+      "P"
+     ],
+     "answer": 0,
+     "words": [
+      "buchstabe"
+     ],
+     "kicker": "Какая буква?"
+    },
+    {
+     "type": "pick",
+     "q": "Как называется буква K?",
+     "options": [
+      {
+       "ru": "«ка»"
+      },
+      {
+       "ru": "«кэ»"
+      },
+      {
+       "ru": "«кей»"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Как называется?",
+     "words": [
+      "buchstabe"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "L – E – N – A",
+     "accept": [
+      "Lena"
+     ],
+     "ru": "Лена называет своё имя по буквам",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "lena"
+    },
+    {
+     "type": "reply",
+     "who": "lena",
+     "situation": "Ваша фамилия — Klein. Лена переспрашивает.",
+     "line": "Klein? Wie schreibt man das?",
+     "lineRu": "Кляйн? Как это пишется?",
+     "options": [
+      "K – L – E – I – N",
+      "Ich heiße Klein.",
+      "Danke schön!"
+     ],
+     "answer": 0,
+     "words": [
+      "wie_schreibt_man"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Как это пишется?",
+     "text": "Wie ___ man das?",
+     "options": [
+      "schreibt",
+      "heißt",
+      "geht"
+     ],
+     "answer": 0,
+     "words": [
+      "wie_schreibt_man"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Берлин большой.",
+     "answer": "Berlin ist groß.",
+     "distract": [
+      "klein",
+      "bin"
+     ],
+     "words": [
+      "gross"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "groß — это «большой». А как сказать «маленький»?",
+     "options": [
+      {
+       "de": "klein"
+      },
+      {
+       "de": "gut"
+      },
+      {
+       "de": "langsam"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Противоположность",
+     "words": [
+      "klein"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "M – A – R – C – O",
+     "accept": [
+      "Marco"
+     ],
+     "ru": "Марко называет своё имя по буквам",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "marco"
+    }
+   ],
+   "boss": {
+    "title": "Новый гость",
+    "intro": "Вы приехали в хостел. Ваша фамилия — Weber. Назовите её Лене по буквам!",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Guten Abend! Wie ist Ihr Name?",
+      "lineRu": "Добрый вечер! Как Ваша фамилия?",
+      "options": [
+       "Weber.",
+       "Berlin.",
+       "Gute Nacht!"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Weber? Wie schreibt man das?",
+      "lineRu": "Вебер? Как это пишется?",
+      "options": [
+       "W – E – B – E – R",
+       "V – E – B – E – R",
+       "W – Ä – B – E – R"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Danke! Herzlich willkommen!",
+      "lineRu": "Спасибо! Добро пожаловать!",
+      "options": [
+       "Danke schön!",
+       "Wie schreibt man das?",
+       "Tschüs!"
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Некоторые немецкие буквы — обманщики: J, V, W и Z звучат совсем не так, как кажется. Завтра выведем их на чистую воду!"
+  },
+  {
+   "id": "a1-02-02",
+   "title": "Буквы-обманщики",
+   "goal": "Не путать E и I, V и W, J и G, Z и C; узнать ä, ö, ü и ß",
+   "scene": {
+    "art": "school",
+    "setting": "Урок в языковой школе. Фрау Вагнер диктует слова по буквам, а вы записываете.",
+    "lines": [
+     {
+      "who": "wagner",
+      "de": "Hören Sie, bitte! Ich buchstabiere: W – I – E – N.",
+      "ru": "Слушайте, пожалуйста! Называю по буквам: вэ — и — э — эн."
+     },
+     {
+      "who": "you",
+      "de": "W? Wie bitte?",
+      "ru": "W? Простите?"
+     },
+     {
+      "who": "wagner",
+      "de": "W wie Wagner! Schreiben Sie, bitte!",
+      "ru": "W, как в слове «Вагнер»! Пишите, пожалуйста!"
+     },
+     {
+      "who": "you",
+      "de": "Ah! Wien!",
+      "ru": "А! Вена!"
+     },
+     {
+      "who": "wagner",
+      "de": "Richtig! Lesen Sie das Wort, bitte.",
+      "ru": "Правильно! Прочитайте слово, пожалуйста."
+     }
+    ]
+   },
+   "newWords": [
+    "wort",
+    "schreiben",
+    "lesen",
+    "hoeren",
+    "eszett"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Буквы-обманщики",
+     "art": "letters",
+     "paras": [
+      "Эти буквы русские ученики путают чаще всего — особенно если знают английский.",
+      "Чтобы не было путаницы, немцы добавляют слово: <b>W wie Wien</b> — «W, как в слове Wien»."
+     ],
+     "table": {
+      "head": [
+       "Буква",
+       "Звучит",
+       "Не путать"
+      ],
+      "rows": [
+       [
+        "E",
+        "э",
+        "не «и», как в английском"
+       ],
+       [
+        "I",
+        "и",
+        "не «ай»"
+       ],
+       [
+        "H",
+        "ха",
+        "не «эйч»"
+       ],
+       [
+        "J",
+        "йот",
+        "не «джей»"
+       ],
+       [
+        "V",
+        "фау",
+        "похоже на F"
+       ],
+       [
+        "W",
+        "вэ",
+        "похоже на русскую В"
+       ],
+       [
+        "Y",
+        "ипсилон",
+        ""
+       ],
+       [
+        "Z",
+        "цэт",
+        "не «зэт»: это звук «ц»"
+       ],
+       [
+        "Ä",
+        "э",
+        "A с точками"
+       ],
+       [
+        "Ö",
+        "ё",
+        "губы трубочкой, говорим «э»"
+       ],
+       [
+        "Ü",
+        "ю",
+        "губы трубочкой, говорим «и»"
+       ],
+       [
+        "ß",
+        "эсцэт",
+        "читается как «с»"
+       ]
+      ]
+     },
+     "tip": "На уроке учитель часто говорит: <b>Hören Sie!</b> — Слушайте! <b>Lesen Sie!</b> — Читайте! <b>Schreiben Sie!</b> — Пишите!"
+    },
+    {
+     "type": "pick",
+     "q": "Как называется буква V?",
+     "options": [
+      {
+       "ru": "«фау»"
+      },
+      {
+       "ru": "«вэ»"
+      },
+      {
+       "ru": "«ви»"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Как называется?",
+     "words": [
+      "buchstabe"
+     ]
+    },
+    {
+     "type": "listen",
+     "de": "W",
+     "options": [
+      "W",
+      "V",
+      "B"
+     ],
+     "answer": 0,
+     "words": [
+      "buchstabe"
+     ],
+     "kicker": "Какая буква?"
+    },
+    {
+     "type": "listen",
+     "de": "E",
+     "options": [
+      "E",
+      "I",
+      "Ä"
+     ],
+     "answer": 0,
+     "words": [
+      "buchstabe"
+     ],
+     "kicker": "Какая буква?"
+    },
+    {
+     "type": "pick",
+     "q": "Как называется буква Z?",
+     "options": [
+      {
+       "ru": "«цэт»"
+      },
+      {
+       "ru": "«зэт»"
+      },
+      {
+       "ru": "«зи»"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Как называется?",
+     "words": [
+      "buchstabe"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "J – A – N – A",
+     "accept": [
+      "Jana"
+     ],
+     "ru": "Имя Яна",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "wagner"
+    },
+    {
+     "type": "gap",
+     "ru": "«Heißen» пишется с ß.",
+     "text": "Heißen schreibt man mit ___.",
+     "options": [
+      "ß",
+      "z",
+      "c"
+     ],
+     "answer": 0,
+     "words": [
+      "eszett"
+     ],
+     "explain": "ß читается как «с» и бывает только внутри или в конце слова."
+    },
+    {
+     "type": "tiles",
+     "ru": "Пишите, пожалуйста!",
+     "answer": "Schreiben Sie, bitte!",
+     "distract": [
+      "Lesen",
+      "du"
+     ],
+     "words": [
+      "schreiben"
+     ]
+    },
+    {
+     "type": "pairs",
+     "pairs": [
+      [
+       "Hören Sie!",
+       "Слушайте!"
+      ],
+      [
+       "Lesen Sie!",
+       "Читайте!"
+      ],
+      [
+       "Schreiben Sie!",
+       "Пишите!"
+      ],
+      [
+       "Buchstabieren Sie!",
+       "Скажите по буквам!"
+      ]
+     ],
+     "words": [
+      "hoeren",
+      "lesen",
+      "schreiben"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "V – O – L – K – E – R",
+     "accept": [
+      "Volker"
+     ],
+     "ru": "Имя Фолькер: V читается как «ф»",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "wagner"
+    }
+   ],
+   "boss": {
+    "title": "Диктант фрау Вагнер",
+    "intro": "Фрау Вагнер диктует слова по буквам. Соберите каждое слово!",
+    "turns": [
+     {
+      "type": "dictation",
+      "de": "W – I – E – N",
+      "accept": [
+       "Wien"
+      ],
+      "ru": "Вена",
+      "words": [
+       "buchstabieren"
+      ],
+      "who": "wagner"
+     },
+     {
+      "type": "reply",
+      "who": "wagner",
+      "line": "Wie schreibt man «Jana»?",
+      "lineRu": "Как пишется «Яна»?",
+      "options": [
+       "J – A – N – A",
+       "G – A – N – A",
+       "I – A – N – A"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "dictation",
+      "de": "Z – Ü – R – I – C – H",
+      "accept": [
+       "Zürich"
+      ],
+      "ru": "Цюрих",
+      "words": [
+       "buchstabieren"
+      ],
+      "who": "wagner"
+     }
+    ]
+   },
+   "teaser": "Вам звонят из языковой школы и просят продиктовать фамилию. Справитесь по телефону?"
+  },
+  {
+   "id": "a1-02-03",
+   "title": "Buchstabieren Sie, bitte!",
+   "goal": "Назвать себя по телефону и продиктовать фамилию",
+   "scene": {
+    "art": "phone",
+    "setting": "Вы звоните в языковую школу, чтобы записаться на курс. Отвечает секретарь.",
+    "lines": [
+     {
+      "who": "f",
+      "de": "Sprachschule Berlin, guten Tag!",
+      "ru": "Языковая школа «Берлин», добрый день!"
+     },
+     {
+      "who": "you",
+      "de": "Guten Tag! Hier ist Alex Novak.",
+      "ru": "Добрый день! Это Алекс Новак."
+     },
+     {
+      "who": "f",
+      "de": "Wie ist Ihr Nachname? Buchstabieren Sie, bitte!",
+      "ru": "Какая у Вас фамилия? Скажите по буквам, пожалуйста!"
+     },
+     {
+      "who": "you",
+      "de": "N – O – V – A – K.",
+      "ru": "Эн — о — фау — а — ка."
+     },
+     {
+      "who": "f",
+      "de": "Moment, bitte … Novak mit V?",
+      "ru": "Минутку… Новак через V?"
+     },
+     {
+      "who": "you",
+      "de": "Ja, mit V.",
+      "ru": "Да, через V."
+     }
+    ]
+   },
+   "newWords": [
+    "telefon",
+    "hier_ist",
+    "moment_bitte",
+    "bitte_buchstabieren",
+    "nachname"
+   ],
+   "exercises": [
+    {
+     "type": "reply",
+     "who": "f",
+     "situation": "Вы звоните в хостел.",
+     "line": "Hostel Brezelhaus, guten Tag!",
+     "lineRu": "Хостел «Брецельхаус», добрый день!",
+     "options": [
+      "Guten Tag! Hier ist Alex.",
+      "Ich bin hier.",
+      "Tschüs!"
+     ],
+     "answer": 0,
+     "words": [
+      "hier_ist"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Алло, это Марко!",
+     "text": "Hallo, ___ ist Marco!",
+     "options": [
+      "hier",
+      "wie",
+      "wer"
+     ],
+     "answer": 0,
+     "words": [
+      "hier_ist"
+     ],
+     "explain": "По телефону себя называют так: Hier ist … — «здесь …»."
+    },
+    {
+     "type": "pick",
+     "q": "Секретарь говорит: «Buchstabieren Sie, bitte!» Что нужно сделать?",
+     "options": [
+      {
+       "ru": "назвать фамилию по буквам"
+      },
+      {
+       "ru": "повторить медленно"
+      },
+      {
+       "ru": "подождать минутку"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Что от вас хотят?",
+     "words": [
+      "bitte_buchstabieren"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "S – C – H – U – L – Z",
+     "accept": [
+      "Schulz"
+     ],
+     "ru": "Фамилия Шульц",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "f"
+    },
+    {
+     "type": "tiles",
+     "ru": "Минутку, пожалуйста!",
+     "answer": "Moment, bitte!",
+     "distract": [
+      "Danke",
+      "Wie"
+     ],
+     "words": [
+      "moment_bitte"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Моя фамилия — Беккер.",
+     "accept": [
+      "Mein Nachname ist Becker.",
+      "Mein Familienname ist Becker.",
+      "Ich heiße Becker."
+     ],
+     "words": [
+      "nachname"
+     ]
+    },
+    {
+     "type": "listen",
+     "de": "Mein Nachname ist Schmidt.",
+     "options": [
+      "Mein Nachname ist Schmidt.",
+      "Mein Vorname ist Schmidt.",
+      "Mein Name ist Schmitz."
+     ],
+     "answer": 0,
+     "words": [
+      "nachname"
+     ]
+    },
+    {
+     "type": "speak",
+     "de": "Buchstabieren Sie, bitte!",
+     "ru": "Скажите по буквам, пожалуйста!",
+     "distract": [
+      "Lesen"
+     ],
+     "words": [
+      "bitte_buchstabieren"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Звонок в хостел",
+    "intro": "Вы бронируете кровать в «Брецельхаусе» по телефону. Представьтесь и продиктуйте фамилию Novak.",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Hostel Brezelhaus, guten Tag!",
+      "lineRu": "Хостел «Брецельхаус», добрый день!",
+      "options": [
+       "Guten Tag! Hier ist Alex Novak.",
+       "Gute Nacht! Hier ist Alex.",
+       "Wie schreibt man das?"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Wie ist Ihr Nachname?",
+      "lineRu": "Какая у Вас фамилия?",
+      "options": [
+       "Novak.",
+       "Alex.",
+       "Berlin."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Buchstabieren Sie, bitte!",
+      "lineRu": "Скажите по буквам, пожалуйста!",
+      "options": [
+       "N – O – V – A – K",
+       "N – O – W – A – K",
+       "N – O – F – A – K"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "lena",
+      "line": "Danke! Moment, bitte …",
+      "lineRu": "Спасибо! Минутку…",
+      "options": [
+       "Kein Problem!",
+       "Guten Morgen!",
+       "Entschuldigung!"
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "В субботу в хостеле вечер бинго. Чтобы выиграть, надо понимать числа на слух!"
+  },
+  {
+   "id": "a1-02-04",
+   "title": "Eins, zwei, drei",
+   "goal": "Считать от 0 до 5",
+   "scene": {
+    "art": "bingo",
+    "setting": "Субботний вечер бинго в «Брецельхаусе». Лена достаёт шарики с числами.",
+    "lines": [
+     {
+      "who": "lena",
+      "de": "Bingo! Die Zahl ist … drei!",
+      "ru": "Бинго! Число… три!"
+     },
+     {
+      "who": "marco",
+      "de": "Drei! Ja!",
+      "ru": "Три! Есть!"
+     },
+     {
+      "who": "lena",
+      "de": "Fünf! … Null! … Eins!",
+      "ru": "Пять!… Ноль!… Один!"
+     },
+     {
+      "who": "aigerim",
+      "de": "Eins? Ja! Und zwei? Bitte, zwei!",
+      "ru": "Один? Есть! А два? Пожалуйста, два!"
+     },
+     {
+      "who": "lena",
+      "de": "Zwei!",
+      "ru": "Два!"
+     },
+     {
+      "who": "aigerim",
+      "de": "Bingo!",
+      "ru": "Бинго!"
+     }
+    ]
+   },
+   "newWords": [
+    "zahl",
+    "null",
+    "eins",
+    "zwei",
+    "drei",
+    "vier",
+    "fuenf"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Числа 0–5",
+     "art": "numbers",
+     "paras": [
+      "Выучите их как имена — от них строятся все остальные числа."
+     ],
+     "table": {
+      "head": [
+       "Число",
+       "Пишется",
+       "Звучит"
+      ],
+      "rows": [
+       [
+        "0",
+        "null",
+        "нуль"
+       ],
+       [
+        "1",
+        "eins",
+        "айнс"
+       ],
+       [
+        "2",
+        "zwei",
+        "цвай"
+       ],
+       [
+        "3",
+        "drei",
+        "драй"
+       ],
+       [
+        "4",
+        "vier",
+        "фир"
+       ],
+       [
+        "5",
+        "fünf",
+        "фюнф"
+       ]
+      ]
+     },
+     "tip": "<b>zwei</b> начинается со звука «ц» (Z = «ц»), а <b>vier</b> — со звука «ф» (V = «ф»). Помните буквы-обманщики?"
+    },
+    {
+     "type": "listen",
+     "de": "zwei",
+     "options": [
+      "zwei",
+      "drei",
+      "vier"
+     ],
+     "answer": 0,
+     "words": [
+      "zwei"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "vier",
+     "options": [
+      {
+       "text": "4"
+      },
+      {
+       "text": "5"
+      },
+      {
+       "text": "3"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "vier"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какое число на картинке?",
+     "options": [
+      {
+       "de": "fünf"
+      },
+      {
+       "de": "vier"
+      },
+      {
+       "de": "eins"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Угадай по картинке",
+     "img": "bubble:5",
+     "words": [
+      "fuenf"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "3 (словом)",
+     "accept": [
+      "drei"
+     ],
+     "words": [
+      "drei"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Один плюс один — два.",
+     "answer": "Eins plus eins ist zwei.",
+     "distract": [
+      "drei",
+      "bin"
+     ],
+     "words": [
+      "eins",
+      "zwei"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "null",
+     "accept": [
+      "null"
+     ],
+     "ru": "0",
+     "words": [
+      "null"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Два плюс три — пять.",
+     "text": "Zwei plus drei ist ___.",
+     "options": [
+      "fünf",
+      "vier",
+      "eins"
+     ],
+     "answer": 0,
+     "words": [
+      "fuenf"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "eins",
+     "options": [
+      {
+       "text": "1"
+      },
+      {
+       "text": "3"
+      },
+      {
+       "text": "0"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "eins"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Бинго!",
+    "intro": "У вас карточка бинго. Лена называет числа — найдите каждое!",
+    "turns": [
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "drei",
+      "options": [
+       {
+        "text": "3"
+       },
+       {
+        "text": "2"
+       },
+       {
+        "text": "0"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "drei"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "fünf",
+      "options": [
+       {
+        "text": "5"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "1"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "fuenf"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "null",
+      "options": [
+       {
+        "text": "0"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "2"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "null"
+      ]
+     }
+    ]
+   },
+   "teaser": "Пять чисел есть. А дальше? Завтра — до двенадцати, и бинго станет серьёзнее."
+  },
+  {
+   "id": "a1-02-05",
+   "title": "Sechs bis zwölf",
+   "goal": "Считать от 6 до 12",
+   "scene": {
+    "art": "bingo",
+    "setting": "Второй раунд бинго. Теперь на шариках числа до двенадцати.",
+    "lines": [
+     {
+      "who": "lena",
+      "de": "Runde zwei! Sieben … elf … zwölf!",
+      "ru": "Раунд второй! Семь… одиннадцать… двенадцать!"
+     },
+     {
+      "who": "tom",
+      "de": "Elf? Ja! Zwölf? Ja!",
+      "ru": "Одиннадцать? Есть! Двенадцать? Есть!"
+     },
+     {
+      "who": "marco",
+      "de": "Oh nein! Sechs, acht, neun …",
+      "ru": "О нет! Шесть, восемь, девять…"
+     },
+     {
+      "who": "lena",
+      "de": "Und … zehn!",
+      "ru": "И… десять!"
+     },
+     {
+      "who": "tom",
+      "de": "Zehn! Bingo!",
+      "ru": "Десять! Бинго!"
+     }
+    ]
+   },
+   "newWords": [
+    "sechs",
+    "sieben",
+    "acht",
+    "neun",
+    "zehn",
+    "elf",
+    "zwoelf"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Числа 6–12",
+     "art": "numbers",
+     "paras": [
+      "До двенадцати у каждого числа своё имя."
+     ],
+     "table": {
+      "head": [
+       "Число",
+       "Пишется",
+       "Звучит"
+      ],
+      "rows": [
+       [
+        "6",
+        "sechs",
+        "зэкс"
+       ],
+       [
+        "7",
+        "sieben",
+        "зибэн"
+       ],
+       [
+        "8",
+        "acht",
+        "ахт"
+       ],
+       [
+        "9",
+        "neun",
+        "нойн"
+       ],
+       [
+        "10",
+        "zehn",
+        "цэйн"
+       ],
+       [
+        "11",
+        "elf",
+        "эльф"
+       ],
+       [
+        "12",
+        "zwölf",
+        "цвёльф"
+       ]
+      ]
+     },
+     "tip": "Не путайте <b>zwei</b> (2) и <b>zwölf</b> (12), <b>sechs</b> (6) и <b>sieben</b> (7). S в начале слова звучит как «з»."
+    },
+    {
+     "type": "listen",
+     "de": "sieben",
+     "options": [
+      "sieben",
+      "sechs",
+      "zehn"
+     ],
+     "answer": 0,
+     "words": [
+      "sieben"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какое число на картинке?",
+     "options": [
+      {
+       "de": "acht"
+      },
+      {
+       "de": "elf"
+      },
+      {
+       "de": "neun"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Угадай по картинке",
+     "img": "bubble:8",
+     "words": [
+      "acht"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Как по-немецки 11?",
+     "options": [
+      {
+       "de": "elf"
+      },
+      {
+       "de": "zwölf"
+      },
+      {
+       "de": "zehn"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Выберите число",
+     "words": [
+      "elf"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Шесть плюс шесть — двенадцать.",
+     "text": "Sechs plus sechs ist ___.",
+     "options": [
+      "zwölf",
+      "zehn",
+      "elf"
+     ],
+     "answer": 0,
+     "words": [
+      "zwoelf"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "neun",
+     "accept": [
+      "neun"
+     ],
+     "ru": "9",
+     "words": [
+      "neun"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Десять плюс два — двенадцать.",
+     "answer": "Zehn plus zwei ist zwölf.",
+     "distract": [
+      "elf",
+      "drei"
+     ],
+     "words": [
+      "zehn",
+      "zwoelf"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "7 (словом)",
+     "accept": [
+      "sieben"
+     ],
+     "words": [
+      "sieben"
+     ]
+    },
+    {
+     "type": "pairs",
+     "pairs": [
+      [
+       "sechs",
+       "6"
+      ],
+      [
+       "acht",
+       "8"
+      ],
+      [
+       "zehn",
+       "10"
+      ],
+      [
+       "elf",
+       "11"
+      ],
+      [
+       "zwölf",
+       "12"
+      ]
+     ],
+     "words": [
+      "sechs",
+      "acht",
+      "zehn",
+      "elf",
+      "zwoelf"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Финал бинго",
+    "intro": "Последний раунд! Найдите на карточке числа, которые называет Лена.",
+    "turns": [
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "zwölf",
+      "options": [
+       {
+        "text": "12"
+       },
+       {
+        "text": "2"
+       },
+       {
+        "text": "11"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "zwoelf"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "sieben",
+      "options": [
+       {
+        "text": "7"
+       },
+       {
+        "text": "6"
+       },
+       {
+        "text": "11"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "sieben"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Бинго!",
+      "q": "Какое число назвала Лена?",
+      "audio": "acht",
+      "options": [
+       {
+        "text": "8"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "10"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "acht"
+      ]
+     }
+    ]
+   },
+   "teaser": "До двенадцати у каждого числа своё имя. А дальше начинается конструктор: числа собираются из кусочков!"
+  },
+  {
+   "id": "a1-02-06",
+   "title": "Конструктор: 13–20",
+   "grammar": true,
+   "goal": "Собирать числа от 13 до 20 из кусочков",
+   "scene": {
+    "art": "lab",
+    "setting": "Лаборатория Брецеля. Сегодня собираем числа, как из конструктора.",
+    "lines": [
+     {
+      "who": "tom",
+      "de": "Drei plus zehn: dreizehn!",
+      "ru": "Три плюс десять: тринадцать!"
+     },
+     {
+      "who": "lena",
+      "de": "Vier plus zehn: vierzehn!",
+      "ru": "Четыре плюс десять: четырнадцать!"
+     },
+     {
+      "who": "marco",
+      "de": "Und sechs plus zehn: sechszehn?",
+      "ru": "А шесть плюс десять: «шестьдесятнадцать»?"
+     },
+     {
+      "who": "lena",
+      "de": "Nein! Sechzehn — ohne s!",
+      "ru": "Нет! Sechzehn — без s!"
+     }
+    ]
+   },
+   "newWords": [
+    "dreizehn",
+    "vierzehn",
+    "fuenfzehn",
+    "sechzehn",
+    "siebzehn",
+    "zwanzig"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Числа 13–19: число + zehn",
+     "art": "numbers",
+     "paras": [
+      "Как в русском «три-на-дцать»: сначала единицы, потом <b>zehn</b> (десять). Пишется одним словом: drei + zehn = <b>dreizehn</b>.",
+      "Два исключения: <b>sechzehn</b> (16) — без s, <b>siebzehn</b> (17) — без en.",
+      "20 — новое слово: <b>zwanzig</b>."
+     ],
+     "table": {
+      "head": [
+       "Число",
+       "По-немецки",
+       "Как собрано"
+      ],
+      "rows": [
+       [
+        "13",
+        "dreizehn",
+        "drei + zehn"
+       ],
+       [
+        "14",
+        "vierzehn",
+        "vier + zehn"
+       ],
+       [
+        "15",
+        "fünfzehn",
+        "fünf + zehn"
+       ],
+       [
+        "16",
+        "sechzehn",
+        "sech(s) + zehn"
+       ],
+       [
+        "17",
+        "siebzehn",
+        "sieb(en) + zehn"
+       ],
+       [
+        "18",
+        "achtzehn",
+        "acht + zehn"
+       ],
+       [
+        "19",
+        "neunzehn",
+        "neun + zehn"
+       ],
+       [
+        "20",
+        "zwanzig",
+        "новое слово"
+       ]
+      ]
+     },
+     "tip": "Ударение — на первую часть: <b>DREI</b>zehn, <b>VIER</b>zehn."
+    },
+    {
+     "type": "pick",
+     "q": "Как по-немецки 14?",
+     "options": [
+      {
+       "de": "vierzehn"
+      },
+      {
+       "de": "zehnvier"
+      },
+      {
+       "de": "vierzig"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Соберите число",
+     "words": [
+      "vierzehn"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "16 — шестнадцать",
+     "text": "___zehn",
+     "options": [
+      "sech",
+      "sechs",
+      "sieb"
+     ],
+     "answer": 0,
+     "words": [
+      "sechzehn"
+     ],
+     "explain": "В sechzehn буква s пропадает."
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "siebzehn",
+     "options": [
+      {
+       "text": "17"
+      },
+      {
+       "text": "7"
+      },
+      {
+       "text": "16"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "siebzehn"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "15 (словом)",
+     "accept": [
+      "fünfzehn",
+      "fuenfzehn"
+     ],
+     "words": [
+      "fuenfzehn"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "achtzehn",
+     "accept": [
+      "achtzehn"
+     ],
+     "ru": "18",
+     "words": [
+      "zehn"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Десять плюс десять — двадцать.",
+     "answer": "Zehn plus zehn ist zwanzig.",
+     "distract": [
+      "zwölf",
+      "elf"
+     ],
+     "words": [
+      "zwanzig"
+     ]
+    },
+    {
+     "type": "tf",
+     "statement": "Dreizehn ist 13.",
+     "statementRu": "Dreizehn — это 13.",
+     "answer": true,
+     "words": [
+      "dreizehn"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какое число на картинке?",
+     "options": [
+      {
+       "de": "neunzehn"
+      },
+      {
+       "de": "neun"
+      },
+      {
+       "de": "achtzehn"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Угадай по картинке",
+     "img": "bubble:19",
+     "words": [
+      "zehn"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Робот ошибся",
+    "intro": "Робот Брецеля напечатал числа с ошибками. Исправьте его!",
+    "turns": [
+     {
+      "type": "pick",
+      "q": "Робот написал «sechszehn». Как правильно?",
+      "options": [
+       {
+        "de": "sechzehn"
+       },
+       {
+        "de": "sechszehn"
+       },
+       {
+        "de": "sechzig"
+       }
+      ],
+      "answer": 0,
+      "kicker": "Исправьте робота"
+     },
+     {
+      "type": "pick",
+      "q": "Робот написал «siebenzehn». Как правильно?",
+      "options": [
+       {
+        "de": "siebzehn"
+       },
+       {
+        "de": "siebenzehn"
+       },
+       {
+        "de": "siebzig"
+       }
+      ],
+      "answer": 0,
+      "kicker": "Исправьте робота"
+     },
+     {
+      "type": "pick",
+      "kicker": "Проверьте на слух",
+      "q": "Какое число вы слышите?",
+      "audio": "dreizehn",
+      "options": [
+       {
+        "text": "13"
+       },
+       {
+        "text": "30"
+       },
+       {
+        "text": "3"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "dreizehn"
+      ]
+     }
+    ]
+   },
+   "teaser": "А как сказать 25? Немцы говорят это… задом наперёд. Завтра узнаете, что это значит."
+  },
+  {
+   "id": "a1-02-07",
+   "title": "Задом наперёд: 21–100",
+   "grammar": true,
+   "goal": "Понимать и называть любые числа до 100",
+   "scene": {
+    "art": "lab",
+    "setting": "Снова лаборатория Брецеля. Секрет больших чисел — «задом наперёд».",
+    "lines": [
+     {
+      "who": "lena",
+      "de": "Fünfundzwanzig: fünf und zwanzig.",
+      "ru": "Двадцать пять: «пять и двадцать»."
+     },
+     {
+      "who": "marco",
+      "de": "Zuerst fünf, dann zwanzig?",
+      "ru": "Сначала пять, потом двадцать?"
+     },
+     {
+      "who": "lena",
+      "de": "Ja! Einundvierzig: eins und vierzig.",
+      "ru": "Да! Сорок один: «один и сорок»."
+     },
+     {
+      "who": "tom",
+      "de": "Und hundert ist hundert. Super!",
+      "ru": "А сто — это просто сто. Супер!"
+     }
+    ]
+   },
+   "newWords": [
+    "dreissig",
+    "vierzig",
+    "fuenfzig",
+    "sechzig",
+    "siebzig",
+    "achtzig",
+    "neunzig",
+    "hundert"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Десятки и «задом наперёд»",
+     "art": "numbers",
+     "paras": [
+      "Десятки оканчиваются на <b>-zig</b>: vierzig (40), fünfzig (50), achtzig (80), neunzig (90). Снова без лишних букв: <b>sechzig</b> (60), <b>siebzig</b> (70). А 30 пишется с ß: <b>dreißig</b>.",
+      "Числа 21–99 немцы говорят задом наперёд: сначала единицы, потом <b>und</b>, потом десятки. 25 = fünf<b>und</b>zwanzig — «пять-и-двадцать». Пишется одним словом.",
+      "Единица в таких числах — <b>ein</b>: 21 = <b>ein</b>undzwanzig. 100 — <b>hundert</b>."
+     ],
+     "table": {
+      "head": [
+       "Число",
+       "По-немецки",
+       "Дословно"
+      ],
+      "rows": [
+       [
+        "21",
+        "einundzwanzig",
+        "один и двадцать"
+       ],
+       [
+        "25",
+        "fünfundzwanzig",
+        "пять и двадцать"
+       ],
+       [
+        "37",
+        "siebenunddreißig",
+        "семь и тридцать"
+       ],
+       [
+        "48",
+        "achtundvierzig",
+        "восемь и сорок"
+       ],
+       [
+        "99",
+        "neunundneunzig",
+        "девять и девяносто"
+       ],
+       [
+        "100",
+        "hundert",
+        "сто"
+       ]
+      ]
+     },
+     "tip": "Записывая число на слух, сначала запишите единицы справа, а потом допишите десятки слева: «vierund-zwanzig» → _4 → 24."
+    },
+    {
+     "type": "pick",
+     "q": "Как по-немецки 25?",
+     "options": [
+      {
+       "de": "fünfundzwanzig"
+      },
+      {
+       "de": "zwanzigfünf"
+      },
+      {
+       "de": "fünfzwanzig"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Соберите число",
+     "words": [
+      "zwanzig"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "zweiundvierzig",
+     "options": [
+      {
+       "text": "42"
+      },
+      {
+       "text": "24"
+      },
+      {
+       "text": "40"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "vierzig"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "37 — тридцать семь",
+     "text": "sieben___dreißig",
+     "options": [
+      "und",
+      "plus",
+      "ein"
+     ],
+     "answer": 0,
+     "words": [
+      "dreissig"
+     ],
+     "explain": "Между единицами и десятками всегда und."
+    },
+    {
+     "type": "write",
+     "ru": "21 (словом)",
+     "accept": [
+      "einundzwanzig"
+     ],
+     "words": [
+      "zwanzig"
+     ],
+     "hint": "Помните: «один-и-двадцать»"
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "sechzig",
+     "options": [
+      {
+       "text": "60"
+      },
+      {
+       "text": "16"
+      },
+      {
+       "text": "70"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "sechzig"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "achtzig",
+     "accept": [
+      "achtzig"
+     ],
+     "ru": "80",
+     "words": [
+      "achtzig"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Тридцать плюс тридцать — шестьдесят.",
+     "answer": "Dreißig plus dreißig ist sechzig.",
+     "distract": [
+      "sechzehn",
+      "drei"
+     ],
+     "words": [
+      "dreissig",
+      "sechzig"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какое число вы слышите?",
+     "audio": "neunundneunzig",
+     "options": [
+      {
+       "text": "99"
+      },
+      {
+       "text": "19"
+      },
+      {
+       "text": "90"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "neunzig"
+     ]
+    },
+    {
+     "type": "pairs",
+     "pairs": [
+      [
+       "vierzig",
+       "40"
+      ],
+      [
+       "fünfzig",
+       "50"
+      ],
+      [
+       "siebzig",
+       "70"
+      ],
+      [
+       "achtzig",
+       "80"
+      ],
+      [
+       "hundert",
+       "100"
+      ]
+     ],
+     "words": [
+      "vierzig",
+      "fuenfzig",
+      "siebzig",
+      "achtzig",
+      "hundert"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Быстрый счёт",
+    "intro": "Брецель называет большие числа. Не попадитесь на «задом наперёд»!",
+    "turns": [
+     {
+      "type": "pick",
+      "kicker": "Задом наперёд",
+      "q": "Какое число вы слышите?",
+      "audio": "dreiundsechzig",
+      "options": [
+       {
+        "text": "63"
+       },
+       {
+        "text": "36"
+       },
+       {
+        "text": "33"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "sechzig"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Задом наперёд",
+      "q": "Какое число вы слышите?",
+      "audio": "siebenundachtzig",
+      "options": [
+       {
+        "text": "87"
+       },
+       {
+        "text": "78"
+       },
+       {
+        "text": "17"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "achtzig"
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Задом наперёд",
+      "q": "Какое число вы слышите?",
+      "audio": "hundert",
+      "options": [
+       {
+        "text": "100"
+       },
+       {
+        "text": "10"
+       },
+       {
+        "text": "90"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "hundert"
+      ]
+     }
+    ]
+   },
+   "teaser": "Теперь вы знаете числа до ста. У Тома скоро день рождения — интересно, сколько ему исполняется?"
+  },
+  {
+   "id": "a1-02-08",
+   "title": "Wie alt bist du?",
+   "goal": "Спросить и сказать, сколько лет",
+   "scene": {
+    "art": "birthday",
+    "setting": "У Тома день рождения. На кухне хостела торт со свечками, все поют.",
+    "lines": [
+     {
+      "who": "lena",
+      "de": "Tom, alles Gute zum Geburtstag!",
+      "ru": "Том, с днём рождения!"
+     },
+     {
+      "who": "tom",
+      "de": "Danke, Lena!",
+      "ru": "Спасибо, Лена!"
+     },
+     {
+      "who": "marco",
+      "de": "Wie alt bist du jetzt, Tom?",
+      "ru": "Сколько тебе теперь лет, Том?"
+     },
+     {
+      "who": "tom",
+      "de": "Ich bin dreiundzwanzig Jahre alt.",
+      "ru": "Мне двадцать три года."
+     },
+     {
+      "who": "marco",
+      "de": "Oh, du bist jung!",
+      "ru": "О, ты молодой!"
+     },
+     {
+      "who": "tom",
+      "de": "Und wie alt bist du, Marco?",
+      "ru": "А тебе сколько, Марко?"
+     },
+     {
+      "who": "marco",
+      "de": "Ich bin achtundzwanzig.",
+      "ru": "Мне двадцать восемь."
+     }
+    ]
+   },
+   "newWords": [
+    "alt",
+    "jung",
+    "jahr",
+    "wie_alt",
+    "geburtstag",
+    "alles_gute"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Сколько лет?",
+     "art": "qage",
+     "paras": [
+      "Вопрос: <b>Wie alt bist du?</b> Дословно: «Как ты стар?». Вежливо: <b>Wie alt sind Sie?</b>",
+      "Ответ: <b>Ich bin</b> 23 <b>Jahre alt</b>. Можно короче: <b>Ich bin</b> 23. Здесь <b>alt</b> не значит «старый» — так просто говорят о возрасте.",
+      "Возраст — с глаголом <b>sein</b>: ich bin, du bist, er ist. Не говорите «Ich habe 23 Jahre» — так говорят по-испански и по-французски, но не по-немецки."
+     ],
+     "table": {
+      "head": [
+       "",
+       "du",
+       "Sie"
+      ],
+      "rows": [
+       [
+        "Сколько лет?",
+        "Wie alt bist du?",
+        "Wie alt sind Sie?"
+       ],
+       [
+        "Ответ",
+        "Ich bin 23 (Jahre alt).",
+        "Ich bin 50 (Jahre alt)."
+       ]
+      ]
+     },
+     "tip": "1 год — <b>ein Jahr</b>, 2 года и больше — <b>Jahre</b>."
+    },
+    {
+     "type": "pick",
+     "q": "Как спросить друга о возрасте?",
+     "options": [
+      {
+       "de": "Wie alt bist du?"
+      },
+      {
+       "de": "Wie alt sind du?"
+      },
+      {
+       "de": "Wie bist du alt?"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Выберите вопрос",
+     "words": [
+      "wie_alt"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Мне двадцать лет.",
+     "answer": "Ich bin zwanzig Jahre alt.",
+     "distract": [
+      "habe",
+      "Jahr"
+     ],
+     "words": [
+      "alt",
+      "jahr"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Марко двадцать восемь.",
+     "text": "Marco ___ achtundzwanzig.",
+     "options": [
+      "ist",
+      "bin",
+      "hat"
+     ],
+     "answer": 0,
+     "words": [
+      "alt"
+     ],
+     "explain": "О возрасте говорят с sein: er ist."
+    },
+    {
+     "type": "reply",
+     "who": "becker",
+     "line": "Wie alt sind Sie?",
+     "lineRu": "Сколько Вам лет?",
+     "options": [
+      "Ich bin dreißig Jahre alt.",
+      "Ich habe dreißig Jahre.",
+      "Ich bin dreißig Jahr."
+     ],
+     "answer": 0,
+     "words": [
+      "wie_alt"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Сколько лет этой женщине?",
+     "audio": "Ich bin einundvierzig Jahre alt.",
+     "options": [
+      {
+       "text": "41"
+      },
+      {
+       "text": "14"
+      },
+      {
+       "text": "40"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "alt"
+     ]
+    },
+    {
+     "type": "speak",
+     "de": "Alles Gute zum Geburtstag!",
+     "ru": "С днём рождения!",
+     "distract": [
+      "Nacht"
+     ],
+     "words": [
+      "alles_gute"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Сколько тебе лет?",
+     "accept": [
+      "Wie alt bist du?"
+     ],
+     "words": [
+      "wie_alt"
+     ]
+    },
+    {
+     "type": "tf",
+     "statement": "Tom ist dreiundzwanzig Jahre alt.",
+     "statementRu": "Тому двадцать три года.",
+     "answer": true,
+     "words": [
+      "jahr"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "jung — «молодой». А как сказать «старый»?",
+     "options": [
+      {
+       "de": "alt"
+      },
+      {
+       "de": "groß"
+      },
+      {
+       "de": "gut"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Противоположность",
+     "words": [
+      "jung"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Праздничный стол",
+    "intro": "Вы на дне рождения Тома. Поговорите с гостями!",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "wagner",
+      "situation": "Пришла фрау Вагнер.",
+      "line": "Guten Abend! Wie alt ist Tom heute?",
+      "lineRu": "Добрый вечер! Сколько сегодня лет Тому?",
+      "options": [
+       "Er ist dreiundzwanzig.",
+       "Ich bin dreiundzwanzig.",
+       "Er heißt Tom."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "tom",
+      "line": "Und wie alt bist du?",
+      "lineRu": "А тебе сколько?",
+      "options": [
+       "Ich bin fünfundzwanzig Jahre alt.",
+       "Ich heiße fünfundzwanzig.",
+       "Du bist fünfundzwanzig."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "tom",
+      "situation": "Ваша очередь поздравить Тома.",
+      "line": "Danke für die Party!",
+      "lineRu": "Спасибо за праздник!",
+      "options": [
+       "Tom, alles Gute zum Geburtstag!",
+       "Gute Nacht, Tom!",
+       "Wie alt bist du?"
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Утром после праздника Том не может найти телефон. Кто что нашёл?"
+  },
+  {
+   "id": "a1-02-09",
+   "title": "haben: ich habe",
+   "grammar": true,
+   "goal": "Говорить, что у кого есть: ich habe, du hast, er hat",
+   "scene": {
+    "art": "lostfound",
+    "setting": "Утро после праздника. У стойки хостела коробка с найденными вещами.",
+    "lines": [
+     {
+      "who": "tom",
+      "de": "Lena, ich habe ein Problem! Wo ist mein Handy?",
+      "ru": "Лена, у меня проблема! Где мой мобильный?"
+     },
+     {
+      "who": "lena",
+      "de": "Hast du Zimmer zwölf?",
+      "ru": "У тебя двенадцатый номер?"
+     },
+     {
+      "who": "tom",
+      "de": "Ja!",
+      "ru": "Да!"
+     },
+     {
+      "who": "lena",
+      "de": "Ich habe hier ein Handy aus Zimmer zwölf.",
+      "ru": "У меня тут телефон из двенадцатого номера."
+     },
+     {
+      "who": "tom",
+      "de": "Super, danke! Hast du Hunger?",
+      "ru": "Супер, спасибо! Ты есть хочешь?"
+     },
+     {
+      "who": "lena",
+      "de": "Ja, ich habe Hunger!",
+      "ru": "Да, я голодная!"
+     }
+    ]
+   },
+   "newWords": [
+    "haben",
+    "handy",
+    "zimmer",
+    "zeit",
+    "hunger"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "haben — иметь",
+     "art": "have",
+     "paras": [
+      "По-русски «у меня есть», а по-немецки «я имею»: <b>Ich habe</b> ein Handy.",
+      "Так же: <b>Ich habe Zeit</b> — у меня есть время. <b>Ich habe Hunger</b> — я хочу есть. <b>Ich habe eine Frage</b> — у меня вопрос."
+     ],
+     "table": {
+      "head": [
+       "кто",
+       "haben",
+       "sein (для сравнения)"
+      ],
+      "rows": [
+       [
+        "ich",
+        "habe",
+        "bin"
+       ],
+       [
+        "du",
+        "hast",
+        "bist"
+       ],
+       [
+        "er / sie / es",
+        "hat",
+        "ist"
+       ],
+       [
+        "wir",
+        "haben",
+        "sind"
+       ],
+       [
+        "ihr",
+        "habt",
+        "seid"
+       ],
+       [
+        "sie / Sie",
+        "haben",
+        "sind"
+       ]
+      ]
+     },
+     "tip": "Внимание: в <b>du hast</b> и <b>er hat</b> буква b пропадает."
+    },
+    {
+     "type": "gap",
+     "ru": "У тебя есть мобильный.",
+     "text": "Du ___ ein Handy.",
+     "options": [
+      "hast",
+      "habst",
+      "hat"
+     ],
+     "answer": 0,
+     "words": [
+      "haben"
+     ],
+     "explain": "du hast — без b."
+    },
+    {
+     "type": "gap",
+     "ru": "У Тома двенадцатый номер.",
+     "text": "Tom ___ Zimmer zwölf.",
+     "options": [
+      "hat",
+      "habt",
+      "hast"
+     ],
+     "answer": 0,
+     "words": [
+      "haben"
+     ],
+     "explain": "er/sie — hat."
+    },
+    {
+     "type": "pick",
+     "q": "Как сказать «Я хочу есть»?",
+     "options": [
+      {
+       "de": "Ich habe Hunger."
+      },
+      {
+       "de": "Ich bin Hunger."
+      },
+      {
+       "de": "Ich hat Hunger."
+      }
+     ],
+     "answer": 0,
+     "kicker": "Выберите фразу",
+     "words": [
+      "hunger"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "У тебя есть время?",
+     "answer": "Hast du Zeit?",
+     "distract": [
+      "Bist",
+      "hat"
+     ],
+     "words": [
+      "zeit"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "У нас есть вопрос.",
+     "answer": "Wir haben eine Frage.",
+     "distract": [
+      "sind",
+      "hat"
+     ],
+     "words": [
+      "haben"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "У меня есть мобильный телефон.",
+     "accept": [
+      "Ich habe ein Handy."
+     ],
+     "words": [
+      "handy"
+     ]
+    },
+    {
+     "type": "listen",
+     "de": "Habt ihr Zeit?",
+     "options": [
+      "Habt ihr Zeit?",
+      "Hast du Zeit?",
+      "Haben Sie Zeit?"
+     ],
+     "answer": 0,
+     "words": [
+      "zeit"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "lena",
+     "line": "Hast du Hunger?",
+     "lineRu": "Ты хочешь есть?",
+     "options": [
+      "Ja, ich habe Hunger.",
+      "Ja, ich bin Hunger.",
+      "Ja, du hast Hunger."
+     ],
+     "answer": 0,
+     "words": [
+      "hunger"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Бюро находок",
+    "intro": "Помогите Лене вернуть вещи гостям — и не перепутайте формы haben!",
+    "turns": [
+     {
+      "type": "gap",
+      "ru": "Господин Беккер, у Вас четырнадцатый номер?",
+      "text": "Herr Becker, ___ Sie Zimmer vierzehn?",
+      "options": [
+       "haben",
+       "hat",
+       "habt"
+      ],
+      "answer": 0,
+      "words": [
+       "haben"
+      ]
+     },
+     {
+      "type": "gap",
+      "ru": "Марко и Айгерим хотят есть.",
+      "text": "Marco und Aigerim ___ Hunger.",
+      "options": [
+       "haben",
+       "hat",
+       "habe"
+      ],
+      "answer": 0,
+      "words": [
+       "haben"
+      ]
+     },
+     {
+      "type": "reply",
+      "who": "tom",
+      "line": "Hast du Zeit?",
+      "lineRu": "У тебя есть время?",
+      "options": [
+       "Ja, ich habe Zeit.",
+       "Ja, ich bin Zeit.",
+       "Ja, ich hat Zeit."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "В кафе после курсов Марко очень хочет узнать номер телефона Айгерим. Даст ли она его?"
+  },
+  {
+   "id": "a1-02-10",
+   "title": "Telefonnummer",
+   "goal": "Спросить и продиктовать номер телефона и e-mail",
+   "scene": {
+    "art": "cafe",
+    "setting": "Кафе после урока. Марко набирается смелости.",
+    "lines": [
+     {
+      "who": "marco",
+      "de": "Aigerim, wie ist deine Telefonnummer?",
+      "ru": "Айгерим, какой у тебя номер телефона?"
+     },
+     {
+      "who": "aigerim",
+      "de": "Null eins sieben sechs, drei vier fünf, sechs sieben acht.",
+      "ru": "0176 345 678."
+     },
+     {
+      "who": "marco",
+      "de": "Moment … noch einmal, bitte! Langsam!",
+      "ru": "Минутку… ещё раз, пожалуйста! Медленно!"
+     },
+     {
+      "who": "aigerim",
+      "de": "Null – eins – sieben – sechs …",
+      "ru": "Ноль — один — семь — шесть…"
+     },
+     {
+      "who": "marco",
+      "de": "Danke! Und deine E-Mail?",
+      "ru": "Спасибо! А твой e-mail?"
+     },
+     {
+      "who": "aigerim",
+      "de": "aigerim at web Punkt de.",
+      "ru": "aigerim@web.de."
+     }
+    ]
+   },
+   "newWords": [
+    "telefonnummer",
+    "wie_ist_deine_nummer",
+    "nummer",
+    "e_mail",
+    "punkt"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Номер и e-mail",
+     "art": "phonenumber",
+     "paras": [
+      "Номер телефона чаще всего диктуют по одной цифре: 0176 = <b>null eins sieben sechs</b>.",
+      "В e-mail: <b>@</b> — <b>at</b> (звучит «эт»), точка — <b>Punkt</b>: tom@web.de = tom at web Punkt de.",
+      "Не поняли — так и скажите: <b>Noch einmal, bitte! Langsam, bitte!</b>"
+     ],
+     "table": {
+      "head": [
+       "",
+       "du",
+       "Sie"
+      ],
+      "rows": [
+       [
+        "Какой номер?",
+        "Wie ist deine Telefonnummer?",
+        "Wie ist Ihre Telefonnummer?"
+       ],
+       [
+        "Ответ",
+        "Meine Nummer ist …",
+        "Meine Nummer ist …"
+       ]
+      ]
+     },
+     "tip": "Вопрос «Какой у тебя номер?» по-немецки начинается не с «какой», а с <b>Wie</b> — «как»."
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какой номер вы слышите?",
+     "audio": "null drei null, vier fünf sechs",
+     "options": [
+      {
+       "text": "030 456"
+      },
+      {
+       "text": "030 465"
+      },
+      {
+       "text": "003 456"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "telefonnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Как спросить фрау Вагнер о её номере?",
+     "options": [
+      {
+       "de": "Wie ist Ihre Telefonnummer?"
+      },
+      {
+       "de": "Wie ist deine Telefonnummer?"
+      },
+      {
+       "de": "Was ist Ihr Telefon?"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Вежливо",
+     "words": [
+      "wie_ist_deine_nummer"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Какой у тебя номер телефона?",
+     "text": "___ ist deine Telefonnummer?",
+     "options": [
+      "Wie",
+      "Was",
+      "Wo"
+     ],
+     "answer": 0,
+     "words": [
+      "wie_ist_deine_nummer"
+     ],
+     "explain": "По-немецки спрашивают «как»: Wie ist …?"
+    },
+    {
+     "type": "write",
+     "ru": "Какой у тебя номер телефона?",
+     "accept": [
+      "Wie ist deine Telefonnummer?",
+      "Wie ist deine Nummer?"
+     ],
+     "words": [
+      "wie_ist_deine_nummer"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Ещё раз, пожалуйста, медленно!",
+     "answer": "Noch einmal, bitte, langsam!",
+     "distract": [
+      "Nacht",
+      "gut"
+     ],
+     "words": [
+      "noch_einmal",
+      "langsam"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "Telefonnummer",
+     "accept": [
+      "Telefonnummer"
+     ],
+     "ru": "номер телефона",
+     "words": [
+      "telefonnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Какой e-mail вы слышите?",
+     "audio": "tom at web Punkt de",
+     "options": [
+      {
+       "text": "tom@web.de"
+      },
+      {
+       "text": "tom.web@de"
+      },
+      {
+       "text": "tom@web-de"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "e_mail",
+      "punkt"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "aigerim",
+     "situation": "Вы — Марко.",
+     "line": "Und wie ist deine Nummer, Marco?",
+     "lineRu": "А какой твой номер, Марко?",
+     "options": [
+      "Meine Nummer ist null eins fünf eins, zwei drei.",
+      "Ich bin null eins fünf eins, zwei drei.",
+      "Mein Name ist null eins fünf eins."
+     ],
+     "answer": 0,
+     "words": [
+      "nummer"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Номер для Марко",
+    "intro": "Теперь номер спрашивают у вас. Слушайте внимательно и отвечайте!",
+    "turns": [
+     {
+      "type": "pick",
+      "kicker": "Запишите номер",
+      "q": "Какой номер продиктовала Лена?",
+      "audio": "null eins fünf eins, zwei drei, vier vier",
+      "options": [
+       {
+        "text": "0151 23 44"
+       },
+       {
+        "text": "0151 32 44"
+       },
+       {
+        "text": "0115 23 44"
+       }
+      ],
+      "answer": 0,
+      "words": [
+       "telefonnummer"
+      ]
+     },
+     {
+      "type": "reply",
+      "who": "marco",
+      "line": "Wie ist deine Telefonnummer?",
+      "lineRu": "Какой у тебя номер?",
+      "options": [
+       "Meine Nummer ist null eins sieben null, eins zwei drei.",
+       "Ich bin null eins sieben null.",
+       "Mein Name ist null eins sieben null."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "marco",
+      "line": "Und deine E-Mail?",
+      "lineRu": "А твой e-mail?",
+      "options": [
+       "alex at web Punkt de.",
+       "Ich heiße E-Mail.",
+       "Ich habe Hunger."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Как задать вопрос, на который отвечают просто «да» или «нет»? Секрет — в порядке слов."
+  },
+  {
+   "id": "a1-02-11",
+   "title": "Ja oder nein?",
+   "grammar": true,
+   "goal": "Задавать вопросы «да/нет» и отвечать с nicht",
+   "scene": {
+    "art": "street",
+    "setting": "Вы снова репортёр уличного радио. Сегодня вопросы, на которые отвечают «да» или «нет».",
+    "lines": [
+     {
+      "who": "you",
+      "de": "Entschuldigung! Haben Sie Zeit?",
+      "ru": "Извините! У Вас есть время?"
+     },
+     {
+      "who": "woman",
+      "de": "Ja, ein bisschen.",
+      "ru": "Да, немного."
+     },
+     {
+      "who": "you",
+      "de": "Wohnen Sie in Berlin?",
+      "ru": "Вы живёте в Берлине?"
+     },
+     {
+      "who": "woman",
+      "de": "Nein, ich wohne nicht in Berlin. Ich wohne in Potsdam.",
+      "ru": "Нет, я живу не в Берлине. Я живу в Потсдаме."
+     },
+     {
+      "who": "you",
+      "de": "Sprechen Sie Englisch?",
+      "ru": "Вы говорите по-английски?"
+     },
+     {
+      "who": "woman",
+      "de": "Ja, und vielleicht ein bisschen Russisch!",
+      "ru": "Да, и, может быть, немножко по-русски!"
+     }
+    ]
+   },
+   "newWords": [
+    "oder",
+    "nicht",
+    "vielleicht"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Вопрос «да/нет»: глагол первым",
+     "art": "yes",
+     "paras": [
+      "В вопросах с wer, wo, wie глагол стоит на 2-м месте. А в вопросе, на который отвечают «да» или «нет», глагол идёт <b>первым</b>.",
+      "Отрицание <b>nicht</b> — «не»: Ich wohne <b>nicht</b> in Berlin. Ich komme <b>nicht</b> aus Italien.",
+      "<b>oder</b> — «или»: Kommst du aus Italien <b>oder</b> aus Russland?"
+     ],
+     "table": {
+      "head": [
+       "Утверждение",
+       "Вопрос «да/нет»"
+      ],
+      "rows": [
+       [
+        "Du bist Tom.",
+        "Bist du Tom?"
+       ],
+       [
+        "Sie wohnen in Berlin.",
+        "Wohnen Sie in Berlin?"
+       ],
+       [
+        "Er hat Zeit.",
+        "Hat er Zeit?"
+       ],
+       [
+        "Du sprichst Deutsch.",
+        "Sprichst du Deutsch?"
+       ]
+      ]
+     },
+     "tip": "Ответ: <b>Ja</b>, ich wohne in Berlin. / <b>Nein</b>, ich wohne <b>nicht</b> in Berlin."
+    },
+    {
+     "type": "tiles",
+     "ru": "Ты живёшь в Берлине?",
+     "answer": "Wohnst du in Berlin?",
+     "distract": [
+      "Wo",
+      "wohnen"
+     ],
+     "words": [
+      "wohnen"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какой вопрос — «да/нет»?",
+     "options": [
+      {
+       "de": "Kommst du aus Italien?"
+      },
+      {
+       "de": "Woher kommst du?"
+      },
+      {
+       "de": "Wo wohnst du?"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Найдите вопрос",
+     "words": [
+      "ja",
+      "nein"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Ты хочешь есть?",
+     "text": "___ du Hunger?",
+     "options": [
+      "Hast",
+      "Hat",
+      "Haben"
+     ],
+     "answer": 0,
+     "words": [
+      "haben"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "tom",
+     "line": "Bist du Marco?",
+     "lineRu": "Ты Марко?",
+     "options": [
+      "Nein, ich bin Alex.",
+      "Ja, ich bin Alex.",
+      "Nein, du bist Alex."
+     ],
+     "answer": 0,
+     "words": [
+      "nein"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "Я живу не в Гамбурге.",
+     "answer": "Ich wohne nicht in Hamburg.",
+     "distract": [
+      "nein",
+      "aus"
+     ],
+     "words": [
+      "nicht"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Вы говорите по-немецки? (вежливо)",
+     "accept": [
+      "Sprechen Sie Deutsch?"
+     ],
+     "words": [
+      "sprechen"
+     ]
+    },
+    {
+     "type": "listen",
+     "de": "Ist das Zimmer vierzehn oder fünfzehn?",
+     "options": [
+      "Ist das Zimmer vierzehn oder fünfzehn?",
+      "Ist das Zimmer vierzehn und fünfzehn?",
+      "Das ist Zimmer vierzehn oder fünfzehn."
+     ],
+     "answer": 0,
+     "words": [
+      "oder"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Вас спрашивают: «Wohnen Sie in Berlin?» Вы живёте в Мюнхене. Что ответить?",
+     "options": [
+      {
+       "de": "Nein, ich wohne in München."
+      },
+      {
+       "de": "Ja, ich wohne in München."
+      },
+      {
+       "de": "Nein, ich wohne nicht in München."
+      }
+     ],
+     "answer": 0,
+     "kicker": "Ответьте",
+     "words": [
+      "nein"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Как сказать «может быть»?",
+     "options": [
+      {
+       "de": "vielleicht"
+      },
+      {
+       "de": "nicht"
+      },
+      {
+       "de": "oder"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Выберите слово",
+     "words": [
+      "vielleicht"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Уличный опрос",
+    "intro": "Задайте прохожей вопросы «да/нет» — вежливо, на «Вы».",
+    "turns": [
+     {
+      "type": "pick",
+      "q": "Спросите, есть ли у неё время.",
+      "options": [
+       {
+        "de": "Haben Sie Zeit?"
+       },
+       {
+        "de": "Sie haben Zeit?"
+       },
+       {
+        "de": "Hast du Zeit?"
+       }
+      ],
+      "answer": 0,
+      "kicker": "Задайте вопрос"
+     },
+     {
+      "type": "pick",
+      "q": "Спросите, говорит ли она по-английски.",
+      "options": [
+       {
+        "de": "Sprechen Sie Englisch?"
+       },
+       {
+        "de": "Sie sprechen Englisch?"
+       },
+       {
+        "de": "Was sprechen Sie Englisch?"
+       }
+      ],
+      "answer": 0,
+      "kicker": "Задайте вопрос"
+     },
+     {
+      "type": "reply",
+      "who": "woman",
+      "line": "Und Sie? Kommen Sie aus Berlin?",
+      "lineRu": "А Вы? Вы из Берлина?",
+      "options": [
+       "Nein, ich komme nicht aus Berlin.",
+       "Nein, ich komme aus nicht Berlin.",
+       "Nein, ich nicht komme aus Berlin."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Осталась последняя важная вещь — адрес. Без него в Германии никуда: на почте, в ведомстве, в спортзале."
+  },
+  {
+   "id": "a1-02-12",
+   "title": "Die Adresse",
+   "goal": "Назвать и понять адрес: улица, дом, индекс",
+   "scene": {
+    "art": "amt",
+    "setting": "Бюргерамт — городское ведомство. Вы регистрируете своё жильё в Берлине.",
+    "lines": [
+     {
+      "who": "f",
+      "de": "Guten Tag! Wie ist Ihre Adresse?",
+      "ru": "Добрый день! Какой у Вас адрес?"
+     },
+     {
+      "who": "you",
+      "de": "Torstraße fünfzehn.",
+      "ru": "Торштрассе, пятнадцать."
+     },
+     {
+      "who": "f",
+      "de": "Torstraße mit ß?",
+      "ru": "Торштрассе — через ß?"
+     },
+     {
+      "who": "you",
+      "de": "Ja: T – O – R – S – T – R – A – ß – E.",
+      "ru": "Да: тэ — о — эр — эс — тэ — эр — а — эсцэт — э."
+     },
+     {
+      "who": "f",
+      "de": "Und die Postleitzahl?",
+      "ru": "А индекс?"
+     },
+     {
+      "who": "you",
+      "de": "Eins null eins eins neun.",
+      "ru": "10119."
+     }
+    ]
+   },
+   "newWords": [
+    "adresse",
+    "strasse",
+    "hausnummer",
+    "postleitzahl",
+    "wie_ist_ihre_adresse"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Адрес по-немецки",
+     "art": "envelope",
+     "paras": [
+      "Сначала улица, потом номер дома: <b>Torstraße 15</b>. На следующей строке — индекс и город: <b>10119 Berlin</b>.",
+      "Слово <b>Straße</b> часто пишется слитно с названием: Torstraße, Gartenstraße. Коротко — <b>Str.</b>",
+      "Индекс — <b>die Postleitzahl</b>, коротко <b>PLZ</b>. В Германии в нём 5 цифр."
+     ],
+     "table": {
+      "head": [
+       "Строка",
+       "Пример"
+      ],
+      "rows": [
+       [
+        "Имя",
+        "Lena Schulz"
+       ],
+       [
+        "Улица и дом",
+        "Gartenstraße 8"
+       ],
+       [
+        "Индекс и город",
+        "10115 Berlin"
+       ]
+      ]
+     },
+     "tip": "Вопрос: <b>Wie ist Ihre Adresse?</b> Ответ: <b>Meine Adresse ist</b> Torstraße 15. Или: <b>Ich wohne in der</b> Torstraße 15."
+    },
+    {
+     "type": "pick",
+     "q": "Какой номер дома у Лены?",
+     "options": [
+      {
+       "text": "8"
+      },
+      {
+       "text": "10115"
+      },
+      {
+       "text": "10"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Прочитайте адрес",
+     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
+     "words": [
+      "hausnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какой здесь индекс?",
+     "options": [
+      {
+       "text": "10115"
+      },
+      {
+       "text": "8"
+      },
+      {
+       "text": "1015"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Прочитайте адрес",
+     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
+     "words": [
+      "postleitzahl"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Какой у Вас адрес?",
+     "text": "Wie ist Ihre ___?",
+     "options": [
+      "Adresse",
+      "Straße",
+      "Zimmer"
+     ],
+     "answer": 0,
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "S – T – R – A – ß – E",
+     "accept": [
+      "Straße"
+     ],
+     "ru": "улица",
+     "words": [
+      "strasse"
+     ],
+     "who": "f"
+    },
+    {
+     "type": "tiles",
+     "ru": "Мой адрес — Торштрассе, 15.",
+     "answer": "Meine Adresse ist Torstraße fünfzehn.",
+     "distract": [
+      "Mein",
+      "bin"
+     ],
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "tf",
+     "text": "Herr Paul Becker<br>Ringstraße 21<br>1010 Wien",
+     "statement": "Herr Becker wohnt in Berlin.",
+     "statementRu": "Господин Беккер живёт в Берлине.",
+     "answer": false,
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Какой у Вас адрес?",
+     "accept": [
+      "Wie ist Ihre Adresse?"
+     ],
+     "words": [
+      "wie_ist_ihre_adresse"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "f",
+     "line": "Und die Hausnummer?",
+     "lineRu": "А номер дома?",
+     "options": [
+      "Zwölf.",
+      "Berlin.",
+      "Torstraße."
+     ],
+     "answer": 0,
+     "words": [
+      "hausnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Где живёт этот человек?",
+     "audio": "Ich wohne in der Gartenstraße zwanzig.",
+     "options": [
+      {
+       "text": "Gartenstraße 20"
+      },
+      {
+       "text": "Gartenstraße 12"
+      },
+      {
+       "text": "Torstraße 20"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "strasse"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "В ведомстве",
+    "intro": "Сотрудница Бюргерамта заполняет на вас карточку. Отвечайте точно!",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Wie ist Ihr Nachname?",
+      "lineRu": "Какая у Вас фамилия?",
+      "options": [
+       "Novak.",
+       "Alex.",
+       "Zwölf."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Wie ist Ihre Adresse?",
+      "lineRu": "Какой у Вас адрес?",
+      "options": [
+       "Torstraße fünfzehn, Berlin.",
+       "Ich bin fünfzehn.",
+       "Ich habe Torstraße."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Und die Postleitzahl?",
+      "lineRu": "А индекс?",
+      "options": [
+       "Eins null eins eins neun.",
+       "Zehn Jahre.",
+       "Gute Nacht."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Всё готово для мини-экзамена: в спортзале нужно заполнить анкету и рассказать о себе."
+  },
+  {
+   "id": "a1-02-13",
+   "title": "Мини-экзамен: спортзал",
+   "goal": "Заполнить анкету и рассказать о себе: имя, возраст, адрес, телефон",
+   "scene": {
+    "art": "gym",
+    "setting": "Вы записываетесь в спортзал. Тренер за стойкой протягивает анкету.",
+    "lines": [
+     {
+      "who": "m",
+      "de": "Hallo! Herzlich willkommen im Fitnessstudio!",
+      "ru": "Привет! Добро пожаловать в спортзал!"
+     },
+     {
+      "who": "you",
+      "de": "Hallo! Ich bin neu hier.",
+      "ru": "Привет! Я тут новенький."
+     },
+     {
+      "who": "m",
+      "de": "Super! Hier ist das Formular: Name, Alter, Adresse, Telefonnummer.",
+      "ru": "Супер! Вот анкета: имя, возраст, адрес, номер телефона."
+     },
+     {
+      "who": "you",
+      "de": "Kein Problem!",
+      "ru": "Без проблем!"
+     },
+     {
+      "who": "m",
+      "de": "Und hier, bitte, die Unterschrift.",
+      "ru": "И вот здесь, пожалуйста, подпись."
+     }
+    ]
+   },
+   "newWords": [
+    "alter",
+    "unterschrift"
+   ],
+   "exercises": [
+    {
+     "type": "form",
+     "task": "Айгерим тоже записывается. Прочитайте текст и заполните анкету за неё.",
+     "intro": "Das ist <b>Aigerim Nurlanowa</b>. Sie ist vierundzwanzig Jahre alt. Sie wohnt in der Kastanienallee 7, 10435 Berlin. Ihre Telefonnummer ist 0176 345678.",
+     "formTitle": "Anmeldung · Fitnessstudio FitPunkt",
+     "fields": [
+      {
+       "label": "Familienname",
+       "accept": [
+        "Nurlanowa"
+       ]
+      },
+      {
+       "label": "Alter",
+       "accept": [
+        "24",
+        "vierundzwanzig",
+        "24 Jahre"
+       ],
+       "contains": [
+        "24"
+       ]
+      },
+      {
+       "label": "Straße, Hausnummer",
+       "accept": [
+        "Kastanienallee 7"
+       ],
+       "contains": [
+        "Kastanienallee",
+        "7"
+       ]
+      },
+      {
+       "label": "PLZ, Wohnort",
+       "accept": [
+        "10435 Berlin"
+       ],
+       "contains": [
+        "10435",
+        "Berlin"
+       ]
+      },
+      {
+       "label": "Telefonnummer",
+       "accept": [
+        "0176 345678"
+       ],
+       "contains": [
+        "0176",
+        "345678"
+       ]
+      }
+     ],
+     "words": [
+      "alter",
+      "adresse",
+      "telefonnummer"
+     ]
+    },
+    {
+     "type": "listenDialog",
+     "kicker": "Hören",
+     "q": "Welche Nummer hat Alex?",
+     "qRu": "Какой номер у Алекса?",
+     "maxPlays": 2,
+     "audio": [
+      {
+       "who": "m",
+       "de": "Wie ist Ihre Telefonnummer?"
+      },
+      {
+       "who": "you",
+       "de": "Null eins sieben null, zwei drei vier, fünf sechs."
+      }
+     ],
+     "options": [
+      {
+       "text": "0170 234 56"
+      },
+      {
+       "text": "0170 243 56"
+      },
+      {
+       "text": "0710 234 56"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "telefonnummer"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "N – U – R – L – A – N – O – W – A",
+     "accept": [
+      "Nurlanowa"
+     ],
+     "ru": "Тренер переспрашивает фамилию Айгерим",
+     "words": [
+      "buchstabieren"
+     ],
+     "who": "aigerim"
+    },
+    {
+     "type": "gap",
+     "ru": "Мне девятнадцать лет.",
+     "text": "Ich ___ neunzehn Jahre alt.",
+     "options": [
+      "bin",
+      "habe",
+      "ist"
+     ],
+     "answer": 0,
+     "words": [
+      "alt"
+     ]
+    },
+    {
+     "type": "tf",
+     "text": "<b>FitPunkt Berlin</b><br>Kurs: Yoga für Anfänger<br>Lehrerin: Frau Klein<br>Telefon: 030 12 34 56",
+     "statement": "Die Lehrerin heißt Frau Klein.",
+     "statementRu": "Преподавательницу зовут фрау Кляйн.",
+     "answer": true,
+     "words": [
+      "nummer"
+     ]
+    },
+    {
+     "type": "tf",
+     "text": "<b>FitPunkt Berlin</b><br>Kurs: Yoga für Anfänger<br>Lehrerin: Frau Klein<br>Telefon: 030 12 34 56",
+     "statement": "Die Telefonnummer ist 030 65 43 21.",
+     "statementRu": "Номер телефона — 030 65 43 21.",
+     "answer": false,
+     "words": [
+      "telefonnummer"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Скажите по буквам, пожалуйста! (вежливо)",
+     "accept": [
+      "Buchstabieren Sie, bitte!",
+      "Buchstabieren Sie bitte!"
+     ],
+     "words": [
+      "bitte_buchstabieren"
+     ]
+    },
+    {
+     "type": "speakCard",
+     "q": "Расскажите о себе тренеру",
+     "sub": "Скажите или напишите 4 предложения по карточке.",
+     "placeholder": "Ich heiße … Ich bin … Jahre alt. Ich wohne in … Meine Telefonnummer ist …",
+     "points": [
+      {
+       "label": "Name?",
+       "re": "(ich heisse|ich bin|mein name ist|mein nachname ist) [a-z]+",
+       "model": "Ich heiße …"
+      },
+      {
+       "label": "Alter?",
+       "re": "(ich bin|bin) (\\d+|[a-z]*(zig|zehn|ssig|elf|zwoelf|hundert))\\b|jahre alt",
+       "model": "Ich bin … Jahre alt."
+      },
+      {
+       "label": "Adresse?",
+       "re": "(ich wohne in|meine adresse ist) \\S+",
+       "model": "Ich wohne in der …straße …"
+      },
+      {
+       "label": "Telefon?",
+       "re": "(nummer|telefonnummer|handynummer) ist \\S+",
+       "model": "Meine Telefonnummer ist …"
+      }
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Вопросы тренера",
+    "intro": "Тренер проверяет анкету и задаёт вопросы. Отвечайте за себя!",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "m",
+      "line": "Wie ist Ihr Name?",
+      "lineRu": "Как Вас зовут?",
+      "options": [
+       "Alex Novak.",
+       "Fitnessstudio.",
+       "Ich bin neunzehn."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "m",
+      "line": "Novak? Buchstabieren Sie, bitte!",
+      "lineRu": "Новак? Скажите по буквам, пожалуйста!",
+      "options": [
+       "N – O – V – A – K",
+       "Novak, bitte!",
+       "Wie bitte?"
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "m",
+      "line": "Wie alt sind Sie?",
+      "lineRu": "Сколько Вам лет?",
+      "options": [
+       "Ich bin zweiundzwanzig.",
+       "Ich habe zweiundzwanzig.",
+       "Zweiundzwanzig Straße."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "m",
+      "line": "Haben Sie ein Handy?",
+      "lineRu": "У Вас есть мобильный?",
+      "options": [
+       "Ja. Meine Nummer ist null eins sieben null, eins zwei drei.",
+       "Ja, ich bin Handy.",
+       "Nein, ich habe Hunger."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Тема закрыта! Впереди — история о господине Беккере и тест в формате экзамена."
+  }
+ ],
+ "story": {
+  "title": "Zimmer dreizehn",
+  "art": "hostel",
+  "newWords": [
+   "frei",
+   "lacht"
+  ],
+  "glossary": {
+   "frei": "свободный",
+   "lacht": "смеётся (lachen)",
+   "Wien": "Вена",
+   "aber": "но",
+   "heute": "сегодня",
+   "Oh": "ой",
+   "habe": "имею (haben)",
+   "haben": "имеете (haben)",
+   "hat": "имеет (haben)",
+   "Sie": "Вы",
+   "ist": "есть (sein)",
+   "wohnt": "живёт (wohnen)",
+   "neunundvierzig": "сорок девять",
+   "dreizehn": "тринадцать",
+   "vierzehn": "четырнадцать",
+   "zwölf": "двенадцать",
+   "Becker": "Беккер"
+  },
+  "sentences": [
+   {
+    "de": "Das ist Herr Becker. Er ist neunundvierzig Jahre alt.",
+    "ru": "Это господин Беккер. Ему сорок девять лет.",
+    "who": "f"
+   },
+   {
+    "de": "Er wohnt in Wien, aber heute ist er in Berlin.",
+    "ru": "Он живёт в Вене, но сегодня он в Берлине.",
+    "who": "f"
+   },
+   {
+    "de": "„Guten Abend! Ich habe ein Zimmer. Mein Name ist Becker.“",
+    "ru": "«Добрый вечер! У меня забронирован номер. Моя фамилия — Беккер».",
+    "who": "becker"
+   },
+   {
+    "de": "„Becker? Wie schreibt man das?“",
+    "ru": "«Беккер? Как это пишется?»",
+    "who": "lena"
+   },
+   {
+    "de": "„B – E – C – K – E – R.“",
+    "ru": "«Бэ — э — цэ — ка — э — эр».",
+    "who": "becker"
+   },
+   {
+    "de": "„Danke! Sie haben Zimmer dreizehn.“",
+    "ru": "«Спасибо! У Вас номер тринадцать».",
+    "who": "lena"
+   },
+   {
+    "de": "„Dreizehn? Oh nein! Haben Sie Zimmer zwölf oder vierzehn?“",
+    "ru": "«Тринадцать? О нет! А нет ли у Вас номера двенадцать или четырнадцать?»",
+    "who": "becker"
+   },
+   {
+    "de": "Lena lacht: „Zimmer vierzehn ist frei. Kein Problem!“",
+    "ru": "Лена смеётся: «Номер четырнадцать свободен. Без проблем!»",
+    "who": "f"
+   }
+  ],
+  "questions": [
+   {
+    "type": "tf",
+    "statement": "Herr Becker wohnt in Berlin.",
+    "statementRu": "Господин Беккер живёт в Берлине.",
+    "answer": false
+   },
+   {
+    "type": "tf",
+    "statement": "Herr Becker ist neunundvierzig Jahre alt.",
+    "statementRu": "Господину Беккеру сорок девять лет.",
+    "answer": true
+   },
+   {
+    "type": "pick",
+    "kicker": "Вопрос к истории",
+    "q": "Welches Zimmer hat Herr Becker jetzt? (Какой номер у господина Беккера теперь?)",
+    "options": [
+     {
+      "text": "14"
+     },
+     {
+      "text": "13"
+     },
+     {
+      "text": "12"
+     }
+    ],
+    "answer": 0
+   },
+   {
+    "type": "pick",
+    "kicker": "Вопрос к истории",
+    "q": "Wie schreibt man den Namen? (Как пишется фамилия?)",
+    "options": [
+     {
+      "de": "Becker"
+     },
+     {
+      "de": "Bäcker"
+     },
+     {
+      "de": "Beker"
+     }
+    ],
+    "answer": 0
+   }
+  ],
+  "teaser": "Тест блока проверит всё, что вы выучили, — в формате настоящего экзамена Goethe."
+ },
+ "test": {
+  "title": "Тест: Буквы и числа",
+  "goal": "4 части, как на экзамене Start Deutsch 1: аудирование, чтение, письмо, говорение",
+  "parts": [
+   {
+    "id": "hoeren",
+    "badge": "Hören",
+    "title": "Аудирование",
+    "max": 25,
+    "intro": "Короткие диалоги можно прослушать два раза. Выберите правильный ответ.",
+    "items": [
+     {
+      "type": "listenDialog",
+      "kicker": "Hören · Teil 3",
+      "q": "Wie ist die Telefonnummer von Lena?",
+      "qRu": "Какой номер телефона у Лены? (сообщение на автоответчике)",
+      "maxPlays": 2,
+      "audio": [
+       {
+        "who": "lena",
+        "de": "Hallo Tom, hier ist Lena. Meine neue Nummer ist null eins sieben sechs, drei vier fünf, acht neun. Tschüs!"
+       }
+      ],
+      "options": [
+       {
+        "text": "0176 345 89"
+       },
+       {
+        "text": "0167 345 98"
+       },
+       {
+        "text": "0176 354 89"
+       }
+      ],
+      "answer": 0
+     },
+     {
+      "type": "listenDialog",
+      "kicker": "Hören · Teil 1",
+      "q": "Wie alt ist Frau Wagner?",
+      "qRu": "Сколько лет фрау Вагнер?",
+      "maxPlays": 2,
+      "audio": [
+       {
+        "who": "m",
+        "de": "Frau Wagner, wie alt sind Sie?"
+       },
+       {
+        "who": "wagner",
+        "de": "Ich bin zweiundsechzig Jahre alt."
+       }
+      ],
+      "options": [
+       {
+        "text": "62"
+       },
+       {
+        "text": "26"
+       },
+       {
+        "text": "52"
+       }
+      ],
+      "answer": 0
+     },
+     {
+      "type": "listenDialog",
+      "kicker": "Hören · Teil 1",
+      "q": "Wie heißt die Frau?",
+      "qRu": "Как фамилия женщины?",
+      "maxPlays": 2,
+      "audio": [
+       {
+        "who": "m",
+        "de": "Wie ist Ihr Name, bitte?"
+       },
+       {
+        "who": "woman",
+        "de": "Huber. H – U – B – E – R."
+       }
+      ],
+      "options": [
+       {
+        "text": "Huber"
+       },
+       {
+        "text": "Hubert"
+       },
+       {
+        "text": "Hober"
+       }
+      ],
+      "answer": 0
+     },
+     {
+      "type": "listenDialog",
+      "kicker": "Hören · Teil 1",
+      "q": "Wo wohnt Marco?",
+      "qRu": "Где живёт Марко?",
+      "maxPlays": 2,
+      "audio": [
+       {
+        "who": "f",
+        "de": "Marco, wie ist deine Adresse?"
+       },
+       {
+        "who": "marco",
+        "de": "Ich wohne in der Gartenstraße zwölf."
+       }
+      ],
+      "options": [
+       {
+        "text": "Gartenstraße 12"
+       },
+       {
+        "text": "Gartenstraße 20"
+       },
+       {
+        "text": "Torstraße 12"
+       }
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   {
+    "id": "lesen",
+    "badge": "Lesen",
+    "title": "Чтение",
+    "max": 25,
+    "intro": "Прочитайте объявление и решите: richtig (верно) или falsch (неверно)?",
+    "items": [
+     {
+      "type": "tf",
+      "kicker": "Lesen · Teil 3",
+      "text": "<b>Deutschkurs A1</b><br>Sprachschule Berlin, Torstraße 15<br>Lehrerin: Frau Wagner<br>Telefon: 030 45 67 89<br>E-Mail: kurs@sprachschule.de",
+      "statement": "Die Lehrerin heißt Frau Wagner.",
+      "answer": true
+     },
+     {
+      "type": "tf",
+      "kicker": "Lesen · Teil 3",
+      "text": "<b>Deutschkurs A1</b><br>Sprachschule Berlin, Torstraße 15<br>Lehrerin: Frau Wagner<br>Telefon: 030 45 67 89<br>E-Mail: kurs@sprachschule.de",
+      "statement": "Die Sprachschule ist in der Gartenstraße.",
+      "answer": false
+     },
+     {
+      "type": "tf",
+      "kicker": "Lesen · Teil 3",
+      "text": "<b>Deutschkurs A1</b><br>Sprachschule Berlin, Torstraße 15<br>Lehrerin: Frau Wagner<br>Telefon: 030 45 67 89<br>E-Mail: kurs@sprachschule.de",
+      "statement": "Die Telefonnummer ist 030 45 67 89.",
+      "answer": true
+     },
+     {
+      "type": "tf",
+      "kicker": "Lesen · Teil 1",
+      "text": "Hallo Aigerim,<br>ich habe heute Geburtstag! Ich bin jetzt dreiundzwanzig. Hast du Zeit? Die Party ist im Brezelhaus, Zimmer elf.<br>Tom",
+      "statement": "Die Party ist in Zimmer zwölf.",
+      "statementRu": "Праздник в двенадцатом номере.",
+      "answer": false
+     }
+    ]
+   },
+   {
+    "id": "schreiben",
+    "badge": "Schreiben",
+    "title": "Письмо",
+    "max": 25,
+    "intro": "Прочитайте текст и заполните анкету: 5 полей.",
+    "items": [
+     {
+      "type": "form",
+      "kicker": "Schreiben · Teil 1",
+      "task": "Ваш друг Том записывается в библиотеку. Заполните анкету за него.",
+      "intro": "Das ist <b>Tom Schulz</b>. Er ist dreiundzwanzig Jahre alt. Er wohnt in der Gartenstraße 8, 10115 Berlin. Seine Telefonnummer ist 0151 234567.",
+      "formTitle": "Anmeldung · Stadtbibliothek Berlin",
+      "fields": [
+       {
+        "label": "Vorname",
+        "accept": [
+         "Tom"
+        ]
+       },
+       {
+        "label": "Alter",
+        "accept": [
+         "23"
+        ],
+        "contains": [
+         "23"
+        ]
+       },
+       {
+        "label": "Straße, Hausnummer",
+        "accept": [
+         "Gartenstraße 8"
+        ],
+        "contains": [
+         "Gartenstrasse",
+         "8"
+        ]
+       },
+       {
+        "label": "PLZ, Wohnort",
+        "accept": [
+         "10115 Berlin"
+        ],
+        "contains": [
+         "10115",
+         "Berlin"
+        ]
+       },
+       {
+        "label": "Telefonnummer",
+        "accept": [
+         "0151 234567"
+        ],
+        "contains": [
+         "0151",
+         "234567"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sprechen",
+    "badge": "Sprechen",
+    "title": "Говорение",
+    "max": 25,
+    "intro": "Расскажите о себе по карточке, задайте вопрос и попросите назвать по буквам.",
+    "items": [
+     {
+      "type": "speakCard",
+      "kicker": "Sprechen · Teil 1",
+      "q": "Расскажите о себе",
+      "sub": "Скажите или напишите 4 предложения по карточке.",
+      "placeholder": "Ich heiße … Ich bin … Jahre alt. Ich wohne in … Meine Telefonnummer ist …",
+      "points": [
+       {
+        "label": "Name?",
+        "re": "(ich heisse|ich bin|mein name ist|mein nachname ist) [a-z]+",
+        "model": "Ich heiße …"
+       },
+       {
+        "label": "Alter?",
+        "re": "(ich bin|bin) (\\d+|[a-z]*(zig|zehn|ssig|elf|zwoelf|hundert))\\b|jahre alt",
+        "model": "Ich bin … Jahre alt."
+       },
+       {
+        "label": "Wohnort?",
+        "re": "(ich wohne in|meine adresse ist) \\S+",
+        "model": "Ich wohne in …"
+       },
+       {
+        "label": "Telefon?",
+        "re": "(nummer|telefonnummer|handynummer) ist \\S+",
+        "model": "Meine Telefonnummer ist …"
+       }
+      ]
+     },
+     {
+      "type": "pick",
+      "kicker": "Sprechen · Teil 2",
+      "q": "Карточка: «Alter?». Задайте вопрос партнёру.",
+      "options": [
+       {
+        "de": "Wie alt bist du?"
+       },
+       {
+        "de": "Wie viel bist du alt?"
+       },
+       {
+        "de": "Hast du Jahre?"
+       }
+      ],
+      "answer": 0
+     },
+     {
+      "type": "pick",
+      "kicker": "Sprechen · Teil 2",
+      "q": "Карточка: «Telefon?». Задайте вопрос партнёру.",
+      "options": [
+       {
+        "de": "Wie ist deine Telefonnummer?"
+       },
+       {
+        "de": "Was ist dein Telefon?"
+       },
+       {
+        "de": "Wo ist deine Telefonnummer?"
+       }
+      ],
+      "answer": 0
+     },
+     {
+      "type": "pick",
+      "kicker": "Sprechen · Teil 3",
+      "q": "Вы не поняли, как пишется фамилия. Как вежливо попросить?",
+      "options": [
+       {
+        "de": "Buchstabieren Sie, bitte!"
+       },
+       {
+        "de": "Danke schön!"
+       },
+       {
+        "de": "Haben Sie Zeit?"
+       }
+      ],
+      "answer": 0
+     }
+    ]
+   }
+  ]
+ }
+}

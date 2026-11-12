@@ -6,7 +6,7 @@
       "title": "A1 · Start Deutsch 1",
       "topics": [
         { "id": "a1-01", "n": 1, "title": "Hallo!", "subtitle": "Знакомство", "file": "a1/01-hallo.json", "ready": true },
-        { "id": "a1-02", "n": 2, "title": "Буквы и числа", "subtitle": "Алфавит, телефон, возраст", "ready": false },
+        { "id": "a1-02", "n": 2, "title": "Буквы и числа", "subtitle": "Алфавит, телефон, возраст", "file": "a1/02-zahlen.json", "ready": true },
         { "id": "a1-03", "n": 3, "title": "Семья", "subtitle": "Mein und dein", "ready": false },
         { "id": "a1-04", "n": 4, "title": "Профессии", "subtitle": "der, die, das", "ready": false },
         { "id": "a1-05", "n": 5, "title": "В кафе", "subtitle": "Ich möchte …", "ready": false },

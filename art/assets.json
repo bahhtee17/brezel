@@ -220,6 +220,55 @@
    "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Frau Wagner (German teacher, about 60): small and round, grey hair in a tall tight bun, big round glasses, brown knitted cardigan with big buttons, small pearl necklace.\n\nImage: The language school office. Frau Wagner sits behind a desk, handing over a paper form and a pen; a small sign on the desk reads 'Anmeldung'.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
   },
   {
+   "id": "phone",
+   "group": "scenes",
+   "out": "art/raw/scenes/phone.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Alex (the learner, a young adult): medium build, messy chestnut-brown hair, mustard-yellow sweater, small dark-green backpack straps on the shoulders. a woman with a short black bob haircut and a purple coat.\n\nImage: Split picture: on the left Alex at home holding a phone to the ear, spelling letters (small floating letters N, O, V, A, K); on the right a language school secretary at a desk with a phone and a notepad.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "bingo",
+   "group": "scenes",
+   "out": "art/raw/scenes/bingo.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans. Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt. Aigerim (from Kazakhstan, about 24): long straight black hair with a neat fringe, warm light-brown skin, red cardigan, small gold earrings.\n\nImage: A bingo night in the hostel: Lena turns a big wire bingo drum full of numbered balls; Marco and Aigerim sit at a table with bingo cards and pencils, very concentrated. A few balls show the numbers 3, 5 and 12.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "birthday",
+   "group": "scenes",
+   "out": "art/raw/scenes/birthday.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Tom (Lena's brother from Hamburg, about 22): lanky, short spiky dark-brown hair sticking up, sleepy eyelids over his googly eyes, sky-blue hoodie with sleeves a bit too long. Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans. Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt.\n\nImage: Tom's birthday in the hostel kitchen: a big cake with candles, a paper party garland, Lena and Marco singing, Tom wearing a paper party hat, delighted.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "lostfound",
+   "group": "scenes",
+   "out": "art/raw/scenes/lostfound.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans. Tom (Lena's brother from Hamburg, about 22): lanky, short spiky dark-brown hair sticking up, sleepy eyelids over his googly eyes, sky-blue hoodie with sleeves a bit too long.\n\nImage: The hostel reception in the morning: Lena behind the counter holds up a cardboard box of found things (a mobile phone, a key with a tag reading '12', a scarf); sleepy Tom in his hoodie searches his pockets.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "cafe",
+   "group": "scenes",
+   "out": "art/raw/scenes/cafe.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt. Aigerim (from Kazakhstan, about 24): long straight black hair with a neat fringe, warm light-brown skin, red cardigan, small gold earrings.\n\nImage: A small cosy cafe after class: Marco, a bit nervous, holds his phone ready to type a number; Aigerim smiles and dictates, two coffee cups on the round table.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "amt",
+   "group": "scenes",
+   "out": "art/raw/scenes/amt.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Alex (the learner, a young adult): medium build, messy chestnut-brown hair, mustard-yellow sweater, small dark-green backpack straps on the shoulders. a woman with a short black bob haircut and a purple coat.\n\nImage: A German city office (Buergeramt) counter: a clerk behind the counter types on an old computer; Alex stands in front holding a paper; a ticket number display above shows '15'.\n\nBackground: one flat solid #2A7AB0 cobalt blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "gym",
+   "group": "scenes",
+   "out": "art/raw/scenes/gym.png",
+   "size": "1536x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): a bald man with a huge grey handlebar moustache and a brown waistcoat. Alex (the learner, a young adult): medium build, messy chestnut-brown hair, mustard-yellow sweater, small dark-green backpack straps on the shoulders.\n\nImage: The reception of a small gym: the trainer behind the counter hands a clipboard form to Alex; dumbbells and a rubber plant in the background.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
    "id": "wave",
    "group": "words",
    "out": "art/raw/words/wave.png",
@@ -694,6 +743,286 @@
    "out": "art/raw/words/welcome.png",
    "size": "1024x1024",
    "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans.\n\nImage: Lena opening a front door wide with open arms; the doormat reads 'WILLKOMMEN'.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "alphabet",
+   "group": "words",
+   "out": "art/raw/words/alphabet.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A row of chunky wooden alphabet blocks with the letters A, B, C on them; the B block has googly eyes and smiles.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "letters",
+   "group": "words",
+   "out": "art/raw/words/letters.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: Three big hand-drawn letters A, Ä and ß standing side by side like characters, each with googly eyes and thin legs.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "spell",
+   "group": "words",
+   "out": "art/raw/words/spell.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans.\n\nImage: Lena saying letters one by one: separate speech bubbles float out of her mouth containing L, E, N, A in order.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "qspell",
+   "group": "words",
+   "out": "art/raw/words/qspell.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A pencil with googly eyes scratching its head over a sheet with a half-written word; a big question mark.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "big",
+   "group": "words",
+   "out": "art/raw/words/big.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A huge elephant with googly eyes standing next to a tiny mouse; the elephant is the focus.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "small",
+   "group": "words",
+   "out": "art/raw/words/small.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A tiny mouse with googly eyes standing next to a huge elephant's foot; the mouse is the focus.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "word",
+   "group": "words",
+   "out": "art/raw/words/word.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: One word written in big chunky letters on a white card, 'Wort', with a googly-eyed bookmark peeking over it.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "write",
+   "group": "words",
+   "out": "art/raw/words/write.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Aigerim (from Kazakhstan, about 24): long straight black hair with a neat fringe, warm light-brown skin, red cardigan, small gold earrings.\n\nImage: Aigerim writing in a notebook with a pencil, concentrating, tongue slightly out.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "read",
+   "group": "words",
+   "out": "art/raw/words/read.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt.\n\nImage: Marco reading a big open book, fascinated, glasses perched on his nose.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "hear",
+   "group": "words",
+   "out": "art/raw/words/hear.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A huge cartoon ear with googly eyes beside it, wavy sound lines coming in from the left.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "phone",
+   "group": "words",
+   "out": "art/raw/words/phone.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: An old-fashioned chunky desk telephone with a curly cord and googly eyes, ringing and jumping.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "phonehello",
+   "group": "words",
+   "out": "art/raw/words/phonehello.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Tom (Lena's brother from Hamburg, about 22): lanky, short spiky dark-brown hair sticking up, sleepy eyelids over his googly eyes, sky-blue hoodie with sleeves a bit too long.\n\nImage: Tom holding a mobile phone to his ear, cheerfully introducing himself, one hand raised.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "wait",
+   "group": "words",
+   "out": "art/raw/words/wait.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Lena (hostel receptionist from Berlin, about 25): tall and skinny, very long wild messy bright orange hair, a few freckles, moss-green turtleneck sweater, dark blue jeans.\n\nImage: Lena holding up one finger as if saying 'one moment', the other hand writing on a notepad.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "numbers",
+   "group": "words",
+   "out": "art/raw/words/numbers.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: Big chunky hand-drawn digits 1, 2 and 3 standing in a row like characters with googly eyes and thin legs.\n\nBackground: one flat solid #2A7AB0 cobalt blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "old",
+   "group": "words",
+   "out": "art/raw/words/old.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A very old grandpa with a long white beard and a walking stick, smiling kindly.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "young",
+   "group": "words",
+   "out": "art/raw/words/young.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A cheerful baby in a nappy crawling, a rattle in hand.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "calendar",
+   "group": "words",
+   "out": "art/raw/words/calendar.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A wall calendar page with a googly-eyed face, a big red ring around one day.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "qage",
+   "group": "words",
+   "out": "art/raw/words/qage.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A birthday cake with a question mark candle on top, googly eyes on the cake.\n\nBackground: one flat solid #B9A3D6 soft lilac color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "cake",
+   "group": "words",
+   "out": "art/raw/words/cake.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A big round birthday cake with three lit candles and colourful sprinkles, googly eyes on the cake.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "gift",
+   "group": "words",
+   "out": "art/raw/words/gift.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A wrapped present with a big red bow and googly eyes, little confetti around.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "have",
+   "group": "words",
+   "out": "art/raw/words/have.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Tom (Lena's brother from Hamburg, about 22): lanky, short spiky dark-brown hair sticking up, sleepy eyelids over his googly eyes, sky-blue hoodie with sleeves a bit too long.\n\nImage: Tom proudly holding a cardboard box in both arms, showing it to the viewer.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "mobile",
+   "group": "words",
+   "out": "art/raw/words/mobile.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A modern smartphone with googly eyes on its screen, waving one thin arm.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "room",
+   "group": "words",
+   "out": "art/raw/words/room.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A hotel room door with a big brass number 12 on it and a 'do not disturb' style tag without text.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "hourglass",
+   "group": "words",
+   "out": "art/raw/words/hourglass.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: An hourglass with googly eyes, sand trickling down.\n\nBackground: one flat solid #2A7AB0 cobalt blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "hungry",
+   "group": "words",
+   "out": "art/raw/words/hungry.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt.\n\nImage: Marco holding his rumbling tummy, staring longingly at a pretzel, drooling a little.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "phonenumber",
+   "group": "words",
+   "out": "art/raw/words/phonenumber.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A smartphone screen showing a big row of digits '0176 345', a finger tapping it.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "qnumber",
+   "group": "words",
+   "out": "art/raw/words/qnumber.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nCharacters (keep these exact designs): Marco (from Italy, about 28): short and stocky, huge black curly mop of hair, olive skin, tiny moustache, orange t-shirt.\n\nImage: Marco holding a phone toward the viewer with a question mark above it, asking for a number.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "number",
+   "group": "words",
+   "out": "art/raw/words/number.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A big round badge with the digit 7 on it and googly eyes.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "email",
+   "group": "words",
+   "out": "art/raw/words/email.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: An envelope with googly eyes flying out of a laptop screen, a big @ sign beside it.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "dot",
+   "group": "words",
+   "out": "art/raw/words/dot.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: One big round black dot with tiny googly eyes sitting alone in the middle.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "or",
+   "group": "words",
+   "out": "art/raw/words/or.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A googly-eyed character standing at a fork in a path, one arrow pointing left and one pointing right.\n\nBackground: one flat solid #A9B98A sage green color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "not",
+   "group": "words",
+   "out": "art/raw/words/not.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A bold red circle with a diagonal line through it, with googly eyes.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "maybe",
+   "group": "words",
+   "out": "art/raw/words/maybe.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A googly-eyed character shrugging, tilting a hand left and right, a small cloud with a question mark.\n\nBackground: one flat solid #B9A3D6 soft lilac color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "envelope",
+   "group": "words",
+   "out": "art/raw/words/envelope.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A paper envelope with a stamp and an address written on it as wavy lines, googly eyes on the stamp.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "streetsign",
+   "group": "words",
+   "out": "art/raw/words/streetsign.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A blue German street sign on a pole reading 'Torstraße' in white letters.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "housenumber",
+   "group": "words",
+   "out": "art/raw/words/housenumber.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A blue enamel house number plate with the white number '15' on a brick wall.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "zipcode",
+   "group": "words",
+   "out": "art/raw/words/zipcode.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A yellow German letterbox with googly eyes; a letter sticking out shows the number '10115'.\n\nBackground: one flat solid #5AA6DC sky blue color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "qaddress",
+   "group": "words",
+   "out": "art/raw/words/qaddress.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A googly-eyed postman holding a letter, scratching his head, a question mark above a little house.\n\nBackground: one flat solid #F2B544 mustard yellow color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "agebadge",
+   "group": "words",
+   "out": "art/raw/words/agebadge.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A round birthday badge pin with the number '30' on it, googly eyes.\n\nBackground: one flat solid #F2888A coral pink color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
+  },
+  {
+   "id": "signature",
+   "group": "words",
+   "out": "art/raw/words/signature.png",
+   "size": "1024x1024",
+   "prompt": "Hand-drawn whimsical cartoon illustration in a quirky indie picture-book style. Thick, slightly wobbly black ink outlines like a felt-tip marker, loose and imperfect. Fills done with oil pastel / wax crayon: visible grainy strokes and rough texture, a few loose hatching lines. Characters have huge round white googly eyes that touch each other, with tiny black dot pupils, simple deadpan or gently funny expressions, small mouths, big heads, long thin limbs, odd charming proportions. Minimal detail, flat 2D composition, no gradients, no 3D, no photorealism, no glossy shading. Limited palette of 3 to 5 colors. Subject centered with a generous empty margin around it. No text, letters or numbers unless the description explicitly asks for them. No watermark, no signature, no frame, no border.\n\nImage: A hand signing a paper form with a pen, a big loopy signature scribble.\n\nBackground: one flat solid #F1E4C6 warm cream color filling the whole image edge to edge, with subtle paper grain and a few tiny pale speckles. No frame."
   },
   {
    "id": "teacher-talk",
