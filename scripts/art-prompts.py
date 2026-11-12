@@ -109,6 +109,20 @@ for who, bg, mood in [
 ]:
     add(who, "avatars", AV + mood, bg, [who])
 
+# ---------- Комикс: герои по пояс в трёх эмоциях (фон вырезается) ----------
+# talk — говорит, happy — радуется верному ответу, surprised — удивлён ошибкой.
+CM = ("Comic-book character cut-out: the character from the waist up, facing slightly to the viewer's right, "
+      "whole head and both hands visible with margin, no other objects, no speech bubble. ")
+COMIC_MOODS = {
+    "talk": "Talking in a friendly way, mouth open mid-sentence, one hand gesturing.",
+    "happy": "Delighted: huge grin, eyes squeezed happy, both hands up in a little cheer.",
+    "surprised": "Confused and surprised: eyebrows high, small round open mouth, one hand scratching the head.",
+}
+for who in ["lena", "tom", "wagner", "marco", "you"]:
+    for mood, text in COMIC_MOODS.items():
+        add(f"{who}-{mood}", "comic", CM + text, "key", [who],
+            note=f"Use art/raw/avatars/{who}.png as the reference image if your tool accepts one, so it is the same character.")
+
 # ---------- Сцены уроков (широкие) ----------
 W = "1536x1024"
 add("hostel", "scenes", "Evening in a small Berlin hostel lobby called Brezelhaus (a wooden sign reads 'Brezelhaus'). "

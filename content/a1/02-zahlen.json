@@ -3133,12 +3133,15 @@
    ],
    "boss": {
     "title": "Праздничный стол",
-    "intro": "Вы на дне рождения Тома. Поговорите с гостями!",
+    "intro": "Вечер у Тома. Гости по очереди заговорят с вами — отвечайте по-немецки!",
+    "comic": {
+     "art": "birthday"
+    },
     "turns": [
      {
-      "type": "reply",
+      "mode": "pick",
       "who": "wagner",
-      "situation": "Пришла фрау Вагнер.",
+      "cap": "Кухня хостела · 19:00",
       "line": "Guten Abend! Wie alt ist Tom heute?",
       "lineRu": "Добрый вечер! Сколько сегодня лет Тому?",
       "options": [
@@ -3146,32 +3149,103 @@
        "Ich bin dreiundzwanzig.",
        "Er heißt Tom."
       ],
-      "answer": 0
+      "answer": 0,
+      "after": {
+       "de": "Dreiundzwanzig! So jung!",
+       "ru": "Двадцать три! Такой молодой!"
+      },
+      "explain": "Про Тома говорим er ist («он есть»), про себя — ich bin."
      },
      {
-      "type": "reply",
+      "mode": "listen",
+      "who": "marco",
+      "cap": "Подходит Марко",
+      "line": "Hallo! Ich bin Marco. Wie heißt du?",
+      "lineRu": "Привет! Я Марко. Как тебя зовут?",
+      "options": [
+       "Ich heiße Alex.",
+       "Ich bin achtundzwanzig.",
+       "Ich komme aus Italien."
+      ],
+      "answer": 0,
+      "after": {
+       "de": "Freut mich, Alex!",
+       "ru": "Очень приятно, Алекс!"
+      },
+      "explain": "Wie heißt du? — «Как тебя зовут?». Отвечаем: Ich heiße …"
+     },
+     {
+      "mode": "tiles",
+      "who": "marco",
+      "cap": "Марко интересно",
+      "line": "Und woher kommst du?",
+      "lineRu": "А ты откуда?",
+      "reply": "Ich komme aus Usbekistan.",
+      "replyRu": "Я из Узбекистана.",
+      "distract": [
+       "in",
+       "bin"
+      ],
+      "after": {
+       "de": "Usbekistan? Super!",
+       "ru": "Узбекистан? Здорово!"
+      },
+      "explain": "Woher? — «откуда?». Ответ: Ich komme aus + страна."
+     },
+     {
+      "mode": "audio",
       "who": "tom",
+      "cap": "Именинник подсаживается",
       "line": "Und wie alt bist du?",
-      "lineRu": "А тебе сколько?",
+      "lineRu": "А тебе сколько лет?",
       "options": [
        "Ich bin fünfundzwanzig Jahre alt.",
        "Ich heiße fünfundzwanzig.",
        "Du bist fünfundzwanzig."
       ],
-      "answer": 0
+      "answer": 0,
+      "after": {
+       "de": "Fünfundzwanzig? Cool!",
+       "ru": "Двадцать пять? Круто!"
+      },
+      "explain": "Возраст: Ich bin … Jahre alt. Глагол sein, а не heißen."
      },
      {
-      "type": "reply",
-      "who": "tom",
-      "situation": "Ваша очередь поздравить Тома.",
-      "line": "Danke für die Party!",
-      "lineRu": "Спасибо за праздник!",
-      "options": [
-       "Tom, alles Gute zum Geburtstag!",
-       "Gute Nacht, Tom!",
-       "Wie alt bist du?"
+      "mode": "type",
+      "who": "lena",
+      "cap": "Лена с тортом",
+      "line": "Sprichst du Deutsch?",
+      "lineRu": "Ты говоришь по-немецки?",
+      "reply": "Ja, ein bisschen.",
+      "replyRu": "Да, немного.",
+      "accept": [
+       "Ja, ein bisschen.",
+       "Ja, ein bisschen",
+       "Ein bisschen.",
+       "Ja, ein bisschen Deutsch."
       ],
-      "answer": 0
+      "hint": "Два-три слова: «да» и «немного».",
+      "after": {
+       "de": "Sehr gut! Prima!",
+       "ru": "Очень хорошо! Отлично!"
+      }
+     },
+     {
+      "mode": "speak",
+      "who": "tom",
+      "cap": "Свечи горят!",
+      "line": "Heute ist mein Geburtstag!",
+      "lineRu": "Сегодня мой день рождения!",
+      "reply": "Alles Gute zum Geburtstag!",
+      "replyRu": "С днём рождения!",
+      "distract": [
+       "Nacht",
+       "Tag"
+      ],
+      "after": {
+       "de": "Danke schön!",
+       "ru": "Большое спасибо!"
+      }
      }
     ]
    },

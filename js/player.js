@@ -135,6 +135,19 @@ export function runPlayer(opts) {
   }
 
   function showSection(s) {
+    if (s.comic) {
+      body.append(h('div', { class: 'stack stack--lg', style: { margin: 'auto 0' } },
+        h('div', { class: 'comic comic--cover' },
+          h('div', { class: 'comic__panel comic__panel--main' },
+            h('div', { class: 'comic__bg', html: s.comic.art ? sceneArt(s.comic.art) : '' }),
+            h('div', { class: 'comic__title', text: s.title }),
+            h('div', { class: 'comic__badge', text: tx('Комикс') }))),
+        s.text ? h('div', { class: 'comic__intro', html: s.text }) : null,
+        h('div', { class: 'small muted center', text: tx('Отвечайте героям: выбирайте, слушайте, собирайте, печатайте и говорите.') })));
+      setMain(s.button || tx('Начать'), { cls: 'btn--bad' });
+      mainBtn.onclick = () => { sfx('tap'); next(); };
+      return;
+    }
     body.append(h('div', { class: 'stack stack--lg center', style: { margin: 'auto 0' } },
       h('div', { style: { width: '140px', margin: '0 auto' }, html: mascotSVG(s.mood || 'wave') }),
       s.badge ? h('div', {}, h('span', { class: 'part-badge', text: s.badge })) : null,
@@ -205,7 +218,7 @@ export function runPlayer(opts) {
   // ---------- Упражнение ----------
   function showEx(s) {
     const ex = s.ex;
-    const tagText = { warmup: tx('Разминка · повторение'), review: tx('Повторение'), boss: tx('Мини-босс') }[s.tag];
+    const tagText = s.label || { warmup: tx('Разминка · повторение'), review: tx('Повторение'), boss: tx('Мини-босс') }[s.tag];
     if (tagText && ex.type !== 'info') body.append(h('div', { class: `task-kicker ${s.tag === 'boss' ? 'task-kicker--boss' : 'task-kicker--review'}`, html: `${s.tag === 'boss' ? icon('boss').replace('<svg', '<svg style="width:16px;height:16px;display:inline;vertical-align:-2px"') : ''} ${tagText}` }));
     if (s.retry) body.append(h('div', { class: 'task-kicker task-kicker--review', text: tx('Ещё раз: здесь была ошибка') }));
     const host = h('div', { class: 'stack stack--lg' });
@@ -322,7 +335,7 @@ export function runPlayer(opts) {
     setMood(fbMascot, ok ? 'happy' : 'sad', null);
     if (!ok) playMove(fbMascot, pick(['comfort', 'think']));
     foot.style.visibility = 'hidden';
-    if (ok && res.sayAfter && ex.type !== 'speak') setTimeout(() => say(res.sayAfter), 150);
+    if (ok && res.sayAfter && ex.type !== 'speak' && !res.selfSay) setTimeout(() => say(res.sayAfter), 150);
     fbBtn.onclick = () => { foot.style.visibility = ''; next(); };
     setTimeout(() => fbBtn.focus({ preventScroll: true }), 50);
   }
@@ -481,7 +494,13 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
   const ruleInfo = (lesson.exercises || []).find(e => e.type === 'info') || null;
   mixed.forEach(x => steps.push({ kind: 'ex', ex: x.ex, key: x.key, tag: x.tag, rule: x.ex.type === 'info' || x.tag === 'review' ? null : ruleInfo }));
 
-  if (lesson.boss && lesson.boss.turns?.length) {
+  if (lesson.boss && lesson.boss.turns?.length && lesson.boss.comic) {
+    // Комикс-ролевая игра: обложка, затем кадры; фон кадров — сцена урока.
+    const b = lesson.boss, n = b.turns.length;
+    const comic = { art: b.comic.art || lesson.scene?.art };
+    steps.push({ kind: 'section', boss: true, comic, title: b.title || tx('Комикс'), text: esc(b.intro || ''), button: tx('Поехали!') });
+    b.turns.forEach((t, i) => steps.push({ kind: 'ex', ex: { type: 'comic', ...t, art: t.art || comic.art, boss: true }, tag: 'boss', label: tx`Комикс · кадр ${i + 1} из ${n}`, key: `${lesson.id}:b${i}` }));
+  } else if (lesson.boss && lesson.boss.turns?.length) {
     steps.push({ kind: 'section', boss: true, mood: 'wave', badge: tx('Мини-босс'), title: lesson.boss.title || tx('Мини-босс'), text: esc(lesson.boss.intro || ''), button: tx('В бой!') });
     lesson.boss.turns.forEach((t, i) => steps.push({ kind: 'ex', ex: { ...t, boss: true }, tag: 'boss', key: `${lesson.id}:b${i}` }));
   }

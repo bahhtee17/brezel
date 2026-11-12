@@ -84,7 +84,7 @@ def main():
             if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
                 continue
             im = Image.open(src)
-            if group == "mascot":
+            if group in ("mascot", "comic"):
                 im = cut_magenta(im)
                 im = trim(im).resize((512, 512), Image.LANCZOS)
                 im.save(dest, "WEBP", quality=QUALITY, method=6)

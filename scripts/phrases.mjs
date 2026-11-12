@@ -26,6 +26,11 @@ export async function collectPhrases(root) {
     if (Array.isArray(ex.audio)) ex.audio.forEach(l => add(l.de, l.who));
     (ex.examples || []).forEach(e => add(e.de));
     (ex.accept || []).slice(0, 1).forEach(a => add(a));
+    if (ex.type === 'comic') {
+      if (ex.reply) { add(ex.reply, 'you'); if (ex.mode === 'tiles') tokens(ex.reply).forEach(t => add(t)); }
+      if (ex.after) add(ex.after.de, who);
+      add((ex.oops || { de: 'Wie bitte?' }).de, who);
+    }
   }
 
   for (const level of course.levels) {

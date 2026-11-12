@@ -920,3 +920,82 @@ textarea.field { min-height: 120px; resize: vertical; line-height: 1.4; }
 .sync__code { font-weight: 900; font-size: 20px; letter-spacing: 1px; text-align: center; padding: 10px; border-radius: 14px; background: var(--line); user-select: all; word-break: break-all; }
 .sync .btn--link { margin: 0 auto; }
 .welcome > .sync { margin-top: 10px; text-align: left; }
+
+/* ---------- Комикс-ролевая игра ---------- */
+.comic { --k: #1d1d1d; display: flex; flex-direction: column; gap: 8px; }
+.comic__panel {
+  position: relative; overflow: hidden; border: 3px solid var(--k); border-radius: 6px;
+  background: #FFF1CC; box-shadow: 4px 4px 0 var(--k);
+}
+.comic__panel--main { aspect-ratio: 16 / 10; transform: rotate(-.6deg); cursor: pointer; }
+.comic__bg { position: absolute; inset: 0; }
+.comic__bg img, .comic__bg video, .comic__bg svg { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.85); }
+.comic__panel::after { /* растровые точки и лёгкая дымка, чтобы герой выделялся */
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(rgba(0,0,0,.13) 1px, transparent 1.5px) 0 0 / 6px 6px, rgba(255, 247, 232, .38);
+}
+.comic__panel > *:not(.comic__bg) { z-index: 1; }
+.comic__cap {
+  position: absolute; top: 0; left: 0; background: #FFD23F; color: var(--k); font-weight: 900; font-size: 13px;
+  padding: 4px 10px; border-right: 3px solid var(--k); border-bottom: 3px solid var(--k); text-transform: uppercase; letter-spacing: .02em;
+}
+.comic__who {
+  position: absolute; left: 8px; bottom: 8px; z-index: 2 !important; background: #fff; border: 2.5px solid var(--k); border-radius: 999px;
+  font-weight: 900; font-size: 13px; padding: 1px 10px;
+}
+.comic__fig { position: absolute; left: 2%; bottom: 0; height: 88%; aspect-ratio: 1; }
+.comic__fig img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; }
+.comic__fig--avatar { height: auto; width: 34%; bottom: 18%; left: 5%; }
+.comic__fig--avatar .avatar { width: 100%; height: auto; aspect-ratio: 1; border: 3px solid var(--k); border-radius: 50%; overflow: hidden; }
+.comic__fig--avatar .avatar img, .comic__fig--avatar .avatar svg { width: 100%; height: 100%; }
+.comic__bubble {
+  position: absolute; top: 12%; right: 4%; max-width: 56%; background: #fff; border: 3px solid var(--k); border-radius: 22px;
+  padding: 8px 12px; font-weight: 800; font-size: 17px; line-height: 1.25; color: var(--k);
+  display: flex; flex-direction: column; gap: 3px; overflow-wrap: break-word; hyphens: auto; animation: comic-pop .35s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+.comic__bubble::before, .comic__bubble::after { content: ''; position: absolute; bottom: -16px; width: 0; height: 0; border-style: solid; }
+.comic__bubble--left::before { left: 18px; border-width: 16px 18px 0 0; border-color: var(--k) transparent transparent; }
+.comic__bubble--left::after { left: 21px; bottom: -10px; border-width: 11px 12px 0 0; border-color: #fff transparent transparent; }
+.comic__bubble--right::before { right: 18px; border-width: 16px 0 0 18px; border-color: var(--k) transparent transparent; }
+.comic__bubble--right::after { right: 21px; bottom: -10px; border-width: 11px 0 0 12px; border-color: #fff transparent transparent; }
+.comic__ru { display: none; font-size: 13px; font-weight: 700; color: #6b5a48; }
+.comic__bubble.show-ru .comic__ru { display: block; }
+.comic__bubble.is-audio { flex-direction: row; align-items: center; gap: 8px; color: var(--sky-dark); }
+.comic__bubble.is-audio svg { width: 26px; height: 26px; animation: comic-pulse 1.2s ease-in-out infinite; }
+.comic__row { display: none; grid-template-columns: 1fr 1fr; gap: 8px; }
+.comic.is-answered .comic__row { display: grid; }
+.comic__row .comic__panel { aspect-ratio: 1 / 1; animation: comic-in .4s cubic-bezier(.3, 1.4, .5, 1) both; }
+.comic__panel--you { background: var(--sky-light); transform: rotate(.8deg); }
+.comic__panel--react { transform: rotate(-.8deg); animation-delay: .5s !important; }
+.comic__panel--react.is-happy { background: #DDF6E2; }
+.comic__panel--react.is-surprised { background: #FFE3DF; }
+.comic__row .comic__fig { height: 64%; left: auto; right: -4%; }
+.comic__panel--react .comic__fig { right: auto; left: -4%; }
+.comic__row .comic__fig--avatar { width: 50%; height: auto; bottom: 6%; }
+.comic__row .comic__bubble { top: 6%; left: 6%; right: 6%; max-width: none; font-size: 14px; padding: 6px 9px; border-radius: 16px; }
+.comic__panel--react .comic__bubble { animation-delay: .8s; }
+.comic__fx { position: absolute; right: 6%; bottom: 10%; width: 34%; animation: comic-fx .6s .9s cubic-bezier(.3, 1.8, .5, 1) both; }
+.comic__task { display: flex; flex-direction: column; gap: 2px; font-size: 15px; }
+.comic__task span { color: var(--ink-2); font-weight: 700; }
+.comic__again { min-height: 44px; }
+.comic__again svg { width: 20px; height: 20px; vertical-align: -4px; }
+.comic__say { background: #fff; border: 2px dashed var(--line); border-radius: var(--r); padding: 10px 14px; text-align: center; }
+.comic-area.is-done, .comic.is-answered ~ .hint-row { display: none; }
+.opt--audio { display: flex; align-items: center; gap: 10px; }
+.opt--audio svg { width: 22px; height: 22px; flex: none; color: var(--sky-dark); }
+.comic--cover .comic__panel--main { aspect-ratio: 4 / 3; transform: rotate(-1.2deg); }
+.comic__title {
+  position: absolute; left: 50%; bottom: 10%; transform: translateX(-50%) rotate(-2deg); max-width: 88%; text-align: center;
+  background: #FFD23F; border: 3px solid var(--k); box-shadow: 4px 4px 0 var(--k); padding: 6px 14px;
+  font-weight: 900; font-size: 24px; line-height: 1.1; text-transform: uppercase; color: var(--k);
+}
+.comic__badge {
+  position: absolute; top: 10px; right: 10px; background: var(--bad); color: #fff; border: 3px solid var(--k); border-radius: 999px;
+  padding: 2px 12px; font-weight: 900; text-transform: uppercase; font-size: 13px; transform: rotate(6deg);
+}
+.comic__intro { font-weight: 800; font-size: 17px; text-align: center; }
+@keyframes comic-pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes comic-in { from { transform: translateY(14px) scale(.9); opacity: 0; } }
+@keyframes comic-fx { from { transform: scale(0) rotate(-30deg); opacity: 0; } }
+@keyframes comic-pulse { 50% { transform: scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .comic * { animation: none !important; } }

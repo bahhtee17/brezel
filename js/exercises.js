@@ -8,6 +8,7 @@ import { say, canListen, listen, diffWords, matchText, norm, sayLines } from './
 import { setting, setSetting } from './store.js';
 import { mascotSVG } from './mascot.js';
 import { readPicHtml, readWordHtml, readSegsHtml } from './readkit.js';
+import { mountComic } from './comic.js';
 
 const kicker = (text, cls = '') => h('div', { class: `task-kicker ${cls}` }, text);
 const title = (text) => h('div', { class: 'task-title', html: text });
@@ -111,9 +112,9 @@ function mountListen(ex, host, api) {
 // ---------- Сборка фразы из плиток ----------
 function mountTiles(ex, host, api) {
   const toRu = ex.dir === 'ru';
-  host.append(kicker(ex.kicker || (toRu ? tx('Переведите на русский') : tx('Соберите фразу по-немецки'))));
+  if (!ex.bare) host.append(kicker(ex.kicker || (toRu ? tx('Переведите на русский') : tx('Соберите фразу по-немецки'))));
   const promptText = toRu ? ex.de : ex.ru;
-  if (toRu) {
+  if (ex.bare) { /* задание видно в комиксе */ } else if (toRu) {
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble' }, h('span', { class: 'task-title', text: promptText }), ' ', soundBtn(() => say(ex.de), { mini: true }))));
     setTimeout(() => say(ex.de), 350);
   } else {
@@ -288,7 +289,7 @@ function mountWrite(ex, host, api, dictation = false) {
   if (dictation) {
     host.append(kicker(ex.kicker || tx('Прослушайте и напишите')));
     host.append(playRow(ex.de, ex.who));
-  } else {
+  } else if (!ex.bare) {
     host.append(kicker(ex.kicker || tx('Напишите по-немецки')));
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble task-title', text: ex.ru })));
   }
@@ -406,11 +407,14 @@ function speakingOff() {
 }
 
 function mountSpeak(ex, host, api) {
-  const asTiles = () => mountTiles({ ru: ex.ru, answer: ex.de, distract: ex.distract || [], kicker: tx('Соберите фразу (вместо речи)') }, host, api);
+  const asTiles = () => mountTiles({ ru: ex.ru, answer: ex.de, distract: ex.distract || [], kicker: tx('Соберите фразу (вместо речи)'), bare: ex.bare }, host, api);
   if (speakingOff()) return asTiles();
-  host.append(kicker(ex.kicker || tx('Скажите вслух')));
-  host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }),
-    h('div', { class: 'bubble' }, h('div', { class: 'task-title', text: ex.de }), h('div', { class: 'small muted', text: ex.ru }))));
+  if (ex.bare) host.append(h('div', { class: 'comic__say' }, h('div', { class: 'task-title', text: ex.de })));
+  else {
+    host.append(kicker(ex.kicker || tx('Скажите вслух')));
+    host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }),
+      h('div', { class: 'bubble' }, h('div', { class: 'task-title', text: ex.de }), h('div', { class: 'small muted', text: ex.ru }))));
+  }
   host.append(h('div', { class: 'listen-box' }, soundBtn(() => say(ex.de), { label: tx('Послушать образец') }), soundBtn(() => say(ex.de, { slow: true }), { slow: true })));
   const heard = h('div', { class: 'heard muted', text: tx('Нажмите на микрофон и скажите фразу') });
   const mic = h('button', { type: 'button', class: 'mic-btn', 'aria-label': tx('Говорить'), html: icon('mic') });
@@ -686,11 +690,18 @@ const TYPES = {
   pick: mountPick, choose: mountPick, listen: mountListen, tiles: mountTiles, gap: mountGap, reply: mountReply,
   write: (e, h2, a) => mountWrite(e, h2, a, false), dictation: mountSpell,
   speak: mountSpeak, pairs: mountPairs, info: mountInfo, form: mountForm, tf: mountTF,
-  listenDialog: mountListenDialog, speakCard: mountSpeakCard, readWord: mountReadWord
+  listenDialog: mountListenDialog, speakCard: mountSpeakCard, readWord: mountReadWord,
+  comic: (ex, host, api) => mountComic(ex, host, api, (mode, area) => {
+    const reply = ex.reply || (ex.accept || [])[0];
+    if (mode === 'tiles') return mountTiles({ answer: reply, alts: ex.alts, distract: ex.distract || [], ru: ex.replyRu, bare: true }, area, api);
+    if (mode === 'type') return mountWrite({ de: reply, accept: ex.accept || [reply], ru: ex.replyRu, hint: ex.hint, bare: true }, area, api);
+    if (mode === 'speak') return mountSpeak({ de: reply, ru: ex.replyRu, distract: ex.distract || [], bare: true }, area, api);
+    return mountPickOptions(ex, area, api);
+  })
 };
 
 // Варианты ответа перемешиваются при каждом показе, чтобы правильный не стоял всегда первым.
-const SHUFFLE = new Set(['pick', 'choose', 'listen', 'gap', 'reply', 'listenDialog', 'readWord']);
+const SHUFFLE = new Set(['pick', 'choose', 'listen', 'gap', 'reply', 'listenDialog', 'readWord', 'comic']);
 function shuffleOptions(ex) {
   if (!SHUFFLE.has(ex.type) || ex.noShuffle || !Array.isArray(ex.options) || typeof ex.answer !== 'number') return ex;
   const order = shuffle(ex.options.map((_, i) => i));

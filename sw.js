@@ -1,10 +1,10 @@
 // Service worker: приложение и уроки работают без интернета.
 // При изменении файлов увеличьте VERSION — старый кэш удалится.
-const VERSION = 'brezel-v13';
+const VERSION = 'brezel-v14';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/main.js', 'js/ui.js', 'js/store.js', 'js/srs.js', 'js/speech.js', 'js/content.js',
-  'js/art.js', 'js/img.js', 'js/mascot.js', 'js/exercises.js', 'js/player.js', 'js/screens.js',
+  'js/art.js', 'js/img.js', 'js/mascot.js', 'js/exercises.js', 'js/comic.js', 'js/player.js', 'js/screens.js',
   'js/reading.js', 'js/readkit.js', 'js/mastery.js', 'js/placement.js', 'js/video.js', 'js/moves.js', 'js/i18n.js', 'js/config.js', 'js/sync.js', 'js/syncui.js', 'js/uz.js',
   'content/course.json', 'content/a1/01-hallo.json', 'content/a1/02-zahlen.json', 'content/reading.json', 'content/uz.json', 'audio/manifest.json', 'img/index.json',
   'img/splash.webp', 'icons/favicon.png', 'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'

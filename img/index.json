@@ -14,6 +14,23 @@
   "woman",
   "you"
  ],
+ "comic": [
+  "lena-happy",
+  "lena-surprised",
+  "lena-talk",
+  "marco-happy",
+  "marco-surprised",
+  "marco-talk",
+  "tom-happy",
+  "tom-surprised",
+  "tom-talk",
+  "wagner-happy",
+  "wagner-surprised",
+  "wagner-talk",
+  "you-happy",
+  "you-surprised",
+  "you-talk"
+ ],
  "grok": [],
  "mascot": [
   "happy",

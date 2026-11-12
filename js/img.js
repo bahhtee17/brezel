@@ -1,7 +1,7 @@
 // Нарисованные картинки (img/…/*.webp) и анимации (img/anim/*.mp4).
 // Список готовых файлов — в img/index.json (его пишет scripts/process-art.py).
 // Если картинки нет, art.js рисует запасной SVG-вариант.
-const IMG = { words: new Set(), avatars: new Set(), scenes: new Set(), mascot: new Set(), anim: new Set() };
+const IMG = { words: new Set(), avatars: new Set(), scenes: new Set(), mascot: new Set(), comic: new Set(), anim: new Set() };
 
 export async function loadImages() {
   try {
