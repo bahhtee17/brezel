@@ -1,5 +1,6 @@
 // Раздел «Чтение»: правила чтения по-немецки. У каждого правила — пример-слова с картинками,
 // разбор слова по буквам со звуками, озвучка и короткая тренировка в формате урока.
+import { tx } from './i18n.js';
 import { h, icon, shuffle, soundBtn, toast, go } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
 import { say } from './speech.js';
@@ -18,21 +19,21 @@ export async function readingScreen() {
   const rules = readingRules();
   const doneN = rules.filter(r => isReadingDone(r.id)).length;
   const next = rules.find(r => !isReadingDone(r.id));
-  const scr = h('div', { class: 'screen' }, topbar('Чтение'));
+  const scr = h('div', { class: 'screen' }, topbar(tx('Чтение')));
 
   const pct = Math.round((doneN / rules.length) * 100);
   scr.append(h('div', { class: 'card rd-hero' },
     h('div', { class: 'rd-hero__m', html: mascotSVG(doneN ? 'happy' : 'wave') }),
     h('div', { class: 'rd-hero__main' },
-      h('div', { class: 'task-kicker', text: 'Учимся читать' }),
-      h('h2', { text: doneN === rules.length ? 'Все правила освоены!' : doneN ? `Освоено ${doneN} из ${rules.length}` : 'Как читать по-немецки' }),
-      h('div', { class: 'small muted', text: `Немецкий читается почти так, как пишется. ${rules.length} коротких правил — и вы прочитаете любое слово.` }),
+      h('div', { class: 'task-kicker', text: tx('Учимся читать') }),
+      h('h2', { text: doneN === rules.length ? tx('Все правила освоены!') : doneN ? tx`Освоено ${doneN} из ${rules.length}` : tx('Как читать по-немецки') }),
+      h('div', { class: 'small muted', text: tx`Немецкий читается почти так, как пишется. ${rules.length} коротких правил — и вы прочитаете любое слово.` }),
       h('div', { class: 'score-bar__track', style: { marginTop: '8px' } }, h('div', { class: 'score-bar__fill', style: { width: `${pct}%`, background: 'var(--ok)' } })))));
 
   const actions = h('div', { class: 'stack', style: { marginBottom: '18px' } });
   if (next) actions.append(h('button', { class: 'btn', type: 'button', onclick: () => go(`#/read/${next.id}`) },
-    doneN ? `Дальше: ${next.big}` : 'Начать с первого правила'));
-  if (doneN >= 2) actions.append(h('button', { class: 'btn btn--ghost', type: 'button', onclick: () => mixedTraining(rules.filter(r => isReadingDone(r.id))) }, 'Тренировка: прочитай слово'));
+    doneN ? tx`Дальше: ${next.big}` : tx('Начать с первого правила')));
+  if (doneN >= 2) actions.append(h('button', { class: 'btn btn--ghost', type: 'button', onclick: () => mixedTraining(rules.filter(r => isReadingDone(r.id))) }, tx('Тренировка: прочитай слово')));
   scr.append(actions);
 
   data.chapters.forEach((c, ci) => {
@@ -70,8 +71,8 @@ export async function ruleScreen(id) {
   const scr = h('div', { class: 'screen screen--bare rd-rule' });
 
   scr.append(h('div', { class: 'lesson__head' },
-    h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'К списку правил', html: icon('close'), onclick: () => go('#/read') }),
-    h('div', { class: 'task-kicker', style: { flex: 1 }, text: `Чтение · ${rule.chapter.title}` }),
+    h('button', { class: 'icon-btn', type: 'button', 'aria-label': tx('К списку правил'), html: icon('close'), onclick: () => go('#/read') }),
+    h('div', { class: 'task-kicker', style: { flex: 1 }, text: tx`Чтение · ${rule.chapter.title}` }),
     h('div', { class: 'rd-count', text: `${rule.n} / ${rules.length}` })));
 
   scr.append(h('div', { class: 'rd-eq' },
@@ -83,17 +84,17 @@ export async function ruleScreen(id) {
   if (lvNow) scr.append(h('div', { class: 'rd-level', html: `${levelBadge(lvNow)} <b>${LEVELS[lvNow]}</b> · ${LEVEL_HINT[lvNow]}` }));
   scr.append(h('div', { class: 'card rd-text', html: rule.text }));
   if (rule.tip) scr.append(h('div', { class: 'coach rd-tip' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble', text: rule.tip })));
-  if (rule.chapter.video) scr.append(videoCard(rule.chapter.video, `Глава «${rule.chapter.title}»`));
+  if (rule.chapter.video) scr.append(videoCard(rule.chapter.video, tx`Глава «${rule.chapter.title}»`));
 
-  scr.append(h('div', { class: 'section-title', text: 'Прочитайте сами' }));
-  scr.append(h('div', { class: 'small muted', style: { margin: '-6px 0 12px' }, text: 'Сначала прочитайте слово вслух. Потом нажмите на карточку: услышите, как правильно, и увидите, как звучит каждая буква.' }));
+  scr.append(h('div', { class: 'section-title', text: tx('Прочитайте сами') }));
+  scr.append(h('div', { class: 'small muted', style: { margin: '-6px 0 12px' }, text: tx('Сначала прочитайте слово вслух. Потом нажмите на карточку: услышите, как правильно, и увидите, как звучит каждая буква.') }));
   const list = h('div', { class: 'rd-words' });
   rule.words.forEach(w => list.append(wordCard(w)));
   scr.append(list);
 
   const doneNow = isReadingDone(rule.id);
   scr.append(h('button', { class: 'btn btn--ok', type: 'button', style: { marginTop: '18px' }, onclick: () => quiz(rule) },
-    doneNow ? 'Потренироваться ещё раз' : 'Проверить себя'));
+    doneNow ? tx('Потренироваться ещё раз') : tx('Проверить себя')));
   scr.append(h('div', { class: 'rd-pager' },
     prev ? h('button', { class: 'btn btn--ghost btn--small', type: 'button', onclick: () => go(`#/read/${prev.id}`) }, `← ${prev.big}`) : h('span'),
     next ? h('button', { class: 'btn btn--ghost btn--small', type: 'button', onclick: () => go(`#/read/${next.id}`) }, `${next.big} →`) : h('span')));
@@ -115,7 +116,7 @@ function wordCard(w) {
     h('div', { class: 'rd-word__main' },
       h('div', { class: `rd-word__de ${sizeCls(w.de, 8, 11)}`, html: readWordHtml(w) }),
       h('div', { class: 'rd-word__ru', text: w.ru }),
-      h('div', { class: 'rd-word__hint', html: `${icon('speaker')}<span>Проверить</span>` })),
+      h('div', { class: 'rd-word__hint', html: tx`${icon('speaker')}<span>Проверить</span>` })),
     more);
   const act = e => {
     if (e.target.closest('.sound-btn')) return;
@@ -133,7 +134,7 @@ const readEx = readExercise;
 const listenEx = (w, rule) => {
   const others = shuffle(rule.words.filter(x => x.de !== w.de)).slice(0, 2).map(x => x.de);
   const options = [w.de, ...others];
-  return { type: 'listen', kicker: 'Послушайте и выберите', q: 'Какое слово прозвучало?', de: w.de, options, answer: 0 };
+  return { type: 'listen', kicker: tx('Послушайте и выберите'), q: tx('Какое слово прозвучало?'), de: w.de, options, answer: 0 };
 };
 
 function quiz(rule) {
@@ -148,11 +149,11 @@ function quiz(rule) {
   const next = rules[rules.indexOf(rule) + 1];
   runPlayer({
     steps: [
-      { kind: 'intro', kicker: `Чтение · правило ${rule.n}`, title: `${rule.big} = [${rule.snd}]`, goal: `${exs.length} коротких заданий: прочитайте слово и выберите, как оно звучит`, button: 'Начать' },
+      { kind: 'intro', kicker: tx`Чтение · правило ${rule.n}`, title: `${rule.big} = [${rule.snd}]`, goal: tx`${exs.length} коротких заданий: прочитайте слово и выберите, как оно звучит`, button: tx('Начать') },
       ...exs.map((ex, k) => ({ kind: 'ex', ex, key: `read:${ex.type}:${ex.de}` })),
-      { kind: 'outro', title: sum => (sum.acc >= PASS ? 'Отлично прочитано!' : 'Почти получилось'), sub: rule.title, bonusXP: 3, homeLabel: 'К правилам',
+      { kind: 'outro', title: sum => (sum.acc >= PASS ? tx('Отлично прочитано!') : tx('Почти получилось')), sub: rule.title, bonusXP: 3, homeLabel: tx('К правилам'),
         extra: (sum, fin) => practiceNote(fin, sum.acc, () => quiz(rule)),
-        ...(next ? { nextLabel: `Следующее: ${next.big}`, onNext: () => go(`#/read/${next.id}`) } : {}) }
+        ...(next ? { nextLabel: tx`Следующее: ${next.big}`, onNext: () => go(`#/read/${next.id}`) } : {}) }
     ],
     mode: 'reading', onExit: () => go('#/read'),
     onFinish: sum => {
@@ -163,13 +164,13 @@ function quiz(rule) {
 }
 
 function mixedTraining(pool) {
-  if (!pool.length) { toast('Сначала пройдите хотя бы одно правило'); return; }
+  if (!pool.length) { toast(tx('Сначала пройдите хотя бы одно правило')); return; }
   const items = shuffle(pool.flatMap(r => r.words.map(w => ({ w, r })))).filter((x, k, arr) => arr.findIndex(y => y.w.de === x.w.de) === k).slice(0, 10);
   runPlayer({
     steps: [
-      { kind: 'intro', kicker: 'Тренировка чтения', title: 'Прочитай слово', goal: `${items.length} слов из пройденных правил`, button: 'Поехали' },
+      { kind: 'intro', kicker: tx('Тренировка чтения'), title: tx('Прочитай слово'), goal: tx`${items.length} слов из пройденных правил`, button: tx('Поехали') },
       ...items.map(({ w, r }, k) => ({ kind: 'ex', ex: readEx(w, r), key: `read:readWord:${w.de}` })),
-      { kind: 'outro', title: 'Отлично читаете!', bonusXP: 5 }
+      { kind: 'outro', title: tx('Отлично читаете!'), bonusXP: 5 }
     ],
     mode: 'reading', onExit: () => go('#/read')
   });

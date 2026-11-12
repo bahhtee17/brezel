@@ -1,6 +1,7 @@
 // Типы упражнений. Каждый mount(ex, host, api) рисует задание и возвращает { check() }.
 // api: { ready(bool), complete(result), say(text, opts) }
 // Результат проверки: { ok, correct, note, score }.
+import { tx, isNative } from './i18n.js';
 import { h, esc, shuffle, icon, soundBtn } from './ui.js';
 import { art, avatar, charName } from './art.js';
 import { say, canListen, listen, diffWords, matchText, norm, sayLines } from './speech.js';
@@ -25,7 +26,7 @@ function eliminate(btns, answer) {
 function umlautBar(input, accepts) {
   const need = ['ä', 'ö', 'ü', 'ß'].filter(ch => accepts.some(a => a.toLowerCase().includes(ch)));
   if (!need.length) return null;
-  return h('div', { class: 'umlauts' }, h('span', { class: 'umlauts__label', text: 'Немецкие буквы:' }), need.map(ch => h('button', {
+  return h('div', { class: 'umlauts' }, h('span', { class: 'umlauts__label', text: tx('Немецкие буквы:') }), need.map(ch => h('button', {
     type: 'button',
     onclick: () => {
       const s = input.selectionStart ?? input.value.length, e = input.selectionEnd ?? input.value.length;
@@ -52,8 +53,8 @@ export function tokens(s) {
 
 // ---------- Выбор варианта ----------
 function mountPick(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Выберите ответ'));
-  const isDeQ = ex.audio && ex.q && !/[а-яё]/i.test(ex.q);
+  host.append(kicker(ex.kicker || tx('Выберите ответ')));
+  const isDeQ = ex.audio && ex.q && !isNative(ex.q);
   if (isDeQ) {
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble' }, h('span', { class: 'task-title', text: ex.q }), ' ', soundBtn(() => say(ex.audio), { mini: true }))));
     setTimeout(() => say(ex.audio), 350);
@@ -89,7 +90,7 @@ function mountPick(ex, host, api) {
     hint() {
       const removed = eliminate(btns, ex.answer);
       if (removed.includes(sel)) { sel = null; api.ready(false); }
-      return removed.length ? 'Лишние варианты убраны.' : false;
+      return removed.length ? tx('Лишние варианты убраны.') : false;
     },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
@@ -104,13 +105,13 @@ function mountPick(ex, host, api) {
 
 // ---------- Аудирование: услышать и выбрать ----------
 function mountListen(ex, host, api) {
-  return mountPick({ ...ex, kicker: ex.kicker || 'Услышь и выбери', q: ex.q || 'Что вы слышите?', audio: ex.de, options: ex.options.map(t => (typeof t === 'string' ? { de: t } : t)) }, host, api);
+  return mountPick({ ...ex, kicker: ex.kicker || tx('Услышь и выбери'), q: ex.q || tx('Что вы слышите?'), audio: ex.de, options: ex.options.map(t => (typeof t === 'string' ? { de: t } : t)) }, host, api);
 }
 
 // ---------- Сборка фразы из плиток ----------
 function mountTiles(ex, host, api) {
   const toRu = ex.dir === 'ru';
-  host.append(kicker(ex.kicker || (toRu ? 'Переведите на русский' : 'Соберите фразу по-немецки')));
+  host.append(kicker(ex.kicker || (toRu ? tx('Переведите на русский') : tx('Соберите фразу по-немецки'))));
   const promptText = toRu ? ex.de : ex.ru;
   if (toRu) {
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble' }, h('span', { class: 'task-title', text: promptText }), ' ', soundBtn(() => say(ex.de), { mini: true }))));
@@ -156,7 +157,7 @@ function mountTiles(ex, host, api) {
       const b = bankBtns.find(x => !x.classList.contains('is-used') && x.textContent === toks[k]);
       if (!b) return false;
       b.click();
-      return `Первые слова: <b>${esc(toks.slice(0, k + 1).join(' '))}</b> …`;
+      return tx`Первые слова: <b>${esc(toks.slice(0, k + 1).join(' '))}</b> …`;
     },
     check() {
       const built = chosen.map(c => c.w).join(' ');
@@ -171,7 +172,7 @@ function mountTiles(ex, host, api) {
 
 // ---------- Заполнить пропуск ----------
 function mountGap(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Заполните пропуск'));
+  host.append(kicker(ex.kicker || tx('Заполните пропуск')));
   if (ex.ru) host.append(h('div', { class: 'task-sub', text: ex.ru }));
   const parts = ex.text.split('___');
   const slot = h('span', { class: 'tile', style: { minWidth: '90px', justifyContent: 'center', color: 'var(--ink-3)', borderStyle: 'dashed' } }, '…');
@@ -200,7 +201,7 @@ function mountGap(ex, host, api) {
     hint() {
       const removed = eliminate(btns, ex.answer);
       if (removed.includes(sel)) { sel = null; slot.textContent = '…'; slot.style.color = 'var(--ink-3)'; slot.style.borderStyle = 'dashed'; api.ready(false); }
-      return removed.length ? 'Лишние варианты убраны.' : false;
+      return removed.length ? tx('Лишние варианты убраны.') : false;
     },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
@@ -215,7 +216,7 @@ function mountGap(ex, host, api) {
 
 // ---------- Мини-диалог: выбрать реплику ----------
 function mountReply(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Ответьте в диалоге', ex.boss ? 'task-kicker--boss' : ''));
+  host.append(kicker(ex.kicker || tx('Ответьте в диалоге'), ex.boss ? 'task-kicker--boss' : ''));
   if (ex.situation) host.append(h('div', { class: 'scene-note', text: ex.situation }));
   const line = h('div', { class: 'line' },
     h('div', { html: avatar(ex.who) }),
@@ -226,7 +227,7 @@ function mountReply(ex, host, api) {
   line.addEventListener('click', () => { line.classList.toggle('show-ru'); say(ex.line, { who: ex.who }); });
   host.append(h('div', { class: 'chat' }, line));
   setTimeout(() => say(ex.line, { who: ex.who }), 350);
-  host.append(h('div', { class: 'small muted', text: 'Нажмите на реплику, чтобы увидеть перевод' }));
+  host.append(h('div', { class: 'small muted', text: tx('Нажмите на реплику, чтобы увидеть перевод') }));
   return mountPickOptions(ex, host, api);
 }
 
@@ -245,7 +246,7 @@ function mountPickOptions(ex, host, api) {
     hint() {
       const removed = eliminate(btns, ex.answer);
       if (removed.includes(sel)) { sel = null; api.ready(false); }
-      return removed.length ? 'Лишние варианты убраны.' : false;
+      return removed.length ? tx('Лишние варианты убраны.') : false;
     },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
@@ -260,20 +261,20 @@ function mountPickOptions(ex, host, api) {
 // ---------- Чтение: как читается слово ----------
 // options — транскрипции русскими буквами; после ответа звучит само слово.
 function mountReadWord(ex, host, api) {
-  host.append(kicker(ex.kicker || (ex.stress ? 'Где ударение?' : 'Как читается это слово?')));
+  host.append(kicker(ex.kicker || (ex.stress ? tx('Где ударение?') : tx('Как читается это слово?'))));
   host.append(h('div', { class: 'rd-q' },
     h('div', { class: 'rd-q__pic', html: readPicHtml(ex) }),
     h('div', { class: `rd-q__word ${ex.de.length > 11 ? 'is-s' : ''}`, html: readWordHtml(ex) }),
     ex.ru ? h('div', { class: 'rd-q__ru', text: ex.ru }) : null));
   const ctl = mountPickOptions({ options: ex.options.map(o => `[${o}]`), answer: ex.answer }, host, api);
   // Объяснение ошибки: разбор слова по буквам и само правило.
-  const rule = ex.rule ? `<div class="why__rule">Правило: <b>${esc(ex.rule.title)}</b></div>` : '';
+  const rule = ex.rule ? tx`<div class="why__rule">Правило: <b>${esc(ex.rule.title)}</b></div>` : '';
   const why = `${readSegsHtml(ex)}${rule}`;
   return {
     choose: ctl.choose,
     hint() {
       const r = ctl.hint();
-      return r && ex.rule ? `Правило: <b>${esc(ex.rule.big)} → [${esc(ex.rule.snd)}]</b>` : r;
+      return r && ex.rule ? tx`Правило: <b>${esc(ex.rule.big)} → [${esc(ex.rule.snd)}]</b>` : r;
     },
     check() {
       const r = ctl.check();
@@ -285,15 +286,15 @@ function mountReadWord(ex, host, api) {
 // ---------- Письмо: перевести или записать на слух ----------
 function mountWrite(ex, host, api, dictation = false) {
   if (dictation) {
-    host.append(kicker(ex.kicker || 'Прослушайте и напишите'));
+    host.append(kicker(ex.kicker || tx('Прослушайте и напишите')));
     host.append(playRow(ex.de, ex.who));
   } else {
-    host.append(kicker(ex.kicker || 'Напишите по-немецки'));
+    host.append(kicker(ex.kicker || tx('Напишите по-немецки')));
     host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }), h('div', { class: 'bubble task-title', text: ex.ru })));
   }
   if (ex.hint) host.append(h('div', { class: 'small muted', text: ex.hint }));
   const accepts = ex.accept || [ex.de];
-  const input = h('input', { class: 'field', type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'de', placeholder: 'Нажмите и напишите ответ' });
+  const input = h('input', { class: 'field', type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', lang: 'de', placeholder: tx('Нажмите и напишите ответ') });
   input.addEventListener('input', () => api.ready(input.value.trim().length > 0));
   host.append(input);
   const bar = umlautBar(input, accepts);
@@ -303,7 +304,7 @@ function mountWrite(ex, host, api, dictation = false) {
     // Подсказка: первые буквы каждого слова, остальные — чёрточки.
     hint() {
       const mask = accepts[0].split(/(\s+)/).map(t => (/^\s+$/.test(t) ? t : t.replace(/^([^\wäöüß]*)([\wäöüß])([\wäöüß']*)/i, (m, a, b, c) => a + b + c.replace(/./g, '·')))).join('');
-      return `Начало слов: <b class="hint-mask">${esc(mask)}</b>`;
+      return tx`Начало слов: <b class="hint-mask">${esc(mask)}</b>`;
     },
     check() {
       const r = matchText(input.value, accepts);
@@ -313,9 +314,9 @@ function mountWrite(ex, host, api, dictation = false) {
       let why = '';
       if (!r.ok && input.value.trim()) {
         const d = diffWords(accepts[0], input.value);
-        why = `<div class="why__diff">${d.words.map(x => `<span class="${x.ok ? '' : 'is-bad'}">${esc(x.w)}</span>`).join(' ')}</div><div class="small muted">Подчёркнуты слова, где ошибка или пропуск. Вы написали: «${esc(input.value.trim())}»</div>`;
+        why = tx`<div class="why__diff">${d.words.map(x => `<span class="${x.ok ? '' : 'is-bad'}">${esc(x.w)}</span>`).join(' ')}</div><div class="small muted">Подчёркнуты слова, где ошибка или пропуск. Вы написали: «${esc(input.value.trim())}»</div>`;
       }
-      return { ok: r.ok, correct: accepts[0], note: r.typo ? `Почти! Опечатка — правильно: ${accepts[0]}` : (dictation ? ex.ru : ''), sayAfter: accepts[0], why };
+      return { ok: r.ok, correct: accepts[0], note: r.typo ? tx`Почти! Опечатка — правильно: ${accepts[0]}` : (dictation ? ex.ru : ''), sayAfter: accepts[0], why };
     }
   };
 }
@@ -323,7 +324,7 @@ function mountWrite(ex, host, api, dictation = false) {
 // ---------- Диктант: собрать услышанное из плиток ----------
 // Короткий ответ собирается по буквам, длинная фраза — по словам. Пробелы и знаки уже стоят на местах.
 function mountSpell(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Прослушайте и соберите'));
+  host.append(kicker(ex.kicker || tx('Прослушайте и соберите')));
   host.append(playRow(ex.de, ex.who));
   if (ex.hint) host.append(h('div', { class: 'small muted', text: ex.hint }));
   const answer = (ex.accept || [ex.de])[0];
@@ -338,7 +339,7 @@ function mountSpell(ex, host, api) {
   const slots = words.flat().filter(u => !u.fixed);
   const line = h('div', { class: `spell ${byLetters ? '' : 'spell--words'}` }, words.map(w => h('div', { class: 'spell__w' }, w.map(u => {
     if (u.fixed) return h('span', { class: 'spell__p', text: u.text });
-    u.el = h('button', { type: 'button', class: 'spell__s', 'aria-label': 'Пустая ячейка' });
+    u.el = h('button', { type: 'button', class: 'spell__s', 'aria-label': tx('Пустая ячейка') });
     u.el.addEventListener('click', () => clear(u));
     return u.el;
   }))));
@@ -383,7 +384,7 @@ function mountSpell(ex, host, api) {
       const b = tiles.find(x => !x.classList.contains('is-used') && x.textContent === slots[k].text);
       if (!b) return false;
       put(slots[k], b);
-      return byLetters ? 'Следующая буква поставлена на место' : 'Следующее слово поставлено на место';
+      return byLetters ? tx('Следующая буква поставлена на место') : tx('Следующее слово поставлено на место');
     },
     check() {
       let ok = true;
@@ -405,46 +406,46 @@ function speakingOff() {
 }
 
 function mountSpeak(ex, host, api) {
-  const asTiles = () => mountTiles({ ru: ex.ru, answer: ex.de, distract: ex.distract || [], kicker: 'Соберите фразу (вместо речи)' }, host, api);
+  const asTiles = () => mountTiles({ ru: ex.ru, answer: ex.de, distract: ex.distract || [], kicker: tx('Соберите фразу (вместо речи)') }, host, api);
   if (speakingOff()) return asTiles();
-  host.append(kicker(ex.kicker || 'Скажите вслух'));
+  host.append(kicker(ex.kicker || tx('Скажите вслух')));
   host.append(h('div', { class: 'coach' }, h('div', { html: mascotSVG('idle') }),
     h('div', { class: 'bubble' }, h('div', { class: 'task-title', text: ex.de }), h('div', { class: 'small muted', text: ex.ru }))));
-  host.append(h('div', { class: 'listen-box' }, soundBtn(() => say(ex.de), { label: 'Послушать образец' }), soundBtn(() => say(ex.de, { slow: true }), { slow: true })));
-  const heard = h('div', { class: 'heard muted', text: 'Нажмите на микрофон и скажите фразу' });
-  const mic = h('button', { type: 'button', class: 'mic-btn', 'aria-label': 'Говорить', html: icon('mic') });
+  host.append(h('div', { class: 'listen-box' }, soundBtn(() => say(ex.de), { label: tx('Послушать образец') }), soundBtn(() => say(ex.de, { slow: true }), { slow: true })));
+  const heard = h('div', { class: 'heard muted', text: tx('Нажмите на микрофон и скажите фразу') });
+  const mic = h('button', { type: 'button', class: 'mic-btn', 'aria-label': tx('Говорить'), html: icon('mic') });
   let best = { score: 0, words: [] };
   let tries = 0;
   const ctl = {
     check() {
       const ok = best.score >= 0.75;
-      return { ok, correct: ex.de, note: ok ? ex.ru : 'Послушайте образец и попробуйте ещё раз в следующий раз.' };
+      return { ok, correct: ex.de, note: ok ? ex.ru : tx('Послушайте образец и попробуйте ещё раз в следующий раз.') };
     }
   };
   mic.addEventListener('click', async () => {
     if (mic.classList.contains('is-listening')) return;
     mic.classList.add('is-listening');
-    heard.textContent = 'Слушаю…';
+    heard.textContent = tx('Слушаю…');
     try {
-      const alts = await listen({ onInterim: t => { if (t) heard.textContent = `Слышу: ${t}`; } });
+      const alts = await listen({ onInterim: t => { if (t) heard.textContent = tx`Слышу: ${t}`; } });
       tries++;
-      if (!alts.length) { heard.textContent = 'Ничего не услышал. Попробуйте ещё раз, чуть громче.'; }
+      if (!alts.length) { heard.textContent = tx('Ничего не услышал. Попробуйте ещё раз, чуть громче.'); }
       else {
         const results = alts.map(a => diffWords(ex.de, a));
         best = results.reduce((a, b) => (b.score > a.score ? b : a), best.score ? best : results[0]);
         heard.innerHTML = best.words.map(x => `<span class="${x.ok ? 'w-ok' : 'w-miss'}">${esc(x.w)}</span>`).join(' ');
         if (best.score >= 0.75) { api.ready(true); setTimeout(() => api.autoCheck?.(), 500); }
-        else heard.insertAdjacentHTML('beforeend', '<div class="small muted">Подчёркнутые слова не распознаны. Ещё раз?</div>');
+        else heard.insertAdjacentHTML('beforeend', tx('<div class="small muted">Подчёркнутые слова не распознаны. Ещё раз?</div>'));
       }
       if (tries >= 2) api.ready(true);
     } catch (e) {
-      heard.textContent = e.message === 'not-allowed' ? 'Нет доступа к микрофону. Можно ответить без речи.' : 'Распознавание недоступно. Можно ответить без речи.';
+      heard.textContent = e.message === 'not-allowed' ? tx('Нет доступа к микрофону. Можно ответить без речи.') : tx('Распознавание недоступно. Можно ответить без речи.');
       api.ready(true);
     } finally {
       mic.classList.remove('is-listening');
     }
   });
-  const skip = h('button', { type: 'button', class: 'btn btn--link', text: 'Сейчас не могу говорить' });
+  const skip = h('button', { type: 'button', class: 'btn btn--link', text: tx('Сейчас не могу говорить') });
   skip.addEventListener('click', () => {
     setSetting('noSpeakUntil', Date.now() + 60 * 60 * 1000);
     host.innerHTML = '';
@@ -458,9 +459,9 @@ function mountSpeak(ex, host, api) {
 
 // ---------- Пары на скорость ----------
 function mountPairs(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Пары на скорость'));
-  host.append(title('Соедините слово и перевод'));
-  const timer = h('div', { class: 'timer', text: '0,0 с' });
+  host.append(kicker(ex.kicker || tx('Пары на скорость')));
+  host.append(title(tx('Соедините слово и перевод')));
+  const timer = h('div', { class: 'timer', text: tx('0,0 с') });
   host.append(timer);
   const left = shuffle(ex.pairs.map((p, i) => ({ t: p[0], i })));
   const right = shuffle(ex.pairs.map((p, i) => ({ t: p[1], i })));
@@ -470,7 +471,7 @@ function mountPairs(ex, host, api) {
   const start = () => {
     if (t0) return;
     t0 = performance.now();
-    tick = setInterval(() => { timer.textContent = `${((performance.now() - t0) / 1000).toFixed(1).replace('.', ',')} с`; }, 100);
+    tick = setInterval(() => { timer.textContent = tx`${((performance.now() - t0) / 1000).toFixed(1).replace('.', ',')} с`; }, 100);
   };
   const tryMatch = () => {
     if (selL == null || selR == null) return;
@@ -483,7 +484,7 @@ function mountPairs(ex, host, api) {
       if (matched === ex.pairs.length) {
         clearInterval(tick);
         const sec = (performance.now() - t0) / 1000;
-        setTimeout(() => api.complete({ ok: mistakes === 0, correct: '', note: `Время: ${sec.toFixed(1).replace('.', ',')} с${mistakes ? `, ошибок: ${mistakes}` : ' — без ошибок!'}`, bonus: sec < 15 && !mistakes ? 3 : 0 }), 380);
+        setTimeout(() => api.complete({ ok: mistakes === 0, correct: '', note: tx`Время: ${sec.toFixed(1).replace('.', ',')} с${mistakes ? tx`, ошибок: ${mistakes}` : tx(' — без ошибок!')}`, bonus: sec < 15 && !mistakes ? 3 : 0 }), 380);
       }
     } else {
       mistakes++;
@@ -506,7 +507,7 @@ function mountPairs(ex, host, api) {
 
 // ---------- Объяснение грамматики ----------
 function mountInfo(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Грамматика'));
+  host.append(kicker(ex.kicker || tx('Грамматика')));
   const card = h('div', { class: 'card rule' });
   card.append(h('h3', { text: ex.title }));
   (ex.paras || []).forEach(p => card.append(h('p', { html: p })));
@@ -517,7 +518,7 @@ function mountInfo(ex, host, api) {
       const tr = h('tr', {}, r.map(c => h('td', { html: c })));
       if (ex.table.say) {
         tr.style.cursor = 'pointer';
-        tr.addEventListener('click', () => say(r.map(c => c.replace(/<[^>]+>/g, '').trim()).filter(x => x && !/[а-яё]/i.test(x) && !x.startsWith('-')).join(' ').replace(/ \/ /g, ', ')));
+        tr.addEventListener('click', () => say(r.map(c => c.replace(/<[^>]+>/g, '').trim()).filter(x => x && !isNative(x) && !x.startsWith('-')).join(' ').replace(/ \/ /g, ', ')));
       }
       t.append(tr);
     });
@@ -537,7 +538,7 @@ function mountInfo(ex, host, api) {
 
 // ---------- Анкета (Schreiben, Teil 1) ----------
 function mountForm(ex, host, api) {
-  host.append(kicker(ex.kicker || 'Заполните анкету'));
+  host.append(kicker(ex.kicker || tx('Заполните анкету')));
   if (ex.task) host.append(h('div', { class: 'task-sub', text: ex.task }));
   host.append(h('div', { class: 'note-paper', html: ex.intro }));
   const paper = h('div', { class: 'form-paper' });
@@ -567,7 +568,7 @@ function mountForm(ex, host, api) {
         inputs[i].setAttribute('disabled', '');
         if (r.ok) right++; else wrong.push(`${f.label}: ${f.accept[0]}`);
       });
-      return { ok: right === total, score: total ? right / total : 1, correct: wrong.join(' · '), note: right === total ? 'Все поля верны!' : `Верно ${right} из ${total}.` };
+      return { ok: right === total, score: total ? right / total : 1, correct: wrong.join(' · '), note: right === total ? tx('Все поля верны!') : tx`Верно ${right} из ${total}.` };
     }
   };
 }
@@ -579,7 +580,7 @@ function mountTF(ex, host, api) {
   if (ex.audio) host.append(playRow(ex.audio, ex.who));
   host.append(title(esc(ex.statement)));
   if (ex.statementRu) host.append(h('div', { class: 'small muted', text: ex.statementRu }));
-  return mountPickOptions({ options: ['Richtig — верно', 'Falsch — неверно'], answer: ex.answer ? 0 : 1, explain: ex.explain }, host, api);
+  return mountPickOptions({ options: [tx('Richtig — верно'), tx('Falsch — неверно')], answer: ex.answer ? 0 : 1, explain: ex.explain }, host, api);
 }
 
 // ---------- Аудирование в формате экзамена: диалог, ограничение прослушиваний ----------
@@ -588,11 +589,11 @@ function mountListenDialog(ex, host, api) {
   host.append(title(esc(ex.q)));
   if (ex.qRu) host.append(h('div', { class: 'small muted', text: ex.qRu }));
   let plays = ex.maxPlays || 2;
-  const left = h('div', { class: 'plays-left', text: `Можно прослушать: ${plays}` });
+  const left = h('div', { class: 'plays-left', text: tx`Можно прослушать: ${plays}` });
   const btn = soundBtn(async () => {
     if (plays <= 0) return;
     plays--;
-    left.textContent = plays ? `Можно прослушать ещё: ${plays}` : 'Прослушивания закончились';
+    left.textContent = plays ? tx`Можно прослушать ещё: ${plays}` : tx('Прослушивания закончились');
     await sayLines(ex.audio);
     if (!plays) btn.setAttribute('disabled', '');
   }, { big: true });
@@ -621,7 +622,7 @@ function mountPickInto(opts, answer, host, api) {
     hint() {
       const removed = eliminate(btns, answer);
       if (removed.includes(sel)) { sel = null; api.ready(false); }
-      return removed.length ? 'Лишние варианты убраны.' : false;
+      return removed.length ? tx('Лишние варианты убраны.') : false;
     },
     check() {
       btns.forEach(b => b.setAttribute('disabled', ''));
@@ -636,7 +637,7 @@ function mountPickInto(opts, answer, host, api) {
 // ---------- Рассказ о себе по карточке (Sprechen, Teil 1) ----------
 function mountSpeakCard(ex, host, api) {
   host.append(kicker(ex.kicker || 'Sprechen, Teil 1'));
-  host.append(title(esc(ex.q || 'Расскажите о себе')));
+  host.append(title(esc(ex.q || tx('Расскажите о себе'))));
   if (ex.sub) host.append(h('div', { class: 'small muted', text: ex.sub }));
   const chips = ex.points.map(p => h('span', {}, p.label));
   host.append(h('div', { class: 'speak-card' }, chips));
@@ -652,20 +653,20 @@ function mountSpeakCard(ex, host, api) {
   };
   area.addEventListener('input', () => { evaluate(area.value); api.ready(area.value.trim().length > 3); });
   if (!speakingOff()) {
-    const heard = h('div', { class: 'heard small muted', text: 'Скажите 4 предложения или напишите их ниже' });
-    const mic = h('button', { type: 'button', class: 'mic-btn', 'aria-label': 'Говорить', html: icon('mic') });
+    const heard = h('div', { class: 'heard small muted', text: tx('Скажите 4 предложения или напишите их ниже') });
+    const mic = h('button', { type: 'button', class: 'mic-btn', 'aria-label': tx('Говорить'), html: icon('mic') });
     mic.addEventListener('click', async () => {
       mic.classList.add('is-listening');
-      heard.textContent = 'Слушаю… говорите все предложения подряд';
+      heard.textContent = tx('Слушаю… говорите все предложения подряд');
       try {
-        const alts = await listen({ timeout: 15000, silence: 2200, onInterim: t => { if (t) heard.textContent = `Слышу: ${t}`; } });
+        const alts = await listen({ timeout: 15000, silence: 2200, onInterim: t => { if (t) heard.textContent = tx`Слышу: ${t}`; } });
         if (alts.length) {
           area.value = (area.value ? `${area.value} ` : '') + alts[0];
           evaluate(area.value);
-          heard.textContent = 'Записал. Можно поправить текст или сказать ещё.';
+          heard.textContent = tx('Записал. Можно поправить текст или сказать ещё.');
           api.ready(true);
-        } else heard.textContent = 'Ничего не услышал. Попробуйте ещё раз.';
-      } catch { heard.textContent = 'Микрофон недоступен — напишите ответ.'; }
+        } else heard.textContent = tx('Ничего не услышал. Попробуйте ещё раз.');
+      } catch { heard.textContent = tx('Микрофон недоступен — напишите ответ.'); }
       mic.classList.remove('is-listening');
     });
     host.append(mic, heard);
@@ -676,7 +677,7 @@ function mountSpeakCard(ex, host, api) {
       const n = evaluate(area.value);
       area.setAttribute('disabled', '');
       const miss = ex.points.filter((p, i) => !chips[i].classList.contains('is-done')).map(p => p.model);
-      return { ok: n === ex.points.length, score: n / ex.points.length, correct: miss.join(' '), note: `Пунктов раскрыто: ${n} из ${ex.points.length}.` };
+      return { ok: n === ex.points.length, score: n / ex.points.length, correct: miss.join(' '), note: tx`Пунктов раскрыто: ${n} из ${ex.points.length}.` };
     }
   };
 }
@@ -699,7 +700,7 @@ function shuffleOptions(ex) {
 export function mountExercise(ex, host, api) {
   const fn = TYPES[ex.type];
   if (!fn) {
-    host.append(h('div', { class: 'card', text: `Неизвестный тип задания: ${ex.type}` }));
+    host.append(h('div', { class: 'card', text: tx`Неизвестный тип задания: ${ex.type}` }));
     api.ready(true);
     return { check: () => ({ ok: true, info: true }) };
   }

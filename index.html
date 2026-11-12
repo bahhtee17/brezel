@@ -84,6 +84,16 @@
   <script>
     // Страховка: если приложение не запустилось за 10 секунд, заставка уходит сама и видно сообщение об ошибке.
     setTimeout(function () { var s = document.getElementById('splash'); if (s) s.remove(); }, 10000);
+    // Заставка на узбекском, если выбран этот язык (тот же выбор, что в js/i18n.js).
+    (function () {
+      var l = null;
+      try { l = localStorage.getItem('brezel.lang'); } catch (e) { /* без хранилища — по языку телефона */ }
+      if (l === 'uz' || (!l && /^uz/i.test(navigator.language || ''))) {
+        document.documentElement.lang = 'uz';
+        document.querySelector('.splash__name').textContent = 'Bretsel';
+        document.querySelector('.splash__sub').textContent = 'Nemis tili noldan';
+      }
+    })();
   </script>
   <div id="app" class="app"></div>
   <noscript>Для работы курса нужен JavaScript.</noscript>

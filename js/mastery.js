@@ -5,19 +5,20 @@
 //   • проверка без ошибок поднимает уровень: «Знаком» → «Уверенно» (следующая проверка через 3 дня)
 //     → «Освоено» (дальше контрольная проверка раз в 2 недели);
 //   • одна ошибка — уровень остаётся, проверка повторится завтра; больше — уровень снижается.
+import { tx } from './i18n.js';
 import { h, shuffle, icon } from './ui.js';
 import { get, save, today, addDays } from './store.js';
 import { allTopics, loadTopic, word, genForWord } from './content.js';
 import { loadReading, readingRule, readExercise } from './readkit.js';
 
 export const PASS = 80;
-export const LEVELS = ['Не начато', 'Пробовал', 'Знаком', 'Уверенно', 'Освоено'];
+export const LEVELS = [tx('Не начато'), tx('Пробовал'), tx('Знаком'), tx('Уверенно'), tx('Освоено')];
 export const LEVEL_HINT = [
   '',
-  'Точность ниже 80% — стоит повторить',
-  'Точность 80%+. Проверка освоения — на следующий день',
-  'Проверка пройдена. Ещё одна — через 3 дня',
-  'Навык закреплён. Контрольная проверка — раз в 2 недели'
+  tx('Точность ниже 80% — стоит повторить'),
+  tx('Точность 80%+. Проверка освоения — на следующий день'),
+  tx('Проверка пройдена. Ещё одна — через 3 дня'),
+  tx('Навык закреплён. Контрольная проверка — раз в 2 недели')
 ];
 const NEXT_CHECK = { 2: 1, 3: 3, 4: 14 }; // дней до проверки на этом уровне
 
@@ -112,13 +113,13 @@ export function practiceNote(fin, acc, onRetry) {
   const { before, after } = fin;
   if (after <= 1) {
     return h('div', { class: 'lvl-note lvl-note--warn' },
-      h('div', { class: 'lvl-note__t', html: `${levelBadge(1)} <b>Пробовал</b> · точность ${acc}%` }),
-      h('div', { class: 'small', text: `Для уровня «Знаком» нужно ${PASS}%. Повторите сейчас или чуть позже — так материал закрепится.` }),
-      onRetry ? h('button', { class: 'btn btn--ghost btn--small', type: 'button', style: { marginTop: '8px' }, onclick: onRetry }, 'Повторить сейчас') : null);
+      h('div', { class: 'lvl-note__t', html: tx`${levelBadge(1)} <b>Пробовал</b> · точность ${acc}%` }),
+      h('div', { class: 'small', text: tx`Для уровня «Знаком» нужно ${PASS}%. Повторите сейчас или чуть позже — так материал закрепится.` }),
+      onRetry ? h('button', { class: 'btn btn--ghost btn--small', type: 'button', style: { marginTop: '8px' }, onclick: onRetry }, tx('Повторить сейчас')) : null);
   }
   const up = after > before;
   return h('div', { class: 'lvl-note' },
-    h('div', { class: 'lvl-note__t', html: `${levelBadge(after)} ${up ? 'Новый уровень: ' : 'Уровень: '}<b>${LEVELS[after]}</b>` }),
+    h('div', { class: 'lvl-note__t', html: `${levelBadge(after)} ${up ? tx('Новый уровень: ') : tx('Уровень: ')}<b>${LEVELS[after]}</b>` }),
     h('div', { class: 'small', text: LEVEL_HINT[after] }));
 }
 
@@ -134,9 +135,9 @@ export async function findLesson(id) {
 
 export async function unitTitle(key) {
   const [kind, id] = key.split(':');
-  if (kind === 'read') { await loadReading(); const r = readingRule(id); return r ? `Чтение: ${r.big} = [${r.snd}]` : id; }
+  if (kind === 'read') { await loadReading(); const r = readingRule(id); return r ? tx`Чтение: ${r.big} = [${r.snd}]` : id; }
   const f = await findLesson(id);
-  return f ? `Урок ${f.index + 1}. ${f.lesson.title}` : id;
+  return f ? tx`Урок ${f.index + 1}. ${f.lesson.title}` : id;
 }
 
 // ---------- Проверка освоения ----------
@@ -157,9 +158,9 @@ export async function runMasteryCheck(onExit) {
   const { runPlayer } = await import('./player.js');
   runPlayer({
     steps: [
-      { kind: 'intro', kicker: 'Проверка освоения', title: 'Помните ли вы?', goal: `${qs.length} вопросов по ${units.length} ${units.length === 1 ? 'теме' : 'темам'}, пройденным раньше`, note: 'Все ответы верны — уровень растёт. Две ошибки и больше — уровень снижается, и тему стоит повторить.', button: 'Начать' },
+      { kind: 'intro', kicker: tx('Проверка освоения'), title: tx('Помните ли вы?'), goal: tx`${qs.length} вопросов по ${units.length} ${units.length === 1 ? tx('теме') : tx('темам')}, пройденным раньше`, note: tx('Все ответы верны — уровень растёт. Две ошибки и больше — уровень снижается, и тему стоит повторить.'), button: tx('Начать') },
       ...shuffle(qs),
-      { kind: 'outro', title: 'Проверка готова!', bonusXP: 5, extra: (sum, results) => h('div', { class: 'card lvl-list' }, results.map(r => levelRow(r.title, r.before, r.after))) }
+      { kind: 'outro', title: tx('Проверка готова!'), bonusXP: 5, extra: (sum, results) => h('div', { class: 'card lvl-list' }, results.map(r => levelRow(r.title, r.before, r.after))) }
     ],
     mode: 'check', onExit,
     onAnswer: (s, ok) => { if (s.unit && !s.retry && ok) tally[s.unit].right++; },

@@ -1,5 +1,7 @@
 // Маскот — весёлый кренделёк Брецель. Настроения: idle, happy, sad, wave.
 import { hasImg } from './img.js';
+import { tx } from './i18n.js';
+const NAME = tx('Брецель');
 const ROPE = 'M70,142 C80,118 90,96 100,76 C115,48 150,22 167,44 C182,64 182,96 168,118 C150,150 125,168 100,168 C75,168 50,150 32,118 C18,96 18,64 33,44 C50,22 85,48 100,76 C110,96 120,118 130,142';
 const BELLY = 'M168,118 C150,150 125,168 100,168 C75,168 50,150 32,118';
 const OUT = '#8A4A12', BODY = '#D9923F', HI = '#F7C47E';
@@ -14,13 +16,13 @@ const MOODS = ['idle', 'happy', 'sad', 'wave'];
 // Нарисованный маскот: 4 картинки настроений, видна та, что совпадает с data-mood.
 function mascotImg(mood, extraClass) {
   const src = m => `img/mascot/${hasImg('mascot', m) ? m : 'idle'}.webp`;
-  return `<div class="mascot mascot--img ${extraClass}" data-mood="${mood}" role="img" aria-label="Брецель">${MOODS.map(m => `<img class="mi mi-${m}" src="${src(m)}" alt="" decoding="async">`).join('')}</div>`;
+  return `<div class="mascot mascot--img ${extraClass}" data-mood="${mood}" role="img" aria-label="${NAME}">${MOODS.map(m => `<img class="mi mi-${m}" src="${src(m)}" alt="" decoding="async">`).join('')}</div>`;
 }
 
 // attrs — для вложения в другую SVG-картинку (x, y, width, height); тогда всегда SVG.
 export function mascotSVG(mood = 'idle', extraClass = '', attrs = '') {
   if (!attrs && hasImg('mascot', 'idle')) return mascotImg(mood, extraClass);
-  return `<svg class="mascot ${extraClass}" data-mood="${mood}" viewBox="0 0 200 210" ${attrs} role="img" aria-label="Брецель">
+  return `<svg class="mascot ${extraClass}" data-mood="${mood}" viewBox="0 0 200 210" ${attrs} role="img" aria-label="${NAME}">
   <g class="m-arm-l"><path d="M36,128 L16,150" stroke="${OUT}" stroke-width="9" stroke-linecap="round"/><path d="M36,128 L16,150" stroke="${BODY}" stroke-width="5" stroke-linecap="round"/><circle cx="14" cy="152" r="7" fill="${BODY}" stroke="${OUT}" stroke-width="3"/></g>
   <g class="m-arm-r"><path d="M164,128 L184,150" stroke="${OUT}" stroke-width="9" stroke-linecap="round"/><path d="M164,128 L184,150" stroke="${BODY}" stroke-width="5" stroke-linecap="round"/><circle cx="186" cy="152" r="7" fill="${BODY}" stroke="${OUT}" stroke-width="3"/></g>
   <g class="m-body">

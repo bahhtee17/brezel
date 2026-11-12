@@ -1,4 +1,5 @@
 // Загрузка курса и генерация упражнений из слов.
+import { tx, loadDict, localize } from './i18n.js';
 import { shuffle, pick, deText } from './ui.js';
 import { strength, isLearned } from './srs.js';
 import { hasArt } from './art.js';
@@ -9,8 +10,8 @@ const wordIndex = new Map(); // id -> слово (с полем topic)
 
 export async function loadCourse() {
   if (course) return course;
-  const r = await fetch('content/course.json');
-  course = await r.json();
+  const [r] = await Promise.all([fetch('content/course.json'), loadDict()]);
+  course = localize(await r.json());
   return course;
 }
 
@@ -23,7 +24,7 @@ export async function loadTopic(id) {
   const meta = allTopics().find(t => t.id === id);
   if (!meta || !meta.file) return null;
   const r = await fetch(`content/${meta.file}`);
-  const data = await r.json();
+  const data = localize(await r.json());
   data.meta = meta;
   for (const w of data.words) wordIndex.set(w.id, { ...w, topic: id });
   data.lessons.forEach((l, i) => { l.index = i; l.topic = id; });
@@ -74,15 +75,15 @@ export function genForWord(w, kind) {
   const words = [w.id];
   if (k === 'pickDe') {
     const { opts, answer } = choiceSet(w, withArt);
-    return { type: 'pick', kicker: 'Выберите перевод', q: `Как по-немецки «${w.ru}»?`, options: opts.map(o => ({ de: deText(o), img: withArt ? o.img : null, say: o.de })), answer, words, auto: true };
+    return { type: 'pick', kicker: tx('Выберите перевод'), q: tx`Как по-немецки «${w.ru}»?`, options: opts.map(o => ({ de: deText(o), img: withArt ? o.img : null, say: o.de })), answer, words, auto: true };
   }
   if (k === 'pickImg') {
     const { opts, answer } = choiceSet(w, false);
-    return { type: 'pick', kicker: 'Угадай по картинке', q: 'Что на картинке?', img: w.img, options: opts.map(o => ({ de: deText(o), say: o.de })), answer, words, auto: true };
+    return { type: 'pick', kicker: tx('Угадай по картинке'), q: tx('Что на картинке?'), img: w.img, options: opts.map(o => ({ de: deText(o), say: o.de })), answer, words, auto: true };
   }
   if (k === 'listenImg') {
     const { opts, answer } = choiceSet(w, true);
-    return { type: 'pick', kicker: 'Услышь и выбери', q: 'Что вы слышите?', audio: w.de, options: opts.map(o => ({ ru: o.ru, img: o.img })), answer, words, auto: true };
+    return { type: 'pick', kicker: tx('Услышь и выбери'), q: tx('Что вы слышите?'), audio: w.de, options: opts.map(o => ({ ru: o.ru, img: o.img })), answer, words, auto: true };
   }
   if (k === 'listenText') {
     const { opts, answer } = choiceSet(w, false);
@@ -90,10 +91,10 @@ export function genForWord(w, kind) {
   }
   if (k === 'pickRu') {
     const { opts, answer } = choiceSet(w, false);
-    return { type: 'pick', kicker: 'Что это значит?', q: deText(w), audio: w.de, options: opts.map(o => ({ ru: o.ru })), answer, words, auto: true };
+    return { type: 'pick', kicker: tx('Что это значит?'), q: deText(w), audio: w.de, options: opts.map(o => ({ ru: o.ru })), answer, words, auto: true };
   }
   if (k === 'writeDe') {
-    return { type: 'write', ru: w.ru, accept: [deText(w), w.de, ...(w.accept || [])], hint: w.art ? 'Не забудьте артикль' : '', words, auto: true };
+    return { type: 'write', ru: w.ru, accept: [deText(w), w.de, ...(w.accept || [])], hint: w.art ? tx('Не забудьте артикль') : '', words, auto: true };
   }
   return { type: 'dictation', de: w.de, accept: [w.de, ...(w.accept || [])], words, auto: true };
 }

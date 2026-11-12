@@ -4,6 +4,7 @@
 // потом уроки курса блоками по 3: в блоке 4 вопроса, блок сдан при 3 верных.
 // Первый несданный блок останавливает тест. Всё, что до него, отмечается «Знаком»,
 // а слова этих уроков уходят в интервальное повторение.
+import { tx, lang, setLang, LANGS } from './i18n.js';
 import { h, icon, shuffle, pick, go } from './ui.js';
 import { mascotSVG } from './mascot.js';
 import { get, save, today, completeLesson, completeReading } from './store.js';
@@ -27,6 +28,12 @@ export function needsOnboarding() {
 }
 
 // ---------- Первый экран ----------
+// Переключатель языка объяснений: Русский / O'zbekcha.
+export function langPicker() {
+  return h('div', { class: 'langs', role: 'group', 'aria-label': tx('Язык / Til') }, LANGS.map(l =>
+    h('button', { type: 'button', class: `langs__b ${l.id === lang() ? 'is-on' : ''}`, 'aria-pressed': String(l.id === lang()), onclick: () => setLang(l.id) }, l.name)));
+}
+
 export function welcomeScreen() {
   const app = document.getElementById('app');
   app.innerHTML = '';
@@ -39,17 +46,18 @@ export function welcomeScreen() {
     return b;
   };
   app.append(h('div', { class: 'screen screen--bare welcome' },
+    langPicker(),
     h('div', { class: 'welcome__m', html: mascotSVG('wave') }),
-    h('h1', { class: 'welcome__t', text: 'Привет! Я Брецель' }),
-    h('div', { class: 'welcome__s', text: 'Помогу выучить немецкий с нуля до уровня A2 и подготовиться к экзамену Goethe. С чего начнём?' }),
+    h('h1', { class: 'welcome__t', text: tx('Привет! Я Брецель') }),
+    h('div', { class: 'welcome__s', text: tx('Помогу выучить немецкий с нуля до уровня A2 и подготовиться к экзамену Goethe. С чего начнём?') }),
     h('div', { class: 'stack' },
-      choice('sprout', 'Я начинаю с нуля', 'Ничего не знаю по-немецки. Начнём с первого урока и правил чтения.', () => {
+      choice('sprout', tx('Я начинаю с нуля'), tx('Ничего не знаю по-немецки. Начнём с первого урока и правил чтения.'), () => {
         get().onboarding = { mode: 'beginner', date: today() };
         save();
         go('#/');
       }, 'choice--new'),
-      choice('target', 'Я уже немного знаю', 'Входной тест на 5–8 минут найдёт ваш уровень, и курс пропустит то, что вы уже знаете.', () => go('#/placement'))),
-    h('div', { class: 'small muted center', style: { marginTop: '16px' }, text: 'Пройти входной тест можно и позже — в профиле.' })));
+      choice('target', tx('Я уже немного знаю'), tx('Входной тест на 5–8 минут найдёт ваш уровень, и курс пропустит то, что вы уже знаете.'), () => go('#/placement'))),
+    h('div', { class: 'small muted center', style: { marginTop: '16px' }, text: tx('Пройти входной тест можно и позже — в профиле.') })));
   window.scrollTo(0, 0);
 }
 
@@ -87,10 +95,10 @@ export async function placementTest() {
   const maxQ = readQs.length + chunkQs.reduce((a, q) => a + q.length, 0);
 
   const steps = [
-    { kind: 'intro', kicker: 'Входной тест', title: 'Найдём ваш уровень', goal: `До ${maxQ} вопросов, 5–8 минут. Вопросы идут от простого к сложному, тест закончится сам, когда станет трудно.`, note: 'Ответы не показываются сразу. Не знаете — нажмите «Не знаю»: угадывание сделает результат неточным.', button: 'Начать' },
-    { kind: 'section', badge: 'Часть 1', title: 'Чтение', text: `Как читается слово? ${readQs.length} вопросов.`, mood: 'idle', button: 'Начать' },
+    { kind: 'intro', kicker: tx('Входной тест'), title: tx('Найдём ваш уровень'), goal: tx`До ${maxQ} вопросов, 5–8 минут. Вопросы идут от простого к сложному, тест закончится сам, когда станет трудно.`, note: tx('Ответы не показываются сразу. Не знаете — нажмите «Не знаю»: угадывание сделает результат неточным.'), button: tx('Начать') },
+    { kind: 'section', badge: tx('Часть 1'), title: tx('Чтение'), text: tx`Как читается слово? ${readQs.length} вопросов.`, mood: 'idle', button: tx('Начать') },
     ...readQs.map((ex, i) => ({ kind: 'ex', ex, part: 'read', key: `place:read:${i}` })),
-    { kind: 'section', badge: 'Часть 2', title: 'Слова и фразы', text: 'Вопросы по урокам курса, по порядку.', mood: 'idle', button: 'Дальше' }
+    { kind: 'section', badge: tx('Часть 2'), title: tx('Слова и фразы'), text: tx('Вопросы по урокам курса, по порядку.'), mood: 'idle', button: tx('Дальше') }
   ];
   chunkQs.forEach((qs, c) => {
     qs.forEach((ex, i) => steps.push({ kind: 'ex', ex, part: `c${c}`, key: `place:c${c}:${i}` }));
@@ -119,7 +127,7 @@ function applyResult(body, res, { rules, chunks, chunkQs, lessons, readN }) {
   save();
 
   const next = lessons[placed.length];
-  const title = !placed.length ? (readingOk ? 'Читать вы умеете!' : 'Начнём с самого начала') : placed.length === lessons.length ? 'Все готовые уроки уже знакомы!' : `Вы знаете уроки 1–${placed.length}`;
+  const title = !placed.length ? (readingOk ? tx('Читать вы умеете!') : tx('Начнём с самого начала')) : placed.length === lessons.length ? tx('Все готовые уроки уже знакомы!') : tx`Вы знаете уроки 1–${placed.length}`;
   const row = (ok, t, s) => h('div', { class: `place-row ${ok ? 'is-ok' : ''}` },
     h('span', { class: 'place-row__ic', html: icon(ok ? 'check' : 'arrow') }),
     h('div', {}, h('div', { class: 'de', text: t }), h('div', { class: 'small muted', text: s })));
@@ -127,9 +135,9 @@ function applyResult(body, res, { rules, chunks, chunkQs, lessons, readN }) {
     h('div', { html: mascotSVG('happy') }),
     h('h1', { style: { fontSize: '28px' }, text: title }),
     h('div', { class: 'card stack' },
-      row(readingOk, `Чтение: ${readRight} из ${readN}`, readingOk ? 'Правила чтения отмечены «Знаком». Раздел «Чтение» можно пройти для закрепления.' : 'Начните с раздела «Чтение»: 24 коротких правила.'),
-      row(placed.length > 0, `Уроки: ${placed.length} из ${lessons.length} уже знакомы`,
-        placed.length ? `Они отмечены «Знаком». ${words} слов добавлено в повторение — курс будет иногда их спрашивать.` : 'Курс начнётся с первого урока.'),
-      next ? row(false, `Начните с урока ${next.index + 1}: ${next.lesson.title}`, `Тема ${next.topic.meta.n} · ${next.topic.meta.title}`) : null)));
+      row(readingOk, tx`Чтение: ${readRight} из ${readN}`, readingOk ? tx('Правила чтения отмечены «Знаком». Раздел «Чтение» можно пройти для закрепления.') : tx('Начните с раздела «Чтение»: 24 коротких правила.')),
+      row(placed.length > 0, tx`Уроки: ${placed.length} из ${lessons.length} уже знакомы`,
+        placed.length ? tx`Они отмечены «Знаком». ${words} слов добавлено в повторение — курс будет иногда их спрашивать.` : tx('Курс начнётся с первого урока.')),
+      next ? row(false, tx`Начните с урока ${next.index + 1}: ${next.lesson.title}`, tx`Тема ${next.topic.meta.n} · ${next.topic.meta.title}`) : null)));
   return { readRight, lessons: placed.length };
 }

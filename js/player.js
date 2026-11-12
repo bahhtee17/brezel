@@ -1,5 +1,6 @@
 // Проигрыватель урока: шаги (вступление, сценка, новые слова, упражнения, босс, итог),
 // проверка ответов, комбо, опыт, интервальное повторение и тетрадь ошибок.
+import { tx, isNative } from './i18n.js';
 import { h, esc, icon, soundBtn, deWord, pick, toast } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
 import { art, scene as sceneArt, avatar, charName } from './art.js';
@@ -12,12 +13,12 @@ import { videoCard } from './video.js';
 import { playMove, celebrate, closeParty, confetti, preloadMoves } from './moves.js';
 
 let activeCleanup = null;
-const PRAISE = ['Отлично!', 'Супер!', 'Так держать!', 'Wunderbar!', 'Prima!', 'Верно!', 'Sehr gut!', 'Klasse!'];
-const OOPS = ['Почти!', 'Не совсем', 'Ошибка — не страшно', 'Ещё разок'];
+const PRAISE = [tx('Отлично!'), tx('Супер!'), tx('Так держать!'), 'Wunderbar!', 'Prima!', tx('Верно!'), 'Sehr gut!', 'Klasse!'];
+const OOPS = [tx('Почти!'), tx('Не совсем'), tx('Ошибка — не страшно'), tx('Ещё разок')];
 // Серия верных ответов подряд -> анимация маскота с конфетти.
 const COMBO_MOVE = { 3: 'thumbs', 5: 'cheer', 7: 'dance', 10: 'hero' };
 const COMBO_NEXT = { 3: 'cheer', 5: 'dance', 7: 'hero' };
-const days = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'день' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'дня' : 'дней'}`;
+const days = n => `${n} ${n % 10 === 1 && n % 100 !== 11 ? tx('день') : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? tx('дня') : tx('дней')}`;
 
 // opts.onAnswer(step, ok, { hinted, skipped }) — после каждого ответа (для проверок освоения и входного теста).
 // opts.allowSkip — кнопка «Не знаю» (входной тест). Подсказки есть везде, кроме экзаменов.
@@ -36,18 +37,18 @@ export function runPlayer(opts) {
 
   const bar = h('div', { class: 'progress__bar', style: { width: '0%' } });
   const comboEl = h('div', { class: 'combo' });
-  const closeBtn = h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Выйти', html: icon('close') });
+  const closeBtn = h('button', { class: 'icon-btn', type: 'button', 'aria-label': tx('Выйти'), html: icon('close') });
   const head = h('div', { class: 'lesson__head' }, closeBtn, h('div', { class: 'progress' }, bar), comboEl);
   const body = h('div', { class: 'lesson__body' });
-  const mainBtn = h('button', { class: 'btn', type: 'button' }, 'Проверить');
-  const skipBtn = h('button', { class: 'btn btn--link skip-btn', type: 'button' }, 'Не знаю');
+  const mainBtn = h('button', { class: 'btn', type: 'button' }, tx('Проверить'));
+  const skipBtn = h('button', { class: 'btn btn--link skip-btn', type: 'button' }, tx('Не знаю'));
   const foot = h('div', { class: 'lesson__foot' }, mainBtn, allowSkip ? skipBtn : null);
   const root = h('div', { class: 'lesson' }, head, body, foot);
 
   const fbTitle = h('div', { class: 'feedback__title' });
   const fbText = h('div', { class: 'feedback__text' });
   const fbMascot = h('div', { html: mascotSVG('idle') });
-  const fbBtn = h('button', { class: 'btn btn--ok', type: 'button' }, 'Дальше');
+  const fbBtn = h('button', { class: 'btn btn--ok', type: 'button' }, tx('Дальше'));
   const fbSay = h('span');
   const fbWhy = h('div', { class: 'why' });
   const feedback = h('div', { class: 'feedback', role: 'status' },
@@ -55,7 +56,7 @@ export function runPlayer(opts) {
   app.append(root, feedback);
 
   closeBtn.addEventListener('click', () => {
-    if (idx >= steps.length - 1 || confirm('Выйти? Прогресс этого урока не сохранится.')) { cleanup(); stop(); onExit?.(); }
+    if (idx >= steps.length - 1 || confirm(tx('Выйти? Прогресс этого урока не сохранится.'))) { cleanup(); stop(); onExit?.(); }
   });
 
   const onKey = e => {
@@ -126,10 +127,10 @@ export function runPlayer(opts) {
       h('h1', { style: { fontSize: '30px' }, text: s.title }),
       s.goal ? h('div', { class: 'task-sub', text: s.goal }) : null,
       s.note ? h('div', { class: 'scene-note', text: s.note }) : null,
-      s.video ? videoCard(s.video, `Урок «${s.title}»`) : null));
+      s.video ? videoCard(s.video, tx`Урок «${s.title}»`) : null));
     playMove(body.firstChild.firstChild, 'wave', { then: 'idle' });
     preloadMoves('thumbs', 'trophy');
-    setMain(s.button || 'Начать');
+    setMain(s.button || tx('Начать'));
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
 
@@ -139,7 +140,7 @@ export function runPlayer(opts) {
       s.badge ? h('div', {}, h('span', { class: 'part-badge', text: s.badge })) : null,
       h('h2', { style: { fontSize: '26px' }, text: s.title }),
       s.text ? h('div', { class: 'task-sub', html: s.text }) : null));
-    setMain(s.button || 'Дальше', { cls: s.boss ? 'btn--bad' : '' });
+    setMain(s.button || tx('Дальше'), { cls: s.boss ? 'btn--bad' : '' });
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
 
@@ -149,7 +150,7 @@ export function runPlayer(opts) {
     if (sc.art) body.append(h('div', { class: 'scene-art', html: sceneArt(sc.art) }));
     if (sc.setting) body.append(h('div', { class: 'scene-note', text: sc.setting }));
     const chat = h('div', { class: 'chat' });
-    body.append(chat, h('div', { class: 'small muted center', text: 'Нажмите на реплику — перевод и повтор' }));
+    body.append(chat, h('div', { class: 'small muted center', text: tx('Нажмите на реплику — перевод и повтор') }));
     const words = (s.highlight || []).filter(Boolean).sort((a, b) => b.length - a.length);
     const mark = text => {
       let out = esc(text);
@@ -173,7 +174,7 @@ export function runPlayer(opts) {
       shown++;
     };
     addLine();
-    const update = () => setMain(shown < sc.lines.length ? 'Дальше' : 'Продолжить', { cls: shown < sc.lines.length ? 'btn--sky' : '' });
+    const update = () => setMain(shown < sc.lines.length ? tx('Дальше') : tx('Продолжить'), { cls: shown < sc.lines.length ? 'btn--sky' : '' });
     update();
     mainBtn.onclick = () => {
       if (shown < sc.lines.length) { addLine(); update(); }
@@ -188,25 +189,25 @@ export function runPlayer(opts) {
     const card = h('div', { class: 'card word-card' },
       h('div', { html: art(w.img, '', { anim: true }) }),
       h('div', { class: 'word-card__de', html: deWord(w) }),
-      w.plural ? h('div', { class: 'small muted', text: `мн. ч.: ${w.plural}` }) : null,
+      w.plural ? h('div', { class: 'small muted', text: tx`мн. ч.: ${w.plural}` }) : null,
       h('div', { class: 'word-card__ru', text: w.ru }),
       h('div', { class: 'listen-box' }, soundBtn(() => say(w.art ? `${w.art} ${w.de}` : w.de)), soundBtn(() => say(w.art ? `${w.art} ${w.de}` : w.de, { slow: true }), { slow: true })),
       w.note ? h('div', {}, h('span', { class: 'word-card__note', text: w.note })) : null,
       w.ex ? h('div', { class: 'word-card__ex' },
         h('div', { class: 'ex-item', style: { justifyContent: 'center' } }, soundBtn(() => say(w.ex.de), { mini: true }), h('div', { style: { textAlign: 'left' } }, h('div', { class: 'de', text: w.ex.de }), h('div', { class: 'small muted', text: w.ex.ru })))) : null);
-    body.append(h('div', { class: 'task-kicker center', text: `Новое слово · ${s.i + 1} из ${s.n}` }), card,
+    body.append(h('div', { class: 'task-kicker center', text: tx`Новое слово · ${s.i + 1} из ${s.n}` }), card,
       h('div', { class: 'dots' }, Array.from({ length: s.n }, (_, k) => h('i', { class: k === s.i ? 'on' : '' }))));
     setTimeout(() => say(w.art ? `${w.art} ${w.de}` : w.de), 300);
-    setMain(s.i + 1 < s.n ? 'Дальше' : 'К заданиям');
+    setMain(s.i + 1 < s.n ? tx('Дальше') : tx('К заданиям'));
     mainBtn.onclick = () => next();
   }
 
   // ---------- Упражнение ----------
   function showEx(s) {
     const ex = s.ex;
-    const tagText = { warmup: 'Разминка · повторение', review: 'Повторение', boss: 'Мини-босс' }[s.tag];
+    const tagText = { warmup: tx('Разминка · повторение'), review: tx('Повторение'), boss: tx('Мини-босс') }[s.tag];
     if (tagText && ex.type !== 'info') body.append(h('div', { class: `task-kicker ${s.tag === 'boss' ? 'task-kicker--boss' : 'task-kicker--review'}`, html: `${s.tag === 'boss' ? icon('boss').replace('<svg', '<svg style="width:16px;height:16px;display:inline;vertical-align:-2px"') : ''} ${tagText}` }));
-    if (s.retry) body.append(h('div', { class: 'task-kicker task-kicker--review', text: 'Ещё раз: здесь была ошибка' }));
+    if (s.retry) body.append(h('div', { class: 'task-kicker task-kicker--review', text: tx('Ещё раз: здесь была ошибка') }));
     const host = h('div', { class: 'stack stack--lg' });
     body.append(host);
     canCheck = false;
@@ -218,22 +219,22 @@ export function runPlayer(opts) {
     hinted = false;
     ctl = mountExercise(ex.boss ? ex : { ...ex, boss: s.tag === 'boss' }, host, api);
     if (ctl.selfComplete) { foot.style.display = 'none'; return; }
-    if (ctl.info) { setMain('Понятно'); mainBtn.onclick = () => next(); skipBtn.style.display = 'none'; return; }
+    if (ctl.info) { setMain(tx('Понятно')); mainBtn.onclick = () => next(); skipBtn.style.display = 'none'; return; }
     // Подсказка, как в Khan Academy: помогает, но ответ с ней засчитывается только наполовину и без опыта.
     if (ctl.hint && !exam) {
-      const hintBtn = h('button', { class: 'hint-btn', type: 'button', html: `${icon('bulb')}<span>Подсказка</span>` });
+      const hintBtn = h('button', { class: 'hint-btn', type: 'button', html: tx`${icon('bulb')}<span>Подсказка</span>` });
       hintBtn.addEventListener('click', () => {
         if (phase !== 'answer' || hinted) return;
         const r = ctl.hint();
-        if (r === false) { hintBtn.disabled = true; hintBtn.lastChild.textContent = 'Подсказки нет'; return; }
+        if (r === false) { hintBtn.disabled = true; hintBtn.lastChild.textContent = tx('Подсказки нет'); return; }
         hinted = true;
         hintBtn.disabled = true;
-        hintBtn.lastChild.textContent = 'Подсказка взята';
+        hintBtn.lastChild.textContent = tx('Подсказка взята');
         if (typeof r === 'string') host.append(h('div', { class: 'hint-note', html: r }));
       });
       host.append(h('div', { class: 'hint-row' }, hintBtn));
     }
-    setMain(exam ? 'Ответить' : 'Проверить', { enabled: canCheck });
+    setMain(exam ? tx('Ответить') : tx('Проверить'), { enabled: canCheck });
     mainBtn.onclick = () => {
       if (!canCheck) return;
       finishEx(s, ctl.check());
@@ -254,7 +255,7 @@ export function runPlayer(opts) {
       if (ok) mistakeCorrect('word', id);
     });
     if (s.mistakeKey) {
-      if (ok) { if (mistakeCorrect(s.mistakeKey.kind, s.mistakeKey.ref)) toast('Ошибка исправлена навсегда — убрана из тетради!'); }
+      if (ok) { if (mistakeCorrect(s.mistakeKey.kind, s.mistakeKey.ref)) toast(tx('Ошибка исправлена навсегда — убрана из тетради!')); }
       else mistakeWrong(s.mistakeKey.kind, s.mistakeKey.ref);
     } else if (!ok && !ex.auto && ex.type !== 'pairs' && ex.type !== 'speakCard' && mode !== 'placement') {
       addMistake('ex', s.key || `${opts.lessonId || mode}:${idx}`, ex);
@@ -281,7 +282,7 @@ export function runPlayer(opts) {
       if (combo >= 3) xp += 1;
       if (res.bonus) xp += res.bonus;
       sfx(COMBO_MOVE[combo] ? 'combo' : 'ok');
-      if (COMBO_MOVE[combo]) celebrate(COMBO_MOVE[combo], { text: `Комбо ×${combo}!`, count: 50 + combo * 8 });
+      if (COMBO_MOVE[combo]) celebrate(COMBO_MOVE[combo], { text: tx`Комбо ×${combo}!`, count: 50 + combo * 8 });
       if (COMBO_NEXT[combo]) preloadMoves(COMBO_NEXT[combo]);
     } else {
       combo = 0;
@@ -294,26 +295,26 @@ export function runPlayer(opts) {
         steps.splice(outroAt >= 0 ? outroAt : steps.length, 0, { ...s, retry: true, key });
       }
     }
-    comboEl.textContent = combo >= 3 ? `Комбо ×${combo}` : '';
+    comboEl.textContent = combo >= 3 ? tx`Комбо ×${combo}` : '';
     comboEl.classList.toggle('is-on', combo >= 3);
     if (combo >= 3) { comboEl.classList.remove('is-pop'); void comboEl.offsetWidth; comboEl.classList.add('is-pop'); }
 
     feedback.classList.toggle('feedback--bad', !ok);
-    fbTitle.textContent = ok ? (res.bonus ? `${pick(PRAISE)} +${res.bonus} бонус` : pick(PRAISE)) : pick(OOPS);
+    fbTitle.textContent = ok ? (res.bonus ? tx`${pick(PRAISE)} +${res.bonus} бонус` : pick(PRAISE)) : pick(OOPS);
     const parts = [];
-    if (!ok && res.correct) parts.push(`Правильно: <b>${esc(res.correct)}</b>`);
+    if (!ok && res.correct) parts.push(tx`Правильно: <b>${esc(res.correct)}</b>`);
     if (res.note) parts.push(esc(res.note));
-    if (ok && hinted) parts.push('С подсказкой: засчитано наполовину, без опыта.');
-    else if (ok && combo >= 3) parts.push(`Комбо ×${combo}: +1 опыт за ответ`);
-    fbText.innerHTML = parts.join('<br>') || (ok ? 'Так держать!' : '');
+    if (ok && hinted) parts.push(tx('С подсказкой: засчитано наполовину, без опыта.'));
+    else if (ok && combo >= 3) parts.push(tx`Комбо ×${combo}: +1 опыт за ответ`);
+    fbText.innerHTML = parts.join('<br>') || (ok ? tx('Так держать!') : '');
     renderWhy(s, res, ok);
     fbSay.innerHTML = '';
     if (res.sayAfter || (ok ? null : res.correct)) {
       const t = res.sayAfter || res.correct;
-      if (!/[а-яё]/i.test(t)) fbSay.append(soundBtn(() => say(t), { mini: true }));
+      if (!isNative(t)) fbSay.append(soundBtn(() => say(t), { mini: true }));
     }
     fbBtn.className = `btn ${ok ? 'btn--ok' : 'btn--bad'}`;
-    fbBtn.textContent = ok ? 'Дальше' : 'Понятно';
+    fbBtn.textContent = ok ? tx('Дальше') : tx('Понятно');
     feedback.classList.add('is-open');
     fbMascot._move = null;
     fbMascot.classList.remove('move-host');
@@ -339,20 +340,20 @@ export function runPlayer(opts) {
       h('div', { class: 'why__pic', html: art(w.img) }),
       h('div', { class: 'why__wt' }, h('div', { class: 'de', html: deWord(w) }), h('div', { class: 'small muted', text: w.note ? `${w.ru} · ${w.note}` : w.ru })))));
     if (s.rule) {
-      box.push(h('button', { class: 'why__rule-btn', type: 'button', html: `${icon('grammar')}<span>Правило: ${esc(s.rule.title)}</span>`, onclick: () => openRule(s.rule) }));
+      box.push(h('button', { class: 'why__rule-btn', type: 'button', html: tx`${icon('grammar')}<span>Правило: ${esc(s.rule.title)}</span>`, onclick: () => openRule(s.rule) }));
     }
     if (!box.length) return;
-    fbWhy.append(h('div', { class: 'why__title', text: 'Почему так' }), ...box);
+    fbWhy.append(h('div', { class: 'why__title', text: tx('Почему так') }), ...box);
   }
 
   // Правило урока поверх задания — без выхода из урока.
   function openRule(info) {
     const host = h('div', { class: 'stack' });
-    const sheet = h('div', { class: 'sheet', role: 'dialog', 'aria-label': info.title || 'Правило' },
+    const sheet = h('div', { class: 'sheet', role: 'dialog', 'aria-label': info.title || tx('Правило') },
       h('div', { class: 'sheet__card' },
-        h('div', { class: 'sheet__bar' }, h('button', { class: 'icon-btn sheet__close', type: 'button', 'aria-label': 'Закрыть', html: icon('close') })),
+        h('div', { class: 'sheet__bar' }, h('button', { class: 'icon-btn sheet__close', type: 'button', 'aria-label': tx('Закрыть'), html: icon('close') })),
         host));
-    mountExercise({ ...info, kicker: 'Правило урока' }, host, { ready() {}, complete() {} });
+    mountExercise({ ...info, kicker: tx('Правило урока') }, host, { ready() {}, complete() {} });
     sheet.addEventListener('click', e => { if (e.target === sheet || e.target.closest('.sheet__close')) sheet.remove(); });
     document.body.append(sheet);
   }
@@ -385,19 +386,19 @@ export function runPlayer(opts) {
       const hero = h('div', { html: mascotSVG('happy') });
       const flame = total && streakNow > streakWas ? h('div', { class: 'streak-card' },
         h('div', { class: 'streak-card__m', html: mascotSVG('happy') }),
-        h('div', {}, h('div', { class: 'streak-card__n', text: `Серия: ${days(streakNow)}` }),
-          h('div', { class: 'small muted', text: streakNow > 1 ? 'Вы занимаетесь каждый день — так и учат язык' : 'Заходите завтра — серия вырастет' }))) : null;
+        h('div', {}, h('div', { class: 'streak-card__n', text: tx`Серия: ${days(streakNow)}` }),
+          h('div', { class: 'small muted', text: streakNow > 1 ? tx('Вы занимаетесь каждый день — так и учат язык') : tx('Заходите завтра — серия вырастет') }))) : null;
       body.append(h('div', { class: 'stack stack--lg result', style: { margin: 'auto 0' } },
         hero,
-        h('h1', { style: { fontSize: '28px' }, text: title || 'Готово!' }),
+        h('h1', { style: { fontSize: '28px' }, text: title || tx('Готово!') }),
         s.sub ? h('div', { class: 'task-sub', text: s.sub }) : null,
         h('div', { class: 'stats' },
-          h('div', { class: 'stat stat--xp' }, h('div', { class: 'stat__k', text: 'Опыт' }), h('div', { class: 'stat__v', text: `+${total}` })),
-          h('div', { class: 'stat stat--acc' }, h('div', { class: 'stat__k', text: 'Точность' }), h('div', { class: 'stat__v', text: `${acc}%` })),
-          h('div', { class: 'stat stat--combo' }, h('div', { class: 'stat__k', text: 'Комбо' }), h('div', { class: 'stat__v', text: `×${maxCombo}` }))),
+          h('div', { class: 'stat stat--xp' }, h('div', { class: 'stat__k', text: tx('Опыт') }), h('div', { class: 'stat__v', text: `+${total}` })),
+          h('div', { class: 'stat stat--acc' }, h('div', { class: 'stat__k', text: tx('Точность') }), h('div', { class: 'stat__v', text: `${acc}%` })),
+          h('div', { class: 'stat stat--combo' }, h('div', { class: 'stat__k', text: tx('Комбо') }), h('div', { class: 'stat__v', text: `×${maxCombo}` }))),
         flame,
         s.extra ? s.extra(summary, fin) : null,
-        s.teaser ? h('div', { class: 'teaser', html: `<b>Что дальше?</b> ${esc(s.teaser)}` }) : null));
+        s.teaser ? h('div', { class: 'teaser', html: tx`<b>Что дальше?</b> ${esc(s.teaser)}` }) : null));
       setTimeout(() => setMood(body, 'happy', 'idle', 2000), 50);
       playMove(hero, acc >= 60 ? 'trophy' : 'comfort');
       if (flame) playMove(flame.firstChild, 'flame');
@@ -407,12 +408,12 @@ export function runPlayer(opts) {
     if (s.nextLabel && s.onNext) {
       foot.innerHTML = '';
       const nextB = h('button', { class: 'btn btn--ok', type: 'button' }, s.nextLabel);
-      const homeB = h('button', { class: 'btn btn--ghost', type: 'button' }, s.homeLabel || 'На карту');
+      const homeB = h('button', { class: 'btn btn--ghost', type: 'button' }, s.homeLabel || tx('На карту'));
       foot.append(h('div', { class: 'stack' }, nextB, homeB));
       nextB.onclick = () => { cleanup(); s.onNext(); };
       homeB.onclick = () => { cleanup(); onExit?.(); };
     } else {
-      setMain('Продолжить', { cls: 'btn--ok' });
+      setMain(tx('Продолжить'), { cls: 'btn--ok' });
       mainBtn.onclick = () => { cleanup(); onExit?.(); };
     }
   }
@@ -436,12 +437,12 @@ export function runPlayer(opts) {
     if (passed) confetti({ count: 140 });
     body.append(h('div', { class: 'stack stack--lg result', style: { margin: 'auto 0' } },
       hero,
-      h('h1', { style: { fontSize: '28px' }, text: passed ? 'Тест сдан!' : 'Пока не сдан' }),
-      h('div', { class: 'task-sub', text: `${scaled} из 100 баллов. Для сдачи нужно 60 — как на экзамене Goethe.` }),
+      h('h1', { style: { fontSize: '28px' }, text: passed ? tx('Тест сдан!') : tx('Пока не сдан') }),
+      h('div', { class: 'task-sub', text: tx`${scaled} из 100 баллов. Для сдачи нужно 60 — как на экзамене Goethe.` }),
       h('div', { class: 'score-bars card' }, rows.map(r => h('div', {},
         h('div', { class: 'score-bar__top' }, h('span', { text: r.title }), h('span', { text: `${r.pts} / ${r.max || 25}` })),
         h('div', { class: 'score-bar__track' }, h('div', { class: 'score-bar__fill', style: { width: `${(r.pts / (r.max || 25)) * 100}%`, background: r.pts / (r.max || 25) >= 0.6 ? 'var(--ok)' : 'var(--bad)' } }))))),
-      h('div', { class: 'teaser', html: passed ? '<b>Отлично!</b> Тема закрыта. Ошибки из теста можно повторить в разделе «Ошибки».' : '<b>Совет:</b> повторите уроки темы и слова в разделе «Слова», потом попробуйте ещё раз.' })));
+      h('div', { class: 'teaser', html: passed ? tx('<b>Отлично!</b> Тема закрыта. Ошибки из теста можно повторить в разделе «Ошибки».') : tx('<b>Совет:</b> повторите уроки темы и слова в разделе «Слова», потом попробуйте ещё раз.') })));
     return { score: scaled, passed, rows };
   }
 
@@ -455,8 +456,8 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
   const newWords = (lesson.newWords || []).map(id => wordsById[id]).filter(Boolean);
   const steps = [];
   steps.push({
-    kind: 'intro', kicker: `Тема ${topic.meta.n} · Урок ${lesson.index + 1}`, title: lesson.title, goal: lesson.goal, video: lesson.video,
-    note: warmup.length ? `Сначала разминка: ${warmup.length} ${warmup.length === 1 ? 'слово' : 'слова'} из прошлых уроков.` : (lesson.index === 0 ? 'Это ваш первый урок. Разминки пока нет — сразу к делу!' : '')
+    kind: 'intro', kicker: tx`Тема ${topic.meta.n} · Урок ${lesson.index + 1}`, title: lesson.title, goal: lesson.goal, video: lesson.video,
+    note: warmup.length ? tx`Сначала разминка: ${warmup.length} ${warmup.length === 1 ? tx('слово') : tx('слова')} из прошлых уроков.` : (lesson.index === 0 ? tx('Это ваш первый урок. Разминки пока нет — сразу к делу!') : '')
   });
   warmup.forEach((ex, i) => steps.push({ kind: 'ex', ex, tag: 'warmup', key: `w${i}` }));
   if (lesson.scene) steps.push({ kind: 'scene', scene: lesson.scene, highlight: newWords.map(w => w.de.replace(/[!?.…]+$/, '')) });
@@ -481,12 +482,12 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
   mixed.forEach(x => steps.push({ kind: 'ex', ex: x.ex, key: x.key, tag: x.tag, rule: x.ex.type === 'info' || x.tag === 'review' ? null : ruleInfo }));
 
   if (lesson.boss && lesson.boss.turns?.length) {
-    steps.push({ kind: 'section', boss: true, mood: 'wave', badge: 'Мини-босс', title: lesson.boss.title || 'Мини-босс', text: esc(lesson.boss.intro || ''), button: 'В бой!' });
+    steps.push({ kind: 'section', boss: true, mood: 'wave', badge: tx('Мини-босс'), title: lesson.boss.title || tx('Мини-босс'), text: esc(lesson.boss.intro || ''), button: tx('В бой!') });
     lesson.boss.turns.forEach((t, i) => steps.push({ kind: 'ex', ex: { ...t, boss: true }, tag: 'boss', key: `${lesson.id}:b${i}` }));
   }
   steps.push({
-    kind: 'outro', title: 'Урок пройден!', sub: lesson.title, teaser: lesson.teaser, bonusXP: 10,
-    nextLabel: nextLesson ? 'Следующий урок' : null, onNext: nextLesson || null
+    kind: 'outro', title: tx('Урок пройден!'), sub: lesson.title, teaser: lesson.teaser, bonusXP: 10,
+    nextLabel: nextLesson ? tx('Следующий урок') : null, onNext: nextLesson || null
   });
   return steps;
 }

@@ -1,4 +1,5 @@
 // Мелкие помощники интерфейса: создание элементов, иконки, тосты, всплывающие подсказки.
+import { tx } from './i18n.js';
 
 export function h(tag, attrs = {}, ...kids) {
   const el = document.createElement(tag);
@@ -95,7 +96,7 @@ export function popover(anchor, html) {
 
 export function soundBtn(onPlay, { big = false, slow = false, mini = false, label } = {}) {
   const cls = ['sound-btn', big && 'sound-btn--big', slow && 'sound-btn--slow', mini && 'sound-btn--mini'].filter(Boolean).join(' ');
-  const b = h('button', { class: cls, type: 'button', 'aria-label': label || (slow ? 'Медленно' : 'Послушать'), html: icon(slow ? 'turtle' : 'speaker') });
+  const b = h('button', { class: cls, type: 'button', 'aria-label': label || (slow ? tx('Медленно') : tx('Послушать')), html: icon(slow ? 'turtle' : 'speaker') });
   b.addEventListener('click', async e => {
     e.stopPropagation();
     b.classList.add('is-playing');

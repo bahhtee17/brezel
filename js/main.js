@@ -1,4 +1,5 @@
 // Точка входа: загрузка курса, маршрутизация по #хешу, регистрация service worker.
+import { tx } from './i18n.js';
 import { loadCourse, loadReadyTopics } from './content.js';
 import { initSpeech, stop } from './speech.js';
 import { homeScreen, lessonScreen, wordsScreen, reviewScreen, mistakesScreen, profileScreen, storyScreen, testScreen } from './screens.js';
@@ -42,9 +43,9 @@ async function route() {
     app.innerHTML = '';
     app.append(h('div', { class: 'screen screen--bare empty stack' },
       h('div', { html: mascotSVG('sad') }),
-      h('h2', { text: 'Что-то пошло не так' }),
-      h('div', { class: 'muted', text: 'Проверьте интернет при первом запуске или обновите страницу.' }),
-      h('button', { class: 'btn', type: 'button', onclick: () => { location.hash = '#/'; location.reload(); } }, 'Обновить')));
+      h('h2', { text: tx('Что-то пошло не так') }),
+      h('div', { class: 'muted', text: tx('Проверьте интернет при первом запуске или обновите страницу.') }),
+      h('button', { class: 'btn', type: 'button', onclick: () => { location.hash = '#/'; location.reload(); } }, tx('Обновить'))));
   }
 }
 
@@ -62,7 +63,7 @@ function hideSplash() {
 async function boot() {
   await loadImages();
   autoplayVideos(app);
-  app.append(h('div', { class: 'screen screen--bare empty' }, h('div', { html: mascotSVG('wave') }), h('div', { class: 'muted', text: 'Загружаю уроки…' })));
+  app.append(h('div', { class: 'screen screen--bare empty' }, h('div', { html: mascotSVG('wave') }), h('div', { class: 'muted', text: tx('Загружаю уроки…') })));
   await Promise.all([loadCourse(), initSpeech()]);
   await loadReadyTopics();
   window.addEventListener('hashchange', route);

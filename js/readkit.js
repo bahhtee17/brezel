@@ -1,6 +1,7 @@
 // Общие помощники раздела «Чтение»: данные правил, разбор слова на части, картинка к слову.
 // Используются экраном чтения (reading.js) и заданием «Как читается слово?» (exercises.js).
 import { esc } from './ui.js';
+import { loadDict, localize, latin } from './i18n.js';
 import { art } from './art.js';
 import { hasImg, media } from './img.js';
 
@@ -9,8 +10,15 @@ let rules = [];
 
 export async function loadReading() {
   if (data) return data;
-  const r = await fetch('content/reading.json');
+  const [r] = await Promise.all([fetch('content/reading.json'), loadDict()]);
   data = await r.json();
+  // Звучание (snd, tr, alt) записано русскими буквами: для узбекского — латиницей. Делается до перевода текстов.
+  for (const c of data.chapters) for (const rule of c.rules) {
+    rule.snd = latin(rule.snd);
+    for (const w of rule.words || []) { w.snd = latin(w.snd); w.tr = latin(w.tr); w.alt = (w.alt || []).map(latin); }
+  }
+  delete data._format;
+  localize(data);
   rules = data.chapters.flatMap((c, ci) => c.rules.map(rule => ({ ...rule, chapter: { ...c, n: ci + 1 } })));
   rules.forEach((rule, i) => { rule.n = i + 1; });
   return data;

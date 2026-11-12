@@ -1,5 +1,6 @@
 // Иллюстрации. Основные — нарисованные картинки из img/ (см. js/img.js).
 // Ниже — запасная библиотека SVG: рисуется, если картинки ещё нет.
+import { tx } from './i18n.js';
 import { mascotSVG } from './mascot.js';
 import { hasImg, media } from './img.js';
 
@@ -70,20 +71,20 @@ export function person(o = {}) {
 
 // Сквозные герои курса.
 export const CHARS = {
-  lena: { name: 'Лена', hair: '#E0703A', style: 'long', shirt: OK },
-  tom: { name: 'Том', hair: '#6B3E1E', style: 'short', shirt: SKY },
-  wagner: { name: 'Фрау Вагнер', hair: '#A8A39A', style: 'bun', glasses: true, shirt: '#8A6A4A' },
-  marco: { name: 'Марко', hair: '#2B2018', style: 'curly', shirt: BRAND, skin: '#EDBB8F' },
-  aigerim: { name: 'Айгерим', hair: '#2B2018', style: 'long', shirt: BAD, skin: '#F2C49B' },
-  you: { name: 'Вы', hair: '#8A5A2B', style: 'short', shirt: GOLD },
-  driver: { name: 'Таксист', hair: '#4A3424', style: 'cap', shirt: SKY },
-  passenger: { name: 'Пассажир', hair: '#C9A06A', style: 'short', shirt: OK, glasses: true },
-  man: { name: 'Тимур', hair: '#2B2018', style: 'short', shirt: OK, skin: '#EDBB8F' },
-  woman: { name: 'Анна', hair: '#8A4A12', style: 'long', shirt: SKY },
-  f: { name: 'Женщина', hair: '#8A4A12', style: 'long', shirt: SKY },
-  m: { name: 'Мужчина', hair: '#5A3A22', style: 'short', shirt: '#8A6A4A' },
-  becker: { name: 'Херр Беккер', hair: '#5A3A22', style: 'hat', shirt: '#8A6A4A', tie: true, glasses: true },
-  brezel: { name: 'Брецель' }
+  lena: { name: tx('Лена'), hair: '#E0703A', style: 'long', shirt: OK },
+  tom: { name: tx('Том'), hair: '#6B3E1E', style: 'short', shirt: SKY },
+  wagner: { name: tx('Фрау Вагнер'), hair: '#A8A39A', style: 'bun', glasses: true, shirt: '#8A6A4A' },
+  marco: { name: tx('Марко'), hair: '#2B2018', style: 'curly', shirt: BRAND, skin: '#EDBB8F' },
+  aigerim: { name: tx('Айгерим'), hair: '#2B2018', style: 'long', shirt: BAD, skin: '#F2C49B' },
+  you: { name: tx('Вы'), hair: '#8A5A2B', style: 'short', shirt: GOLD },
+  driver: { name: tx('Таксист'), hair: '#4A3424', style: 'cap', shirt: SKY },
+  passenger: { name: tx('Пассажир'), hair: '#C9A06A', style: 'short', shirt: OK, glasses: true },
+  man: { name: tx('Тимур'), hair: '#2B2018', style: 'short', shirt: OK, skin: '#EDBB8F' },
+  woman: { name: tx('Анна'), hair: '#8A4A12', style: 'long', shirt: SKY },
+  f: { name: tx('Женщина'), hair: '#8A4A12', style: 'long', shirt: SKY },
+  m: { name: tx('Мужчина'), hair: '#5A3A22', style: 'short', shirt: '#8A6A4A' },
+  becker: { name: tx('Херр Беккер'), hair: '#5A3A22', style: 'hat', shirt: '#8A6A4A', tie: true, glasses: true },
+  brezel: { name: tx('Брецель') }
 };
 
 export function charName(who) { return (CHARS[who] && CHARS[who].name) || who; }
@@ -221,7 +222,7 @@ const ART = {
   clock: () => back() + `<circle cx="60" cy="60" r="40" fill="${WHITE}" ${st()}/>${[0, 90, 180, 270].map(a => `<rect x="58" y="24" width="4" height="8" fill="${INK}" transform="rotate(${a} 60 60)"/>`).join('')}<path d="M60,60 L60,40" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><g class="a-spin" style="transform-origin:60px 60px"><path d="M60,60 L84,60" stroke="${BAD}" stroke-width="4" stroke-linecap="round"/></g><circle cx="60" cy="60" r="5" fill="${INK}"/>`,
   book: () => back() + `<path d="M60,34 C48,26 26,26 14,32 L14,96 C26,90 48,90 60,98 Z" fill="${WHITE}" ${st()}/><path d="M60,34 C72,26 94,26 106,32 L106,96 C94,90 72,90 60,98 Z" fill="${WHITE}" ${st()}/><text x="37" y="70" text-anchor="middle" font-size="18" fill="${BAD}" ${FONT}>A</text><text x="83" y="70" text-anchor="middle" font-size="18" fill="${SKY}" ${FONT}>Ä</text><path class="a-twinkle" d="M96,12 l2,6 6,2 -6,2 -2,6 -2,-6 -6,-2 6,-2z" fill="${GOLD}"/>`,
   talk: () => back(SKY_L) + `<path d="M24,108 C24,80 34,70 50,70 L50,62 C36,60 28,48 30,36 C32,20 46,12 60,14 C76,16 84,30 82,44 L88,54 L82,56 L82,64 C82,70 76,72 70,70 L70,108 Z" fill="${SKIN}" ${st()}/><path d="M30,36 C32,20 46,12 60,14 C72,16 80,24 82,34 C70,30 52,32 40,40 Z" fill="#6B3E1E" ${st(2.5)}/><circle cx="70" cy="40" r="3" fill="${INK}"/><ellipse class="a-talk" cx="78" cy="58" rx="4" ry="4" fill="#7A2E1A" ${st(2)}/><path class="a-twinkle" d="M92,48 q6,8 0,16" fill="none" stroke="${SKY}" stroke-width="4" stroke-linecap="round"/><path class="a-twinkle2" d="M100,42 q10,14 0,28" fill="none" stroke="${SKY}" stroke-width="4" stroke-linecap="round"/>`,
-  language: () => back() + speech(8, 14, 62, 40, 'Aa', 24, SKY, '#fff') + speech(50, 58, 62, 40, 'Яя', 24, BRAND, '#fff'),
+  language: () => back() + speech(8, 14, 62, 40, 'Aa', 24, SKY, '#fff') + speech(50, 58, 62, 40, tx('Яя'), 24, BRAND, '#fff'),
   little: () => back() + `<path d="M24,104 C22,80 30,64 44,58 L52,44 C56,38 64,42 62,50 L58,60 C70,62 80,72 80,88 L80,104 Z" fill="${SKIN}" ${st()}/><path d="M52,44 L60,22 C62,16 70,18 68,24 L62,44" fill="${SKIN}" ${st()}/><path d="M64,38 L84,26 C90,22 94,30 88,34 L70,46" fill="${SKIN}" ${st()}/><circle class="a-pulse" cx="78" cy="36" r="3" fill="${BRAND}"/><path class="a-twinkle" d="M96,18 l2,5 5,2 -5,2 -2,5 -2,-5 -5,-2 5,-2z" fill="${GOLD}"/>`,
   plus: () => back() + `<circle cx="28" cy="60" r="18" fill="${SKY}" ${st()}/><circle cx="92" cy="60" r="18" fill="${BAD}" ${st()}/><rect x="54" y="44" width="12" height="32" rx="4" fill="${BRAND}" ${st(2.5)}/><rect x="44" y="54" width="32" height="12" rx="4" fill="${BRAND}" ${st(2.5)}/><rect x="56" y="46" width="8" height="28" rx="3" fill="${BRAND}"/>`,
   also: () => back(SKY_L) + `<g transform="translate(-20 18) scale(.8)">${person({ ...CHARS.lena, arm: 'wave', mood: 'big' })}</g><g transform="translate(42 18) scale(.8)">${person({ ...CHARS.marco, arm: 'wave', mood: 'big' })}</g>`,
