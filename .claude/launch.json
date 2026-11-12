@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["scripts/serve.py", "5173"],
       "port": 5173
+    },
+    {
+      "name": "sync-mock",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/sync-mock.mjs", "5180"],
+      "port": 5180
     }
   ]
 }

@@ -1,6 +1,7 @@
 // Экраны приложения: карта курса, слова, повторение, ошибки, профиль, история, тест, запуск урока.
 import { tx, localize } from './i18n.js';
 import { langPicker } from './placement.js';
+import { syncCard } from './syncui.js';
 import { h, esc, icon, toast, popover, soundBtn, deWord, deText, shuffle, go } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
 import { playMove } from './moves.js';
@@ -357,6 +358,8 @@ export function profileScreen() {
   scr.append(h('div', { class: 'section-title', text: tx('Настройки') }), h('div', { class: 'card' },
     h('div', { class: 'setting' }, h('span', { text: tx('Язык объяснений') }), langPicker()),
     sw('sfx', tx('Звуки ответов')), sw('speak', tx('Задания на говорение')), sw('slow', tx('Медленная озвучка всегда'))));
+  const sync = syncCard();
+  if (sync) scr.append(h('div', { class: 'section-title', text: tx('Синхронизация') }), sync);
   scr.append(h('div', { class: 'section-title', text: tx('Об озвучке') }), h('div', { class: 'card small muted', html: tx('Слова, диалоги и видео-объяснения озвучены живыми голосами: ElevenLabs и <b>OmniVoice</b> (k2-fsa, лицензия CC BY-NC, через VoiceStudio). Рисунки сделаны с помощью Codex, анимация — Remotion. Если для фразы нет записи, её читает голос браузера — лучше всего звучат Chrome и Edge.') }));
   const resetBtn = h('button', { class: 'btn btn--link', type: 'button', style: { margin: '18px auto 0', color: 'var(--bad-dark)' } }, tx('Сбросить весь прогресс'));
   resetBtn.addEventListener('click', () => { if (confirm(tx('Удалить весь прогресс и начать всё сначала? Это нельзя отменить.'))) { reset(); toast(tx('Прогресс сброшен')); go('#/welcome'); } });

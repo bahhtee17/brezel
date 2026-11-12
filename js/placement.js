@@ -13,6 +13,7 @@ import { learn } from './srs.js';
 import { runPlayer } from './player.js';
 import { loadReading, readingRules, readExercise } from './readkit.js';
 import { grantLevel } from './mastery.js';
+import { syncCard } from './syncui.js';
 
 const QUICK = new Set(['pick', 'listen', 'gap', 'reply', 'tiles', 'tf']);
 const CHUNK = 3, PER = 4, NEED = 3, READ_NEED = 5;
@@ -58,6 +59,13 @@ export function welcomeScreen() {
       }, 'choice--new'),
       choice('target', tx('Я уже немного знаю'), tx('Входной тест на 5–8 минут найдёт ваш уровень, и курс пропустит то, что вы уже знаете.'), () => go('#/placement'))),
     h('div', { class: 'small muted center', style: { marginTop: '16px' }, text: tx('Пройти входной тест можно и позже — в профиле.') })));
+  // Уже занимались на другом телефоне: вводим код синхронизации, и прогресс приходит сюда.
+  const sync = syncCard(() => { if (get().onboarding) go('#/'); });
+  if (sync) {
+    sync.hidden = true;
+    const more = h('button', { class: 'btn btn--link', type: 'button', style: { margin: '6px auto 0' }, onclick: () => { sync.hidden = false; more.remove(); sync.scrollIntoView({ block: 'center' }); } }, tx('Я уже занимаюсь на другом телефоне'));
+    app.querySelector('.welcome').append(more, sync);
+  }
   window.scrollTo(0, 0);
 }
 

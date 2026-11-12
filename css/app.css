@@ -915,3 +915,8 @@ textarea.field { min-height: 120px; resize: vertical; line-height: 1.4; }
 .langs__b { border: 0; background: transparent; font: inherit; font-weight: 800; font-size: 14px; color: var(--ink-2); padding: 7px 14px; border-radius: 999px; cursor: pointer; }
 .langs__b.is-on { background: var(--card); color: var(--ink); box-shadow: 0 2px 0 rgba(59, 38, 20, .12); }
 .welcome > .langs { align-self: center; margin: 0 auto 6px; }
+
+/* Синхронизация между телефонами */
+.sync__code { font-weight: 900; font-size: 20px; letter-spacing: 1px; text-align: center; padding: 10px; border-radius: 14px; background: var(--line); user-select: all; word-break: break-all; }
+.sync .btn--link { margin: 0 auto; }
+.welcome > .sync { margin-top: 10px; text-align: left; }

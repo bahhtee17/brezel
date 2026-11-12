@@ -43,6 +43,14 @@ export function save() {
 }
 
 export const get = () => state;
+
+// Прогресс с другого телефона (sync.js): подменяем разделы на месте, чтобы открытые экраны видели то же состояние.
+export function adopt(part) {
+  Object.assign(state, part);
+  clearTimeout(saveT);
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* приватный режим или нет места */ }
+  listeners.forEach(fn => fn(state));
+}
 export const onChange = fn => { listeners.add(fn); return () => listeners.delete(fn); };
 
 export function reset() {

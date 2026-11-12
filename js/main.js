@@ -9,6 +9,7 @@ import { loadImages, autoplayVideos } from './img.js';
 import { readingScreen, ruleScreen } from './reading.js';
 import { welcomeScreen, placementTest, needsOnboarding } from './placement.js';
 import { runMasteryCheck } from './mastery.js';
+import { startSync, onRemoteProgress } from './sync.js';
 
 const app = document.getElementById('app');
 
@@ -66,6 +67,15 @@ async function boot() {
   app.append(h('div', { class: 'screen screen--bare empty' }, h('div', { html: mascotSVG('wave') }), h('div', { class: 'muted', text: tx('Загружаю уроки…') })));
   await Promise.all([loadCourse(), initSpeech()]);
   await loadReadyTopics();
+  // Прогресс с другого телефона: ждём недолго, чтобы без интернета запуск не тормозил.
+  await Promise.race([startSync(), new Promise(r => setTimeout(r, 1500))]);
+  // Если он пришёл позже — обновляем экран, но только списки: урок посреди задания не трогаем.
+  onRemoteProgress(() => {
+    const [name, a] = location.hash.replace(/^#\/?/, '').split('?')[0].split('/');
+    // На первом экране прогресс с другого телефона означает, что выбирать уже нечего — идём к курсу.
+    if (name === 'welcome') { if (!needsOnboarding()) go('#/'); return; }
+    if (!name || name === 'profile' || name === 'mistakes' || (name === 'read' && !a)) route();
+  });
   window.addEventListener('hashchange', route);
   await route();
 }
