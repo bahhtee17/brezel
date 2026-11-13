@@ -10,6 +10,7 @@ import { learn, grade, addMistake, mistakeCorrect, mistakeWrong, isLearned } fro
 import { addXP, currentStreak } from './store.js';
 import { word as wordById } from './content.js';
 import { videoCard } from './video.js';
+import { showExplore, showDetect } from './live.js';
 import { playMove, celebrate, closeParty, confetti, preloadMoves } from './moves.js';
 
 let activeCleanup = null;
@@ -116,7 +117,7 @@ export function runPlayer(opts) {
     }
     foot.style.display = '';
     skipBtn.style.display = s.kind === 'ex' ? '' : 'none';
-    ({ intro: showIntro, section: showSection, scene: showScene, word: showWord, ex: showEx, outro: showOutro })[s.kind](s);
+    ({ intro: showIntro, section: showSection, scene: showScene, explore: s => showExplore(s, liveCtx), detect: s => showDetect(s, liveCtx), word: showWord, ex: showEx, outro: showOutro })[s.kind](s);
   }
 
   // ---------- Вступление ----------
@@ -156,6 +157,8 @@ export function runPlayer(opts) {
     setMain(s.button || tx('Дальше'), { cls: s.boss ? 'btn--bad' : '' });
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
+
+  const liveCtx = { body, setMain, mainBtn, next: () => next(), learn: id => learn(id) };
 
   // ---------- Сценка ----------
   function showScene(s) {
@@ -473,8 +476,21 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
     note: warmup.length ? tx`Сначала разминка: ${warmup.length} ${warmup.length === 1 ? tx('слово') : tx('слова')} из прошлых уроков.` : (lesson.index === 0 ? tx('Это ваш первый урок. Разминки пока нет — сразу к делу!') : '')
   });
   warmup.forEach((ex, i) => steps.push({ kind: 'ex', ex, tag: 'warmup', key: `w${i}` }));
-  if (lesson.scene) steps.push({ kind: 'scene', scene: lesson.scene, highlight: newWords.map(w => w.de.replace(/[!?.…]+$/, '')) });
-  newWords.forEach((w, i) => steps.push({ kind: 'word', word: w, i, n: newWords.length }));
+  const highlight = newWords.map(w => w.de.replace(/[!?.…]+$/, ''));
+  const live = lesson.scene?.live;
+  if (live) {
+    // «Живая сценка»: слова открываются в игре, отдельные карточки — только для оставшихся.
+    const spots = (live.spots || []).filter(sp => wordsById[sp.word]).map(sp => ({ ...sp, w: wordsById[sp.word] }));
+    const guess = (live.guess || []).filter(g => wordsById[g.word]).map(g => ({ ...g, w: wordsById[g.word] }));
+    if (spots.length) steps.push({ kind: 'explore', scene: lesson.scene, spots });
+    steps.push({ kind: 'detect', scene: lesson.scene, guess, highlight });
+    const covered = new Set([...spots, ...guess].map(x => x.word));
+    const rest = newWords.filter(w => !covered.has(w.id));
+    rest.forEach((w, i) => steps.push({ kind: 'word', word: w, i, n: rest.length }));
+  } else {
+    if (lesson.scene) steps.push({ kind: 'scene', scene: lesson.scene, highlight });
+    newWords.forEach((w, i) => steps.push({ kind: 'word', word: w, i, n: newWords.length }));
+  }
 
   // Упражнения: сначала автоузнавание новых слов, затем авторские задания; старые слова вкраплены (чередование).
   const auto = genNew ? genNew(newWords) : [];

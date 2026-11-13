@@ -3289,8 +3289,60 @@
       "who": "lena",
       "de": "Ja, ich habe Hunger!",
       "ru": "Да, я голодная!"
+     },
+     {
+      "who": "tom",
+      "de": "Hast du Zeit?",
+      "ru": "У тебя есть время?"
+     },
+     {
+      "who": "lena",
+      "de": "Ja, ich habe Zeit.",
+      "ru": "Да, у меня есть время."
      }
-    ]
+    ],
+    "live": {
+     "spots": [
+      {
+       "word": "handy",
+       "x": 38,
+       "y": 36
+      },
+      {
+       "word": "zimmer",
+       "x": 49,
+       "y": 43
+      },
+      {
+       "word": "hunger",
+       "x": 77,
+       "y": 72
+      }
+     ],
+     "guess": [
+      {
+       "line": 0,
+       "word": "haben",
+       "form": "habe",
+       "options": [
+        "у меня есть",
+        "я иду",
+        "я вижу"
+       ],
+       "answer": 0
+      },
+      {
+       "line": 6,
+       "word": "zeit",
+       "options": [
+        "время",
+        "еда",
+        "деньги"
+       ],
+       "answer": 0
+      }
+     ]
+    }
    },
    "newWords": [
     "haben",
