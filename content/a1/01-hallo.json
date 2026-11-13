@@ -101,458 +101,476 @@
       "id": "a1-01-01",
       "title": "Hallo!",
       "goal": "Здороваться и прощаться в разное время дня",
-      "video": { "src": "video/a1-01-01.mp4", "poster": "video/a1-01-01.jpg", "len": "1:27" },
+      "video": {"src": "video/a1-01-01.mp4", "poster": "video/a1-01-01.jpg", "len": "1:27"},
       "scene": {
         "art": "hostel",
         "setting": "Вы только что прилетели в Берлин. Вечер. Вы заходите в хостел «Брецельхаус». За стойкой — девушка с рыжими волосами.",
-        "live": {"spots": [{"word": "hallo", "x": 30, "y": 38}, {"word": "guten_abend", "x": 60, "y": 29}, {"word": "gute_nacht", "x": 75, "y": 37}], "guess": [{"line": 3, "word": "tschuess", "form": "Tschüs", "options": ["Пока!", "Спасибо!", "Да!"], "answer": 0}]},
         "lines": [
-          { "who": "lena", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!" },
-          { "who": "you", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!" },
-          { "who": "lena", "de": "Gute Nacht!", "ru": "Спокойной ночи! (вы идёте в номер)" },
-          { "who": "you", "de": "Gute Nacht! Tschüs!", "ru": "Спокойной ночи! Пока!" }
+          {"who": "lena", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!"},
+          {"who": "you", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!"},
+          {"who": "lena", "de": "Gute Nacht!", "ru": "Спокойной ночи! (вы идёте в номер)"},
+          {"who": "you", "de": "Gute Nacht! Tschüs!", "ru": "Спокойной ночи! Пока!"}
         ]
       },
       "newWords": ["hallo", "guten_morgen", "guten_tag", "guten_abend", "gute_nacht", "tschuess", "auf_wiedersehen"],
       "exercises": [
-        { "type": "pick", "kicker": "Какое приветствие?", "q": "Утро, 8:00. Что вы скажете?", "img": "morning", "options": [{ "de": "Guten Morgen!" }, { "de": "Gute Nacht!" }, { "de": "Guten Abend!" }], "answer": 0, "words": ["guten_morgen"] },
-        { "type": "listen", "de": "Guten Tag!", "options": ["Guten Tag!", "Gute Nacht!", "Guten Abend!"], "answer": 0, "words": ["guten_tag"] },
-        { "type": "tiles", "ru": "Привет, Лена!", "answer": "Hallo, Lena!", "distract": ["Tschüs", "Nacht"], "words": ["hallo"] },
-        { "type": "gap", "ru": "Спокойной ночи!", "text": "Gute ___!", "options": ["Nacht", "Morgen", "Tag"], "answer": 0, "words": ["gute_nacht"], "explain": "Gute Nacht — только перед сном." },
-        { "type": "reply", "who": "wagner", "line": "Auf Wiedersehen!", "lineRu": "До свидания!", "options": ["Auf Wiedersehen!", "Guten Morgen!", "Gute Nacht!"], "answer": 0, "words": ["auf_wiedersehen"] },
-        { "type": "speak", "de": "Guten Abend!", "ru": "Добрый вечер!", "distract": ["Morgen"], "words": ["guten_abend"] },
-        { "type": "dictation", "de": "Tschüs!", "accept": ["Tschüs!", "Tschüss!"], "ru": "Пока!", "words": ["tschuess"] }
+        {"type": "pick", "kicker": "Какое приветствие?", "q": "Утро, 8:00. Что вы скажете?", "img": "morning", "options": [{"de": "Guten Morgen!"}, {"de": "Gute Nacht!"}, {"de": "Guten Abend!"}], "answer": 0, "words": ["guten_morgen"]},
+        {"type": "listen", "de": "Guten Tag!", "options": ["Guten Tag!", "Gute Nacht!", "Guten Abend!"], "answer": 0, "words": ["guten_tag"]},
+        {"type": "tiles", "ru": "Привет, Лена!", "answer": "Hallo, Lena!", "distract": ["Tschüs", "Nacht"], "words": ["hallo"]},
+        {"type": "gap", "ru": "Спокойной ночи!", "text": "Gute ___!", "options": ["Nacht", "Morgen", "Tag"], "answer": 0, "words": ["gute_nacht"], "explain": "Gute Nacht — только перед сном."},
+        {"type": "reply", "who": "wagner", "line": "Auf Wiedersehen!", "lineRu": "До свидания!", "options": ["Auf Wiedersehen!", "Guten Morgen!", "Gute Nacht!"], "answer": 0, "words": ["auf_wiedersehen"]},
+        {"type": "speak", "de": "Guten Abend!", "ru": "Добрый вечер!", "distract": ["Morgen"], "words": ["guten_abend"]},
+        {"type": "dictation", "de": "Tschüs!", "accept": ["Tschüs!", "Tschüss!"], "ru": "Пока!", "words": ["tschuess"]}
       ],
       "boss": {
         "title": "Смена на ресепшене",
         "intro": "Лена отошла, и за стойкой «Брецельхауса» — вы. Здоровайтесь и прощайтесь с гостями по времени суток!",
         "turns": [
-          { "type": "reply", "who": "becker", "situation": "8 утра. Входит господин Беккер.", "line": "Guten Morgen!", "lineRu": "Доброе утро!", "options": ["Guten Morgen!", "Guten Abend!", "Gute Nacht!"], "answer": 0 },
-          { "type": "reply", "who": "marco", "situation": "Вечер. Марко уходит на вечеринку.", "line": "Tschüs!", "lineRu": "Пока!", "options": ["Tschüs!", "Guten Tag!", "Guten Morgen!"], "answer": 0 },
-          { "type": "reply", "who": "aigerim", "situation": "23:00. Айгерим идёт спать.", "line": "Gute Nacht!", "lineRu": "Спокойной ночи!", "options": ["Gute Nacht!", "Guten Tag!", "Hallo!"], "answer": 0 }
+          {"type": "reply", "who": "becker", "situation": "8 утра. Входит господин Беккер.", "line": "Guten Morgen!", "lineRu": "Доброе утро!", "options": ["Guten Morgen!", "Guten Abend!", "Gute Nacht!"], "answer": 0},
+          {"type": "reply", "who": "marco", "situation": "Вечер. Марко уходит на вечеринку.", "line": "Tschüs!", "lineRu": "Пока!", "options": ["Tschüs!", "Guten Tag!", "Guten Morgen!"], "answer": 0},
+          {"type": "reply", "who": "aigerim", "situation": "23:00. Айгерим идёт спать.", "line": "Gute Nacht!", "lineRu": "Спокойной ночи!", "options": ["Gute Nacht!", "Guten Tag!", "Hallo!"], "answer": 0}
         ]
       },
-      "teaser": "Девушка за стойкой так и не сказала, как её зовут. Утром узнаем!"
+      "teaser": "Завтра — маленькие слова, без которых не скажешь ни одной фразы: я, ты, он, она… Брецель уже готовит доску!"
     },
     {
       "id": "a1-01-02",
+      "title": "ich, du, er, sie…",
+      "grammar": true,
+      "goal": "Все личные местоимения: я, ты, он, она, мы, вы, они и вежливое «Вы»",
+      "video": {"src": "video/a1-01-04.mp4", "poster": "video/a1-01-04.jpg", "len": "1:36"},
+      "scene": {
+        "art": "album",
+        "setting": "Брецель показывает фото гостей хостела.",
+        "lines": []
+      },
+      "teach": {
+        "title": "Личные местоимения",
+        "text": "Местоимения — маленькие слова вместо имён. Смотрите, на кого показывают!",
+        "outro": "Вся таблица! Ловушка: <b>sie</b> — это «она» и «они», а <b>Sie</b> с большой буквы — вежливое «Вы».",
+        "rows": [
+          {"de": "ich", "ru": "я", "img": "me", "word": "ich", "tip": "<b>ich</b> — это я сам. Пишется с маленькой буквы."},
+          {"de": "du", "ru": "ты", "img": "you", "word": "du", "tip": "<b>du</b> — один человек, с которым вы на «ты»: друг, брат, ребёнок."},
+          {"de": "er", "ru": "он", "img": "he", "word": "er", "tip": "<b>er</b> — он: Том, Марко, господин Беккер."},
+          {"de": "sie", "ru": "она", "img": "she", "word": "sie_she", "tip": "<b>sie</b> — она: Лена, Айгерим."},
+          {"de": "wir", "ru": "мы", "img": "we", "word": "wir", "tip": "<b>wir</b> — мы: я и кто-то ещё."},
+          {"de": "ihr", "ru": "вы (ребята)", "img": "youpl", "word": "ihr_pl", "tip": "<b>ihr</b> — вы, когда говорите сразу нескольким друзьям."},
+          {"de": "sie", "ru": "они", "img": "friend", "tip": "Снова <b>sie</b>! С маленькой буквы это ещё и «они»."},
+          {"de": "Sie", "ru": "Вы (вежливо)", "img": "youFormal", "word": "sie_formal", "tip": "<b>Sie</b> с большой буквы — вежливое «Вы»: учителю, незнакомому взрослому, в магазине."}
+        ]
+      },
+      "newWords": ["ich", "du", "er", "sie_she", "wir", "ihr_pl", "sie_formal"],
+      "exercises": [
+        {"type": "pick", "kicker": "Кто это?", "q": "Вы рассказываете о Томе. Какое слово?", "img": "he", "options": [{"de": "er"}, {"de": "sie"}, {"de": "wir"}], "answer": 0, "words": ["er"]},
+        {"type": "pick", "kicker": "Кто это?", "q": "Вы рассказываете о Лене. Какое слово?", "img": "she", "options": [{"de": "sie"}, {"de": "er"}, {"de": "ich"}], "answer": 0, "words": ["sie_she"]},
+        {"type": "listen", "de": "wir", "options": ["wir", "ihr", "er"], "answer": 0, "words": ["wir"]},
+        {"type": "gap", "ru": "я + ты = мы", "text": "ich + du = ___", "options": ["wir", "ihr", "sie"], "answer": 0, "words": ["wir"], "explain": "Я и кто-то ещё — это wir (мы)."},
+        {"type": "pick", "kicker": "du или Sie?", "q": "Кому можно сказать «du»?", "options": [{"ru": "другу Тому", "img": "he"}, {"ru": "господину Беккеру", "img": "mister"}, {"ru": "учительнице", "img": "teacher"}], "answer": 0},
+        {"type": "pick", "kicker": "du или Sie?", "q": "Вы обращаетесь к учительнице. Как сказать «Вы»?", "img": "teacher", "options": [{"de": "Sie"}, {"de": "du"}, {"de": "ihr"}], "answer": 0, "words": ["sie_formal"], "explain": "Учителю и незнакомым взрослым — Sie, с большой буквы."},
+        {"type": "pick", "kicker": "ihr", "q": "Вы говорите сразу двум друзьям: «А вы?» Какое слово?", "img": "youpl", "options": [{"de": "ihr"}, {"de": "Sie"}, {"de": "wir"}], "answer": 0, "words": ["ihr_pl"], "explain": "Нескольким друзьям — ihr."},
+        {"type": "pairs", "pairs": [["ich", "я"], ["du", "ты"], ["er", "он"], ["wir", "мы"], ["ihr", "вы (ребята)"]]},
+        {"type": "listen", "de": "Sie", "options": ["Sie — Вы (вежливо)", "du — ты", "ich — я"], "answer": 0, "words": ["sie_formal"]}
+      ],
+      "boss": {
+        "title": "Кто есть кто?",
+        "intro": "Брецель показывает фото гостей хостела. Подберите местоимение!",
+        "turns": [
+          {"type": "pick", "q": "Вы показываете на себя:", "img": "me", "options": [{"de": "ich"}, {"de": "du"}, {"de": "er"}], "answer": 0},
+          {"type": "pick", "q": "На фото Марко и Айгерим. Они — это…", "img": "friend", "options": [{"de": "sie"}, {"de": "er"}, {"de": "du"}], "answer": 0},
+          {"type": "pick", "q": "Вы обращаетесь к господину Беккеру:", "img": "mister", "options": [{"de": "Sie"}, {"de": "du"}, {"de": "ihr"}], "answer": 0}
+        ]
+      },
+      "teaser": "С местоимениями можно знакомиться: «Ich heiße…», «Wie heißt du?» Лена уже ждёт у стойки!"
+    },
+    {
+      "id": "a1-01-03",
       "title": "Wie heißt du?",
-      "goal": "Представиться и спросить имя",
-      "video": { "src": "video/a1-01-02.mp4", "poster": "video/a1-01-02.jpg", "len": "1:18" },
+      "goal": "Представиться и спросить имя — на «ты» и на «Вы»",
+      "video": {"src": "video/a1-01-02.mp4", "poster": "video/a1-01-02.jpg", "len": "1:18"},
       "scene": {
         "art": "hostel",
         "setting": "Утро. Вы снова у стойки. Девушка с рыжими волосами улыбается.",
-        "live": {"spots": [{"word": "name", "x": 41, "y": 20}, {"word": "ich", "x": 60, "y": 29}, {"word": "du", "x": 30, "y": 38}], "guess": [{"line": 0, "word": "wie", "form": "Wie", "options": ["как", "где", "кто"], "answer": 0}, {"line": 1, "word": "heissen", "form": "heiße", "options": ["меня зовут", "я живу", "я иду"], "answer": 0}, {"line": 2, "word": "freut_mich", "form": "Freut mich", "options": ["Очень приятно!", "До свидания!", "Спасибо!"], "answer": 0}]},
         "lines": [
-          { "who": "lena", "de": "Guten Morgen! Ich heiße Lena. Wie heißt du?", "ru": "Доброе утро! Меня зовут Лена. Как тебя зовут?" },
-          { "who": "you", "de": "Hallo, Lena! Ich heiße Alex.", "ru": "Привет, Лена! Меня зовут Алекс." },
-          { "who": "lena", "de": "Freut mich, Alex!", "ru": "Очень приятно, Алекс!" },
-          { "who": "you", "de": "Freut mich!", "ru": "Очень приятно!" }
+          {"who": "lena", "de": "Guten Morgen! Ich heiße Lena. Wie heißt du?", "ru": "Доброе утро! Меня зовут Лена. Как тебя зовут?"},
+          {"who": "you", "de": "Hallo, Lena! Ich heiße Alex.", "ru": "Привет, Лена! Меня зовут Алекс."},
+          {"who": "lena", "de": "Freut mich, Alex!", "ru": "Очень приятно, Алекс!"},
+          {"who": "you", "de": "Freut mich!", "ru": "Очень приятно!"}
         ]
       },
-      "newWords": ["ich", "du", "heissen", "wie", "name", "freut_mich"],
+      "newWords": ["heissen", "wie", "name", "freut_mich", "herr", "frau"],
       "exercises": [
-        { "type": "gap", "ru": "Меня зовут Лена.", "text": "Ich ___ Lena.", "options": ["heiße", "heißt", "heißen"], "answer": 0, "words": ["heissen"], "explain": "ich heiße — с -e на конце." },
-        { "type": "tiles", "ru": "Как тебя зовут?", "answer": "Wie heißt du?", "distract": ["ich", "heiße"], "words": ["wie", "du"] },
-        { "type": "reply", "who": "marco", "line": "Hallo! Ich heiße Marco.", "lineRu": "Привет! Меня зовут Марко.", "options": ["Freut mich! Ich heiße Alex.", "Gute Nacht, Marco!", "Wie heißt du, Marco?"], "answer": 0, "words": ["freut_mich"] },
-        { "type": "pick", "kicker": "Что это значит?", "q": "Mein Name ist Lena.", "audio": "Mein Name ist Lena.", "options": [{ "ru": "Меня зовут Лена." }, { "ru": "Я из Германии." }, { "ru": "Как тебя зовут?" }], "answer": 0, "words": ["name"] },
-        { "type": "write", "ru": "Меня зовут Лена.", "accept": ["Ich heiße Lena.", "Mein Name ist Lena.", "Ich bin Lena."], "words": ["ich", "heissen"] },
-        { "type": "tiles", "dir": "ru", "de": "Wie heißt du?", "ruAnswer": "Как тебя зовут?", "distract": ["меня", "я"] },
-        { "type": "speak", "de": "Ich heiße Alex. Freut mich!", "ru": "Меня зовут Алекс. Очень приятно!", "distract": ["du"] }
+        {"type": "gap", "ru": "Меня зовут Лена.", "text": "Ich ___ Lena.", "options": ["heiße", "heißt", "heißen"], "answer": 0, "words": ["heissen"], "explain": "ich heiße — с -e на конце."},
+        {"type": "tiles", "ru": "Как тебя зовут?", "answer": "Wie heißt du?", "distract": ["ich", "heiße"], "words": ["wie", "du"]},
+        {"type": "gap", "ru": "Его зовут Том.", "text": "Er ___ Tom.", "options": ["heißt", "heiße", "heißen"], "answer": 0, "words": ["heissen"], "explain": "er heißt — окончание -t."},
+        {"type": "reply", "who": "marco", "line": "Hallo! Ich heiße Marco.", "lineRu": "Привет! Меня зовут Марко.", "options": ["Freut mich! Ich heiße Alex.", "Gute Nacht, Marco!", "Wie heißt du, Marco?"], "answer": 0, "words": ["freut_mich"]},
+        {"type": "pick", "kicker": "Что это значит?", "q": "Mein Name ist Lena.", "audio": "Mein Name ist Lena.", "options": [{"ru": "Меня зовут Лена."}, {"ru": "Я из Германии."}, {"ru": "Как тебя зовут?"}], "answer": 0, "words": ["name"]},
+        {"type": "gap", "ru": "Как Вас зовут?", "text": "Wie heißen ___?", "options": ["Sie", "du", "ich"], "answer": 0, "words": ["sie_formal"], "explain": "С «Sie» глагол оканчивается на -en: heißen."},
+        {"type": "pick", "kicker": "Herr или Frau?", "q": "Как вежливо поздороваться с господином Беккером?", "img": "mister", "options": [{"de": "Guten Tag, Herr Becker!"}, {"de": "Guten Tag, Frau Becker!"}, {"de": "Hallo, Becker!"}], "answer": 0, "words": ["herr"]},
+        {"type": "listen", "de": "Guten Abend, Frau Wagner!", "options": ["Guten Abend, Frau Wagner!", "Guten Abend, Herr Wagner!", "Gute Nacht, Frau Wagner!"], "answer": 0, "words": ["frau"]},
+        {"type": "write", "ru": "Меня зовут Лена.", "accept": ["Ich heiße Lena.", "Mein Name ist Lena.", "Ich bin Lena."], "words": ["ich", "heissen"]},
+        {"type": "speak", "de": "Ich heiße Alex. Freut mich!", "ru": "Меня зовут Алекс. Очень приятно!", "distract": ["du"]}
       ],
       "boss": {
         "title": "Новые гости",
         "intro": "Вы помогаете Лене на ресепшене. Знакомьтесь с новыми гостями!",
         "turns": [
-          { "type": "reply", "who": "aigerim", "line": "Hallo! Ich heiße Aigerim.", "lineRu": "Привет! Меня зовут Айгерим.", "options": ["Hallo, Aigerim! Freut mich!", "Guten Morgen, Lena!", "Tschüs, Aigerim!"], "answer": 0 },
-          { "type": "tiles", "ru": "Привет! Как тебя зовут?", "answer": "Hallo! Wie heißt du?", "distract": ["ich"] },
-          { "type": "reply", "who": "tom", "line": "Ich heiße Tom. Und du?", "lineRu": "Меня зовут Том. А тебя?", "options": ["Ich heiße Alex. Freut mich!", "Wie heißt du?", "Gute Nacht!"], "answer": 0 }
+          {"type": "reply", "who": "aigerim", "line": "Hallo! Ich heiße Aigerim.", "lineRu": "Привет! Меня зовут Айгерим.", "options": ["Hallo, Aigerim! Freut mich!", "Guten Morgen, Lena!", "Tschüs, Aigerim!"], "answer": 0},
+          {"type": "tiles", "ru": "Привет! Как тебя зовут?", "answer": "Hallo! Wie heißt du?", "distract": ["ich"]},
+          {"type": "reply", "who": "tom", "line": "Ich heiße Tom. Und du?", "lineRu": "Меня зовут Том. А тебя?", "options": ["Ich heiße Alex. Freut mich!", "Wie heißt du?", "Gute Nacht!"], "answer": 0}
         ]
       },
-      "teaser": "Кто этот парень, Том? И почему Лена так обрадовалась, когда он вошёл?"
-    },
-    {
-      "id": "a1-01-03",
-      "title": "Wie geht's?",
-      "goal": "Спросить, как дела, и ответить",
-      "video": { "src": "video/a1-01-03.mp4", "poster": "video/a1-01-03.jpg", "len": "1:21" },
-      "scene": {
-        "art": "breakfast",
-        "setting": "Завтрак в хостеле. Входит Том — оказывается, это брат Лены из Гамбурга.",
-        "live": {"spots": [{"word": "sehr_gut", "x": 27, "y": 23}, {"word": "es_geht", "x": 72, "y": 32}, {"word": "gut", "x": 48, "y": 60}], "guess": [{"line": 0, "word": "wie_gehts", "form": "Wie geht's", "options": ["Как дела?", "Как тебя зовут?", "Откуда ты?"], "answer": 0}, {"line": 1, "word": "und_dir", "form": "Und dir", "options": ["А у тебя?", "Пока!", "Доброе утро!"], "answer": 0}, {"line": 4, "word": "danke", "form": "Danke", "options": ["спасибо", "привет", "пожалуйста"], "answer": 0}]},
-        "lines": [
-          { "who": "tom", "de": "Hallo, Lena! Wie geht's?", "ru": "Привет, Лена! Как дела?" },
-          { "who": "lena", "de": "Danke, sehr gut! Und dir?", "ru": "Спасибо, очень хорошо! А у тебя?" },
-          { "who": "tom", "de": "Es geht …", "ru": "Так себе…" },
-          { "who": "lena", "de": "Nicht so gut? Kaffee?", "ru": "Не очень? Кофе?" },
-          { "who": "tom", "de": "Danke, Lena!", "ru": "Спасибо, Лена!" }
-        ]
-      },
-      "newWords": ["wie_gehts", "gut", "sehr_gut", "es_geht", "nicht_so_gut", "danke", "und_dir"],
-      "exercises": [
-        { "type": "pick", "kicker": "Как дела?", "q": "Как сказать «так себе»?", "options": [{ "de": "Es geht.", "img": "meh" }, { "de": "Sehr gut!", "img": "star" }, { "de": "Nicht so gut.", "img": "sad" }, { "de": "Gut!", "img": "thumbsup" }], "answer": 0, "words": ["es_geht"] },
-        { "type": "reply", "who": "lena", "line": "Wie geht's?", "lineRu": "Как дела?", "options": ["Gut, danke! Und dir?", "Ich heiße Lena.", "Gute Nacht!"], "answer": 0, "words": ["gut", "und_dir"] },
-        { "type": "tiles", "ru": "Спасибо, очень хорошо!", "answer": "Danke, sehr gut!", "distract": ["nicht", "so"], "words": ["danke", "sehr_gut"] },
-        { "type": "listen", "de": "Nicht so gut.", "options": ["Nicht so gut.", "Sehr gut.", "Es geht."], "answer": 0, "words": ["nicht_so_gut"] },
-        { "type": "gap", "ru": "Хорошо, спасибо. А у тебя?", "text": "Gut, danke. Und ___?", "options": ["dir", "du", "ich"], "answer": 0, "words": ["und_dir"], "explain": "«А у тебя?» — Und dir?" },
-        { "type": "dictation", "de": "Wie geht's?", "accept": ["Wie geht's?", "Wie gehts?", "Wie geht es?"], "ru": "Как дела?", "words": ["wie_gehts"] },
-        { "type": "speak", "de": "Danke, gut! Und dir?", "ru": "Спасибо, хорошо! А у тебя?", "distract": ["sehr"] }
-      ],
-      "boss": {
-        "title": "Утро в хостеле",
-        "intro": "Гости спускаются к завтраку. Спросите, как дела, и ответьте каждому!",
-        "turns": [
-          { "type": "reply", "who": "marco", "line": "Guten Morgen! Wie geht's?", "lineRu": "Доброе утро! Как дела?", "options": ["Sehr gut, danke! Und dir?", "Ich heiße Marco.", "Tschüs!"], "answer": 0 },
-          { "type": "reply", "who": "aigerim", "line": "Danke, gut. Und dir?", "lineRu": "Спасибо, хорошо. А у тебя?", "options": ["Es geht.", "Wie heißt du?", "Gute Nacht, Aigerim!"], "answer": 0 },
-          { "type": "tiles", "ru": "Привет, Том! Как дела?", "answer": "Hallo, Tom! Wie geht's?", "distract": ["dir"] }
-        ]
-      },
-      "teaser": "После завтрака — первый день на языковых курсах. Учительница — фрау Вагнер. С ней на «ты» или на «Вы»?"
+      "teaser": "Лена спрашивает: «Wie geht's?» А как ответить, если всё отлично — или не очень?"
     },
     {
       "id": "a1-01-04",
-      "title": "du или Sie?",
-      "grammar": true,
-      "goal": "Понять, когда говорить «ты», а когда «Вы»",
-      "video": { "src": "video/a1-01-04.mp4", "poster": "video/a1-01-04.jpg", "len": "1:36" },
+      "title": "Wie geht's?",
+      "goal": "Спросить, как дела, и ответить — на «ты» и на «Вы»",
+      "video": {"src": "video/a1-01-03.mp4", "poster": "video/a1-01-03.jpg", "len": "1:21"},
       "scene": {
-        "art": "school",
-        "setting": "Языковая школа. Вы входите в класс. Учительница — фрау Вагнер.",
+        "art": "breakfast",
+        "setting": "Завтрак в хостеле. Входит Том — оказывается, это брат Лены из Гамбурга.",
         "lines": [
-          { "who": "wagner", "de": "Guten Tag! Ich heiße Wagner. Wie heißen Sie?", "ru": "Добрый день! Моя фамилия Вагнер. Как Вас зовут?" },
-          { "who": "you", "de": "Guten Tag, Frau Wagner! Ich heiße Alex.", "ru": "Здравствуйте, фрау Вагнер! Меня зовут Алекс." },
-          { "who": "wagner", "de": "Wie geht es Ihnen?", "ru": "Как у Вас дела?" },
-          { "who": "you", "de": "Danke, gut. Und Ihnen?", "ru": "Спасибо, хорошо. А у Вас?" },
-          { "who": "wagner", "de": "Sehr gut, danke!", "ru": "Очень хорошо, спасибо!" }
+          {"who": "tom", "de": "Hallo, Lena! Wie geht's?", "ru": "Привет, Лена! Как дела?"},
+          {"who": "lena", "de": "Danke, sehr gut! Und dir?", "ru": "Спасибо, очень хорошо! А у тебя?"},
+          {"who": "tom", "de": "Es geht …", "ru": "Так себе…"},
+          {"who": "lena", "de": "Nicht so gut? Kaffee?", "ru": "Не очень? Кофе?"},
+          {"who": "tom", "de": "Danke, Lena!", "ru": "Спасибо, Лена!"}
         ]
       },
-      "newWords": ["sie_formal", "herr", "frau", "wie_geht_es_ihnen", "und_ihnen", "ja", "nein"],
+      "newWords": ["wie_gehts", "gut", "sehr_gut", "es_geht", "nicht_so_gut", "und_dir", "wie_geht_es_ihnen", "und_ihnen"],
       "exercises": [
-        {
-          "type": "info", "title": "du или Sie?", "art": "youFormal",
-          "paras": [
-            "<b>du</b> — «ты»: друзьям, родным, детям, одногруппникам.",
-            "<b>Sie</b> — «Вы»: незнакомым взрослым, учителю, в магазине, в офисе. Пишется всегда с большой буквы.",
-            "К людям на «Вы» обращаются по фамилии: <b>Herr</b> Becker (господин), <b>Frau</b> Wagner (госпожа)."
-          ],
-          "table": { "head": ["", "ты (du)", "Вы (Sie)"], "rows": [["Как зовут?", "Wie heißt du?", "Wie heißen Sie?"], ["Как дела?", "Wie geht's?", "Wie geht es Ihnen?"], ["А у тебя / Вас?", "Und dir?", "Und Ihnen?"], ["Пока", "Tschüs!", "Auf Wiedersehen!"]] },
-          "tip": "Сомневаетесь — говорите <b>Sie</b>. Это вежливо и никогда не будет ошибкой."
-        },
-        { "type": "pick", "kicker": "du или Sie?", "q": "Вы говорите с учительницей. Как спросить, как у неё дела?", "options": [{ "de": "Wie geht es Ihnen?" }, { "de": "Wie geht's?" }, { "de": "Und dir?" }], "answer": 0, "words": ["wie_geht_es_ihnen"] },
-        { "type": "gap", "ru": "Как Вас зовут?", "text": "Wie heißen ___?", "options": ["Sie", "du", "ich"], "answer": 0, "words": ["sie_formal"], "explain": "С «Sie» глагол оканчивается на -en: heißen." },
-        { "type": "pick", "kicker": "du или Sie?", "q": "Кому можно сказать «du»?", "options": [{ "ru": "другу Тому", "img": "he" }, { "ru": "господину Беккеру", "img": "mister" }, { "ru": "учительнице", "img": "teacher" }], "answer": 0 },
-        { "type": "reply", "who": "becker", "situation": "К вам обращается незнакомый мужчина.", "line": "Guten Tag! Sind Sie Herr Schulz?", "lineRu": "Добрый день! Вы господин Шульц?", "options": ["Nein. Ich heiße Alex.", "Ja, ich heiße Lena.", "Gute Nacht!"], "answer": 0, "words": ["nein", "herr"] },
-        { "type": "tiles", "ru": "Спасибо, хорошо. А у Вас?", "answer": "Danke, gut. Und Ihnen?", "distract": ["dir", "du"], "words": ["und_ihnen"] },
-        { "type": "listen", "de": "Guten Abend, Frau Wagner!", "options": ["Guten Abend, Frau Wagner!", "Guten Abend, Herr Wagner!", "Gute Nacht, Frau Wagner!"], "answer": 0, "words": ["frau"] }
+        {"type": "info", "title": "Как дела: на «ты» и на «Вы»", "art": "youFormal", "paras": ["С другом: <b>Wie geht's?</b> — «Как дела?». Ответить: <b>Gut! Und dir?</b>", "С учительницей или незнакомым взрослым — вежливо, на «Вы»: <b>Wie geht es Ihnen?</b> Ответить: <b>Gut. Und Ihnen?</b>"], "table": {"head": ["", "ты (du)", "Вы (Sie)"], "rows": [["Как дела?", "Wie geht's?", "Wie geht es Ihnen?"], ["А у тебя / Вас?", "Und dir?", "Und Ihnen?"]]}, "tip": "Сомневаетесь — говорите <b>Sie</b>. Это вежливо и никогда не будет ошибкой."},
+        {"type": "pick", "kicker": "Как дела?", "q": "Как сказать «так себе»?", "options": [{"de": "Es geht.", "img": "meh"}, {"de": "Sehr gut!", "img": "star"}, {"de": "Nicht so gut.", "img": "sad"}, {"de": "Gut!", "img": "thumbsup"}], "answer": 0, "words": ["es_geht"]},
+        {"type": "reply", "who": "lena", "line": "Wie geht's?", "lineRu": "Как дела?", "options": ["Gut! Und dir?", "Ich heiße Lena.", "Gute Nacht!"], "answer": 0, "words": ["gut", "und_dir"]},
+        {"type": "pick", "kicker": "du или Sie?", "q": "Вы говорите с учительницей. Как спросить, как у неё дела?", "options": [{"de": "Wie geht es Ihnen?"}, {"de": "Wie geht's?"}, {"de": "Und dir?"}], "answer": 0, "words": ["wie_geht_es_ihnen"]},
+        {"type": "tiles", "ru": "Очень хорошо! А у тебя?", "answer": "Sehr gut! Und dir?", "distract": ["nicht", "Ihnen"], "words": ["sehr_gut", "und_dir"]},
+        {"type": "listen", "de": "Nicht so gut.", "options": ["Nicht so gut.", "Sehr gut.", "Es geht."], "answer": 0, "words": ["nicht_so_gut"]},
+        {"type": "gap", "ru": "Хорошо. А у тебя?", "text": "Gut. Und ___?", "options": ["dir", "du", "ich"], "answer": 0, "words": ["und_dir"], "explain": "«А у тебя?» — Und dir?"},
+        {"type": "tiles", "ru": "Очень хорошо. А у Вас?", "answer": "Sehr gut. Und Ihnen?", "distract": ["dir", "du"], "words": ["und_ihnen"]},
+        {"type": "dictation", "de": "Wie geht's?", "accept": ["Wie geht's?", "Wie gehts?", "Wie geht es?"], "ru": "Как дела?", "words": ["wie_gehts"]},
+        {"type": "speak", "de": "Gut! Und dir?", "ru": "Хорошо! А у тебя?", "distract": ["sehr"]}
       ],
       "boss": {
         "title": "Ты или Вы?",
         "intro": "Говорите с разными людьми — выбирайте правильную форму!",
         "turns": [
-          { "type": "reply", "who": "wagner", "situation": "Учительница на перемене.", "line": "Wie geht es Ihnen?", "lineRu": "Как у Вас дела?", "options": ["Gut, danke. Und Ihnen?", "Gut, danke. Und dir?", "Tschüs!"], "answer": 0 },
-          { "type": "reply", "who": "tom", "situation": "Том в коридоре хостела.", "line": "Hallo! Wie geht's?", "lineRu": "Привет! Как дела?", "options": ["Gut, danke! Und dir?", "Gut, danke. Und Ihnen?", "Auf Wiedersehen, Herr Tom!"], "answer": 0 },
-          { "type": "reply", "who": "becker", "situation": "Господин Беккер уходит из хостела.", "line": "Auf Wiedersehen!", "lineRu": "До свидания!", "options": ["Auf Wiedersehen, Herr Becker!", "Tschüs, Tom!", "Guten Morgen!"], "answer": 0 }
+          {"type": "reply", "who": "wagner", "situation": "Учительница на перемене.", "line": "Wie geht es Ihnen?", "lineRu": "Как у Вас дела?", "options": ["Gut. Und Ihnen?", "Gut. Und dir?", "Tschüs!"], "answer": 0},
+          {"type": "reply", "who": "tom", "situation": "Том в коридоре хостела.", "line": "Hallo! Wie geht's?", "lineRu": "Привет! Как дела?", "options": ["Gut! Und dir?", "Gut. Und Ihnen?", "Auf Wiedersehen, Herr Tom!"], "answer": 0},
+          {"type": "reply", "who": "becker", "situation": "Господин Беккер уходит из хостела.", "line": "Auf Wiedersehen!", "lineRu": "До свидания!", "options": ["Auf Wiedersehen, Herr Becker!", "Tschüs, Tom!", "Guten Morgen!"], "answer": 0}
         ]
       },
-      "teaser": "В классе вас ждут двое одногруппников. Один явно из солнечной страны, а вторая — откуда-то очень издалека…"
+      "teaser": "Том налил Лене кофе — а она забыла сказать «спасибо». Завтра — все вежливые слова!"
     },
     {
       "id": "a1-01-05",
-      "title": "Woher kommst du?",
-      "goal": "Сказать, откуда вы, и спросить собеседника",
-      "video": { "src": "video/a1-01-05.mp4", "poster": "video/a1-01-05.jpg", "len": "1:23" },
+      "title": "Bitte, danke, Entschuldigung",
+      "goal": "Вежливо извиниться, поблагодарить, переспросить",
+      "video": {"src": "video/a1-01-11.mp4", "poster": "video/a1-01-11.jpg", "len": "1:23"},
       "scene": {
-        "art": "school",
-        "setting": "Перемена. Знакомитесь с одногруппниками: Марко и Айгерим.",
+        "art": "ubahn",
+        "setting": "Берлинское метро. Вагон качнулся — и Том налетел на господина Беккера.",
         "lines": [
-          { "who": "marco", "de": "Ich heiße Marco. Ich komme aus Italien.", "ru": "Меня зовут Марко. Я из Италии." },
-          { "who": "aigerim", "de": "Ich heiße Aigerim. Ich komme aus Kasachstan.", "ru": "Меня зовут Айгерим. Я из Казахстана." },
-          { "who": "marco", "de": "Und du? Woher kommst du?", "ru": "А ты? Откуда ты?" },
-          { "who": "you", "de": "Ich komme aus Russland.", "ru": "Я из России." },
-          { "who": "aigerim", "de": "Lena kommt aus Deutschland.", "ru": "Лена из Германии." }
+          {"who": "tom", "de": "Oh! Entschuldigung!", "ru": "Ой! Извините!"},
+          {"who": "becker", "de": "Kein Problem!", "ru": "Ничего страшного!"},
+          {"who": "becker", "de": "Entschuldigung, wo ist der Alexanderplatz?", "ru": "Извините, где Александерплац?"},
+          {"who": "tom", "de": "Wie bitte? Noch einmal, bitte. Langsam, bitte!", "ru": "Простите, что? Ещё раз, пожалуйста. Медленно, пожалуйста!"},
+          {"who": "becker", "de": "Wo ist der Alexanderplatz?", "ru": "Где Александерплац?"},
+          {"who": "tom", "de": "Hier! Alexanderplatz.", "ru": "Здесь! Александерплац."},
+          {"who": "becker", "de": "Danke schön!", "ru": "Большое спасибо!"},
+          {"who": "tom", "de": "Bitte schön!", "ru": "Пожалуйста!"}
         ]
       },
-      "newWords": ["kommen", "woher", "aus", "deutschland", "russland", "italien", "kasachstan"],
+      "newWords": ["danke", "danke_schoen", "bitte", "entschuldigung", "kein_problem", "wie_bitte", "noch_einmal", "langsam"],
       "exercises": [
-        { "type": "pick", "kicker": "Флаги", "q": "Послушайте: откуда Марко?", "audio": "Marco kommt aus Italien.", "options": [{ "de": "Italien", "img": "flag:it" }, { "de": "Deutschland", "img": "flag:de" }, { "de": "Russland", "img": "flag:ru" }, { "de": "Kasachstan", "img": "flag:kz" }], "answer": 0, "words": ["italien"] },
-        { "type": "gap", "ru": "Я из России.", "text": "Ich komme ___ Russland.", "options": ["aus", "in", "woher"], "answer": 0, "words": ["aus", "russland"] },
-        { "type": "gap", "ru": "Откуда ты?", "text": "Woher ___ du?", "options": ["kommst", "komme", "kommen"], "answer": 0, "words": ["kommen", "woher"], "explain": "du kommst — окончание -st." },
-        { "type": "tiles", "ru": "Айгерим из Казахстана.", "answer": "Aigerim kommt aus Kasachstan.", "distract": ["komme", "Russland"], "words": ["kasachstan"] },
-        { "type": "reply", "who": "aigerim", "line": "Woher kommst du?", "lineRu": "Откуда ты?", "options": ["Ich komme aus Russland.", "Ich heiße Alex.", "Gut, danke!"], "answer": 0 },
-        { "type": "write", "ru": "Я из Германии.", "accept": ["Ich komme aus Deutschland."], "words": ["deutschland"] },
-        { "type": "speak", "de": "Ich komme aus Russland.", "ru": "Я из России.", "distract": ["du"] }
+        {"type": "pick", "kicker": "Что сказать?", "q": "Вы случайно толкнули человека. Что сказать?", "options": [{"de": "Entschuldigung!", "img": "sorry"}, {"de": "Danke schön!", "img": "heart2"}, {"de": "Gute Nacht!", "img": "night"}], "answer": 0, "words": ["entschuldigung"]},
+        {"type": "reply", "who": "lena", "line": "Wie geht's?", "lineRu": "Как дела?", "options": ["Gut, danke!", "Bitte schön!", "Entschuldigung!"], "answer": 0, "words": ["danke"], "explain": "danke — спасибо: Gut, danke! — Хорошо, спасибо!"},
+        {"type": "reply", "who": "becker", "line": "Danke schön!", "lineRu": "Большое спасибо!", "options": ["Bitte schön!", "Entschuldigung!", "Wie bitte?"], "answer": 0, "words": ["bitte"], "explain": "На «спасибо» отвечают «Bitte!» или «Bitte schön!»."},
+        {"type": "reply", "who": "wagner", "situation": "Фрау Вагнер говорит очень быстро, вы ничего не поняли.", "line": "Wie heißen Sie?", "lineRu": "Как Вас зовут?", "options": ["Wie bitte? Noch einmal, bitte.", "Kein Problem!", "Danke schön!"], "answer": 0, "words": ["wie_bitte", "noch_einmal"]},
+        {"type": "tiles", "ru": "Медленно, пожалуйста!", "answer": "Langsam, bitte!", "distract": ["Danke", "noch"], "words": ["langsam"]},
+        {"type": "gap", "ru": "Ещё раз, пожалуйста!", "text": "Noch ___, bitte!", "options": ["einmal", "langsam", "bitte"], "answer": 0, "words": ["noch_einmal"]},
+        {"type": "listen", "de": "Kein Problem!", "options": ["Kein Problem!", "Danke schön!", "Wie bitte?"], "answer": 0, "words": ["kein_problem"]},
+        {"type": "dictation", "de": "Danke schön!", "accept": ["Danke schön!"], "ru": "Большое спасибо!", "words": ["danke_schoen"]},
+        {"type": "speak", "de": "Wie bitte? Noch einmal, bitte.", "ru": "Простите, что? Ещё раз, пожалуйста.", "distract": ["danke"]}
       ],
       "boss": {
-        "title": "Международный класс",
-        "intro": "Фрау Вагнер просит всех рассказать, кто откуда. Поддержите разговор!",
+        "title": "Час пик",
+        "intro": "Вагон переполнен! Реагируйте вежливо на всё, что происходит.",
         "turns": [
-          { "type": "reply", "who": "wagner", "line": "Und Sie? Woher kommen Sie?", "lineRu": "А Вы? Откуда Вы?", "options": ["Ich komme aus Russland.", "Ich wohne aus Russland.", "Woher kommst du?"], "answer": 0 },
-          { "type": "pick", "q": "Послушайте: откуда Айгерим?", "audio": "Ich heiße Aigerim. Ich komme aus Kasachstan.", "options": [{ "de": "Kasachstan", "img": "flag:kz" }, { "de": "Italien", "img": "flag:it" }, { "de": "Russland", "img": "flag:ru" }], "answer": 0 },
-          { "type": "tiles", "ru": "Марко, откуда ты?", "answer": "Marco, woher kommst du?", "distract": ["kommen", "aus"] }
+          {"type": "reply", "who": "aigerim", "situation": "Айгерим уступает вам место.", "line": "Bitte!", "lineRu": "Пожалуйста! (садись)", "options": ["Danke schön!", "Entschuldigung!", "Wie bitte?"], "answer": 0},
+          {"type": "reply", "who": "becker", "situation": "Вы случайно наступили господину Беккеру на ногу.", "line": "Au!", "lineRu": "Ай!", "options": ["Oh, Entschuldigung!", "Bitte schön!", "Danke schön!"], "answer": 0},
+          {"type": "reply", "who": "becker", "situation": "Он улыбается.", "line": "Kein Problem!", "lineRu": "Ничего страшного!", "options": ["Danke!", "Wie heißt du?", "Gute Nacht!"], "answer": 0}
         ]
       },
-      "teaser": "После занятий вы решаете подработать… таксистом! Первый пассажир уже садится в машину."
+      "teaser": "Лена показывает фотоальбом хостела: «Das ist Tom…» Чтобы рассказать, кто на фото, нужен глагол sein."
     },
     {
       "id": "a1-01-06",
-      "title": "Wo wohnst du?",
-      "goal": "Сказать, где вы живёте",
-      "video": { "src": "video/a1-01-06.mp4", "poster": "video/a1-01-06.jpg", "len": "1:36" },
-      "scene": {
-        "art": "taxi",
-        "setting": "Вы — таксист в Берлине. В машину садится пассажир с большим чемоданом.",
-        "lines": [
-          { "who": "passenger", "de": "Guten Tag!", "ru": "Добрый день!" },
-          { "who": "you", "de": "Guten Tag! Woher kommen Sie?", "ru": "Добрый день! Откуда Вы?" },
-          { "who": "passenger", "de": "Ich komme aus Hamburg. Ich wohne in Hamburg.", "ru": "Я из Гамбурга. Я живу в Гамбурге." },
-          { "who": "you", "de": "Und jetzt? Wo wohnen Sie in Berlin?", "ru": "А сейчас? Где Вы живёте в Берлине?" },
-          { "who": "passenger", "de": "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!", "ru": "Сейчас я живу в «Брецельхаусе». В «Брецельхаус», пожалуйста!" }
-        ]
-      },
-      "newWords": ["wohnen", "wo", "in", "stadt", "jetzt", "berlin", "hamburg"],
-      "exercises": [
-        { "type": "gap", "ru": "Я живу в Берлине.", "text": "Ich ___ in Berlin.", "options": ["wohne", "wohnst", "wohnt"], "answer": 0, "words": ["wohnen", "berlin"] },
-        { "type": "pick", "kicker": "Услышь и выбери", "q": "Где живёт Том?", "audio": "Tom wohnt in Hamburg.", "options": [{ "de": "Hamburg", "img": "hamburg" }, { "de": "Berlin", "img": "berlin" }, { "de": "Italien", "img": "flag:it" }], "answer": 0, "words": ["hamburg"] },
-        { "type": "tiles", "ru": "Где ты живёшь?", "answer": "Wo wohnst du?", "distract": ["woher", "kommst"], "words": ["wo"] },
-        { "type": "gap", "ru": "Где ты живёшь?", "text": "___ wohnst du?", "options": ["Wo", "Woher", "Wie"], "answer": 0, "words": ["wo"], "explain": "wo — где, woher — откуда, wie — как." },
-        { "type": "reply", "who": "passenger", "line": "Wo wohnen Sie?", "lineRu": "Где Вы живёте?", "options": ["Ich wohne jetzt in Berlin.", "Ich komme aus Berlin. Und dir?", "Gute Nacht!"], "answer": 0, "words": ["jetzt"] },
-        { "type": "dictation", "de": "Ich wohne in Berlin.", "accept": ["Ich wohne in Berlin."], "ru": "Я живу в Берлине.", "words": ["in"] },
-        { "type": "tf", "statement": "Berlin ist eine Stadt.", "statementRu": "Берлин — это город.", "answer": true, "words": ["stadt"] },
-        { "type": "speak", "de": "Ich wohne jetzt in Berlin.", "ru": "Сейчас я живу в Берлине.", "distract": ["aus"] }
-      ],
-      "boss": {
-        "title": "Ночная смена",
-        "intro": "Новый пассажир — ваша одногруппница Айгерим! Поговорите с ней по дороге.",
-        "turns": [
-          { "type": "reply", "who": "aigerim", "line": "Hallo! Wie geht's?", "lineRu": "Привет! Как дела?", "options": ["Gut, danke! Und dir?", "Gut, danke. Und Ihnen, Frau Aigerim?", "Ich wohne in Hamburg."], "answer": 0 },
-          { "type": "reply", "who": "aigerim", "line": "Wo wohnst du?", "lineRu": "Где ты живёшь?", "options": ["Ich wohne jetzt in Berlin.", "Ich komme aus Kasachstan.", "Woher kommst du?"], "answer": 0 },
-          { "type": "tiles", "ru": "Айгерим живёт в Берлине.", "answer": "Aigerim wohnt in Berlin.", "distract": ["wohnst", "aus"] }
-        ]
-      },
-      "teaser": "Пассажир из Гамбурга оставил в такси записку с шифром: «ich -e, du -st, er -t». Брецель уже в лаборатории!"
-    },
-    {
-      "id": "a1-01-07",
-      "title": "Шифр глаголов",
-      "grammar": true,
-      "goal": "Изменять глагол по лицам: ich komme, du kommst, er kommt",
-      "video": { "src": "video/a1-01-07.mp4", "poster": "video/a1-01-07.jpg", "len": "1:33" },
-      "scene": {
-        "art": "lab",
-        "setting": "Лаборатория Брецеля. Сегодня разгадываем шифр немецких глаголов. Послушайте, как говорят герои.",
-        "lines": [
-          { "who": "marco", "de": "Ich lerne Deutsch.", "ru": "Я учу немецкий." },
-          { "who": "aigerim", "de": "Wir lernen Deutsch.", "ru": "Мы учим немецкий." },
-          { "who": "lena", "de": "Ihr lernt Deutsch? Super!", "ru": "Вы учите немецкий? Супер!" },
-          { "who": "tom", "de": "Lena wohnt in Berlin. Sie kommt aus Deutschland.", "ru": "Лена живёт в Берлине. Она из Германии." }
-        ]
-      },
-      "newWords": ["er", "sie_she", "wir", "ihr_pl", "lernen", "muenchen"],
-      "exercises": [
-        {
-          "type": "info", "title": "Шифр разгадан: окончания",
-          "paras": [
-            "У немецкого глагола есть основа и окончание: <b>wohn</b>-en, <b>lern</b>-en, <b>komm</b>-en.",
-            "Окончание меняется вместе с лицом. Запомните шесть окончаний — и вы сможете изменять почти любой глагол."
-          ],
-          "table": { "head": ["", "wohnen", "окончание"], "rows": [["ich", "wohn<span class=\"end\">e</span>", "-e"], ["du", "wohn<span class=\"end\">st</span>", "-st"], ["er / sie", "wohn<span class=\"end\">t</span>", "-t"], ["wir", "wohn<span class=\"end\">en</span>", "-en"], ["ihr", "wohn<span class=\"end\">t</span>", "-t"], ["sie / Sie", "wohn<span class=\"end\">en</span>", "-en"]], "say": true },
-          "tip": "<b>sie</b> с маленькой буквы — «она» или «они», <b>Sie</b> с большой — вежливое «Вы». Нажмите на строку таблицы, чтобы услышать."
-        },
-        { "type": "gap", "ru": "Он живёт в Мюнхене.", "text": "Er ___ in München.", "options": ["wohnt", "wohne", "wohnst"], "answer": 0, "words": ["er", "muenchen"] },
-        { "type": "gap", "ru": "Мы учим немецкий.", "text": "Wir ___ Deutsch.", "options": ["lernen", "lernt", "lerne"], "answer": 0, "words": ["wir", "lernen"] },
-        { "type": "pick", "kicker": "Подберите местоимение", "q": "___ kommst aus Italien.", "options": [{ "de": "Du" }, { "de": "Ich" }, { "de": "Er" }], "answer": 0, "explain": "Окончание -st бывает только с du." },
-        { "type": "gap", "ru": "Откуда вы (ребята)?", "text": "Woher kommt ___?", "options": ["ihr", "wir", "du"], "answer": 0, "words": ["ihr_pl"], "explain": "ihr kommt — окончание -t, как у er." },
-        { "type": "tiles", "ru": "Она учит немецкий.", "answer": "Sie lernt Deutsch.", "distract": ["lerne", "Er"], "words": ["sie_she"] },
-        { "type": "write", "ru": "Мы живём в Берлине.", "accept": ["Wir wohnen in Berlin."], "words": ["wir"] }
-      ],
-      "boss": {
-        "title": "Сейф Брецеля",
-        "intro": "Поставьте правильные окончания — и сейф откроется!",
-        "turns": [
-          { "type": "gap", "text": "Ich ___ aus Russland.", "options": ["komme", "kommt", "kommen"], "answer": 0 },
-          { "type": "gap", "text": "Lena und Tom ___ in Berlin.", "options": ["wohnen", "wohnt", "wohnst"], "answer": 0, "explain": "Лена и Том = sie (они) → окончание -en." },
-          { "type": "gap", "text": "Du ___ Deutsch.", "options": ["lernst", "lernt", "lernen"], "answer": 0 }
-        ]
-      },
-      "teaser": "В субботу в хостеле вечеринка. Гости со всего мира — и все говорят на разных языках!"
-    },
-    {
-      "id": "a1-01-08",
-      "title": "Sprachen",
-      "goal": "Рассказать, на каких языках вы говорите",
-      "video": { "src": "video/a1-01-08.mp4", "poster": "video/a1-01-08.jpg", "len": "1:41" },
-      "scene": {
-        "art": "party",
-        "setting": "Субботняя вечеринка в «Брецельхаусе». Гости из разных стран знакомятся.",
-        "lines": [
-          { "who": "marco", "de": "Ich spreche Italienisch und Englisch.", "ru": "Я говорю по-итальянски и по-английски." },
-          { "who": "lena", "de": "Ich spreche Deutsch und Englisch. Und du, Aigerim?", "ru": "Я говорю по-немецки и по-английски. А ты, Айгерим?" },
-          { "who": "aigerim", "de": "Ich spreche Kasachisch, Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-казахски, по-русски и немного по-немецки." },
-          { "who": "man", "de": "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch.", "ru": "Я из Узбекистана. Я говорю по-узбекски и по-русски." },
-          { "who": "you", "de": "Ich spreche Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-русски и немного по-немецки." }
-        ]
-      },
-      "newWords": ["sprechen", "sprache", "deutsch", "englisch", "russisch", "ein_bisschen", "usbekistan"],
-      "exercises": [
-        {
-          "type": "info", "kicker": "Особый глагол", "title": "sprechen: e меняется на i",
-          "paras": ["Некоторые глаголы меняют гласную в корне — но только с <b>du</b> и <b>er / sie</b>."],
-          "table": { "rows": [["ich", "spreche"], ["du", "spr<span class=\"end\">i</span>chst"], ["er / sie", "spr<span class=\"end\">i</span>cht"], ["wir", "sprechen"], ["ihr", "sprecht"], ["sie / Sie", "sprechen"]], "say": true },
-          "examples": [{ "de": "Sprichst du Englisch?", "ru": "Ты говоришь по-английски?" }, { "de": "Lena spricht Deutsch.", "ru": "Лена говорит по-немецки." }]
-        },
-        { "type": "gap", "ru": "Ты говоришь по-английски?", "text": "___ du Englisch?", "options": ["Sprichst", "Sprechst", "Spreche"], "answer": 0, "words": ["sprechen", "englisch"], "explain": "du sprichst — с буквой i." },
-        { "type": "pick", "kicker": "Языки", "q": "Как по-немецки «русский язык»?", "options": [{ "de": "Russisch", "img": "bubble:Привет" }, { "de": "Englisch", "img": "bubble:Hello" }, { "de": "Deutsch", "img": "bubble:Hallo:de" }], "answer": 0, "words": ["russisch"] },
-        { "type": "tiles", "ru": "Я немного говорю по-немецки.", "answer": "Ich spreche ein bisschen Deutsch.", "distract": ["sprichst", "Englisch"], "words": ["ein_bisschen", "deutsch"] },
-        { "type": "reply", "who": "lena", "line": "Welche Sprachen sprichst du?", "lineRu": "На каких языках ты говоришь?", "options": ["Ich spreche Russisch und ein bisschen Deutsch.", "Ich komme aus Russland.", "Ich wohne in Berlin."], "answer": 0, "words": ["sprache"] },
-        { "type": "tf", "audio": "Aigerim spricht Kasachisch, Russisch und ein bisschen Deutsch.", "statement": "Aigerim spricht Englisch.", "statementRu": "Айгерим говорит по-английски.", "answer": false },
-        { "type": "listen", "de": "Er kommt aus Usbekistan.", "options": ["Er kommt aus Usbekistan.", "Er kommt aus Kasachstan.", "Ich komme aus Usbekistan."], "answer": 0, "words": ["usbekistan"] },
-        { "type": "speak", "de": "Ich spreche Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-русски и немного по-немецки.", "distract": ["Englisch"] }
-      ],
-      "boss": {
-        "title": "Вечеринка",
-        "intro": "Гости хотят познакомиться. Ответьте на их вопросы!",
-        "turns": [
-          { "type": "reply", "who": "man", "line": "Hallo! Ich komme aus Usbekistan. Und du?", "lineRu": "Привет! Я из Узбекистана. А ты?", "options": ["Ich komme aus Russland.", "Ich wohne aus Russland.", "Ich spreche aus Russland."], "answer": 0 },
-          { "type": "reply", "who": "lena", "line": "Sprichst du Englisch?", "lineRu": "Ты говоришь по-английски?", "options": ["Ja, ein bisschen.", "Ja, ich spricht Englisch.", "Nein, ich komme aus Englisch."], "answer": 0 },
-          { "type": "tiles", "ru": "Марко говорит по-итальянски и по-английски.", "answer": "Marco spricht Italienisch und Englisch.", "distract": ["spreche", "Deutsch"] }
-        ]
-      },
-      "teaser": "Наутро Лена показывает фотоальбом хостела. Кто все эти люди на фото?"
-    },
-    {
-      "id": "a1-01-09",
       "title": "sein: ich bin",
       "grammar": true,
-      "goal": "Говорить, кто есть кто: Das ist … Er ist …",
-      "video": { "src": "video/a1-01-09.mp4", "poster": "video/a1-01-09.jpg", "len": "1:32" },
+      "goal": "Говорить, кто есть кто: Ich bin … Das ist … Bist du …?",
+      "video": {"src": "video/a1-01-09.mp4", "poster": "video/a1-01-09.jpg", "len": "1:32"},
       "scene": {
         "art": "album",
         "setting": "Лена листает фотоальбом «Брецельхауса» и рассказывает о гостях.",
         "lines": [
-          { "who": "lena", "de": "Das ist Tom. Er ist aus Hamburg.", "ru": "Это Том. Он из Гамбурга." },
-          { "who": "lena", "de": "Das ist Frau Wagner. Sie ist Lehrerin.", "ru": "Это фрау Вагнер. Она учительница." },
-          { "who": "lena", "de": "Und das sind Marco und Aigerim. Sie sind Freunde.", "ru": "А это Марко и Айгерим. Они друзья." },
-          { "who": "you", "de": "Und wer ist das?", "ru": "А кто это?" },
-          { "who": "lena", "de": "Das ist Herr Becker. Er ist aus Österreich.", "ru": "Это господин Беккер. Он из Австрии." }
+          {"who": "lena", "de": "Das ist Tom. Er ist aus Hamburg.", "ru": "Это Том. Он из Гамбурга."},
+          {"who": "lena", "de": "Das ist Frau Wagner. Sie ist Lehrerin.", "ru": "Это фрау Вагнер. Она учительница."},
+          {"who": "lena", "de": "Und das sind Marco und Aigerim. Sie sind Freunde.", "ru": "А это Марко и Айгерим. Они друзья."},
+          {"who": "you", "de": "Und wer ist das?", "ru": "А кто это?"},
+          {"who": "lena", "de": "Das ist Herr Becker. Er ist aus Österreich.", "ru": "Это господин Беккер. Он из Австрии."}
         ]
       },
-      "newWords": ["sein", "das_ist", "freund", "lehrerin", "und", "auch", "oesterreich"],
+      "teach": {
+        "title": "Глагол sein — «быть»",
+        "text": "По-русски «быть» мы пропускаем: «Я — Алекс». По-немецки так нельзя: <b>Ich bin</b> Alex.",
+        "outro": "Готово! ich <b>bin</b>, du <b>bist</b>, er <b>ist</b> — эти три нужны постоянно. Нажмите на строку, чтобы послушать.",
+        "rows": [
+          {"de": "ich bin", "ru": "я (есть)", "img": "iam", "word": "sein", "ex": {"de": "Ich bin Alex."}, "tip": "Формы sein не похожи друг на друга — их просто запоминают. Начнём: <b>ich bin</b>."},
+          {"de": "du bist", "ru": "ты (есть)", "img": "you", "ex": {"de": "Du bist Lena."}, "tip": "<b>du bist</b> — ты (есть)."},
+          {"de": "er / sie ist", "ru": "он / она (есть)", "img": "he", "say": "er ist, sie ist", "ex": {"de": "Er ist Tom."}, "tip": "<b>ist</b> — для него и для неё."},
+          {"de": "wir sind", "ru": "мы (есть)", "img": "we", "ex": {"de": "Wir sind Freunde."}, "tip": "<b>wir sind</b> — мы (есть)."},
+          {"de": "ihr seid", "ru": "вы (есть)", "img": "youpl", "tip": "<b>ihr seid</b> — вы, ребята. Самая редкая форма."},
+          {"de": "sie / Sie sind", "ru": "они / Вы (есть)", "img": "youFormal", "say": "sie sind, Sie sind", "tip": "<b>sind</b> — как у wir: они и вежливое «Вы»."},
+          {"de": "Das ist …", "ru": "Это …", "img": "this", "word": "das_ist", "ex": {"de": "Das ist Lena."}, "tip": "А чтобы показать на кого-то: <b>Das ist</b> Lena. — Это Лена."}
+        ]
+      },
+      "newWords": ["sein", "das_ist", "ja", "nein", "und", "auch", "freund", "lehrerin"],
       "exercises": [
-        {
-          "type": "info", "title": "Глагол sein — «быть»",
-          "paras": [
-            "По-русски «быть» в настоящем времени мы пропускаем: «Я — Алекс». По-немецки так нельзя: <b>Ich bin</b> Alex.",
-            "sein — неправильный глагол, его формы нужно просто запомнить."
-          ],
-          "table": { "rows": [["ich", "bin"], ["du", "bist"], ["er / sie", "ist"], ["wir", "sind"], ["ihr", "seid"], ["sie / Sie", "sind"]], "say": true },
-          "examples": [{ "de": "Ich bin Alex.", "ru": "Я Алекс." }, { "de": "Das ist Lena.", "ru": "Это Лена." }, { "de": "Wir sind Freunde.", "ru": "Мы друзья." }],
-          "tip": "Профессия — без артикля: Sie ist <b>Lehrerin</b>. (Она учительница.)"
-        },
-        { "type": "gap", "ru": "Я Марко.", "text": "Ich ___ Marco.", "options": ["bin", "ist", "bist"], "answer": 0, "words": ["sein"] },
-        { "type": "gap", "ru": "Это Лена.", "text": "Das ___ Lena.", "options": ["ist", "bin", "sind"], "answer": 0, "words": ["das_ist"] },
-        { "type": "gap", "ru": "Ты из Австрии?", "text": "___ du aus Österreich?", "options": ["Bist", "Ist", "Sind"], "answer": 0, "words": ["oesterreich"], "explain": "В вопросе без вопросительного слова глагол идёт первым: Bist du …?" },
-        { "type": "tiles", "ru": "Фрау Вагнер — учительница.", "answer": "Frau Wagner ist Lehrerin.", "distract": ["bin", "Freund"], "words": ["lehrerin"] },
-        { "type": "gap", "ru": "Марко и Айгерим — друзья.", "text": "Marco und Aigerim ___ Freunde.", "options": ["sind", "ist", "seid"], "answer": 0, "words": ["und", "freund"] },
-        { "type": "reply", "who": "marco", "line": "Ich komme aus Italien. Und du?", "lineRu": "Я из Италии. А ты?", "options": ["Ich bin auch aus Italien!", "Ich bist auch aus Italien!", "Ich ist auch aus Italien!"], "answer": 0, "words": ["auch"] },
-        { "type": "write", "ru": "Мы друзья.", "accept": ["Wir sind Freunde."] }
+        {"type": "gap", "ru": "Я Марко.", "text": "Ich ___ Marco.", "options": ["bin", "ist", "bist"], "answer": 0, "words": ["sein"]},
+        {"type": "gap", "ru": "Это Лена.", "text": "Das ___ Lena.", "options": ["ist", "bin", "sind"], "answer": 0, "words": ["das_ist"]},
+        {"type": "gap", "ru": "Ты Том?", "text": "___ du Tom?", "options": ["Bist", "Ist", "Sind"], "answer": 0, "words": ["sein"], "explain": "В вопросе без вопросительного слова глагол идёт первым: Bist du …?"},
+        {"type": "reply", "who": "tom", "line": "Bist du Alex?", "lineRu": "Ты Алекс?", "options": ["Ja, ich bin Alex.", "Ja, ich bist Alex.", "Nein, du bist Alex."], "answer": 0, "words": ["ja"]},
+        {"type": "reply", "who": "becker", "situation": "К вам обращается незнакомый мужчина.", "line": "Guten Tag! Sind Sie Herr Schulz?", "lineRu": "Добрый день! Вы господин Шульц?", "options": ["Nein. Ich heiße Alex.", "Ja, ich heiße Lena.", "Gute Nacht!"], "answer": 0, "words": ["nein", "herr"]},
+        {"type": "tiles", "ru": "Фрау Вагнер — учительница.", "answer": "Frau Wagner ist Lehrerin.", "distract": ["bin", "Freund"], "words": ["lehrerin"]},
+        {"type": "gap", "ru": "Марко и Айгерим — друзья.", "text": "Marco und Aigerim ___ Freunde.", "options": ["sind", "ist", "seid"], "answer": 0, "words": ["und", "freund"]},
+        {"type": "tiles", "ru": "Лена тоже учительница.", "answer": "Lena ist auch Lehrerin.", "distract": ["bin", "und"], "words": ["auch"]},
+        {"type": "write", "ru": "Мы друзья.", "accept": ["Wir sind Freunde."]}
       ],
       "boss": {
         "title": "Угадай, кто на фото",
         "intro": "Лена закрыла подписи в альбоме. Расскажите сами, кто есть кто!",
         "turns": [
-          { "type": "pick", "q": "Кто на фото?", "img": "teacher", "options": [{ "de": "Das ist Frau Wagner. Sie ist Lehrerin." }, { "de": "Das ist Tom. Er ist Lehrerin." }, { "de": "Das bin Frau Wagner." }], "answer": 0 },
-          { "type": "gap", "text": "Herr Becker ___ aus Österreich.", "options": ["ist", "sind", "bin"], "answer": 0 },
-          { "type": "tiles", "ru": "Это Том. Он тоже из Германии.", "answer": "Das ist Tom. Er ist auch aus Deutschland.", "distract": ["bin", "sind"] }
+          {"type": "pick", "q": "Кто на фото?", "img": "teacher", "options": [{"de": "Das ist Frau Wagner. Sie ist Lehrerin."}, {"de": "Das ist Tom. Er ist Lehrerin."}, {"de": "Das bin Frau Wagner."}], "answer": 0},
+          {"type": "gap", "text": "Tom und Lena ___ Freunde.", "options": ["sind", "ist", "bin"], "answer": 0},
+          {"type": "tiles", "ru": "Это Том. Он тоже друг.", "answer": "Das ist Tom. Er ist auch ein Freund.", "distract": ["bin", "sind"]}
+        ]
+      },
+      "teaser": "На фото в альбоме — гости со всего мира. Откуда они приехали?"
+    },
+    {
+      "id": "a1-01-07",
+      "title": "Woher kommst du?",
+      "goal": "Страны: сказать, откуда вы, и спросить собеседника",
+      "video": {"src": "video/a1-01-05.mp4", "poster": "video/a1-01-05.jpg", "len": "1:23"},
+      "scene": {
+        "art": "school",
+        "setting": "Перемена. Знакомитесь с одногруппниками: Марко и Айгерим.",
+        "lines": [
+          {"who": "marco", "de": "Ich heiße Marco. Ich komme aus Italien.", "ru": "Меня зовут Марко. Я из Италии."},
+          {"who": "aigerim", "de": "Ich heiße Aigerim. Ich komme aus Kasachstan.", "ru": "Меня зовут Айгерим. Я из Казахстана."},
+          {"who": "marco", "de": "Und du? Woher kommst du?", "ru": "А ты? Откуда ты?"},
+          {"who": "you", "de": "Ich komme aus Russland.", "ru": "Я из России."},
+          {"who": "aigerim", "de": "Lena kommt aus Deutschland.", "ru": "Лена из Германии."}
+        ]
+      },
+      "newWords": ["kommen", "woher", "aus", "deutschland", "russland", "usbekistan", "kasachstan", "italien", "oesterreich"],
+      "exercises": [
+        {"type": "pick", "kicker": "Флаги", "q": "Послушайте: откуда Марко?", "audio": "Marco kommt aus Italien.", "options": [{"de": "Italien", "img": "flag:it"}, {"de": "Deutschland", "img": "flag:de"}, {"de": "Russland", "img": "flag:ru"}, {"de": "Kasachstan", "img": "flag:kz"}], "answer": 0, "words": ["italien"]},
+        {"type": "gap", "ru": "Я из России.", "text": "Ich komme ___ Russland.", "options": ["aus", "in", "woher"], "answer": 0, "words": ["aus", "russland"]},
+        {"type": "gap", "ru": "Откуда ты?", "text": "Woher ___ du?", "options": ["kommst", "komme", "kommen"], "answer": 0, "words": ["kommen", "woher"], "explain": "du kommst — окончание -st."},
+        {"type": "listen", "de": "Er kommt aus Usbekistan.", "options": ["Er kommt aus Usbekistan.", "Er kommt aus Kasachstan.", "Ich komme aus Usbekistan."], "answer": 0, "words": ["usbekistan"]},
+        {"type": "tiles", "ru": "Айгерим из Казахстана.", "answer": "Aigerim kommt aus Kasachstan.", "distract": ["komme", "Russland"], "words": ["kasachstan"]},
+        {"type": "tf", "audio": "Das ist Herr Becker. Er kommt aus Österreich.", "statement": "Herr Becker kommt aus Deutschland.", "statementRu": "Господин Беккер из Германии.", "answer": false, "words": ["oesterreich"]},
+        {"type": "reply", "who": "aigerim", "line": "Woher kommst du?", "lineRu": "Откуда ты?", "options": ["Ich komme aus Russland.", "Ich heiße Alex.", "Gut, danke!"], "answer": 0},
+        {"type": "write", "ru": "Я из Германии.", "accept": ["Ich komme aus Deutschland."], "words": ["deutschland"]},
+        {"type": "speak", "de": "Ich komme aus Russland.", "ru": "Я из России.", "distract": ["du"]}
+      ],
+      "boss": {
+        "title": "Международный класс",
+        "intro": "Фрау Вагнер просит всех рассказать, кто откуда. Поддержите разговор!",
+        "turns": [
+          {"type": "reply", "who": "wagner", "line": "Und Sie? Woher kommen Sie?", "lineRu": "А Вы? Откуда Вы?", "options": ["Ich komme aus Russland.", "Ich heiße aus Russland.", "Woher kommst du?"], "answer": 0},
+          {"type": "pick", "q": "Послушайте: откуда Айгерим?", "audio": "Ich heiße Aigerim. Ich komme aus Kasachstan.", "options": [{"de": "Kasachstan", "img": "flag:kz"}, {"de": "Italien", "img": "flag:it"}, {"de": "Russland", "img": "flag:ru"}], "answer": 0},
+          {"type": "tiles", "ru": "Марко, откуда ты?", "answer": "Marco, woher kommst du?", "distract": ["kommen", "aus"]}
+        ]
+      },
+      "teaser": "После занятий вы решаете подработать… таксистом! Первый пассажир уже садится в машину."
+    },
+    {
+      "id": "a1-01-08",
+      "title": "Wo wohnst du?",
+      "goal": "Города: сказать, где вы живёте",
+      "video": {"src": "video/a1-01-06.mp4", "poster": "video/a1-01-06.jpg", "len": "1:36"},
+      "scene": {
+        "art": "taxi",
+        "setting": "Вы — таксист в Берлине. В машину садится пассажир с большим чемоданом.",
+        "lines": [
+          {"who": "passenger", "de": "Guten Tag!", "ru": "Добрый день!"},
+          {"who": "you", "de": "Guten Tag! Woher kommen Sie?", "ru": "Добрый день! Откуда Вы?"},
+          {"who": "passenger", "de": "Ich komme aus Hamburg. Ich wohne in Hamburg.", "ru": "Я из Гамбурга. Я живу в Гамбурге."},
+          {"who": "you", "de": "Und jetzt? Wo wohnen Sie in Berlin?", "ru": "А сейчас? Где Вы живёте в Берлине?"},
+          {"who": "passenger", "de": "Jetzt wohne ich im Brezelhaus. Brezelhaus, bitte!", "ru": "Сейчас я живу в «Брецельхаусе». В «Брецельхаус», пожалуйста!"}
+        ]
+      },
+      "newWords": ["wohnen", "wo", "in", "stadt", "jetzt", "berlin", "hamburg", "muenchen"],
+      "exercises": [
+        {"type": "gap", "ru": "Я живу в Берлине.", "text": "Ich ___ in Berlin.", "options": ["wohne", "wohnst", "wohnt"], "answer": 0, "words": ["wohnen", "berlin"]},
+        {"type": "pick", "kicker": "Услышь и выбери", "q": "Где живёт Том?", "audio": "Tom wohnt in Hamburg.", "options": [{"de": "Hamburg", "img": "hamburg"}, {"de": "Berlin", "img": "berlin"}, {"de": "Italien", "img": "flag:it"}], "answer": 0, "words": ["hamburg"]},
+        {"type": "gap", "ru": "Он живёт в Мюнхене.", "text": "Er ___ in München.", "options": ["wohnt", "wohne", "wohnst"], "answer": 0, "words": ["er", "muenchen"]},
+        {"type": "tiles", "ru": "Где ты живёшь?", "answer": "Wo wohnst du?", "distract": ["woher", "kommst"], "words": ["wo"]},
+        {"type": "gap", "ru": "Где ты живёшь?", "text": "___ wohnst du?", "options": ["Wo", "Woher", "Wie"], "answer": 0, "words": ["wo"], "explain": "wo — где, woher — откуда, wie — как."},
+        {"type": "reply", "who": "passenger", "line": "Wo wohnen Sie?", "lineRu": "Где Вы живёте?", "options": ["Ich wohne jetzt in Berlin.", "Ich komme aus Berlin. Und dir?", "Gute Nacht!"], "answer": 0, "words": ["jetzt"]},
+        {"type": "dictation", "de": "Ich wohne in Berlin.", "accept": ["Ich wohne in Berlin."], "ru": "Я живу в Берлине.", "words": ["in"]},
+        {"type": "tf", "statement": "Berlin ist eine Stadt.", "statementRu": "Берлин — это город.", "answer": true, "words": ["stadt"]},
+        {"type": "speak", "de": "Ich wohne jetzt in Berlin.", "ru": "Сейчас я живу в Берлине.", "distract": ["aus"]}
+      ],
+      "boss": {
+        "title": "Ночная смена",
+        "intro": "Новый пассажир — ваша одногруппница Айгерим! Поговорите с ней по дороге.",
+        "turns": [
+          {"type": "reply", "who": "aigerim", "line": "Hallo! Wie geht's?", "lineRu": "Привет! Как дела?", "options": ["Gut, danke! Und dir?", "Gut, danke. Und Ihnen, Frau Aigerim?", "Ich wohne in Hamburg."], "answer": 0},
+          {"type": "reply", "who": "aigerim", "line": "Wo wohnst du?", "lineRu": "Где ты живёшь?", "options": ["Ich wohne jetzt in Berlin.", "Ich komme aus Kasachstan.", "Woher kommst du?"], "answer": 0},
+          {"type": "tiles", "ru": "Айгерим живёт в Берлине.", "answer": "Aigerim wohnt in Berlin.", "distract": ["wohnst", "aus"]}
+        ]
+      },
+      "teaser": "В субботу в хостеле вечеринка. Гости со всего мира — и все говорят на разных языках!"
+    },
+    {
+      "id": "a1-01-09",
+      "title": "Sprachen",
+      "goal": "Рассказать, на каких языках вы говорите",
+      "video": {"src": "video/a1-01-08.mp4", "poster": "video/a1-01-08.jpg", "len": "1:41"},
+      "scene": {
+        "art": "party",
+        "setting": "Субботняя вечеринка в «Брецельхаусе». Гости из разных стран знакомятся.",
+        "lines": [
+          {"who": "marco", "de": "Ich spreche Italienisch und Englisch.", "ru": "Я говорю по-итальянски и по-английски."},
+          {"who": "lena", "de": "Ich spreche Deutsch und Englisch. Und du, Aigerim?", "ru": "Я говорю по-немецки и по-английски. А ты, Айгерим?"},
+          {"who": "aigerim", "de": "Ich spreche Kasachisch, Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-казахски, по-русски и немного по-немецки."},
+          {"who": "man", "de": "Ich komme aus Usbekistan. Ich spreche Usbekisch und Russisch.", "ru": "Я из Узбекистана. Я говорю по-узбекски и по-русски."},
+          {"who": "you", "de": "Ich spreche Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-русски и немного по-немецки."}
+        ]
+      },
+      "newWords": ["sprechen", "sprache", "deutsch", "englisch", "russisch", "ein_bisschen"],
+      "exercises": [
+        {"type": "info", "kicker": "Особый глагол", "title": "sprechen: e меняется на i", "paras": ["Некоторые глаголы меняют гласную в корне — но только с <b>du</b> и <b>er / sie</b>."], "table": {"rows": [["ich", "spreche"], ["du", "spr<span class=\"end\">i</span>chst"], ["er / sie", "spr<span class=\"end\">i</span>cht"], ["wir", "sprechen"], ["ihr", "sprecht"], ["sie / Sie", "sprechen"]], "say": true}, "examples": [{"de": "Sprichst du Englisch?", "ru": "Ты говоришь по-английски?"}, {"de": "Lena spricht Deutsch.", "ru": "Лена говорит по-немецки."}]},
+        {"type": "gap", "ru": "Ты говоришь по-английски?", "text": "___ du Englisch?", "options": ["Sprichst", "Sprechst", "Spreche"], "answer": 0, "words": ["sprechen", "englisch"], "explain": "du sprichst — с буквой i."},
+        {"type": "pick", "kicker": "Языки", "q": "Как по-немецки «русский язык»?", "options": [{"de": "Russisch", "img": "bubble:Привет"}, {"de": "Englisch", "img": "bubble:Hello"}, {"de": "Deutsch", "img": "bubble:Hallo:de"}], "answer": 0, "words": ["russisch"]},
+        {"type": "tiles", "ru": "Я немного говорю по-немецки.", "answer": "Ich spreche ein bisschen Deutsch.", "distract": ["sprichst", "Englisch"], "words": ["ein_bisschen", "deutsch"]},
+        {"type": "reply", "who": "lena", "line": "Welche Sprachen sprichst du?", "lineRu": "На каких языках ты говоришь?", "options": ["Ich spreche Russisch und ein bisschen Deutsch.", "Ich komme aus Russland.", "Ich wohne in Berlin."], "answer": 0, "words": ["sprache"]},
+        {"type": "tf", "audio": "Aigerim spricht Kasachisch, Russisch und ein bisschen Deutsch.", "statement": "Aigerim spricht Englisch.", "statementRu": "Айгерим говорит по-английски.", "answer": false},
+        {"type": "speak", "de": "Ich spreche Russisch und ein bisschen Deutsch.", "ru": "Я говорю по-русски и немного по-немецки.", "distract": ["Englisch"]}
+      ],
+      "boss": {
+        "title": "Вечеринка",
+        "intro": "Гости хотят познакомиться. Ответьте на их вопросы!",
+        "turns": [
+          {"type": "reply", "who": "man", "line": "Hallo! Ich komme aus Usbekistan. Und du?", "lineRu": "Привет! Я из Узбекистана. А ты?", "options": ["Ich komme aus Russland.", "Ich wohne aus Russland.", "Ich spreche aus Russland."], "answer": 0},
+          {"type": "reply", "who": "lena", "line": "Sprichst du Englisch?", "lineRu": "Ты говоришь по-английски?", "options": ["Ja, ein bisschen.", "Ja, ich spricht Englisch.", "Nein, ich komme aus Englisch."], "answer": 0},
+          {"type": "tiles", "ru": "Марко говорит по-итальянски и по-английски.", "answer": "Marco spricht Italienisch und Englisch.", "distract": ["spreche", "Deutsch"]}
         ]
       },
       "teaser": "Местное радио ищет репортёра для уличных интервью. Брецель уже записал вас добровольцем!"
     },
     {
       "id": "a1-01-10",
-      "title": "Вопросы: wer, was, wo",
+      "title": "Вопросы: wer, was, wo…",
       "grammar": true,
       "goal": "Задавать вопросы: кто, что, как, где, откуда",
-      "video": { "src": "video/a1-01-10.mp4", "poster": "video/a1-01-10.jpg", "len": "1:43" },
+      "video": {"src": "video/a1-01-10.mp4", "poster": "video/a1-01-10.jpg", "len": "1:43"},
       "scene": {
         "art": "street",
         "setting": "Вы — репортёр уличного радио. У телебашни вы берёте интервью у прохожей.",
         "lines": [
-          { "who": "you", "de": "Guten Tag! Eine Frage: Wie heißen Sie?", "ru": "Добрый день! Один вопрос: как Вас зовут?" },
-          { "who": "woman", "de": "Ich heiße Anna Huber.", "ru": "Меня зовут Анна Хубер." },
-          { "who": "you", "de": "Woher kommen Sie?", "ru": "Откуда Вы?" },
-          { "who": "woman", "de": "Ich komme aus der Schweiz.", "ru": "Я из Швейцарии." },
-          { "who": "you", "de": "Was lernen Sie?", "ru": "Что Вы учите?" },
-          { "who": "woman", "de": "Ich lerne Russisch!", "ru": "Я учу русский!" }
+          {"who": "you", "de": "Guten Tag! Eine Frage: Wie heißen Sie?", "ru": "Добрый день! Один вопрос: как Вас зовут?"},
+          {"who": "woman", "de": "Ich heiße Anna Huber.", "ru": "Меня зовут Анна Хубер."},
+          {"who": "you", "de": "Woher kommen Sie?", "ru": "Откуда Вы?"},
+          {"who": "woman", "de": "Ich komme aus der Schweiz.", "ru": "Я из Швейцарии."},
+          {"who": "you", "de": "Was lernen Sie?", "ru": "Что Вы учите?"},
+          {"who": "woman", "de": "Ich lerne Russisch!", "ru": "Я учу русский!"}
+        ]
+      },
+      "teach": {
+        "title": "Вопросительные слова",
+        "text": "Вопросы «кто, что, где…» начинаются со слова на <b>W</b>. Оно стоит первым, а глагол — сразу за ним.",
+        "outro": "Все W-слова вместе. Не путайте: <b>wo</b> — где, <b>woher</b> — откуда, <b>wer</b> — кто.",
+        "rows": [
+          {"de": "wie", "ru": "как", "img": "qhow", "ex": {"de": "Wie heißt du?"}, "tip": "Это вы уже знаете: <b>Wie</b> heißt du?"},
+          {"de": "wer", "ru": "кто", "img": "qwho", "word": "wer", "ex": {"de": "Wer ist das?"}, "tip": "Новое! <b>wer</b> — кто. Похоже на английское where, но значит «кто»!"},
+          {"de": "was", "ru": "что", "img": "qwhat", "word": "was", "ex": {"de": "Was ist das?"}, "tip": "Новое: <b>was</b> — что."},
+          {"de": "wo", "ru": "где", "img": "qwhere", "ex": {"de": "Wo wohnst du?"}, "tip": "Помните? <b>wo</b> — где."},
+          {"de": "woher", "ru": "откуда", "img": "qfrom", "ex": {"de": "Woher kommst du?"}, "tip": "<b>woher</b> — откуда."}
         ]
       },
       "newWords": ["wer", "was", "frage", "antwort", "richtig", "falsch", "schweiz"],
       "exercises": [
-        {
-          "type": "info", "title": "Глагол — на втором месте",
-          "paras": [
-            "Вопросительное слово стоит первым, глагол — <b>всегда на втором месте</b>, за ним — кто действует.",
-            "Это правило работает и в обычных предложениях: Jetzt <b>wohne</b> ich in Berlin."
-          ],
-          "table": { "head": ["вопрос", "глагол", "кто"], "rows": [["Wie", "heißt", "du?"], ["Woher", "kommen", "Sie?"], ["Wo", "wohnt", "Lena?"], ["Was", "lernst", "du?"], ["Wer", "ist", "das?"]], "say": true },
-          "tip": "wie — как, wer — кто, was — что, wo — где, woher — откуда."
-        },
-        { "type": "gap", "ru": "Кто это?", "text": "___ ist das?", "options": ["Wer", "Was", "Wo"], "answer": 0, "words": ["wer"] },
-        { "type": "gap", "ru": "Что ты учишь?", "text": "___ lernst du?", "options": ["Was", "Wer", "Woher"], "answer": 0, "words": ["was"] },
-        { "type": "tiles", "ru": "Где живёт Анна?", "answer": "Wo wohnt Anna?", "distract": ["Woher", "wohnst"] },
-        { "type": "tf", "kicker": "Richtig oder falsch?", "text": "<b>Anna Huber</b><br>Ich komme aus der Schweiz. Ich wohne jetzt in Berlin. Ich lerne Russisch.", "statement": "Anna kommt aus Österreich.", "statementRu": "Анна из Австрии.", "answer": false, "words": ["falsch", "schweiz"] },
-        { "type": "tf", "kicker": "Richtig oder falsch?", "text": "<b>Anna Huber</b><br>Ich komme aus der Schweiz. Ich wohne jetzt in Berlin. Ich lerne Russisch.", "statement": "Anna lernt Russisch.", "statementRu": "Анна учит русский.", "answer": true, "words": ["richtig"] },
-        { "type": "tiles", "dir": "ru", "de": "Woher kommst du?", "ruAnswer": "Откуда ты?", "distract": ["где", "как"] },
-        { "type": "write", "ru": "Как тебя зовут?", "accept": ["Wie heißt du?"] },
-        { "type": "speak", "de": "Woher kommen Sie?", "ru": "Откуда Вы?", "distract": ["wo"] }
+        {"type": "info", "title": "Глагол — на втором месте", "paras": ["Вопросительное слово стоит первым, глагол — <b>всегда на втором месте</b>, за ним — кто действует.", "Это правило работает и в обычных предложениях: Jetzt <b>wohne</b> ich in Berlin."], "table": {"head": ["вопрос", "глагол", "кто"], "rows": [["Wie", "heißt", "du?"], ["Woher", "kommen", "Sie?"], ["Wo", "wohnt", "Lena?"], ["Was", "lernst", "du?"], ["Wer", "ist", "das?"]], "say": true}, "tip": "wie — как, wer — кто, was — что, wo — где, woher — откуда."},
+        {"type": "gap", "ru": "Кто это?", "text": "___ ist das?", "options": ["Wer", "Was", "Wo"], "answer": 0, "words": ["wer"]},
+        {"type": "gap", "ru": "Что ты учишь?", "text": "___ lernst du?", "options": ["Was", "Wer", "Woher"], "answer": 0, "words": ["was"]},
+        {"type": "tiles", "ru": "Где живёт Анна?", "answer": "Wo wohnt Anna?", "distract": ["Woher", "wohnst"]},
+        {"type": "tf", "kicker": "Richtig oder falsch?", "text": "<b>Anna Huber</b><br>Ich komme aus der Schweiz. Ich wohne jetzt in Berlin. Ich lerne Russisch.", "statement": "Anna kommt aus Österreich.", "statementRu": "Анна из Австрии.", "answer": false, "words": ["falsch", "schweiz"]},
+        {"type": "tf", "kicker": "Richtig oder falsch?", "text": "<b>Anna Huber</b><br>Ich komme aus der Schweiz. Ich wohne jetzt in Berlin. Ich lerne Russisch.", "statement": "Anna lernt Russisch.", "statementRu": "Анна учит русский.", "answer": true, "words": ["richtig"]},
+        {"type": "tiles", "dir": "ru", "de": "Woher kommst du?", "ruAnswer": "Откуда ты?", "distract": ["где", "как"]},
+        {"type": "write", "ru": "Как тебя зовут?", "accept": ["Wie heißt du?"]},
+        {"type": "speak", "de": "Woher kommen Sie?", "ru": "Откуда Вы?", "distract": ["wo"]}
       ],
       "boss": {
         "title": "Прямой эфир!",
         "intro": "Вы в эфире! Гость отвечает — угадайте, какой был вопрос.",
         "turns": [
-          { "type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «Ich heiße Tom.»", "options": [{ "de": "Wie heißt du?" }, { "de": "Wo wohnst du?" }, { "de": "Woher kommst du?" }], "answer": 0 },
-          { "type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «Aus Hamburg.»", "options": [{ "de": "Woher kommst du?" }, { "de": "Wer bist du?" }, { "de": "Was lernst du?" }], "answer": 0 },
-          { "type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «In Berlin.»", "options": [{ "de": "Wo wohnst du?" }, { "de": "Woher kommst du?" }, { "de": "Wie geht's?" }], "answer": 0 }
+          {"type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «Ich heiße Tom.»", "options": [{"de": "Wie heißt du?"}, {"de": "Wo wohnst du?"}, {"de": "Woher kommst du?"}], "answer": 0},
+          {"type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «Aus Hamburg.»", "options": [{"de": "Woher kommst du?"}, {"de": "Wer bist du?"}, {"de": "Was lernst du?"}], "answer": 0},
+          {"type": "pick", "kicker": "Какой был вопрос?", "q": "Ответ: «In Berlin.»", "options": [{"de": "Wo wohnst du?"}, {"de": "Woher kommst du?"}, {"de": "Wie geht's?"}], "answer": 0}
         ]
       },
-      "teaser": "После эфира вы спускаетесь в метро. Час пик, толпа… и кто-то налетает прямо на господина Беккера!"
+      "teaser": "В записи эфира Брецель услышал странный шифр: «ich -e, du -st, er -t». Пора в лабораторию!"
     },
     {
       "id": "a1-01-11",
-      "title": "Bitte, danke, Entschuldigung",
-      "goal": "Вежливо извиниться, поблагодарить, переспросить",
-      "video": { "src": "video/a1-01-11.mp4", "poster": "video/a1-01-11.jpg", "len": "1:23" },
+      "title": "Шифр глаголов",
+      "grammar": true,
+      "goal": "Изменять глагол по лицам: ich komme, du kommst, er kommt",
+      "video": {"src": "video/a1-01-07.mp4", "poster": "video/a1-01-07.jpg", "len": "1:33"},
       "scene": {
-        "art": "ubahn",
-        "setting": "Берлинское метро. Вагон качнулся — и Том налетел на господина Беккера.",
+        "art": "lab",
+        "setting": "Лаборатория Брецеля. Сегодня разгадываем шифр немецких глаголов. Послушайте, как говорят герои.",
         "lines": [
-          { "who": "tom", "de": "Oh! Entschuldigung!", "ru": "Ой! Извините!" },
-          { "who": "becker", "de": "Kein Problem!", "ru": "Ничего страшного!" },
-          { "who": "becker", "de": "Entschuldigung, wo ist der Alexanderplatz?", "ru": "Извините, где Александерплац?" },
-          { "who": "tom", "de": "Wie bitte? Noch einmal, bitte. Langsam, bitte!", "ru": "Простите, что? Ещё раз, пожалуйста. Медленно, пожалуйста!" },
-          { "who": "becker", "de": "Wo ist der Alexanderplatz?", "ru": "Где Александерплац?" },
-          { "who": "tom", "de": "Hier! Alexanderplatz.", "ru": "Здесь! Александерплац." },
-          { "who": "becker", "de": "Danke schön!", "ru": "Большое спасибо!" },
-          { "who": "tom", "de": "Bitte schön!", "ru": "Пожалуйста!" }
+          {"who": "marco", "de": "Ich lerne Deutsch.", "ru": "Я учу немецкий."},
+          {"who": "aigerim", "de": "Wir lernen Deutsch.", "ru": "Мы учим немецкий."},
+          {"who": "lena", "de": "Ihr lernt Deutsch? Super!", "ru": "Вы учите немецкий? Супер!"},
+          {"who": "tom", "de": "Lena wohnt in Berlin. Sie kommt aus Deutschland.", "ru": "Лена живёт в Берлине. Она из Германии."}
         ]
       },
-      "newWords": ["bitte", "danke_schoen", "entschuldigung", "kein_problem", "wie_bitte", "noch_einmal", "langsam"],
+      "teach": {
+        "title": "Окончания глаголов",
+        "text": "У глагола есть основа и окончание: <b>lern</b>-en. Окончание меняется вместе с местоимением — это и есть шифр!",
+        "outro": "Шифр разгадан! Те же окончания у wohnen, kommen, heißen: ich wohn<b>e</b>, du komm<b>st</b>, er heiß<b>t</b>.",
+        "rows": [
+          {"de": "ich lerne", "end": "e", "ru": "я учу", "img": "me", "word": "lernen", "tip": "ich → окончание <b>-e</b>."},
+          {"de": "du lernst", "end": "st", "ru": "ты учишь", "img": "you", "tip": "du → <b>-st</b>."},
+          {"de": "er / sie lernt", "end": "t", "ru": "он / она учит", "img": "he", "say": "er lernt, sie lernt", "tip": "er, sie → <b>-t</b>."},
+          {"de": "wir lernen", "end": "en", "ru": "мы учим", "img": "we", "tip": "wir → <b>-en</b>, как в словаре."},
+          {"de": "ihr lernt", "end": "t", "ru": "вы учите", "img": "youpl", "tip": "ihr → <b>-t</b>, как у er."},
+          {"de": "sie / Sie lernen", "end": "en", "ru": "они / Вы учите", "img": "youFormal", "say": "sie lernen, Sie lernen", "tip": "sie и Sie → <b>-en</b>."}
+        ]
+      },
+      "newWords": ["lernen"],
       "exercises": [
-        { "type": "pick", "kicker": "Что сказать?", "q": "Вы случайно толкнули человека. Что сказать?", "options": [{ "de": "Entschuldigung!", "img": "sorry" }, { "de": "Danke schön!", "img": "heart2" }, { "de": "Gute Nacht!", "img": "night" }], "answer": 0, "words": ["entschuldigung"] },
-        { "type": "reply", "who": "becker", "line": "Danke schön!", "lineRu": "Большое спасибо!", "options": ["Bitte schön!", "Entschuldigung!", "Wie bitte?"], "answer": 0, "words": ["bitte"], "explain": "На «спасибо» отвечают «Bitte!» или «Bitte schön!»." },
-        { "type": "reply", "who": "wagner", "situation": "Фрау Вагнер говорит очень быстро, вы ничего не поняли.", "line": "Wo wohnen Sie?", "lineRu": "Где Вы живёте?", "options": ["Wie bitte? Noch einmal, bitte.", "Kein Problem!", "Danke schön!"], "answer": 0, "words": ["wie_bitte", "noch_einmal"] },
-        { "type": "tiles", "ru": "Медленно, пожалуйста!", "answer": "Langsam, bitte!", "distract": ["Danke", "noch"], "words": ["langsam"] },
-        { "type": "gap", "ru": "Ещё раз, пожалуйста!", "text": "Noch ___, bitte!", "options": ["einmal", "langsam", "bitte"], "answer": 0, "words": ["noch_einmal"] },
-        { "type": "listen", "de": "Kein Problem!", "options": ["Kein Problem!", "Danke schön!", "Wie bitte?"], "answer": 0, "words": ["kein_problem"] },
-        { "type": "dictation", "de": "Danke schön!", "accept": ["Danke schön!"], "ru": "Большое спасибо!", "words": ["danke_schoen"] },
-        { "type": "speak", "de": "Wie bitte? Noch einmal, bitte.", "ru": "Простите, что? Ещё раз, пожалуйста.", "distract": ["danke"] }
+        {"type": "gap", "ru": "Он живёт в Мюнхене.", "text": "Er ___ in München.", "options": ["wohnt", "wohne", "wohnst"], "answer": 0, "words": ["er", "muenchen"]},
+        {"type": "gap", "ru": "Мы учим немецкий.", "text": "Wir ___ Deutsch.", "options": ["lernen", "lernt", "lerne"], "answer": 0, "words": ["wir", "lernen"]},
+        {"type": "gap", "ru": "Лена из Германии.", "text": "Lena ___ aus Deutschland.", "options": ["kommt", "komme", "kommst"], "answer": 0, "words": ["kommen"], "explain": "Лена = sie (она) → окончание -t."},
+        {"type": "pick", "kicker": "Подберите местоимение", "q": "___ kommst aus Italien.", "options": [{"de": "Du"}, {"de": "Ich"}, {"de": "Er"}], "answer": 0, "explain": "Окончание -st бывает только с du."},
+        {"type": "gap", "ru": "Откуда вы (ребята)?", "text": "Woher kommt ___?", "options": ["ihr", "wir", "du"], "answer": 0, "words": ["ihr_pl"], "explain": "ihr kommt — окончание -t, как у er."},
+        {"type": "tiles", "ru": "Она учит немецкий.", "answer": "Sie lernt Deutsch.", "distract": ["lerne", "Er"], "words": ["sie_she"]},
+        {"type": "write", "ru": "Мы живём в Берлине.", "accept": ["Wir wohnen in Berlin."], "words": ["wir"]}
       ],
       "boss": {
-        "title": "Час пик",
-        "intro": "Вагон переполнен! Реагируйте вежливо на всё, что происходит.",
+        "title": "Сейф Брецеля",
+        "intro": "Поставьте правильные окончания — и сейф откроется!",
         "turns": [
-          { "type": "reply", "who": "aigerim", "situation": "Айгерим уступает вам место.", "line": "Bitte!", "lineRu": "Пожалуйста! (садись)", "options": ["Danke schön!", "Entschuldigung!", "Wie bitte?"], "answer": 0 },
-          { "type": "reply", "who": "becker", "situation": "Вы случайно наступили господину Беккеру на ногу.", "line": "Au!", "lineRu": "Ай!", "options": ["Oh, Entschuldigung!", "Bitte schön!", "Danke schön!"], "answer": 0 },
-          { "type": "reply", "who": "becker", "situation": "Он улыбается.", "line": "Kein Problem!", "lineRu": "Ничего страшного!", "options": ["Danke!", "Wie heißt du?", "Gute Nacht!"], "answer": 0 }
+          {"type": "gap", "text": "Ich ___ aus Russland.", "options": ["komme", "kommt", "kommen"], "answer": 0},
+          {"type": "gap", "text": "Lena und Tom ___ in Berlin.", "options": ["wohnen", "wohnt", "wohnst"], "answer": 0, "explain": "Лена и Том = sie (они) → окончание -en."},
+          {"type": "gap", "text": "Du ___ Deutsch.", "options": ["lernst", "lernt", "lernen"], "answer": 0}
         ]
       },
       "teaser": "Завтра — официальная запись на курс. Нужно заполнить анкету и рассказать о себе, как на настоящем экзамене!"
@@ -561,62 +579,35 @@
       "id": "a1-01-12",
       "title": "Мини-экзамен: запись на курс",
       "goal": "Заполнить анкету и рассказать о себе, как на экзамене Goethe A1",
-      "video": { "src": "video/a1-01-12.mp4", "poster": "video/a1-01-12.jpg", "len": "1:55" },
+      "video": {"src": "video/a1-01-12.mp4", "poster": "video/a1-01-12.jpg", "len": "1:55"},
       "scene": {
         "art": "office",
         "setting": "Секретариат языковой школы. Фрау Вагнер оформляет вашу запись на курс.",
         "lines": [
-          { "who": "wagner", "de": "Herzlich willkommen! Wie ist Ihr Name?", "ru": "Добро пожаловать! Как Ваше имя?" },
-          { "who": "you", "de": "Mein Vorname ist Alex. Mein Familienname ist Petrow.", "ru": "Моё имя — Алекс. Моя фамилия — Петров." },
-          { "who": "wagner", "de": "Und Ihr Wohnort?", "ru": "А где Вы живёте?" },
-          { "who": "you", "de": "Mein Wohnort ist Berlin.", "ru": "Я живу в Берлине." },
-          { "who": "wagner", "de": "Gut. Hier ist das Formular.", "ru": "Хорошо. Вот анкета." }
+          {"who": "wagner", "de": "Herzlich willkommen! Wie ist Ihr Name?", "ru": "Добро пожаловать! Как Ваше имя?"},
+          {"who": "you", "de": "Mein Vorname ist Alex. Mein Familienname ist Petrow.", "ru": "Моё имя — Алекс. Моя фамилия — Петров."},
+          {"who": "wagner", "de": "Und Ihr Wohnort?", "ru": "А где Вы живёте?"},
+          {"who": "you", "de": "Mein Wohnort ist Berlin.", "ru": "Я живу в Берлине."},
+          {"who": "wagner", "de": "Gut. Hier ist das Formular.", "ru": "Хорошо. Вот анкета."}
         ]
       },
       "newWords": ["wie_ist_ihr_name", "vorname", "familienname", "wohnort", "formular", "willkommen"],
       "exercises": [
-        {
-          "type": "info", "kicker": "Как на экзамене", "title": "Schreiben, Teil 1: анкета",
-          "paras": [
-            "В письменной части экзамена Start Deutsch 1 есть анкета (<b>das Formular</b>). В тексте задания спрятаны данные человека — их нужно перенести в 5 полей.",
-            "Пишите коротко: одно-два слова в поле."
-          ],
-          "table": { "head": ["Поле", "Что писать"], "rows": [["Vorname", "имя: Marco"], ["Familienname", "фамилия: Rossi"], ["Land", "страна: Italien"], ["Wohnort", "город: Berlin"], ["Sprachen", "языки: Italienisch, Englisch"]] }
-        },
-        {
-          "type": "form", "task": "Прочитайте текст и заполните анкету за Айгерим.",
-          "intro": "Das ist <b>Aigerim Nurlanowa</b>. Sie kommt aus Kasachstan. Sie wohnt jetzt in Berlin. Sie spricht Kasachisch, Russisch und ein bisschen Deutsch.",
-          "formTitle": "Anmeldung · Sprachschule Berlin",
-          "fields": [
-            { "label": "Vorname", "accept": ["Aigerim"] },
-            { "label": "Familienname", "accept": ["Nurlanowa"] },
-            { "label": "Land", "accept": ["Kasachstan"] },
-            { "label": "Wohnort", "accept": ["Berlin"] },
-            { "label": "Sprachen", "accept": ["Kasachisch, Russisch, Deutsch"], "contains": ["Kasachisch", "Russisch", "Deutsch"] }
-          ],
-          "words": ["vorname", "familienname", "wohnort"]
-        },
-        { "type": "gap", "ru": "Моя фамилия — Петров.", "text": "Mein ___ ist Petrow.", "options": ["Familienname", "Vorname", "Wohnort"], "answer": 0, "words": ["familienname"] },
-        { "type": "reply", "who": "wagner", "line": "Wie ist Ihr Name?", "lineRu": "Как Ваше имя?", "options": ["Mein Name ist Alex Petrow.", "Ich wohne in Berlin.", "Danke schön!"], "answer": 0, "words": ["wie_ist_ihr_name"] },
-        { "type": "pick", "kicker": "Sprechen, Teil 1", "q": "На карточке написано «Wohnort?». Что сказать?", "options": [{ "de": "Ich wohne in Berlin." }, { "de": "Ich komme aus Berlin." }, { "de": "Ich heiße Berlin." }], "answer": 0, "words": ["wohnort"], "explain": "Wohnort — где вы живёте сейчас: Ich wohne in …" },
-        {
-          "type": "speakCard", "q": "Расскажите о себе по карточке", "sub": "Как на экзамене Start Deutsch 1, часть 1: скажите или напишите 4 предложения.",
-          "points": [
-            { "label": "Name?", "re": "(ich heisse|ich bin|mein name ist|mein vorname ist) \\S+", "model": "Ich heiße …" },
-            { "label": "Land?", "re": "ich komme aus \\S+", "model": "Ich komme aus …" },
-            { "label": "Wohnort?", "re": "(ich wohne in|mein wohnort ist) \\S+", "model": "Ich wohne in …" },
-            { "label": "Sprachen?", "re": "ich spreche \\S+", "model": "Ich spreche …" }
-          ]
-        },
-        { "type": "tiles", "ru": "Добро пожаловать в Берлин!", "answer": "Herzlich willkommen in Berlin!", "distract": ["Wohnort"], "words": ["willkommen"] }
+        {"type": "info", "kicker": "Как на экзамене", "title": "Schreiben, Teil 1: анкета", "paras": ["В письменной части экзамена Start Deutsch 1 есть анкета (<b>das Formular</b>). В тексте задания спрятаны данные человека — их нужно перенести в 5 полей.", "Пишите коротко: одно-два слова в поле."], "table": {"head": ["Поле", "Что писать"], "rows": [["Vorname", "имя: Marco"], ["Familienname", "фамилия: Rossi"], ["Land", "страна: Italien"], ["Wohnort", "город: Berlin"], ["Sprachen", "языки: Italienisch, Englisch"]]}},
+        {"type": "form", "task": "Прочитайте текст и заполните анкету за Айгерим.", "intro": "Das ist <b>Aigerim Nurlanowa</b>. Sie kommt aus Kasachstan. Sie wohnt jetzt in Berlin. Sie spricht Kasachisch, Russisch und ein bisschen Deutsch.", "formTitle": "Anmeldung · Sprachschule Berlin", "fields": [{"label": "Vorname", "accept": ["Aigerim"]}, {"label": "Familienname", "accept": ["Nurlanowa"]}, {"label": "Land", "accept": ["Kasachstan"]}, {"label": "Wohnort", "accept": ["Berlin"]}, {"label": "Sprachen", "accept": ["Kasachisch, Russisch, Deutsch"], "contains": ["Kasachisch", "Russisch", "Deutsch"]}], "words": ["vorname", "familienname", "wohnort"]},
+        {"type": "gap", "ru": "Моя фамилия — Петров.", "text": "Mein ___ ist Petrow.", "options": ["Familienname", "Vorname", "Wohnort"], "answer": 0, "words": ["familienname"]},
+        {"type": "reply", "who": "wagner", "line": "Wie ist Ihr Name?", "lineRu": "Как Ваше имя?", "options": ["Mein Name ist Alex Petrow.", "Ich wohne in Berlin.", "Danke schön!"], "answer": 0, "words": ["wie_ist_ihr_name"]},
+        {"type": "pick", "kicker": "Sprechen, Teil 1", "q": "На карточке написано «Wohnort?». Что сказать?", "options": [{"de": "Ich wohne in Berlin."}, {"de": "Ich komme aus Berlin."}, {"de": "Ich heiße Berlin."}], "answer": 0, "words": ["wohnort"], "explain": "Wohnort — где вы живёте сейчас: Ich wohne in …"},
+        {"type": "speakCard", "q": "Расскажите о себе по карточке", "sub": "Как на экзамене Start Deutsch 1, часть 1: скажите или напишите 4 предложения.", "points": [{"label": "Name?", "re": "(ich heisse|ich bin|mein name ist|mein vorname ist) \\S+", "model": "Ich heiße …"}, {"label": "Land?", "re": "ich komme aus \\S+", "model": "Ich komme aus …"}, {"label": "Wohnort?", "re": "(ich wohne in|mein wohnort ist) \\S+", "model": "Ich wohne in …"}, {"label": "Sprachen?", "re": "ich spreche \\S+", "model": "Ich spreche …"}]},
+        {"type": "tiles", "ru": "Добро пожаловать в Берлин!", "answer": "Herzlich willkommen in Berlin!", "distract": ["Wohnort"], "words": ["willkommen"]}
       ],
       "boss": {
         "title": "Секретариат",
         "intro": "Последняя проверка перед записью. Ответьте фрау Вагнер!",
         "turns": [
-          { "type": "reply", "who": "wagner", "line": "Woher kommen Sie?", "lineRu": "Откуда Вы?", "options": ["Ich komme aus Russland.", "Ich wohne aus Russland.", "Woher kommen Sie?"], "answer": 0 },
-          { "type": "reply", "who": "wagner", "line": "Welche Sprachen sprechen Sie?", "lineRu": "На каких языках Вы говорите?", "options": ["Ich spreche Russisch und ein bisschen Deutsch.", "Ich bin Russisch.", "Ich spricht Deutsch."], "answer": 0 },
-          { "type": "reply", "who": "wagner", "line": "Danke schön! Herzlich willkommen!", "lineRu": "Большое спасибо! Добро пожаловать!", "options": ["Danke! Auf Wiedersehen!", "Gute Nacht, Tom!", "Wie heißt du?"], "answer": 0 }
+          {"type": "reply", "who": "wagner", "line": "Woher kommen Sie?", "lineRu": "Откуда Вы?", "options": ["Ich komme aus Russland.", "Ich wohne aus Russland.", "Woher kommen Sie?"], "answer": 0},
+          {"type": "reply", "who": "wagner", "line": "Welche Sprachen sprechen Sie?", "lineRu": "На каких языках Вы говорите?", "options": ["Ich spreche Russisch und ein bisschen Deutsch.", "Ich bin Russisch.", "Ich spricht Deutsch."], "answer": 0},
+          {"type": "reply", "who": "wagner", "line": "Danke schön! Herzlich willkommen!", "lineRu": "Большое спасибо! Добро пожаловать!", "options": ["Danke! Auf Wiedersehen!", "Gute Nacht, Tom!", "Wie heißt du?"], "answer": 0}
         ]
       },
       "teaser": "Вы записаны! Но фрау Вагнер просит продиктовать фамилию по буквам… Алфавит и числа — в следующей теме. А пока — история о Лене и тест блока!"

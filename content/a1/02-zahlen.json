@@ -3249,318 +3249,7 @@
      }
     ]
    },
-   "teaser": "Утром после праздника Том не может найти телефон. Кто что нашёл?"
-  },
-  {
-   "id": "a1-02-09",
-   "title": "haben: ich habe",
-   "grammar": true,
-   "goal": "Говорить, что у кого есть: ich habe, du hast, er hat",
-   "scene": {
-    "art": "lostfound",
-    "setting": "Утро после праздника. У стойки хостела коробка с найденными вещами.",
-    "lines": [
-     {
-      "who": "tom",
-      "de": "Lena, ich habe ein Problem! Wo ist mein Handy?",
-      "ru": "Лена, у меня проблема! Где мой мобильный?"
-     },
-     {
-      "who": "lena",
-      "de": "Hast du Zimmer zwölf?",
-      "ru": "У тебя двенадцатый номер?"
-     },
-     {
-      "who": "tom",
-      "de": "Ja!",
-      "ru": "Да!"
-     },
-     {
-      "who": "lena",
-      "de": "Ich habe hier ein Handy aus Zimmer zwölf.",
-      "ru": "У меня тут телефон из двенадцатого номера."
-     },
-     {
-      "who": "tom",
-      "de": "Super, danke! Hast du Hunger?",
-      "ru": "Супер, спасибо! Ты есть хочешь?"
-     },
-     {
-      "who": "lena",
-      "de": "Ja, ich habe Hunger!",
-      "ru": "Да, я голодная!"
-     },
-     {
-      "who": "tom",
-      "de": "Hast du Zeit?",
-      "ru": "У тебя есть время?"
-     },
-     {
-      "who": "lena",
-      "de": "Ja, ich habe Zeit.",
-      "ru": "Да, у меня есть время."
-     }
-    ],
-    "live": {
-     "spots": [
-      {
-       "word": "handy",
-       "x": 38,
-       "y": 36
-      },
-      {
-       "word": "zimmer",
-       "x": 49,
-       "y": 43
-      },
-      {
-       "word": "hunger",
-       "x": 77,
-       "y": 72
-      }
-     ],
-     "guess": [
-      {
-       "line": 0,
-       "word": "haben",
-       "form": "habe",
-       "options": [
-        "у меня есть",
-        "я иду",
-        "я вижу"
-       ],
-       "answer": 0
-      },
-      {
-       "line": 6,
-       "word": "zeit",
-       "options": [
-        "время",
-        "еда",
-        "деньги"
-       ],
-       "answer": 0
-      }
-     ]
-    }
-   },
-   "newWords": [
-    "haben",
-    "handy",
-    "zimmer",
-    "zeit",
-    "hunger"
-   ],
-   "exercises": [
-    {
-     "type": "info",
-     "title": "haben — иметь",
-     "art": "have",
-     "paras": [
-      "По-русски «у меня есть», а по-немецки «я имею»: <b>Ich habe</b> ein Handy.",
-      "Так же: <b>Ich habe Zeit</b> — у меня есть время. <b>Ich habe Hunger</b> — я хочу есть. <b>Ich habe eine Frage</b> — у меня вопрос."
-     ],
-     "table": {
-      "head": [
-       "кто",
-       "haben",
-       "sein (для сравнения)"
-      ],
-      "rows": [
-       [
-        "ich",
-        "habe",
-        "bin"
-       ],
-       [
-        "du",
-        "hast",
-        "bist"
-       ],
-       [
-        "er / sie / es",
-        "hat",
-        "ist"
-       ],
-       [
-        "wir",
-        "haben",
-        "sind"
-       ],
-       [
-        "ihr",
-        "habt",
-        "seid"
-       ],
-       [
-        "sie / Sie",
-        "haben",
-        "sind"
-       ]
-      ]
-     },
-     "tip": "Внимание: в <b>du hast</b> и <b>er hat</b> буква b пропадает."
-    },
-    {
-     "type": "gap",
-     "ru": "У тебя есть мобильный.",
-     "text": "Du ___ ein Handy.",
-     "options": [
-      "hast",
-      "habst",
-      "hat"
-     ],
-     "answer": 0,
-     "words": [
-      "haben"
-     ],
-     "explain": "du hast — без b."
-    },
-    {
-     "type": "gap",
-     "ru": "У Тома двенадцатый номер.",
-     "text": "Tom ___ Zimmer zwölf.",
-     "options": [
-      "hat",
-      "habt",
-      "hast"
-     ],
-     "answer": 0,
-     "words": [
-      "haben"
-     ],
-     "explain": "er/sie — hat."
-    },
-    {
-     "type": "pick",
-     "q": "Как сказать «Я хочу есть»?",
-     "options": [
-      {
-       "de": "Ich habe Hunger."
-      },
-      {
-       "de": "Ich bin Hunger."
-      },
-      {
-       "de": "Ich hat Hunger."
-      }
-     ],
-     "answer": 0,
-     "kicker": "Выберите фразу",
-     "words": [
-      "hunger"
-     ]
-    },
-    {
-     "type": "tiles",
-     "ru": "У тебя есть время?",
-     "answer": "Hast du Zeit?",
-     "distract": [
-      "Bist",
-      "hat"
-     ],
-     "words": [
-      "zeit"
-     ]
-    },
-    {
-     "type": "tiles",
-     "ru": "У нас есть вопрос.",
-     "answer": "Wir haben eine Frage.",
-     "distract": [
-      "sind",
-      "hat"
-     ],
-     "words": [
-      "haben"
-     ]
-    },
-    {
-     "type": "write",
-     "ru": "У меня есть мобильный телефон.",
-     "accept": [
-      "Ich habe ein Handy."
-     ],
-     "words": [
-      "handy"
-     ]
-    },
-    {
-     "type": "listen",
-     "de": "Habt ihr Zeit?",
-     "options": [
-      "Habt ihr Zeit?",
-      "Hast du Zeit?",
-      "Haben Sie Zeit?"
-     ],
-     "answer": 0,
-     "words": [
-      "zeit"
-     ]
-    },
-    {
-     "type": "reply",
-     "who": "lena",
-     "line": "Hast du Hunger?",
-     "lineRu": "Ты хочешь есть?",
-     "options": [
-      "Ja, ich habe Hunger.",
-      "Ja, ich bin Hunger.",
-      "Ja, du hast Hunger."
-     ],
-     "answer": 0,
-     "words": [
-      "hunger"
-     ]
-    }
-   ],
-   "boss": {
-    "title": "Бюро находок",
-    "intro": "Помогите Лене вернуть вещи гостям — и не перепутайте формы haben!",
-    "turns": [
-     {
-      "type": "gap",
-      "ru": "Господин Беккер, у Вас четырнадцатый номер?",
-      "text": "Herr Becker, ___ Sie Zimmer vierzehn?",
-      "options": [
-       "haben",
-       "hat",
-       "habt"
-      ],
-      "answer": 0,
-      "words": [
-       "haben"
-      ]
-     },
-     {
-      "type": "gap",
-      "ru": "Марко и Айгерим хотят есть.",
-      "text": "Marco und Aigerim ___ Hunger.",
-      "options": [
-       "haben",
-       "hat",
-       "habe"
-      ],
-      "answer": 0,
-      "words": [
-       "haben"
-      ]
-     },
-     {
-      "type": "reply",
-      "who": "tom",
-      "line": "Hast du Zeit?",
-      "lineRu": "У тебя есть время?",
-      "options": [
-       "Ja, ich habe Zeit.",
-       "Ja, ich bin Zeit.",
-       "Ja, ich hat Zeit."
-      ],
-      "answer": 0
-     }
-    ]
-   },
-   "teaser": "В кафе после курсов Марко очень хочет узнать номер телефона Айгерим. Даст ли она его?"
+   "teaser": "После праздника Марко очень хочет узнать номер телефона Айгерим. Даст ли она его?"
   },
   {
    "id": "a1-02-10",
@@ -3815,13 +3504,545 @@
       "options": [
        "alex at web Punkt de.",
        "Ich heiße E-Mail.",
-       "Ich habe Hunger."
+       "Ich komme aus E-Mail."
       ],
       "answer": 0
      }
     ]
    },
-   "teaser": "Как задать вопрос, на который отвечают просто «да» или «нет»? Секрет — в порядке слов."
+   "teaser": "Осталась последняя важная вещь — адрес. Без него в Германии никуда: на почте, в ведомстве, в спортзале."
+  },
+  {
+   "id": "a1-02-12",
+   "title": "Die Adresse",
+   "goal": "Назвать и понять адрес: улица, дом, индекс",
+   "scene": {
+    "art": "amt",
+    "setting": "Бюргерамт — городское ведомство. Вы регистрируете своё жильё в Берлине.",
+    "lines": [
+     {
+      "who": "f",
+      "de": "Guten Tag! Wie ist Ihre Adresse?",
+      "ru": "Добрый день! Какой у Вас адрес?"
+     },
+     {
+      "who": "you",
+      "de": "Torstraße fünfzehn.",
+      "ru": "Торштрассе, пятнадцать."
+     },
+     {
+      "who": "f",
+      "de": "Torstraße mit ß?",
+      "ru": "Торштрассе — через ß?"
+     },
+     {
+      "who": "you",
+      "de": "Ja: T – O – R – S – T – R – A – ß – E.",
+      "ru": "Да: тэ — о — эр — эс — тэ — эр — а — эсцэт — э."
+     },
+     {
+      "who": "f",
+      "de": "Und die Postleitzahl?",
+      "ru": "А индекс?"
+     },
+     {
+      "who": "you",
+      "de": "Eins null eins eins neun.",
+      "ru": "10119."
+     }
+    ]
+   },
+   "newWords": [
+    "adresse",
+    "strasse",
+    "hausnummer",
+    "postleitzahl",
+    "wie_ist_ihre_adresse"
+   ],
+   "exercises": [
+    {
+     "type": "info",
+     "title": "Адрес по-немецки",
+     "art": "envelope",
+     "paras": [
+      "Сначала улица, потом номер дома: <b>Torstraße 15</b>. На следующей строке — индекс и город: <b>10119 Berlin</b>.",
+      "Слово <b>Straße</b> часто пишется слитно с названием: Torstraße, Gartenstraße. Коротко — <b>Str.</b>",
+      "Индекс — <b>die Postleitzahl</b>, коротко <b>PLZ</b>. В Германии в нём 5 цифр."
+     ],
+     "table": {
+      "head": [
+       "Строка",
+       "Пример"
+      ],
+      "rows": [
+       [
+        "Имя",
+        "Lena Schulz"
+       ],
+       [
+        "Улица и дом",
+        "Gartenstraße 8"
+       ],
+       [
+        "Индекс и город",
+        "10115 Berlin"
+       ]
+      ]
+     },
+     "tip": "Вопрос: <b>Wie ist Ihre Adresse?</b> Ответ: <b>Meine Adresse ist</b> Torstraße 15. Или: <b>Ich wohne in der</b> Torstraße 15."
+    },
+    {
+     "type": "pick",
+     "q": "Какой номер дома у Лены?",
+     "options": [
+      {
+       "text": "8"
+      },
+      {
+       "text": "10115"
+      },
+      {
+       "text": "10"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Прочитайте адрес",
+     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
+     "words": [
+      "hausnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "q": "Какой здесь индекс?",
+     "options": [
+      {
+       "text": "10115"
+      },
+      {
+       "text": "8"
+      },
+      {
+       "text": "1015"
+      }
+     ],
+     "answer": 0,
+     "kicker": "Прочитайте адрес",
+     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
+     "words": [
+      "postleitzahl"
+     ]
+    },
+    {
+     "type": "gap",
+     "ru": "Какой у Вас адрес?",
+     "text": "Wie ist Ihre ___?",
+     "options": [
+      "Adresse",
+      "Straße",
+      "Nummer"
+     ],
+     "answer": 0,
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "dictation",
+     "de": "S – T – R – A – ß – E",
+     "accept": [
+      "Straße"
+     ],
+     "ru": "улица",
+     "words": [
+      "strasse"
+     ],
+     "who": "f"
+    },
+    {
+     "type": "tiles",
+     "ru": "Мой адрес — Торштрассе, 15.",
+     "answer": "Meine Adresse ist Torstraße fünfzehn.",
+     "distract": [
+      "Mein",
+      "bin"
+     ],
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "tf",
+     "text": "Herr Paul Becker<br>Ringstraße 21<br>1010 Wien",
+     "statement": "Herr Becker wohnt in Berlin.",
+     "statementRu": "Господин Беккер живёт в Берлине.",
+     "answer": false,
+     "words": [
+      "adresse"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "Какой у Вас адрес?",
+     "accept": [
+      "Wie ist Ihre Adresse?"
+     ],
+     "words": [
+      "wie_ist_ihre_adresse"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "f",
+     "line": "Und die Hausnummer?",
+     "lineRu": "А номер дома?",
+     "options": [
+      "Zwölf.",
+      "Berlin.",
+      "Torstraße."
+     ],
+     "answer": 0,
+     "words": [
+      "hausnummer"
+     ]
+    },
+    {
+     "type": "pick",
+     "kicker": "Услышь и выбери",
+     "q": "Где живёт этот человек?",
+     "audio": "Ich wohne in der Gartenstraße zwanzig.",
+     "options": [
+      {
+       "text": "Gartenstraße 20"
+      },
+      {
+       "text": "Gartenstraße 12"
+      },
+      {
+       "text": "Torstraße 20"
+      }
+     ],
+     "answer": 0,
+     "words": [
+      "strasse"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "В ведомстве",
+    "intro": "Сотрудница Бюргерамта заполняет на вас карточку. Отвечайте точно!",
+    "turns": [
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Wie ist Ihr Nachname?",
+      "lineRu": "Какая у Вас фамилия?",
+      "options": [
+       "Novak.",
+       "Alex.",
+       "Zwölf."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Wie ist Ihre Adresse?",
+      "lineRu": "Какой у Вас адрес?",
+      "options": [
+       "Torstraße fünfzehn, Berlin.",
+       "Ich bin fünfzehn.",
+       "Ich heiße Torstraße."
+      ],
+      "answer": 0
+     },
+     {
+      "type": "reply",
+      "who": "f",
+      "line": "Und die Postleitzahl?",
+      "lineRu": "А индекс?",
+      "options": [
+       "Eins null eins eins neun.",
+       "Zehn Jahre.",
+       "Gute Nacht."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Утром Том не может найти телефон. В бюро находок хостела всё решает один глагол — haben."
+  },
+  {
+   "id": "a1-02-09",
+   "title": "haben: ich habe",
+   "grammar": true,
+   "goal": "Говорить, что у кого есть: ich habe, du hast, er hat",
+   "scene": {
+    "art": "lostfound",
+    "setting": "Утро после праздника. У стойки хостела коробка с найденными вещами.",
+    "lines": [
+     {
+      "who": "tom",
+      "de": "Lena, ich habe ein Problem! Wo ist mein Handy?",
+      "ru": "Лена, у меня проблема! Где мой мобильный?"
+     },
+     {
+      "who": "lena",
+      "de": "Hast du Zimmer zwölf?",
+      "ru": "У тебя двенадцатый номер?"
+     },
+     {
+      "who": "tom",
+      "de": "Ja!",
+      "ru": "Да!"
+     },
+     {
+      "who": "lena",
+      "de": "Ich habe hier ein Handy aus Zimmer zwölf.",
+      "ru": "У меня тут телефон из двенадцатого номера."
+     },
+     {
+      "who": "tom",
+      "de": "Super, danke! Hast du Hunger?",
+      "ru": "Супер, спасибо! Ты есть хочешь?"
+     },
+     {
+      "who": "lena",
+      "de": "Ja, ich habe Hunger!",
+      "ru": "Да, я голодная!"
+     },
+     {
+      "who": "tom",
+      "de": "Hast du Zeit?",
+      "ru": "У тебя есть время?"
+     },
+     {
+      "who": "lena",
+      "de": "Ja, ich habe Zeit.",
+      "ru": "Да, у меня есть время."
+     }
+    ]
+   },
+   "newWords": [
+    "haben",
+    "handy",
+    "zimmer",
+    "zeit",
+    "hunger"
+   ],
+   "exercises": [
+    {
+     "type": "gap",
+     "ru": "У тебя есть мобильный.",
+     "text": "Du ___ ein Handy.",
+     "options": [
+      "hast",
+      "habst",
+      "hat"
+     ],
+     "answer": 0,
+     "words": [
+      "haben"
+     ],
+     "explain": "du hast — без b."
+    },
+    {
+     "type": "gap",
+     "ru": "У Тома двенадцатый номер.",
+     "text": "Tom ___ Zimmer zwölf.",
+     "options": [
+      "hat",
+      "habt",
+      "hast"
+     ],
+     "answer": 0,
+     "words": [
+      "haben"
+     ],
+     "explain": "er/sie — hat."
+    },
+    {
+     "type": "pick",
+     "q": "Как сказать «Я хочу есть»?",
+     "options": [
+      {
+       "de": "Ich habe Hunger."
+      },
+      {
+       "de": "Ich bin Hunger."
+      },
+      {
+       "de": "Ich hat Hunger."
+      }
+     ],
+     "answer": 0,
+     "kicker": "Выберите фразу",
+     "words": [
+      "hunger"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "У тебя есть время?",
+     "answer": "Hast du Zeit?",
+     "distract": [
+      "Bist",
+      "hat"
+     ],
+     "words": [
+      "zeit"
+     ]
+    },
+    {
+     "type": "tiles",
+     "ru": "У нас есть вопрос.",
+     "answer": "Wir haben eine Frage.",
+     "distract": [
+      "sind",
+      "hat"
+     ],
+     "words": [
+      "haben"
+     ]
+    },
+    {
+     "type": "write",
+     "ru": "У меня есть мобильный телефон.",
+     "accept": [
+      "Ich habe ein Handy."
+     ],
+     "words": [
+      "handy"
+     ]
+    },
+    {
+     "type": "listen",
+     "de": "Habt ihr Zeit?",
+     "options": [
+      "Habt ihr Zeit?",
+      "Hast du Zeit?",
+      "Haben Sie Zeit?"
+     ],
+     "answer": 0,
+     "words": [
+      "zeit"
+     ]
+    },
+    {
+     "type": "reply",
+     "who": "lena",
+     "line": "Hast du Hunger?",
+     "lineRu": "Ты хочешь есть?",
+     "options": [
+      "Ja, ich habe Hunger.",
+      "Ja, ich bin Hunger.",
+      "Ja, du hast Hunger."
+     ],
+     "answer": 0,
+     "words": [
+      "hunger"
+     ]
+    }
+   ],
+   "boss": {
+    "title": "Бюро находок",
+    "intro": "Помогите Лене вернуть вещи гостям — и не перепутайте формы haben!",
+    "turns": [
+     {
+      "type": "gap",
+      "ru": "Господин Беккер, у Вас четырнадцатый номер?",
+      "text": "Herr Becker, ___ Sie Zimmer vierzehn?",
+      "options": [
+       "haben",
+       "hat",
+       "habt"
+      ],
+      "answer": 0,
+      "words": [
+       "haben"
+      ]
+     },
+     {
+      "type": "gap",
+      "ru": "Марко и Айгерим хотят есть.",
+      "text": "Marco und Aigerim ___ Hunger.",
+      "options": [
+       "haben",
+       "hat",
+       "habe"
+      ],
+      "answer": 0,
+      "words": [
+       "haben"
+      ]
+     },
+     {
+      "type": "reply",
+      "who": "tom",
+      "line": "Hast du Zeit?",
+      "lineRu": "У тебя есть время?",
+      "options": [
+       "Ja, ich habe Zeit.",
+       "Ja, ich bin Zeit.",
+       "Ja, ich hat Zeit."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   "teaser": "Как задать вопрос, на который отвечают просто «да» или «нет»? Секрет — в порядке слов.",
+   "teach": {
+    "title": "Глагол haben — «иметь»",
+    "text": "По-русски «у меня есть», а по-немецки «я имею»: <b>Ich habe</b> ein Handy.",
+    "rows": [
+     {
+      "de": "ich habe",
+      "ru": "у меня есть",
+      "img": "me",
+      "word": "haben",
+      "ex": {
+       "de": "Ich habe ein Handy."
+      },
+      "tip": "<b>ich habe</b> — у меня есть."
+     },
+     {
+      "de": "du hast",
+      "ru": "у тебя есть",
+      "img": "you",
+      "ex": {
+       "de": "Hast du Zeit?"
+      },
+      "tip": "Внимание: <b>du hast</b> — без буквы b!"
+     },
+     {
+      "de": "er / sie hat",
+      "ru": "у него / у неё есть",
+      "img": "he",
+      "say": "er hat, sie hat",
+      "tip": "<b>er hat</b> — тоже без b."
+     },
+     {
+      "de": "wir haben",
+      "ru": "у нас есть",
+      "img": "we",
+      "tip": "<b>wir haben</b> — как в словаре."
+     },
+     {
+      "de": "ihr habt",
+      "ru": "у вас есть",
+      "img": "youpl",
+      "tip": "<b>ihr habt</b> — у вас, ребята."
+     },
+     {
+      "de": "sie / Sie haben",
+      "ru": "у них / у Вас есть",
+      "img": "youFormal",
+      "say": "sie haben, Sie haben",
+      "tip": "<b>haben</b> — они и вежливое «Вы»."
+     }
+    ],
+    "outro": "Запомните две неправильные формы: du <b>hast</b>, er <b>hat</b>. Остальные — обычные окончания."
+   }
   },
   {
    "id": "a1-02-11",
@@ -4090,266 +4311,6 @@
        "Nein, ich komme nicht aus Berlin.",
        "Nein, ich komme aus nicht Berlin.",
        "Nein, ich nicht komme aus Berlin."
-      ],
-      "answer": 0
-     }
-    ]
-   },
-   "teaser": "Осталась последняя важная вещь — адрес. Без него в Германии никуда: на почте, в ведомстве, в спортзале."
-  },
-  {
-   "id": "a1-02-12",
-   "title": "Die Adresse",
-   "goal": "Назвать и понять адрес: улица, дом, индекс",
-   "scene": {
-    "art": "amt",
-    "setting": "Бюргерамт — городское ведомство. Вы регистрируете своё жильё в Берлине.",
-    "lines": [
-     {
-      "who": "f",
-      "de": "Guten Tag! Wie ist Ihre Adresse?",
-      "ru": "Добрый день! Какой у Вас адрес?"
-     },
-     {
-      "who": "you",
-      "de": "Torstraße fünfzehn.",
-      "ru": "Торштрассе, пятнадцать."
-     },
-     {
-      "who": "f",
-      "de": "Torstraße mit ß?",
-      "ru": "Торштрассе — через ß?"
-     },
-     {
-      "who": "you",
-      "de": "Ja: T – O – R – S – T – R – A – ß – E.",
-      "ru": "Да: тэ — о — эр — эс — тэ — эр — а — эсцэт — э."
-     },
-     {
-      "who": "f",
-      "de": "Und die Postleitzahl?",
-      "ru": "А индекс?"
-     },
-     {
-      "who": "you",
-      "de": "Eins null eins eins neun.",
-      "ru": "10119."
-     }
-    ]
-   },
-   "newWords": [
-    "adresse",
-    "strasse",
-    "hausnummer",
-    "postleitzahl",
-    "wie_ist_ihre_adresse"
-   ],
-   "exercises": [
-    {
-     "type": "info",
-     "title": "Адрес по-немецки",
-     "art": "envelope",
-     "paras": [
-      "Сначала улица, потом номер дома: <b>Torstraße 15</b>. На следующей строке — индекс и город: <b>10119 Berlin</b>.",
-      "Слово <b>Straße</b> часто пишется слитно с названием: Torstraße, Gartenstraße. Коротко — <b>Str.</b>",
-      "Индекс — <b>die Postleitzahl</b>, коротко <b>PLZ</b>. В Германии в нём 5 цифр."
-     ],
-     "table": {
-      "head": [
-       "Строка",
-       "Пример"
-      ],
-      "rows": [
-       [
-        "Имя",
-        "Lena Schulz"
-       ],
-       [
-        "Улица и дом",
-        "Gartenstraße 8"
-       ],
-       [
-        "Индекс и город",
-        "10115 Berlin"
-       ]
-      ]
-     },
-     "tip": "Вопрос: <b>Wie ist Ihre Adresse?</b> Ответ: <b>Meine Adresse ist</b> Torstraße 15. Или: <b>Ich wohne in der</b> Torstraße 15."
-    },
-    {
-     "type": "pick",
-     "q": "Какой номер дома у Лены?",
-     "options": [
-      {
-       "text": "8"
-      },
-      {
-       "text": "10115"
-      },
-      {
-       "text": "10"
-      }
-     ],
-     "answer": 0,
-     "kicker": "Прочитайте адрес",
-     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
-     "words": [
-      "hausnummer"
-     ]
-    },
-    {
-     "type": "pick",
-     "q": "Какой здесь индекс?",
-     "options": [
-      {
-       "text": "10115"
-      },
-      {
-       "text": "8"
-      },
-      {
-       "text": "1015"
-      }
-     ],
-     "answer": 0,
-     "kicker": "Прочитайте адрес",
-     "text": "Lena Schulz<br>Gartenstraße 8<br>10115 Berlin",
-     "words": [
-      "postleitzahl"
-     ]
-    },
-    {
-     "type": "gap",
-     "ru": "Какой у Вас адрес?",
-     "text": "Wie ist Ihre ___?",
-     "options": [
-      "Adresse",
-      "Straße",
-      "Zimmer"
-     ],
-     "answer": 0,
-     "words": [
-      "adresse"
-     ]
-    },
-    {
-     "type": "dictation",
-     "de": "S – T – R – A – ß – E",
-     "accept": [
-      "Straße"
-     ],
-     "ru": "улица",
-     "words": [
-      "strasse"
-     ],
-     "who": "f"
-    },
-    {
-     "type": "tiles",
-     "ru": "Мой адрес — Торштрассе, 15.",
-     "answer": "Meine Adresse ist Torstraße fünfzehn.",
-     "distract": [
-      "Mein",
-      "bin"
-     ],
-     "words": [
-      "adresse"
-     ]
-    },
-    {
-     "type": "tf",
-     "text": "Herr Paul Becker<br>Ringstraße 21<br>1010 Wien",
-     "statement": "Herr Becker wohnt in Berlin.",
-     "statementRu": "Господин Беккер живёт в Берлине.",
-     "answer": false,
-     "words": [
-      "adresse"
-     ]
-    },
-    {
-     "type": "write",
-     "ru": "Какой у Вас адрес?",
-     "accept": [
-      "Wie ist Ihre Adresse?"
-     ],
-     "words": [
-      "wie_ist_ihre_adresse"
-     ]
-    },
-    {
-     "type": "reply",
-     "who": "f",
-     "line": "Und die Hausnummer?",
-     "lineRu": "А номер дома?",
-     "options": [
-      "Zwölf.",
-      "Berlin.",
-      "Torstraße."
-     ],
-     "answer": 0,
-     "words": [
-      "hausnummer"
-     ]
-    },
-    {
-     "type": "pick",
-     "kicker": "Услышь и выбери",
-     "q": "Где живёт этот человек?",
-     "audio": "Ich wohne in der Gartenstraße zwanzig.",
-     "options": [
-      {
-       "text": "Gartenstraße 20"
-      },
-      {
-       "text": "Gartenstraße 12"
-      },
-      {
-       "text": "Torstraße 20"
-      }
-     ],
-     "answer": 0,
-     "words": [
-      "strasse"
-     ]
-    }
-   ],
-   "boss": {
-    "title": "В ведомстве",
-    "intro": "Сотрудница Бюргерамта заполняет на вас карточку. Отвечайте точно!",
-    "turns": [
-     {
-      "type": "reply",
-      "who": "f",
-      "line": "Wie ist Ihr Nachname?",
-      "lineRu": "Какая у Вас фамилия?",
-      "options": [
-       "Novak.",
-       "Alex.",
-       "Zwölf."
-      ],
-      "answer": 0
-     },
-     {
-      "type": "reply",
-      "who": "f",
-      "line": "Wie ist Ihre Adresse?",
-      "lineRu": "Какой у Вас адрес?",
-      "options": [
-       "Torstraße fünfzehn, Berlin.",
-       "Ich bin fünfzehn.",
-       "Ich habe Torstraße."
-      ],
-      "answer": 0
-     },
-     {
-      "type": "reply",
-      "who": "f",
-      "line": "Und die Postleitzahl?",
-      "lineRu": "А индекс?",
-      "options": [
-       "Eins null eins eins neun.",
-       "Zehn Jahre.",
-       "Gute Nacht."
       ],
       "answer": 0
      }

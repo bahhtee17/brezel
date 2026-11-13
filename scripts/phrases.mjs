@@ -44,6 +44,8 @@ export async function collectPhrases(root) {
       }
       for (const l of topic.lessons) {
         (l.scene?.lines || []).forEach(x => add(x.de, x.who));
+        // «Доска» в начале урока: строка звучит своим say (или de), пример — отдельно.
+        (l.teach?.rows || []).forEach(r => { add(r.say || r.de); add(r.de); if (r.ex) add(r.ex.de); });
         (l.exercises || []).forEach(collectExercise);
         (l.boss?.turns || []).forEach(collectExercise);
       }

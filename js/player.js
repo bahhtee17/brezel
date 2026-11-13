@@ -3,14 +3,14 @@
 import { tx, isNative } from './i18n.js';
 import { h, esc, icon, soundBtn, deWord, pick, toast } from './ui.js';
 import { mascotSVG, setMood } from './mascot.js';
-import { art, scene as sceneArt, avatar, charName } from './art.js';
+import { art, scene as sceneArt, avatar, charName, hasArt } from './art.js';
 import { mountExercise } from './exercises.js';
 import { say, stop, sfx } from './speech.js';
 import { learn, grade, addMistake, mistakeCorrect, mistakeWrong, isLearned } from './srs.js';
 import { addXP, currentStreak } from './store.js';
 import { word as wordById } from './content.js';
 import { videoCard } from './video.js';
-import { showExplore, showDetect } from './live.js';
+import { showTeach, showGuess } from './intro.js';
 import { playMove, celebrate, closeParty, confetti, preloadMoves } from './moves.js';
 
 let activeCleanup = null;
@@ -117,7 +117,7 @@ export function runPlayer(opts) {
     }
     foot.style.display = '';
     skipBtn.style.display = s.kind === 'ex' ? '' : 'none';
-    ({ intro: showIntro, section: showSection, scene: showScene, explore: s => showExplore(s, liveCtx), detect: s => showDetect(s, liveCtx), word: showWord, ex: showEx, outro: showOutro })[s.kind](s);
+    ({ intro: showIntro, section: showSection, scene: showScene, teach: s => showTeach(s, introCtx), guess: s => showGuess(s, introCtx), word: showWord, ex: showEx, outro: showOutro })[s.kind](s);
   }
 
   // ---------- Вступление ----------
@@ -158,7 +158,7 @@ export function runPlayer(opts) {
     mainBtn.onclick = () => { sfx('tap'); next(); };
   }
 
-  const liveCtx = { body, setMain, mainBtn, next: () => next(), learn: id => learn(id) };
+  const introCtx = { body, setMain, mainBtn, next: () => next(), learn: id => learn(id) };
 
   // ---------- Сценка ----------
   function showScene(s) {
@@ -467,6 +467,21 @@ export function runPlayer(opts) {
 }
 
 // ---------- Сборка шагов урока ----------
+// Варианты для «Угадай заранее»: само слово и 2 картинки — сначала из новых слов урока, потом из темы.
+function guessOptions(w, lessonWords, topicWords) {
+  const mix = a => a.map(x => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map(p => p[1]);
+  const ok = x => x.id !== w.id && hasArt(x.img) && x.img !== w.img && x.ru !== w.ru;
+  const pool = [...mix(lessonWords.filter(ok)), ...mix(topicWords.filter(x => ok(x) && !lessonWords.includes(x)))];
+  const out = [];
+  for (const x of pool) { if (out.length < 2 && !out.some(o => o.img === x.img)) out.push(x); }
+  return mix([w, ...out]);
+}
+
+// «Доска» как правило урока: его можно открыть из объяснения ошибки.
+function teachRule(t) {
+  return { type: 'info', title: t.title || tx('Правило'), paras: [t.text], table: { rows: t.rows.map(r => [r.de, r.ru]), say: true } };
+}
+
 export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNew, nextLesson } = {}) {
   const wordsById = Object.fromEntries(topic.words.map(w => [w.id, w]));
   const newWords = (lesson.newWords || []).map(id => wordsById[id]).filter(Boolean);
@@ -476,21 +491,12 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
     note: warmup.length ? tx`Сначала разминка: ${warmup.length} ${warmup.length === 1 ? tx('слово') : tx('слова')} из прошлых уроков.` : (lesson.index === 0 ? tx('Это ваш первый урок. Разминки пока нет — сразу к делу!') : '')
   });
   warmup.forEach((ex, i) => steps.push({ kind: 'ex', ex, tag: 'warmup', key: `w${i}` }));
-  const highlight = newWords.map(w => w.de.replace(/[!?.…]+$/, ''));
-  const live = lesson.scene?.live;
-  if (live) {
-    // «Живая сценка»: слова открываются в игре, отдельные карточки — только для оставшихся.
-    const spots = (live.spots || []).filter(sp => wordsById[sp.word]).map(sp => ({ ...sp, w: wordsById[sp.word] }));
-    const guess = (live.guess || []).filter(g => wordsById[g.word]).map(g => ({ ...g, w: wordsById[g.word] }));
-    if (spots.length) steps.push({ kind: 'explore', scene: lesson.scene, spots });
-    steps.push({ kind: 'detect', scene: lesson.scene, guess, highlight });
-    const covered = new Set([...spots, ...guess].map(x => x.word));
-    const rest = newWords.filter(w => !covered.has(w.id));
-    rest.forEach((w, i) => steps.push({ kind: 'word', word: w, i, n: rest.length }));
-  } else {
-    if (lesson.scene) steps.push({ kind: 'scene', scene: lesson.scene, highlight });
-    newWords.forEach((w, i) => steps.push({ kind: 'word', word: w, i, n: newWords.length }));
-  }
+  // Знакомство со словами: «Доска» (lesson.teach) для грамматики, затем «Угадай заранее» для остальных слов.
+  const teach = lesson.teach;
+  if (teach) steps.push({ kind: 'teach', teach });
+  const covered = new Set((teach?.rows || []).map(r => r.word).filter(Boolean));
+  const rest = newWords.filter(w => !covered.has(w.id));
+  rest.forEach((w, i) => steps.push({ kind: 'guess', word: w, options: guessOptions(w, newWords, topic.words), i, n: rest.length }));
 
   // Упражнения: сначала автоузнавание новых слов, затем авторские задания; старые слова вкраплены (чередование).
   const auto = genNew ? genNew(newWords) : [];
@@ -507,7 +513,7 @@ export function lessonSteps(lesson, topic, { warmup = [], interleave = [], genNe
     if (i === 3 && interleave[1]) mixed.push({ ex: interleave[1], key: `${lesson.id}:i1`, tag: 'review' });
   });
   // Правило урока (первое объяснение грамматики) можно открыть из объяснения ошибки.
-  const ruleInfo = (lesson.exercises || []).find(e => e.type === 'info') || null;
+  const ruleInfo = (lesson.exercises || []).find(e => e.type === 'info') || (teach ? teachRule(teach) : null);
   mixed.forEach(x => steps.push({ kind: 'ex', ex: x.ex, key: x.key, tag: x.tag, rule: x.ex.type === 'info' || x.tag === 'review' ? null : ruleInfo }));
 
   if (lesson.boss && lesson.boss.turns?.length && lesson.boss.comic) {
