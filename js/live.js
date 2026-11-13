@@ -113,7 +113,7 @@ export function showDetect(s, { body, setMain, mainBtn, next, learn }) {
   const known = (s.highlight || []).filter(Boolean).sort((a, b) => b.length - a.length);
   const mark = (text, hide) => {
     let out = esc(text);
-    if (hide) out = out.replace(new RegExp(`(^|[^\\wäöüß])(${hide.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?=[^\\wäöüß]|$)`), '$1\u0000$2\u0001');
+    if (hide) out = out.replace(new RegExp(`(^|[^\\wäöüß])(${esc(hide).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?=[^\\wäöüß]|$)`), '$1\u0000$2\u0001');
     known.forEach(w => { out = out.replace(new RegExp(`(^|[^\\wäöüß\u0000])(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?=[^\\wäöüß\u0001]|$)`, 'gi'), '$1<span class="hl">$2</span>'); });
     return out.replace('\u0000', '<span class="live-q">').replace('\u0001', '</span>');
   };

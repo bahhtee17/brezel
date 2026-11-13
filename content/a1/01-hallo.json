@@ -105,6 +105,7 @@
       "scene": {
         "art": "hostel",
         "setting": "Вы только что прилетели в Берлин. Вечер. Вы заходите в хостел «Брецельхаус». За стойкой — девушка с рыжими волосами.",
+        "live": {"spots": [{"word": "hallo", "x": 30, "y": 38}, {"word": "guten_abend", "x": 60, "y": 29}, {"word": "gute_nacht", "x": 75, "y": 37}], "guess": [{"line": 3, "word": "tschuess", "form": "Tschüs", "options": ["Пока!", "Спасибо!", "Да!"], "answer": 0}]},
         "lines": [
           { "who": "lena", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!" },
           { "who": "you", "de": "Hallo! Guten Abend!", "ru": "Привет! Добрый вечер!" },
@@ -141,6 +142,7 @@
       "scene": {
         "art": "hostel",
         "setting": "Утро. Вы снова у стойки. Девушка с рыжими волосами улыбается.",
+        "live": {"spots": [{"word": "name", "x": 41, "y": 20}, {"word": "ich", "x": 60, "y": 29}, {"word": "du", "x": 30, "y": 38}], "guess": [{"line": 0, "word": "wie", "form": "Wie", "options": ["как", "где", "кто"], "answer": 0}, {"line": 1, "word": "heissen", "form": "heiße", "options": ["меня зовут", "я живу", "я иду"], "answer": 0}, {"line": 2, "word": "freut_mich", "form": "Freut mich", "options": ["Очень приятно!", "До свидания!", "Спасибо!"], "answer": 0}]},
         "lines": [
           { "who": "lena", "de": "Guten Morgen! Ich heiße Lena. Wie heißt du?", "ru": "Доброе утро! Меня зовут Лена. Как тебя зовут?" },
           { "who": "you", "de": "Hallo, Lena! Ich heiße Alex.", "ru": "Привет, Лена! Меня зовут Алекс." },
@@ -177,6 +179,7 @@
       "scene": {
         "art": "breakfast",
         "setting": "Завтрак в хостеле. Входит Том — оказывается, это брат Лены из Гамбурга.",
+        "live": {"spots": [{"word": "sehr_gut", "x": 27, "y": 23}, {"word": "es_geht", "x": 72, "y": 32}, {"word": "gut", "x": 48, "y": 60}], "guess": [{"line": 0, "word": "wie_gehts", "form": "Wie geht's", "options": ["Как дела?", "Как тебя зовут?", "Откуда ты?"], "answer": 0}, {"line": 1, "word": "und_dir", "form": "Und dir", "options": ["А у тебя?", "Пока!", "Доброе утро!"], "answer": 0}, {"line": 4, "word": "danke", "form": "Danke", "options": ["спасибо", "привет", "пожалуйста"], "answer": 0}]},
         "lines": [
           { "who": "tom", "de": "Hallo, Lena! Wie geht's?", "ru": "Привет, Лена! Как дела?" },
           { "who": "lena", "de": "Danke, sehr gut! Und dir?", "ru": "Спасибо, очень хорошо! А у тебя?" },
